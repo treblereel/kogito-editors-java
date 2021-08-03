@@ -18,21 +18,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>javax.enterprise</groupId>
-      <artifactId>cdi-api</artifactId>
-    </dependency>
-    <dependency>
       <groupId>javax.inject</groupId>
       <artifactId>javax.inject</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-javax-enterprise</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.jboss.spec.javax.annotation</groupId>
-      <artifactId>jboss-annotations-api_1.2_spec</artifactId>
     </dependency>
 
     <dependency>
@@ -71,7 +58,7 @@
       <artifactId>kie-wb-common-kogito-client</artifactId>
     </dependency>
 
-    <dependency>
+<!--    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>appformer-kogito-bridge</artifactId>
       <exclusions>
@@ -84,24 +71,7 @@
           <artifactId>javax.annotation-api</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-
-    <!-- Test scope dependencies -->
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>lienzo-tests</artifactId>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>javax.servlet</groupId>
-          <artifactId>javax.servlet-api</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.eclipse.jetty</groupId>
-          <artifactId>jetty-annotations</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
+    </dependency>-->
 
   </dependencies>
 

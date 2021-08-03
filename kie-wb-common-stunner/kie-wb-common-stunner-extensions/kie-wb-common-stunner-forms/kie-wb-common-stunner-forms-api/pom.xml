@@ -36,18 +36,6 @@
   <dependencies>
     <dependency>
       <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-common</artifactId>
-    </dependency>
-
-
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-data-binding</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-api</artifactId>
     </dependency>
 

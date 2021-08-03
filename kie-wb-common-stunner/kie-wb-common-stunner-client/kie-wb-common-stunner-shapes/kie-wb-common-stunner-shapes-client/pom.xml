@@ -89,19 +89,6 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Uberfire & Errai. -->
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-ioc</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>org.jboss.spec.javax.annotation</groupId>
-          <artifactId>jboss-annotations-api_1.2_spec</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-api</artifactId>
@@ -110,11 +97,6 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-client-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.soup</groupId>
-      <artifactId>kie-soup-commons</artifactId>
     </dependency>
 
     <dependency>
@@ -129,18 +111,6 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>lienzo-core</artifactId>
       <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>lienzo-tests</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>org.eclipse.jetty</groupId>
-          <artifactId>apache-jsp</artifactId>
-        </exclusion>
-      </exclusions>
-      <scope>test</scope>
     </dependency>
 
   </dependencies>

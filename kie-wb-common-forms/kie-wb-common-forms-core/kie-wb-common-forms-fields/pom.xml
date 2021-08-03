@@ -41,26 +41,6 @@
 
     <dependency>
       <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-common</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-validator</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-validation</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-data-binding</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-forms-api</artifactId>
     </dependency>
 
@@ -69,30 +49,25 @@
       <artifactId>kie-wb-common-forms-adf-base</artifactId>
     </dependency>
 
-    <dependency>
+<!--    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-forms-adf-processors</artifactId>
       <scope>provided</scope>
-    </dependency>
+    </dependency>-->
 
     <!-- test -->
-    <dependency>
+<!--    <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
       <scope>test</scope>
-    </dependency>
+    </dependency>-->
 
-    <dependency>
+<!--    <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <scope>test</scope>
-    </dependency>
+    </dependency>-->
 
-    <dependency>
-      <groupId>org.jboss.spec.javax.xml.bind</groupId>
-      <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 
   <build>

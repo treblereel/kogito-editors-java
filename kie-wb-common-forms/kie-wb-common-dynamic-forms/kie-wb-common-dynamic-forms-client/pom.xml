@@ -37,37 +37,6 @@
 
     <dependency>
       <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-common</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-ioc</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>org.jboss.spec.javax.annotation</groupId>
-          <artifactId>jboss-annotations-api_1.2_spec</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-ui</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-data-binding</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-validation</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-client-api</artifactId>
     </dependency>
 
@@ -76,10 +45,10 @@
       <artifactId>uberfire-workbench-client-views-patternfly</artifactId>
     </dependency>
 
-    <dependency>
+<!--    <dependency>
       <groupId>org.kie.soup</groupId>
       <artifactId>kie-soup-commons</artifactId>
-    </dependency>
+    </dependency>-->
 
     <dependency>
       <groupId>org.kie.kogito</groupId>
@@ -131,11 +100,13 @@
       <artifactId>kie-wb-common-forms-adf-engine-client</artifactId>
     </dependency>
 
+<!--
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-forms-adf-processors</artifactId>
       <scope>provided</scope>
     </dependency>
+-->
 
     <dependency>
       <groupId>org.kie.kogito</groupId>
@@ -163,7 +134,7 @@
     </dependency>
 
     <!-- Test -->
-    <dependency>
+<!--    <dependency>
       <groupId>com.google.gwt.gwtmockito</groupId>
       <artifactId>gwtmockito</artifactId>
       <scope>test</scope>
@@ -173,13 +144,13 @@
           <artifactId>jetty-annotations</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
+    </dependency>-->
 
-    <dependency>
+<!--    <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <scope>test</scope>
-    </dependency>
+    </dependency>-->
 
   </dependencies>
 

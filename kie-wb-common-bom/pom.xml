@@ -231,11 +231,11 @@
         <version>${project.version}</version>
       </dependency>
 
-      <dependency>
+<!--      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-forms-adf-processors</artifactId>
         <version>${project.version}</version>
-      </dependency>
+      </dependency>-->
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
@@ -358,12 +358,12 @@
         <version>${project.version}</version>
       </dependency>
 
-      <dependency>
+<!--      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-stunner-core-api</artifactId>
         <version>${project.version}</version>
         <classifier>sources</classifier>
-      </dependency>
+      </dependency>-->
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
@@ -397,11 +397,11 @@
         <version>${project.version}</version>
       </dependency>
 
-      <dependency>
+<!--      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-stunner-processors</artifactId>
         <version>${project.version}</version>
-      </dependency>
+      </dependency>-->
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
@@ -471,11 +471,11 @@
         <version>${project.version}</version>
       </dependency>
 
-      <dependency>
+<!--      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-stunner-svg-gen</artifactId>
         <version>${project.version}</version>
-      </dependency>
+      </dependency>-->
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
@@ -513,11 +513,11 @@
         <version>${project.version}</version>
       </dependency>
 
-      <dependency>
+<!--      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-stunner-bpmn-marshalling</artifactId>
         <version>${project.version}</version>
-      </dependency>
+      </dependency>-->
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
@@ -531,12 +531,6 @@
         <version>${project.version}</version>
       </dependency>
 
-      <!-- 3rd-party dependencies -->
-      <dependency>
-        <groupId>org.powermock</groupId>
-        <artifactId>powermock-api-mockito2</artifactId>
-        <version>${version.powermock.api.mockito2}</version>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 

@@ -41,10 +41,10 @@
       <artifactId>javax.annotation-api</artifactId>
     </dependency>
 
-    <dependency>
+<!--    <dependency>
       <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
-    </dependency>
+    </dependency>-->
 
     <dependency>
       <groupId>org.apache.commons</groupId>
@@ -60,14 +60,14 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-forms-adf-base</artifactId>
     </dependency>
-
+  </dependencies>
     <!-- Uberfire -->
 
-    <dependency>
+<!--    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-workbench-processors</artifactId>
     </dependency>
-  </dependencies>
+  </dependencies>-->
 
   <build>
     <plugins>

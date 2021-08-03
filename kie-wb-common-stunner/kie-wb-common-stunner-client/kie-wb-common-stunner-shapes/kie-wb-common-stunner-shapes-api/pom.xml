@@ -73,19 +73,6 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Uberfire & Errai. -->
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-ioc</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>org.jboss.spec.javax.annotation</groupId>
-          <artifactId>jboss-annotations-api_1.2_spec</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-api</artifactId>
@@ -94,11 +81,6 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-client-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.soup</groupId>
-      <artifactId>kie-soup-commons</artifactId>
     </dependency>
 
     <dependency>

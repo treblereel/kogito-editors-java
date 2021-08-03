@@ -19,15 +19,10 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-common</artifactId>
-    </dependency>
-
-    <dependency>
+<!--    <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
-    </dependency>
+    </dependency>-->
 
 
   </dependencies>
