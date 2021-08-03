@@ -42,12 +42,6 @@
       <artifactId>org.eclipse.emf.gwt.common</artifactId>
     </dependency>-->
 
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-user</artifactId>
-      <scope>provided</scope>
-    </dependency>
-
     <!-- Testing scope. -->
 
     <dependency>
@@ -56,21 +50,7 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-dev</artifactId>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>org.mortbay.jasper</groupId>
-          <artifactId>apache-el</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.eclipse.jetty</groupId>
-          <artifactId>jetty-annotations</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
+
   </dependencies>
 
   <build>
