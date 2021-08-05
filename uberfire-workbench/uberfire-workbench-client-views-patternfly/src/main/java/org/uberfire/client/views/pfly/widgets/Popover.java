@@ -19,69 +19,68 @@ package org.uberfire.client.views.pfly.widgets;
 import jsinterop.annotations.JsFunction;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
-import org.uberfire.client.views.pfly.widgets.JQueryProducer.JQueryElement;
 
 /**
  * Wrapper component for PatternFly's <a href="http://www.patternfly.org/pattern-library/widgets/#popover">Popover</a>
  */
 @JsType(isNative = true)
-public interface Popover extends JQueryElement {
+public abstract class Popover extends JQueryProducer.JQueryElement {
 
-    void popover();
+    abstract void popover();
 
-    void popover(String method);
+    abstract void popover(String method);
 
-    void popover(PopoverOptions options);
+    abstract void popover(PopoverOptions options);
 
     @JsOverlay
-    default void destroy() {
+    void destroy() {
         popover("destroy");
     }
 
     @JsOverlay
-    default void show() {
+    void show() {
         popover("show");
     }
 
     @JsOverlay
-    default void hide() {
+    void hide() {
         popover("hide");
     }
 
     @JsOverlay
-    default void toggle() {
+    void toggle() {
         popover("toggle");
     }
 
-    void on(String event,
+    abstract void on(String event,
             PopoverEventCallback callback);
 
     @JsOverlay
-    default void addShowListener(final PopoverEventCallback callback) {
+    void addShowListener(final PopoverEventCallback callback) {
         on("show.bs.popover",
            callback);
     }
 
     @JsOverlay
-    default void addShownListener(final PopoverEventCallback callback) {
+    void addShownListener(final PopoverEventCallback callback) {
         on("shown.bs.popover",
            callback);
     }
 
     @JsOverlay
-    default void addHiddenListener(final PopoverEventCallback callback) {
+    void addHiddenListener(final PopoverEventCallback callback) {
         on("hidden.bs.popover",
            callback);
     }
 
     @JsOverlay
-    default void addHideListener(final PopoverEventCallback callback) {
+    void addHideListener(final PopoverEventCallback callback) {
         on("hide.bs.popover",
            callback);
     }
 
     @JsOverlay
-    default void addInsertedListener(final PopoverEventCallback callback) {
+    void addInsertedListener(final PopoverEventCallback callback) {
         on("inserted.bs.popover",
            callback);
     }

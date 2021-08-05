@@ -16,10 +16,10 @@
 
 package org.kie.workbench.common.stunner.kogito.client.services.util;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.resources.client.ClientBundleWithLookup;
-import com.google.gwt.resources.client.ImageResource;
-import com.google.gwt.resources.client.TextResource;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.resources.client.ClientBundleWithLookup;
+import org.gwtproject.resources.client.ImageResource;
+import org.gwtproject.resources.client.TextResource;
 
 public interface WidPresetResources extends ClientBundleWithLookup {
 

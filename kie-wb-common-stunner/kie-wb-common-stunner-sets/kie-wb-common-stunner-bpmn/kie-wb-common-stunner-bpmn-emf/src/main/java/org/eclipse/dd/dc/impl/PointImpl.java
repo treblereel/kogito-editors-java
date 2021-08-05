@@ -14,7 +14,7 @@
  */
 package org.eclipse.dd.dc.impl;
 
-import com.google.gwt.user.client.rpc.GwtTransient;
+import org.gwtproject.user.client.rpc.GwtTransient;
 
 import org.eclipse.dd.dc.DcPackage;
 import org.eclipse.dd.dc.Point;

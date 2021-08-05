@@ -54,13 +54,29 @@
       <artifactId>uberfire-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-    </dependency>
-    <dependency>
       <groupId>com.google.jsinterop</groupId>
       <artifactId>jsinterop-annotations</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>io.crysknife</groupId>
+      <artifactId>databinding-api</artifactId>
+    </dependency>
+
   </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.java</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+  </build>
 
 </project>

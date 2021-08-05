@@ -19,7 +19,7 @@ package org.kie.workbench.common.widgets.client.popups.launcher;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.Composite;
 import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.common.client.dom.Element;
 import org.jboss.errai.common.client.dom.NodeList;

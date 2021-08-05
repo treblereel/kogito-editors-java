@@ -22,9 +22,9 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.cell.client.TextCell;
-import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.user.cellview.client.Column;
+import org.gwtproject.cell.client.TextCell;
+import org.gwtproject.i18n.client.DateTimeFormat;
+import org.gwtproject.user.cellview.client.Column;
 import org.jboss.errai.ioc.client.api.ManagedInstance;
 import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.CellEditionHandler;

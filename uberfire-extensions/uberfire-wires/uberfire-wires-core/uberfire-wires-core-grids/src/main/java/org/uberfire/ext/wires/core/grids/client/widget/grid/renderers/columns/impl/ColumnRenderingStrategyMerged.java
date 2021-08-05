@@ -27,7 +27,7 @@ import com.ait.lienzo.client.core.shape.MultiPath;
 import com.ait.lienzo.client.core.shape.Rectangle;
 import com.ait.lienzo.client.core.types.Transform;
 import com.ait.lienzo.shared.core.types.ColorName;
-import com.google.gwt.core.client.GWT;
+import org.gwtproject.core.client.GWT;
 import org.uberfire.ext.wires.core.grids.client.model.GridCell;
 import org.uberfire.ext.wires.core.grids.client.model.GridColumn;
 import org.uberfire.ext.wires.core.grids.client.model.GridData;

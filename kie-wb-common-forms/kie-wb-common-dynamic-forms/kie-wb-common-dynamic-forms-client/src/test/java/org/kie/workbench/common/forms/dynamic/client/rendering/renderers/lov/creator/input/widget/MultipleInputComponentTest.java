@@ -19,8 +19,8 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.cr
 import java.util.Arrays;
 import java.util.List;
 
-import com.google.gwt.view.client.HasData;
-import com.google.gwt.view.client.Range;
+import org.gwtproject.view.client.HasData;
+import org.gwtproject.view.client.Range;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;

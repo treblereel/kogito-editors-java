@@ -16,13 +16,13 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.assignmentsEditor;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ChangeHandler;
-import com.google.gwt.event.dom.client.KeyDownHandler;
-import com.google.gwt.regexp.shared.RegExp;
-import com.google.gwtmockito.GwtMock;
-import com.google.gwtmockito.GwtMockito;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.event.dom.client.ChangeHandler;
+import org.gwtproject.event.dom.client.KeyDownHandler;
+import org.gwtproject.regexp.shared.RegExp;
+import org.gwtprojectmockito.GwtMock;
+import org.gwtprojectmockito.GwtMockito;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.gwtbootstrap3.client.ui.ValueListBox;

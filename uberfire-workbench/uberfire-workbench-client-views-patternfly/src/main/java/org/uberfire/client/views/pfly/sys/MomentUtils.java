@@ -18,7 +18,7 @@ package org.uberfire.client.views.pfly.sys;
 
 import java.util.Optional;
 
-import com.google.gwt.i18n.client.LocaleInfo;
+import org.gwtproject.i18n.client.LocaleInfo;
 
 public class MomentUtils {
 

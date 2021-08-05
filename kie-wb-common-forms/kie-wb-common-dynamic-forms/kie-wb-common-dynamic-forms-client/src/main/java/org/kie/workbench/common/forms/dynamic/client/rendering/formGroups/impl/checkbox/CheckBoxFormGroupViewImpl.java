@@ -22,7 +22,7 @@ import java.util.Map;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.user.client.ui.Widget;
 import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.common.client.dom.HTMLElement;
 import org.jboss.errai.ui.client.local.api.IsElement;

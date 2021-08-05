@@ -29,12 +29,12 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
 import com.google.common.base.Strings;
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.TableCellElement;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.KeyDownEvent;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
-import com.google.gwt.text.shared.Renderer;
+import org.gwtproject.dom.client.Document;
+import org.gwtproject.dom.client.TableCellElement;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.event.dom.client.KeyDownEvent;
+import org.gwtproject.event.logical.shared.ValueChangeEvent;
+import org.gwtproject.text.shared.Renderer;
 import elemental2.dom.CSSProperties;
 import elemental2.dom.Element;
 import elemental2.dom.HTMLAnchorElement;

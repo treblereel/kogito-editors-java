@@ -26,7 +26,7 @@ import com.ait.lienzo.client.core.types.Point2D;
 import com.ait.lienzo.client.core.types.Transform;
 import com.ait.lienzo.gwtlienzo.event.shared.EventHandler;
 import com.ait.lienzo.tools.client.event.INodeEvent;
-import com.google.gwt.dom.client.Style;
+import org.gwtproject.dom.client.Style;
 import elemental2.dom.UIEvent;
 import org.uberfire.ext.wires.core.grids.client.widget.layer.GridLayer;
 import org.uberfire.ext.wires.core.grids.client.widget.layer.pinning.TransformMediator;

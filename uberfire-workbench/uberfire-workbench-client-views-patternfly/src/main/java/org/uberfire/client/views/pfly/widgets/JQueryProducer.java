@@ -18,12 +18,12 @@ package org.uberfire.client.views.pfly.widgets;
 
 import javax.enterprise.inject.Produces;
 
+import elemental2.dom.Element;
+import elemental2.dom.HTMLElement;
 import jsinterop.annotations.JsFunction;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.jboss.errai.common.client.dom.Element;
-import org.jboss.errai.common.client.dom.HTMLElement;
 
 @JsType(isNative = true)
 public abstract class JQueryProducer {
@@ -58,15 +58,15 @@ public abstract class JQueryProducer {
      * <p>
      */
     @JsType(isNative = true)
-    public interface JQueryElement extends HTMLElement {
+    public static abstract class JQueryElement extends HTMLElement {
 
-        void after(HTMLElement element);
+        abstract void after(HTMLElement element);
 
-        void before(HTMLElement element);
+        abstract void before(HTMLElement element);
 
-        JQueryArray children();
+        abstract JQueryArray children();
 
-        JQueryArray children(String selector);
+        abstract JQueryArray children(String selector);
     }
 
     /**

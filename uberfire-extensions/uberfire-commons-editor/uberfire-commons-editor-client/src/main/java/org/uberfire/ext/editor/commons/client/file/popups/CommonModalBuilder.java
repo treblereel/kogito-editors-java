@@ -16,7 +16,7 @@
 
 package org.uberfire.ext.editor.commons.client.file.popups;
 
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.ModalBody;
 import org.gwtbootstrap3.client.ui.ModalFooter;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;

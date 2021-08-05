@@ -18,7 +18,7 @@ package org.kie.workbench.common.widgets.client.cards;
 
 import java.util.List;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import elemental2.dom.HTMLElement;
 import org.jboss.errai.ioc.client.api.ManagedInstance;
 import org.junit.Before;

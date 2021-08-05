@@ -9,7 +9,7 @@ import com.ait.lienzo.client.core.shape.Star;
 import com.ait.lienzo.client.widget.panel.LienzoPanel;
 import com.ait.lienzo.shared.core.types.Color;
 import com.ait.lienzo.shared.core.types.DragConstraint;
-import com.google.gwt.dom.client.Style.Display;
+import org.gwtproject.dom.client.Style.Display;
 import elemental2.core.JsArray;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLOptionElement;

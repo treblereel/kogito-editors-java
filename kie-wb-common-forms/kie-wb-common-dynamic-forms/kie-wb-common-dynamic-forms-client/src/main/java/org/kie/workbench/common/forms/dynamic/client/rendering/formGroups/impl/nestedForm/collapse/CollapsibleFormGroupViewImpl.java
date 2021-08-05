@@ -22,10 +22,10 @@ import java.util.Map;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.user.client.ui.SimplePanel;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.dom.client.Document;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.user.client.ui.SimplePanel;
+import org.gwtproject.user.client.ui.Widget;
 import org.jboss.errai.common.client.dom.Anchor;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import org.jboss.errai.common.client.dom.Div;

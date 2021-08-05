@@ -20,7 +20,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
 import java.util.List;
 
-import com.google.gwt.safehtml.shared.UriUtils;
+import org.gwtproject.safehtml.shared.UriUtils;
 import org.eclipse.bpmn2.Assignment;
 import org.eclipse.bpmn2.DataInput;
 import org.eclipse.bpmn2.DataInputAssociation;

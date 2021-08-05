@@ -19,8 +19,8 @@ package org.kie.workbench.common.forms.common.rendering.client.widgets.typeahead
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HasValue;
+import org.gwtproject.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.HasValue;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 import org.gwtbootstrap3.extras.typeahead.client.base.Dataset;
 import org.gwtbootstrap3.extras.typeahead.client.ui.Typeahead;

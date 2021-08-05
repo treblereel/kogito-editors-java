@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.stunner.bpmn.documentation.model;
 
-import com.google.gwt.core.client.GWT;
+import org.gwtproject.core.client.GWT;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;

@@ -19,13 +19,13 @@ package org.uberfire.ext.widgets.common.client.select;
 
 import javax.inject.Inject;
 
-import com.google.gwt.event.dom.client.ClickEvent;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.Templated;
+import org.gwtproject.event.dom.client.ClickEvent;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLLIElement;
-import org.jboss.errai.ui.client.local.api.elemental2.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 
 @Templated
 public class SelectOptionView implements SelectOptionComponent.View,

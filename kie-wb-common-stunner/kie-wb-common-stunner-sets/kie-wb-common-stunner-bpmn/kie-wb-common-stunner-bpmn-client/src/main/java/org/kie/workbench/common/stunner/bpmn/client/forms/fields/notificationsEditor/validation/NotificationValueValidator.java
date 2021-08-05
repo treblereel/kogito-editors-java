@@ -26,9 +26,9 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.gwt.regexp.shared.MatchResult;
-import com.google.gwt.regexp.shared.RegExp;
-import com.google.gwt.validation.client.GwtValidation;
+import org.gwtproject.regexp.shared.MatchResult;
+import org.gwtproject.regexp.shared.RegExp;
+import org.gwtproject.validation.client.GwtValidation;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.Expiration;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.NotificationRow;
 

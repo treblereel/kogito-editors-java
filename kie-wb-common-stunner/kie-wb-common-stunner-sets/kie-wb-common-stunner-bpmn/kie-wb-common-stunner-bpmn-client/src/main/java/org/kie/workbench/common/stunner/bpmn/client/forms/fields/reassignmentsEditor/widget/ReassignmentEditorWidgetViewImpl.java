@@ -26,10 +26,10 @@ import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.event.dom.client.KeyDownEvent;
-import com.google.gwt.event.dom.client.KeyDownHandler;
-import com.google.gwt.user.client.ui.Composite;
+import org.gwtproject.event.dom.client.KeyCodes;
+import org.gwtproject.event.dom.client.KeyDownEvent;
+import org.gwtproject.event.dom.client.KeyDownHandler;
+import org.gwtproject.user.client.ui.Composite;
 import elemental2.dom.HTMLButtonElement;
 import org.gwtbootstrap3.client.ui.ModalSize;
 import org.gwtbootstrap3.extras.select.client.ui.Option;

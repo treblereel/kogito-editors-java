@@ -19,7 +19,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.label
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.IsWidget;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import org.jboss.errai.common.client.dom.Span;
 import org.jboss.errai.ui.client.local.api.IsElement;

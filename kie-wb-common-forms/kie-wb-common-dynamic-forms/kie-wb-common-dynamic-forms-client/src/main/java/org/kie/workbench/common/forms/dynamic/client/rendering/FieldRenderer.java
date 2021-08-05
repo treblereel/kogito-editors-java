@@ -26,9 +26,9 @@ import java.util.Set;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.dom.client.Document;
+import org.gwtproject.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.Widget;
 import org.jboss.errai.ioc.client.api.ManagedInstance;
 import org.kie.workbench.common.forms.adf.definitions.DynamicReadOnly;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.FormGroup;

@@ -20,8 +20,8 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlowPanel;
+import org.gwtproject.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.FlowPanel;
 import org.jboss.errai.common.client.dom.HTMLElement;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.Templated;

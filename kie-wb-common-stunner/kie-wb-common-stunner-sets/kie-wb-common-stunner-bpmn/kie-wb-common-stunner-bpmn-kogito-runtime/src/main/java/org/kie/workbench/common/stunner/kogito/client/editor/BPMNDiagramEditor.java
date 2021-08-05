@@ -24,7 +24,7 @@ import java.util.Map;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.IsWidget;
 import elemental2.promise.Promise;
 import org.kie.workbench.common.stunner.client.widgets.editor.EditorSessionCommands;
 import org.kie.workbench.common.stunner.client.widgets.editor.StunnerEditor;

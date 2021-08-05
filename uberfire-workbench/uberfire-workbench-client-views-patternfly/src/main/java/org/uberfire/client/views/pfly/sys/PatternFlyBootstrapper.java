@@ -16,7 +16,7 @@
 
 package org.uberfire.client.views.pfly.sys;
 
-import com.google.gwt.core.client.ScriptInjector;
+import org.gwtproject.core.client.ScriptInjector;
 import org.gwtbootstrap3.client.GwtBootstrap3ClientBundle;
 
 import static org.uberfire.client.views.pfly.sys.MomentUtils.setMomentLocale;

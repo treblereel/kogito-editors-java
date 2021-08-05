@@ -21,10 +21,10 @@ import java.util.Collections;
 import java.util.List;
 
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
-import com.google.gwt.view.client.HasData;
-import com.google.gwt.view.client.ListDataProvider;
-import com.google.gwtmockito.GwtMock;
-import com.google.gwtmockito.GwtMockito;
+import org.gwtproject.view.client.HasData;
+import org.gwtproject.view.client.ListDataProvider;
+import org.gwtprojectmockito.GwtMock;
+import org.gwtprojectmockito.GwtMockito;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.google.gwt.user.client.ui.HTML;
+import org.gwtproject.user.client.ui.HTML;
 import org.gwtbootstrap3.client.ui.ValueListBox;
 import org.jboss.errai.databinding.client.api.Converter;
 import org.jboss.errai.ui.client.local.spi.TranslationService;

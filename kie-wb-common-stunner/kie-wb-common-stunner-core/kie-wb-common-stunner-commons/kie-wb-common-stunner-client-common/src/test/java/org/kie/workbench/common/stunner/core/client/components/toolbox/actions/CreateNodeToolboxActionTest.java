@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.core.client.components.toolbox.actions;
 
 import java.lang.annotation.Annotation;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.jboss.errai.ioc.client.api.ManagedInstance;
 import org.junit.Before;
 import org.junit.Test;

@@ -20,8 +20,8 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.Widget;
 import org.jboss.errai.common.client.api.Assert;
 import org.jboss.errai.databinding.client.api.Converter;
 import org.kie.soup.commons.validation.PortablePreconditions;

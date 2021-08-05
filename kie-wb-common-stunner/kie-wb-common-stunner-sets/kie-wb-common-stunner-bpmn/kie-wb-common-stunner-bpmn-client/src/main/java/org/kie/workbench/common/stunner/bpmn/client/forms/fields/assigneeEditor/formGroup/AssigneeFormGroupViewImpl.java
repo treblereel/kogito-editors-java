@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.assigneeEditor
 
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.user.client.ui.Widget;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.common.client.dom.HTMLElement;

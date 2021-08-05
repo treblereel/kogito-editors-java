@@ -23,7 +23,7 @@
   </dependencies>
     <!-- Tests -->
 <!--    <dependency>
-      <groupId>com.google.gwt.gwtmockito</groupId>
+      <groupId>org.gwtproject.gwtmockito</groupId>
       <artifactId>gwtmockito</artifactId>
       <scope>test</scope>
       <exclusions>

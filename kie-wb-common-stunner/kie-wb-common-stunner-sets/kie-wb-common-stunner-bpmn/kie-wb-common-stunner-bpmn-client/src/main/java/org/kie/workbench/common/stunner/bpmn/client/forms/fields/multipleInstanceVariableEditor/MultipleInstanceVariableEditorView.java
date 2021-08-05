@@ -22,7 +22,7 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
-import com.google.gwt.text.shared.Renderer;
+import org.gwtproject.text.shared.Renderer;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.gwtbootstrap3.client.ui.ValueListBox;
 import org.jboss.errai.common.client.dom.Event;

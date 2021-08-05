@@ -24,7 +24,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.jboss.errai.common.client.api.IsElement;
 import org.junit.Before;
 import org.junit.Test;

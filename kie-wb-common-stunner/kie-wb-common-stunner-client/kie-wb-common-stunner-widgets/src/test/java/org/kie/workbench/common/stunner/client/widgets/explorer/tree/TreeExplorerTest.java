@@ -21,8 +21,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.OptionalInt;
 
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.user.client.ui.IsWidget;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.jboss.errai.common.client.api.IsElement;
 import org.jboss.errai.common.client.ui.ElementWrapperWidget;
 import org.jboss.errai.ioc.client.api.ManagedInstance;

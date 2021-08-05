@@ -15,8 +15,8 @@
  */
 package org.uberfire.ext.widgets.common.client.colorpicker;
 
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.user.client.ui.HorizontalPanel;
+import org.gwtproject.user.client.ui.Widget;
 import org.uberfire.ext.widgets.common.client.colorpicker.dialog.Dialog;
 import org.uberfire.ext.widgets.common.client.resources.i18n.CommonConstants;
 

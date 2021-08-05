@@ -24,20 +24,17 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.dom.client.Style.Unit;
-import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.DockLayoutPanel;
-import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.RootLayoutPanel;
-import com.google.gwt.user.client.ui.ScrollPanel;
-import com.google.gwt.user.client.ui.SimpleLayoutPanel;
+import io.crysknife.client.BeanManager;
+import org.gwtproject.core.client.Scheduler;
+import org.gwtproject.dom.client.Style.Unit;
+import org.gwtproject.user.client.ui.DockLayoutPanel;
+import org.gwtproject.user.client.ui.HasWidgets;
+import org.gwtproject.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.RootLayoutPanel;
+import org.gwtproject.user.client.ui.ScrollPanel;
+import org.gwtproject.user.client.ui.SimpleLayoutPanel;
 import elemental2.dom.DomGlobal;
-import org.jboss.errai.ioc.client.api.AfterInitialization;
-import org.jboss.errai.ioc.client.api.EntryPoint;
-import org.jboss.errai.ioc.client.container.SyncBeanDef;
-import org.jboss.errai.ioc.client.container.SyncBeanManager;
+import org.gwtproject.user.window.client.Window;
 import org.uberfire.client.mvp.Activity;
 import org.uberfire.client.mvp.EditorActivity;
 import org.uberfire.client.resources.WorkbenchResources;
@@ -49,18 +46,17 @@ import org.uberfire.mvp.PlaceRequest;
 import org.uberfire.mvp.impl.DefaultPlaceRequest;
 import org.uberfire.workbench.model.ActivityResourceType;
 
-@EntryPoint
 public class WorkbenchEntryPoint {
 
     @Inject
     private UberfireDocksContainer uberfireDocksContainer;
     @Inject
-    private SyncBeanManager iocManager;
+    private BeanManager iocManager;
 
     private final DockLayoutPanel rootContainer = new DockLayoutPanel(Unit.PX);
     private final Map<String, Activity> idActivityMap = new HashMap<>();
 
-    @AfterInitialization
+    @PostConstruct
     private void afterInitialization() {
         WorkbenchResources.INSTANCE.CSS().ensureInjected();
 
@@ -82,6 +78,9 @@ public class WorkbenchEntryPoint {
 
     public void openDock(final PlaceRequest place,
                          final HasWidgets container) {
+        throw new Error(getClass().getCanonicalName()+".openDock");
+
+/*
         final Activity dockActivity = openActivity(place.getIdentifier());
         if (!dockActivity.isType(ActivityResourceType.DOCK.name())) {
             throw new RuntimeException("The place should be associated with a dock activity. " + place);
@@ -96,13 +95,19 @@ public class WorkbenchEntryPoint {
         });
 
         container.add(panel);
-        resize();
+        resize();*/
     }
 
     protected void closeDock(final Activity dockActivity,
                              final HasWidgets container,
                              final SimpleLayoutPanel panel) {
-        final Activity activity = idActivityMap.remove(dockActivity.getIdentifier());
+
+        throw new Error(getClass().getCanonicalName()+".closeDock");
+
+
+/*        final Activity activity = idActivityMap.remove(dockActivity.getIdentifier());
+
+
         if (activity != null) {
             activity.onClose();
             final SyncBeanDef<Activity> bean = getBean(Activity.class, dockActivity.getIdentifier());
@@ -110,7 +115,7 @@ public class WorkbenchEntryPoint {
                 iocManager.destroyBean(activity);
             }
         }
-        container.remove(panel);
+        container.remove(panel);*/
     }
 
     protected SimpleLayoutPanel createPanel(final IsWidget widget) {
@@ -133,15 +138,17 @@ public class WorkbenchEntryPoint {
         Layouts.setToFillParent(rootContainer);
         RootLayoutPanel.get().add(rootContainer);
 
-        final SyncBeanDef<EditorActivity> editorBean = getBean(EditorActivity.class, null);
+        throw new Error(getClass().getCanonicalName()+".setupRootContainer");
+
+/*        final SyncBeanDef<EditorActivity> editorBean = getBean(EditorActivity.class, null);
         JSFunctions.nativeRegisterGwtClientBean(editorBean.getName(), editorBean);
 
         final Activity editorActivity = openActivity(editorBean.getName());
-        rootContainer.add(createPanel(editorActivity.getWidget()));
-        resize();
+        rootContainer.add(createPanel(editorActivity.getWidget()));*/
+        //resize();
     }
 
-    private <T extends Activity> SyncBeanDef<T> getBean(Class<T> type, final String name) {
+/*    private <T extends Activity> SyncBeanDef<T> getBean(Class<T> type, final String name) {
         final Optional<SyncBeanDef<T>> optionalActivity = iocManager.lookupBeans(type)
                 .stream()
                 .filter(bean -> bean.isActivated() && (name == null || bean.getName().equals(name)))
@@ -152,16 +159,16 @@ public class WorkbenchEntryPoint {
         }
 
         return optionalActivity.get();
-    }
+    }*/
 
-    private Activity openActivity(final String name) {
+/*    private Activity openActivity(final String name) {
         final Activity activity = getBean(Activity.class,
                                           name).getInstance();
         idActivityMap.put(activity.getIdentifier(), activity);
         activity.onStartup(new DefaultPlaceRequest(name));
         activity.onOpen();
         return activity;
-    }
+    }*/
 
     private void resize() {
         resizeTo(Window.getClientWidth(),

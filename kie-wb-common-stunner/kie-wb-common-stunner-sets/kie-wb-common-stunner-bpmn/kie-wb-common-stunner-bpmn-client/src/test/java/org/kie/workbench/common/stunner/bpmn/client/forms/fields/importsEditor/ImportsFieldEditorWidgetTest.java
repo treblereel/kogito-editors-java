@@ -18,9 +18,9 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor;
 
 import java.util.ArrayList;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwtmockito.GwtMockito;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtprojectmockito.GwtMockito;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.junit.Before;

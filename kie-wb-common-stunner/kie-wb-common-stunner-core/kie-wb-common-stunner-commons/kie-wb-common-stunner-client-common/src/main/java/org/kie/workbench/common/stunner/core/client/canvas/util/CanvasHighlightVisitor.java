@@ -21,8 +21,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.google.gwt.logging.client.LogConfiguration;
-import com.google.gwt.user.client.Timer;
+import org.gwtproject.logging.client.LogConfiguration;
+import org.gwtproject.user.client.Timer;
 import org.kie.workbench.common.stunner.core.client.canvas.CanvasHandler;
 import org.kie.workbench.common.stunner.core.client.shape.Shape;
 import org.kie.workbench.common.stunner.core.client.shape.ShapeState;

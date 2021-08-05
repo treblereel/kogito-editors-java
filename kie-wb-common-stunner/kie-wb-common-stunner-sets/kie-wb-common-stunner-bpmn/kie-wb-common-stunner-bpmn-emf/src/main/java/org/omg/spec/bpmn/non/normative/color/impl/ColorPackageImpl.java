@@ -2,7 +2,7 @@
  */
 package org.omg.spec.bpmn.non.normative.color.impl;
 
-import com.google.gwt.user.client.rpc.IsSerializable;
+import org.gwtproject.user.client.rpc.IsSerializable;
 
 import org.eclipse.emf.common.util.Reflect;
 

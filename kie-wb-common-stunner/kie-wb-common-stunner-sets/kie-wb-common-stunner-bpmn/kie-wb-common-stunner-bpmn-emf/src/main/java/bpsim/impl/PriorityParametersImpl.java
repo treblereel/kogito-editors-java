@@ -6,7 +6,7 @@ import bpsim.BpsimPackage;
 import bpsim.Parameter;
 import bpsim.PriorityParameters;
 
-import com.google.gwt.user.client.rpc.GwtTransient;
+import org.gwtproject.user.client.rpc.GwtTransient;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;

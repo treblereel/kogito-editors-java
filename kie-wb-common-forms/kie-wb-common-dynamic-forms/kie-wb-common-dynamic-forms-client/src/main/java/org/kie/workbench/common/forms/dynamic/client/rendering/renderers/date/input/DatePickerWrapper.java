@@ -21,12 +21,12 @@ import java.util.Date;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
-import com.google.gwt.event.logical.shared.ValueChangeHandler;
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.event.logical.shared.ValueChangeEvent;
+import org.gwtproject.event.logical.shared.ValueChangeHandler;
+import org.gwtproject.event.shared.GwtEvent;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.Widget;
 
 @Dependent
 public class DatePickerWrapper implements IsWidget,

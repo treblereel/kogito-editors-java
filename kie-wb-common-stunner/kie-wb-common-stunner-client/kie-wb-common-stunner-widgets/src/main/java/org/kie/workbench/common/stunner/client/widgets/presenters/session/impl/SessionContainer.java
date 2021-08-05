@@ -16,9 +16,9 @@
 
 package org.kie.workbench.common.stunner.client.widgets.presenters.session.impl;
 
-import com.google.gwt.safehtml.shared.annotations.IsSafeHtml;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.HasHTML;
+import org.gwtproject.safehtml.shared.annotations.IsSafeHtml;
+import org.gwtproject.user.client.ui.HTML;
+import org.gwtproject.user.client.ui.HasHTML;
 import org.uberfire.client.workbench.widgets.ResizeFlowPanel;
 
 /**

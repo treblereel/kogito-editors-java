@@ -19,7 +19,7 @@ package org.kie.workbench.common.stunner.bpmn.client.canvas.controls;
 
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.IsWidget;
 import org.kie.workbench.common.stunner.bpmn.definition.BaseEndEvent;
 import org.kie.workbench.common.stunner.bpmn.definition.BaseGateway;
 import org.kie.workbench.common.stunner.bpmn.definition.BaseIntermediateEvent;

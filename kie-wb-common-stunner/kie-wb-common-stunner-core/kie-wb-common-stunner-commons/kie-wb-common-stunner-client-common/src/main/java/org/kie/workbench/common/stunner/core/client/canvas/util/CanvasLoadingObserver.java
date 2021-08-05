@@ -19,8 +19,8 @@ package org.kie.workbench.common.stunner.core.client.canvas.util;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.google.gwt.logging.client.LogConfiguration;
-import com.google.gwt.user.client.Timer;
+import org.gwtproject.logging.client.LogConfiguration;
+import org.gwtproject.user.client.Timer;
 
 public class CanvasLoadingObserver {
 

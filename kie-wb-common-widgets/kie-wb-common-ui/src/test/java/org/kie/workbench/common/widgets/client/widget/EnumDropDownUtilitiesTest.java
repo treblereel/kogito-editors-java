@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.widgets.client.widget;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.ListBox;
 import org.junit.Test;
 import org.junit.runner.RunWith;

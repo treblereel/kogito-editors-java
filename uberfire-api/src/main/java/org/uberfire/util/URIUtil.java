@@ -16,36 +16,43 @@
 
 package org.uberfire.util;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.core.client.ScriptInjector;
-import com.google.gwt.http.client.URL;
-import com.google.gwt.resources.client.ClientBundle;
-import com.google.gwt.resources.client.TextResource;
+import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.TextResource;
 
 /**
  * GWT client-side implementation of URIUtil which relies on URI.js.
  */
 public final class URIUtil {
 
-    private static final Resources RESOURCES = GWT.create(Resources.class);
+    private static final Resources RESOURCES = null;
 
     static {
-        ScriptInjector.fromString(RESOURCES.uriDotJs().getText()).inject();
+        //throw new Error(URIUtil.class.getCanonicalName()+".isValid");
+
+        //ScriptInjector.fromString(RESOURCES.uriDotJs().getText()).inject();
     }
 
     public static String encode(String content) {
-        return URL.encode(content);
+        throw new Error(URIUtil.class.getCanonicalName()+".decode");
+
+        //return URL.encode(content);
     }
 
     public static String decode(String content) {
-        return URL.decode(content);
+        throw new Error(URIUtil.class.getCanonicalName()+".decode");
+
+        //return URL.decode(content);
     }
 
     public static String encodeQueryString(String content) {
-        return URL.encodeQueryString(content);
+        throw new Error(URIUtil.class.getCanonicalName()+".encodeQueryString");
+
+        //return URL.encodeQueryString(content);
     }
 
-    public native static boolean isValid(final String uri) /*-{
+    public static boolean isValid(final String uri) {
+        throw new Error(URIUtil.class.getCanonicalName()+".isValid");
+    }/*-{
         var components = URI.parse(uri);
         if (typeof components.errors !== 'undefined' && components.errors.length > 0) {
             return false;

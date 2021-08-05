@@ -16,11 +16,11 @@
 
 package org.kie.workbench.common.stunner.client.lienzo.components.mediators;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.KeyDownEvent;
-import com.google.gwt.event.dom.client.KeyPressEvent;
-import com.google.gwt.event.dom.client.KeyUpEvent;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.event.dom.client.KeyDownEvent;
+import org.gwtproject.event.dom.client.KeyPressEvent;
+import org.gwtproject.event.dom.client.KeyUpEvent;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.jboss.errai.common.client.dom.Button;
 import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.common.client.dom.HTMLElement;

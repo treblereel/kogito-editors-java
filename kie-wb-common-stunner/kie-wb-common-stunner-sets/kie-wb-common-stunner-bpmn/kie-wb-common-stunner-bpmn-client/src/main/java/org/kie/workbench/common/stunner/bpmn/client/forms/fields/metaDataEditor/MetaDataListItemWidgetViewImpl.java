@@ -19,8 +19,8 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.metaDataEditor
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.jboss.errai.databinding.client.api.DataBinder;

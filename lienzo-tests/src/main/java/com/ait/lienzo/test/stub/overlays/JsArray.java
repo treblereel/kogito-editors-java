@@ -23,7 +23,7 @@ import com.ait.lienzo.test.annotation.StubClass;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * In-memory array implementation stub for class <code>com.google.gwt.core.client.JsArray</code>.
+ * In-memory array implementation stub for class <code>org.gwtproject.core.client.JsArray</code>.
  *
  * @author Roger Martinez
  * @since 1.0

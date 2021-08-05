@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.SimpleCheckBox;
 import org.junit.Before;
 import org.junit.Test;

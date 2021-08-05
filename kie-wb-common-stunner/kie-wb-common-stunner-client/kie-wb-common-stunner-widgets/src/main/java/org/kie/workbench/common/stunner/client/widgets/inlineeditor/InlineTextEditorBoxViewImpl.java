@@ -19,9 +19,9 @@ package org.kie.workbench.common.stunner.client.widgets.inlineeditor;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.user.client.Event;
+import org.gwtproject.core.client.Scheduler;
+import org.gwtproject.event.dom.client.KeyCodes;
+import org.gwtproject.user.client.Event;
 import elemental2.dom.DomGlobal;
 import jsinterop.base.Js;
 import org.jboss.errai.common.client.dom.CSSStyleDeclaration;

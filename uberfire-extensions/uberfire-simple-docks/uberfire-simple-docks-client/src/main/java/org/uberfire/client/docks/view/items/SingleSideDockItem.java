@@ -16,10 +16,10 @@
 
 package org.uberfire.client.docks.view.items;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.uibinder.client.UiBinder;
+import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.ButtonSize;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;

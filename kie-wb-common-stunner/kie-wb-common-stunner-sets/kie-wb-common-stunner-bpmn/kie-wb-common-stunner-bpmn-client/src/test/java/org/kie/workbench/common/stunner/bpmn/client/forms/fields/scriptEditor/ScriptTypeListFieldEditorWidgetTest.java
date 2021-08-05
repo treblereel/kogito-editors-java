@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.scriptEditor;
 
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.user.client.ui.Widget;
 import org.jboss.errai.common.client.dom.HTMLElement;
 import org.kie.workbench.common.stunner.bpmn.client.forms.util.FieldEditorEditorWidgetBaseTest;
 import org.kie.workbench.common.stunner.bpmn.definition.property.task.ScriptTypeListValue;

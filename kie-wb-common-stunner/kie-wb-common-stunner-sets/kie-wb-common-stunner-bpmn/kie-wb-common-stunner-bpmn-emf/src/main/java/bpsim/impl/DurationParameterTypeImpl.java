@@ -5,7 +5,7 @@ package bpsim.impl;
 import bpsim.BpsimPackage;
 import bpsim.DurationParameterType;
 
-import com.google.gwt.user.client.rpc.GwtTransient;
+import org.gwtproject.user.client.rpc.GwtTransient;
 
 import javax.xml.datatype.Duration;
 

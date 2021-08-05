@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.stunner.core.client.components.views;
 
-import com.google.gwt.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.IsWidget;
 import org.jboss.errai.common.client.api.IsElement;
 
 public interface WidgetElementRendererView extends IsElement {

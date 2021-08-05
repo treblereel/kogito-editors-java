@@ -16,10 +16,10 @@
 
 package org.kie.workbench.common.forms.common.rendering.client.widgets.picture.widget;
 
-import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.CanvasElement;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.dom.client.VideoElement;
+import org.gwtproject.core.client.JavaScriptObject;
+import org.gwtproject.dom.client.CanvasElement;
+import org.gwtproject.dom.client.Element;
+import org.gwtproject.dom.client.VideoElement;
 
 public class PictureWidgetDriver extends JavaScriptObject {
 

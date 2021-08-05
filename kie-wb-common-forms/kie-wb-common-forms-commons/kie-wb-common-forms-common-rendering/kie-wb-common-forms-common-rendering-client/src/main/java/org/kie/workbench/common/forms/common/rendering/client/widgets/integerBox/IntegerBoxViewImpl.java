@@ -18,9 +18,9 @@ package org.kie.workbench.common.forms.common.rendering.client.widgets.integerBo
 
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HasValue;
+import org.gwtproject.user.client.Event;
+import org.gwtproject.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.HasValue;
 import org.jboss.errai.common.client.dom.TextInput;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.EventHandler;

@@ -24,10 +24,10 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HasValue;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.HasValue;
 import org.jboss.errai.common.client.dom.Anchor;
 import org.jboss.errai.common.client.dom.Button;
 import org.jboss.errai.common.client.dom.DOMUtil;

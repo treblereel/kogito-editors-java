@@ -20,25 +20,24 @@ import java.util.function.Consumer;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.user.client.TakesValue;
-import org.jboss.errai.common.client.api.IsElement;
-import org.jboss.errai.common.client.dom.Document;
-import org.jboss.errai.common.client.dom.HTMLElement;
-import org.jboss.errai.common.client.dom.Option;
-import org.jboss.errai.common.client.dom.OptionsCollection;
-
-import static com.google.common.base.Strings.isNullOrEmpty;
+import elemental2.dom.Document;
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLOptionElement;
+import elemental2.dom.HTMLOptionsCollection;
+import elemental2.dom.HTMLSelectElement;
+import io.crysknife.client.IsElement;
+import org.gwtproject.core.client.Scheduler;
+import org.gwtproject.user.client.TakesValue;
 
 @Dependent
 public class Select implements IsElement,
                                TakesValue<String> {
 
-    @Inject
-    private Document document;
+    private Document document = DomGlobal.document;
 
     @Inject
-    private org.jboss.errai.common.client.dom.Select select;
+    private HTMLSelectElement select;
 
     @Override
     public HTMLElement getElement() {
@@ -70,10 +69,10 @@ public class Select implements IsElement,
                           final String subText,
                           final String value,
                           final Boolean selected) {
-        final Option option = (Option) document.createElement("option");
-        option.setText(text);
-        option.setValue(value);
-        option.setSelected(selected);
+        final HTMLOptionElement option = (HTMLOptionElement) document.createElement("option");
+        option.text = (text);
+        option.value = (value);
+        option.selected = (selected);
         if (isNullOrEmpty(subText) == false) {
             option.setAttribute("data-subtext",
                                 subText);
@@ -81,8 +80,12 @@ public class Select implements IsElement,
         select.add(option);
     }
 
-    public OptionsCollection getOptions() {
-        return select.getOptions();
+    private boolean isNullOrEmpty(String subText) {
+        return subText == null || subText.isEmpty();
+    }
+
+    public HTMLOptionsCollection getOptions() {
+        return select.options;
     }
 
     public void removeAllOptions() {
@@ -104,7 +107,7 @@ public class Select implements IsElement,
 
     @Override
     public String getValue() {
-        return select.getValue();
+        return select.value;
     }
 
     @Override
@@ -136,7 +139,7 @@ public class Select implements IsElement,
     }
 
     public void setTitle(final String title) {
-        select.setTitle(title);
+        select.title = (title);
     }
 
     public void setLiveSearch(final Boolean liveSearch){

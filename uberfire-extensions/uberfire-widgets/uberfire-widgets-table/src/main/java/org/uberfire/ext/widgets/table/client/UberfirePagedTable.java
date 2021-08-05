@@ -15,19 +15,18 @@
  */
 package org.uberfire.ext.widgets.table.client;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Widget;
-import com.google.gwt.view.client.AbstractDataProvider;
-import com.google.gwt.view.client.ProvidesKey;
+import org.gwtproject.uibinder.client.UiBinder;
+import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.user.client.ui.Widget;
+import org.gwtproject.view.client.AbstractDataProvider;
+import org.gwtproject.view.client.ProvidesKey;
 import org.gwtbootstrap3.client.ui.ListBox;
 
 public class UberfirePagedTable<T>
         extends UberfireSimpleTable<T> {
 
     public static final int DEFAULT_PAGE_SIZE = 10;
-    private static Binder uiBinder = GWT.create(Binder.class);
+    private static Binder uiBinder = new UberfirePagedTable_BinderImpl();
     @UiField
     public UberfireSimplePager pager;
     @UiField

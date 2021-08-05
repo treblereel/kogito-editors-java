@@ -2,7 +2,7 @@
  */
 package org.jboss.drools.impl;
 
-import com.google.gwt.user.client.rpc.IsSerializable;
+import org.gwtproject.user.client.rpc.IsSerializable;
 
 import java.math.BigInteger;
 

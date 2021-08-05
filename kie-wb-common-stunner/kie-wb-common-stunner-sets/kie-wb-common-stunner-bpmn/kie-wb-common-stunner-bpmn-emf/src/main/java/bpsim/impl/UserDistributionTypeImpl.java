@@ -6,7 +6,7 @@ import bpsim.BpsimPackage;
 import bpsim.UserDistributionDataPointType;
 import bpsim.UserDistributionType;
 
-import com.google.gwt.user.client.rpc.GwtTransient;
+import org.gwtproject.user.client.rpc.GwtTransient;
 
 import java.util.Collection;
 

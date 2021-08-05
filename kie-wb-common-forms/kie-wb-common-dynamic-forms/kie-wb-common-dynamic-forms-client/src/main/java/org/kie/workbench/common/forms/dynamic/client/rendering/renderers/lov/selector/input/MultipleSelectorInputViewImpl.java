@@ -20,10 +20,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HasValue;
-import com.google.gwt.user.client.ui.IsWidget;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.HasValue;
+import org.gwtproject.user.client.ui.IsWidget;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.ui.shared.api.annotations.DataField;

@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.forms.client.components.toolbox;
 
 import java.util.function.Consumer;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

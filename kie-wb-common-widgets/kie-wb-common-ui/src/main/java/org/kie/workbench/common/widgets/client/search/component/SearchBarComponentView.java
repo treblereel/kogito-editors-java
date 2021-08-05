@@ -20,8 +20,8 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.KeyUpEvent;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.event.dom.client.KeyUpEvent;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
@@ -30,8 +30,8 @@ import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
 
-import static com.google.gwt.event.dom.client.KeyCodes.KEY_ENTER;
-import static com.google.gwt.event.dom.client.KeyCodes.KEY_ESCAPE;
+import static org.gwtproject.event.dom.client.KeyCodes.KEY_ENTER;
+import static org.gwtproject.event.dom.client.KeyCodes.KEY_ESCAPE;
 import static org.kie.workbench.common.widgets.client.resources.i18n.KieWorkbenchWidgetsConstants.SearchBarComponentView_Find;
 
 @Templated

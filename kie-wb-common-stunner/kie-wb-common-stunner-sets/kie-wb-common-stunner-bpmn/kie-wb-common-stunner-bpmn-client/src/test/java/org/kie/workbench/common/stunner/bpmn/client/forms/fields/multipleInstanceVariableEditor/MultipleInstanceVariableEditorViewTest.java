@@ -17,7 +17,7 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.multipleInstanceVariableEditor;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.junit.Test;
 import org.junit.runner.RunWith;

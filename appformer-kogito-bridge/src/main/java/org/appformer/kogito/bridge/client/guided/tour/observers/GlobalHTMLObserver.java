@@ -33,7 +33,7 @@ import org.appformer.kogito.bridge.client.guided.tour.GuidedTourObserver;
 import org.appformer.kogito.bridge.client.guided.tour.service.api.UserInteraction;
 import org.jboss.errai.ioc.client.api.Disposer;
 
-import static com.google.gwt.dom.client.BrowserEvents.CLICK;
+import static org.gwtproject.dom.client.BrowserEvents.CLICK;
 
 public class GlobalHTMLObserver extends GuidedTourObserver<GlobalHTMLObserver> {
 

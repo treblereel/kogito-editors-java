@@ -18,8 +18,8 @@ package org.uberfire.ext.widgets.common.client.tables;
 
 import java.util.List;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.ui.VerticalPanel;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.user.client.ui.VerticalPanel;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.ButtonSize;
 import org.gwtbootstrap3.client.ui.gwt.DataGrid;

@@ -19,7 +19,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gwt.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.IsWidget;
 import org.jboss.errai.common.client.api.Assert;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.FormGroup;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.ValidableFormGroup;

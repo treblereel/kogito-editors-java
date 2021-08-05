@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.util;
 
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.user.client.ui.Widget;
 import org.jboss.errai.common.client.dom.HTMLElement;
 import org.jboss.errai.common.client.ui.ElementWrapperWidget;
 

@@ -14,7 +14,7 @@ import com.ait.lienzo.client.core.types.Point2D;
 import com.ait.lienzo.client.widget.panel.LienzoPanel;
 import com.ait.lienzo.shared.core.types.ArrowType;
 import com.ait.lienzo.shared.core.types.ColorName;
-import com.google.gwt.dom.client.Style.Display;
+import org.gwtproject.dom.client.Style.Display;
 import elemental2.dom.HTMLBRElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLLabelElement;

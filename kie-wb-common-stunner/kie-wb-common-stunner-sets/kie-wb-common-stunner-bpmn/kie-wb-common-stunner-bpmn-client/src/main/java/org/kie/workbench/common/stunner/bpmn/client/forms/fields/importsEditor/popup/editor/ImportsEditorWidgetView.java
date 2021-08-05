@@ -18,8 +18,8 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.
 
 import java.util.List;
 
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.user.client.ui.Widget;
 
 public interface ImportsEditorWidgetView<T> {
 

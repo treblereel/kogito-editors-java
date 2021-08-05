@@ -24,7 +24,7 @@ import java.util.function.Supplier;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import com.google.gwt.i18n.client.DateTimeFormat;
+import org.gwtproject.i18n.client.DateTimeFormat;
 import org.gwtbootstrap3.extras.datetimepicker.client.ui.DateTimePicker;
 import org.gwtbootstrap3.extras.datetimepicker.client.ui.base.constants.DateTimePickerPosition;
 import org.jboss.errai.common.client.dom.Anchor;

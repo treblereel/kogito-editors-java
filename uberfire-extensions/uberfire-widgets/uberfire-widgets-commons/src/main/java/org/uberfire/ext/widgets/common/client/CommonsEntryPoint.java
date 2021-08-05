@@ -17,14 +17,13 @@ package org.uberfire.ext.widgets.common.client;
 
 import javax.annotation.PostConstruct;
 
-import org.jboss.errai.ioc.client.api.EntryPoint;
 import org.uberfire.client.views.pfly.sys.PatternFlyBootstrapper;
 import org.uberfire.ext.widgets.common.client.resources.CommonResources;
 
 /**
  * Bootstrap widgets-commons
  */
-@EntryPoint
+//@EntryPoint
 public class CommonsEntryPoint {
 
     @PostConstruct

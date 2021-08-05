@@ -23,8 +23,8 @@ import java.util.List;
 import javax.enterprise.event.Event;
 import javax.validation.Validator;
 
-import com.google.gwtmockito.GwtMock;
-import com.google.gwtmockito.GwtMockito;
+import org.gwtprojectmockito.GwtMock;
+import org.gwtprojectmockito.GwtMockito;
 import elemental2.dom.HTMLButtonElement;
 import org.gwtbootstrap3.extras.select.client.ui.Option;
 import org.gwtbootstrap3.extras.select.client.ui.Select;

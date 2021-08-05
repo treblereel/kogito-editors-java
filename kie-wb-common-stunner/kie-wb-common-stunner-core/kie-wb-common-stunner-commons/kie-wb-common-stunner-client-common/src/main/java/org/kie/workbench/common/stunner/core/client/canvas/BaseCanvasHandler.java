@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.google.gwt.logging.client.LogConfiguration;
+import org.gwtproject.logging.client.LogConfiguration;
 import org.kie.workbench.common.stunner.core.api.DefinitionManager;
 import org.kie.workbench.common.stunner.core.client.ShapeSet;
 import org.kie.workbench.common.stunner.core.client.api.ShapeManager;

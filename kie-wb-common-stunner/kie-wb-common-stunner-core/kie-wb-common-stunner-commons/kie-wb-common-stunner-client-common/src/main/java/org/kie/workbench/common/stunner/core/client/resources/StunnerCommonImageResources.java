@@ -16,10 +16,10 @@
 
 package org.kie.workbench.common.stunner.core.client.resources;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.resources.client.ClientBundle;
-import com.google.gwt.resources.client.ClientBundleWithLookup;
-import com.google.gwt.resources.client.ImageResource;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.ClientBundleWithLookup;
+import org.gwtproject.resources.client.ImageResource;
 
 public interface StunnerCommonImageResources extends ClientBundleWithLookup {
 

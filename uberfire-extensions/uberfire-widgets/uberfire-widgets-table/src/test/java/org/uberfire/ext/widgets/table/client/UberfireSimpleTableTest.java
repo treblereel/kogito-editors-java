@@ -16,10 +16,10 @@
 
 package org.uberfire.ext.widgets.table.client;
 
-import com.google.gwt.cell.client.TextCell;
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.user.cellview.client.Column;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.cell.client.TextCell;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.user.cellview.client.Column;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

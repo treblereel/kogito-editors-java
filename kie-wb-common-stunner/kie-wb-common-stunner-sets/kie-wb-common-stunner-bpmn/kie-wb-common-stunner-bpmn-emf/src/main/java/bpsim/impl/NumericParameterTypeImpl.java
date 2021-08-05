@@ -6,7 +6,7 @@ import bpsim.BpsimPackage;
 import bpsim.NumericParameterType;
 import bpsim.TimeUnit;
 
-import com.google.gwt.user.client.rpc.GwtTransient;
+import org.gwtproject.user.client.rpc.GwtTransient;
 
 import org.eclipse.emf.common.notify.Notification;
 

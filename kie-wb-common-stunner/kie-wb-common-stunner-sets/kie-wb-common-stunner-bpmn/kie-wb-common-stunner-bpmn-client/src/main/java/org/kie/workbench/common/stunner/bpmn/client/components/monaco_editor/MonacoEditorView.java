@@ -155,7 +155,7 @@ public class MonacoEditorView implements UberElement<MonacoEditorPresenter> {
         presenter.onLanguageChanged(languageSelector.getValue());
     }
 
-    protected com.google.gwt.user.client.Command observeCommand = null;
+    protected org.gwtproject.user.client.Command observeCommand = null;
 
     static Element getParentInDepth(final Element element, int depth) {
         if (null != element && depth > 0) {

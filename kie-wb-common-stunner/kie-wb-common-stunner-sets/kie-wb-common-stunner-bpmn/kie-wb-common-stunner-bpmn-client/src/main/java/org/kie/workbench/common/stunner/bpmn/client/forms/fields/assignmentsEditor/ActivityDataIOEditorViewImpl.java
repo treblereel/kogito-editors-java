@@ -22,8 +22,8 @@ import java.util.Set;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.user.client.Event;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.user.client.Event;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.Column;
 import org.gwtbootstrap3.client.ui.Container;

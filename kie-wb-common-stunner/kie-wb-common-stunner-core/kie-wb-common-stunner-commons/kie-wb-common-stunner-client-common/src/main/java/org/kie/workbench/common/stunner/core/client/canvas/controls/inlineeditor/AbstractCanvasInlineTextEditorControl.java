@@ -18,11 +18,11 @@ package org.kie.workbench.common.stunner.core.client.canvas.controls.inlineedito
 
 import javax.enterprise.event.Observes;
 
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.event.dom.client.MouseWheelEvent;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.touch.client.Point;
-import com.google.gwt.user.client.ui.IsWidget;
+import org.gwtproject.core.client.Scheduler;
+import org.gwtproject.event.dom.client.MouseWheelEvent;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.touch.client.Point;
+import org.gwtproject.user.client.ui.IsWidget;
 import elemental2.dom.DomGlobal;
 import org.jboss.errai.common.client.dom.HTMLElement;
 import org.jboss.errai.common.client.ui.ElementWrapperWidget;

@@ -16,9 +16,9 @@
 
 package org.kie.workbench.common.widgets.client.search.component;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.KeyUpEvent;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.event.dom.client.KeyUpEvent;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import elemental2.dom.DOMTokenList;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
@@ -29,8 +29,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 
-import static com.google.gwt.event.dom.client.KeyCodes.KEY_ENTER;
-import static com.google.gwt.event.dom.client.KeyCodes.KEY_ESCAPE;
+import static org.gwtproject.event.dom.client.KeyCodes.KEY_ENTER;
+import static org.gwtproject.event.dom.client.KeyCodes.KEY_ESCAPE;
 import static org.junit.Assert.assertEquals;
 import static org.kie.workbench.common.widgets.client.resources.i18n.KieWorkbenchWidgetsConstants.SearchBarComponentView_Find;
 import static org.kie.workbench.common.widgets.client.search.component.SearchBarComponentView.HIDDEN;

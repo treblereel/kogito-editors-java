@@ -29,9 +29,9 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.view.client.AbstractDataProvider;
-import com.google.gwt.view.client.AsyncDataProvider;
-import com.google.gwt.view.client.HasData;
+import org.gwtproject.view.client.AbstractDataProvider;
+import org.gwtproject.view.client.AsyncDataProvider;
+import org.gwtproject.view.client.HasData;
 import org.jboss.errai.common.client.api.IsElement;
 import org.jboss.errai.common.client.dom.HTMLElement;
 import org.uberfire.mvp.Command;

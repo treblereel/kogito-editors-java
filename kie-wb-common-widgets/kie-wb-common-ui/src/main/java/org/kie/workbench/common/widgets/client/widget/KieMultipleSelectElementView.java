@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 
-import com.google.gwt.core.client.JsArrayString;
-import com.google.gwt.event.dom.client.ChangeEvent;
+import org.gwtproject.core.client.JsArrayString;
+import org.gwtproject.event.dom.client.ChangeEvent;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLSelectElement;
 import org.jboss.errai.ui.client.local.api.elemental2.IsElement;

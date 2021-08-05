@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.core.client.shape;
 
 import java.lang.annotation.Annotation;
 
-import com.google.gwt.resources.client.ImageResource;
+import org.gwtproject.resources.client.ImageResource;
 import org.jboss.errai.ioc.client.api.ManagedInstance;
 import org.junit.Before;
 import org.junit.Test;

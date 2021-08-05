@@ -25,7 +25,7 @@ import com.ait.lienzo.client.core.shape.IPathClipper;
 import com.ait.lienzo.client.core.shape.MultiPath;
 import com.ait.lienzo.client.core.shape.Text;
 import com.ait.lienzo.client.core.types.BoundingBox;
-import com.google.gwt.core.client.GWT;
+import org.gwtproject.core.client.GWT;
 import org.uberfire.ext.wires.core.grids.client.model.GridCell;
 import org.uberfire.ext.wires.core.grids.client.model.GridColumn;
 import org.uberfire.ext.wires.core.grids.client.model.GridData;

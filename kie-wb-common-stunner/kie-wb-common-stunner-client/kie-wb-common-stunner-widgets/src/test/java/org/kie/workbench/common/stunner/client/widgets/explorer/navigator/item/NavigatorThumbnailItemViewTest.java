@@ -15,10 +15,10 @@
  */
 package org.kie.workbench.common.stunner.client.widgets.explorer.navigator.item;
 
-import com.google.gwt.event.dom.client.LoadEvent;
-import com.google.gwt.event.dom.client.LoadHandler;
-import com.google.gwtmockito.GwtMock;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.event.dom.client.LoadEvent;
+import org.gwtproject.event.dom.client.LoadHandler;
+import org.gwtprojectmockito.GwtMock;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.Image;
 import org.gwtbootstrap3.client.ui.PanelBody;
 import org.junit.Before;

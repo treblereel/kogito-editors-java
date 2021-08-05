@@ -15,8 +15,8 @@
  */
 package org.kie.workbench.common.widgets.client.resources;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.resources.client.ClientBundle;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.resources.client.ClientBundle;
 
 public interface CommonsResources
         extends

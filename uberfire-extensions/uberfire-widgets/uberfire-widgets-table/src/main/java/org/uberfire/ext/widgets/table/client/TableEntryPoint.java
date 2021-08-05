@@ -17,11 +17,10 @@ package org.uberfire.ext.widgets.table.client;
 
 import javax.annotation.PostConstruct;
 
-import org.jboss.errai.ioc.client.api.EntryPoint;
 import org.uberfire.client.views.pfly.sys.PatternFlyBootstrapper;
 import org.uberfire.ext.widgets.table.client.resources.UFTableResources;
 
-@EntryPoint
+//@EntryPoint
 public class TableEntryPoint {
 
     @PostConstruct

@@ -21,12 +21,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.TakesValue;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.view.client.AsyncDataProvider;
-import com.google.gwt.view.client.HasData;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.user.client.TakesValue;
+import org.gwtproject.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.FlowPanel;
+import org.gwtproject.view.client.AsyncDataProvider;
+import org.gwtproject.view.client.HasData;
 import org.jboss.errai.databinding.client.BindableProxy;
 import org.jboss.errai.databinding.client.HasProperties;
 import org.jboss.errai.ui.client.local.spi.TranslationService;

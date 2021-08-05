@@ -22,8 +22,8 @@ import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import com.google.gwt.logging.client.LogConfiguration;
-import com.google.gwt.user.client.Timer;
+import org.gwtproject.logging.client.LogConfiguration;
+import org.gwtproject.user.client.Timer;
 
 @ApplicationScoped
 public class LoadingBox {

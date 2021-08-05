@@ -16,8 +16,8 @@
 
 package org.kie.workbench.common.stunner.client.lienzo.components.mediators;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.jboss.errai.common.client.dom.Anchor;
 import org.jboss.errai.common.client.dom.ListItem;
 import org.jboss.errai.common.client.dom.Span;

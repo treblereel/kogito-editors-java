@@ -17,7 +17,7 @@ package org.kie.workbench.common.kogito.client.editor;
 
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.IsWidget;
 import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.kogito.client.resources.i18n.KogitoClientConstants;
 import org.uberfire.client.views.pfly.multipage.MultiPageEditorImpl;

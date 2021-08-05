@@ -16,8 +16,8 @@
 
 package org.uberfire.ext.widgets.common.client.common;
 
-import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.Composite;
+import org.gwtproject.user.client.Event;
+import org.gwtproject.user.client.ui.Composite;
 
 public abstract class DirtyableComposite extends Composite
         implements

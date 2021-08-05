@@ -19,7 +19,7 @@ package org.kie.workbench.common.stunner.client.widgets.dialog;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.event.dom.client.ClickEvent;
+import org.gwtproject.event.dom.client.ClickEvent;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;

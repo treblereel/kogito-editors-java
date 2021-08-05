@@ -68,6 +68,7 @@
   </repositories>
 
   <modules>
+    <module>compat</module>
     <!-- ERRAI
     <module>errai-bom</module>
     <module>errai-common</module>
@@ -155,7 +156,7 @@
     <!-- For kie-parent and modules in kie-bom, kie-soup-bom, drools-bom, jbpm-bom and kie-dmn-bom -->
     <version.org.kie>8.0.0</version.org.kie>
 
-    <version.com.google.gwt>2.9.0</version.com.google.gwt>
+    <version.org.gwtproject>2.9.0</version.org.gwtproject>
 
     <!-- Properties from ERRAI parent POM -->
     <!-- The version from kie-parent is not compatible with errai-validation -->
@@ -232,6 +233,14 @@
         <groupId>org.gwtproject</groupId>
         <artifactId>gwt-bom</artifactId>
         <version>HEAD-SNAPSHOT</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>io.crysknife</groupId>
+        <artifactId>bom</artifactId>
+        <version>0.3-SNAPSHOT</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -520,6 +529,20 @@
         <version>${project.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>compat</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>javax.enterprise</groupId>
+        <artifactId>cdi-api</artifactId>
+        <version>1.2</version>
+        <scope>provided</scope>
+      </dependency>
+
+
 
       <dependency>
         <groupId>org.slf4j</groupId>
@@ -655,7 +678,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-failsafe-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>3.0.0-M5</version>
           <configuration>
             <includes>
               <!-- Include integration tests from appformer and uberfire -->
@@ -743,7 +766,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>3.0.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>

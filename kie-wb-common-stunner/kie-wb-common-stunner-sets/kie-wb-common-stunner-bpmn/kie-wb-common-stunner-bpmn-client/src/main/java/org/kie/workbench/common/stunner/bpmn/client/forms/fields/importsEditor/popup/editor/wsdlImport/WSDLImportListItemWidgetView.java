@@ -18,8 +18,8 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.
 
 import javax.inject.Inject;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.user.client.ui.Composite;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.user.client.ui.Composite;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.Input;
 import org.gwtbootstrap3.client.ui.constants.IconType;

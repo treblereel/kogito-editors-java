@@ -29,7 +29,7 @@ import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
-import com.google.gwt.logging.client.LogConfiguration;
+import org.gwtproject.logging.client.LogConfiguration;
 import org.jboss.errai.ioc.client.api.ManagedInstance;
 import org.kie.workbench.common.stunner.core.api.DefinitionManager;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvas;

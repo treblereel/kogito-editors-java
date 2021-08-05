@@ -19,10 +19,10 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.cr
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import com.google.gwt.cell.client.CheckboxCell;
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.user.cellview.client.Column;
-import com.google.gwt.user.client.Event;
+import org.gwtproject.cell.client.CheckboxCell;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.user.cellview.client.Column;
+import org.gwtproject.user.client.Event;
 import org.jboss.errai.common.client.dom.Button;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import org.jboss.errai.common.client.dom.Div;

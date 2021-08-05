@@ -18,7 +18,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.cr
 
 import java.util.Date;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.jboss.errai.ioc.client.api.ManagedInstance;
 import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.junit.runner.RunWith;

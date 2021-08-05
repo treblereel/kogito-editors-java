@@ -15,23 +15,31 @@
  */
 package org.uberfire.ext.widgets.common.client.colorpicker.canvas;
 
-import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArrayInteger;
+import org.gwtproject.core.client.JavaScriptObject;
+import org.gwtproject.core.client.JsArrayInteger;
 
 public class ImageData extends JavaScriptObject {
 
     protected ImageData() {
     }
 
-    public final native int getWidth() /*-{
+    public final int getWidth() {
+        throw new Error(getClass().getCanonicalName() + ".getWidth");
+    }/*-{
         return this.width;
     }-*/;
 
-    public final native int getHeight() /*-{
+    public final int getHeight() {
+        throw new Error(getClass().getCanonicalName() + ".getHeight");
+
+    }/*-{
         return this.height;
     }-*/;
 
-    public final native JsArrayInteger getData() /*-{
+    public final JsArrayInteger getData() {
+        throw new Error(getClass().getCanonicalName() + ".getData");
+
+    }/*-{
         return this.data;
     }-*/;
 }

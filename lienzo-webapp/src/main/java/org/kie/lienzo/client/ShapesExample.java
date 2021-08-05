@@ -1,7 +1,7 @@
 package org.kie.lienzo.client;
 
 import com.ait.lienzo.client.widget.panel.LienzoPanel;
-import com.google.gwt.dom.client.Style.Display;
+import org.gwtproject.dom.client.Style.Display;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element.OnclickFn;
 import elemental2.dom.HTMLButtonElement;

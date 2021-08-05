@@ -24,7 +24,7 @@ import com.ait.lienzo.client.core.event.NodeMouseMoveHandler;
 import com.ait.lienzo.client.core.mediator.IMediator;
 import com.ait.lienzo.client.core.shape.Group;
 import com.ait.lienzo.client.core.types.Point2D;
-import com.google.gwt.dom.client.Style;
+import org.gwtproject.dom.client.Style;
 import org.uberfire.ext.wires.core.grids.client.model.GridColumn;
 import org.uberfire.ext.wires.core.grids.client.model.GridData;
 import org.uberfire.ext.wires.core.grids.client.model.GridRow;

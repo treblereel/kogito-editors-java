@@ -29,7 +29,7 @@ import bpsim.UserDistributionDataPointType;
 import bpsim.UserDistributionType;
 import bpsim.WeibullDistributionType;
 
-import com.google.gwt.user.client.rpc.GwtTransient;
+import org.gwtproject.user.client.rpc.GwtTransient;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 

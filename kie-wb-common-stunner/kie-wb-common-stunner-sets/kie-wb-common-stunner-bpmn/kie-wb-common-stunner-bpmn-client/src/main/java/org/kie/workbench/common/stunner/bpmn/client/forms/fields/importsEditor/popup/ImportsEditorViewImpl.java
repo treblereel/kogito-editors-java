@@ -20,7 +20,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import com.google.gwt.dom.client.Style;
+import org.gwtproject.dom.client.Style;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.Column;
 import org.gwtbootstrap3.client.ui.Container;

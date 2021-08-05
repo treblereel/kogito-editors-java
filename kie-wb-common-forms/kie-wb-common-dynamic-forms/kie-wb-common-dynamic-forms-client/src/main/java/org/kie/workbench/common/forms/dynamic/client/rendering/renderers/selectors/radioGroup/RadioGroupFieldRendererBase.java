@@ -18,9 +18,9 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.select
 
 import java.util.Map;
 
-import com.google.gwt.safehtml.shared.SafeHtml;
-import com.google.gwt.safehtml.shared.SafeHtmlUtils;
-import com.google.gwt.user.client.ui.HTML;
+import org.gwtproject.safehtml.shared.SafeHtml;
+import org.gwtproject.safehtml.shared.SafeHtmlUtils;
+import org.gwtproject.user.client.ui.HTML;
 import org.gwtbootstrap3.client.ui.InlineRadio;
 import org.gwtbootstrap3.client.ui.Radio;
 import org.jboss.errai.databinding.client.api.Converter;

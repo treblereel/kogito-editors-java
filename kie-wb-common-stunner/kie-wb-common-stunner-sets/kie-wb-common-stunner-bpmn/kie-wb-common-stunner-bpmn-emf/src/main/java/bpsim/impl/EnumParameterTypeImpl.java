@@ -6,7 +6,7 @@ import bpsim.BpsimPackage;
 import bpsim.EnumParameterType;
 import bpsim.ParameterValue;
 
-import com.google.gwt.user.client.rpc.GwtTransient;
+import org.gwtproject.user.client.rpc.GwtTransient;
 
 import java.util.Collection;
 

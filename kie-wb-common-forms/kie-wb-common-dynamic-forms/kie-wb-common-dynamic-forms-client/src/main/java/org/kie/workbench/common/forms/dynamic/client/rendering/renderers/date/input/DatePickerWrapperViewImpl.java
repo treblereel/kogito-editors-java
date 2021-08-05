@@ -20,11 +20,11 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
-import com.google.gwt.event.logical.shared.ValueChangeHandler;
-import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HasValue;
-import com.google.gwt.user.client.ui.RootPanel;
+import org.gwtproject.event.logical.shared.ValueChangeHandler;
+import org.gwtproject.user.client.Event;
+import org.gwtproject.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.HasValue;
+import org.gwtproject.user.client.ui.RootPanel;
 import org.gwtbootstrap3.extras.datepicker.client.ui.DatePicker;
 import org.gwtbootstrap3.extras.datetimepicker.client.ui.DateTimePicker;
 import org.jboss.errai.common.client.dom.Button;

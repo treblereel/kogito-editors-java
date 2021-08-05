@@ -25,9 +25,9 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.text.shared.Renderer;
-import com.google.gwt.user.client.ui.Composite;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.text.shared.Renderer;
+import org.gwtproject.user.client.ui.Composite;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.gwtbootstrap3.client.ui.ValueListBox;

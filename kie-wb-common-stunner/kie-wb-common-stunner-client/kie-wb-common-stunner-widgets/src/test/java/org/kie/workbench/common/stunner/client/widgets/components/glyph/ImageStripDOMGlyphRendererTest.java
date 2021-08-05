@@ -18,10 +18,10 @@ package org.kie.workbench.common.stunner.client.widgets.components.glyph;
 
 import java.util.function.BiFunction;
 
-import com.google.gwt.resources.client.CssResource;
-import com.google.gwt.resources.client.ImageResource;
-import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.resources.client.CssResource;
+import org.gwtproject.resources.client.ImageResource;
+import org.gwtproject.user.client.ui.FlowPanel;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.jboss.errai.common.client.api.IsElement;
 import org.jboss.errai.ioc.client.api.ManagedInstance;
 import org.junit.Before;

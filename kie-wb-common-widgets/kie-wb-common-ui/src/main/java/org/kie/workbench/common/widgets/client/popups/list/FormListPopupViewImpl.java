@@ -18,12 +18,12 @@ package org.kie.workbench.common.widgets.client.popups.list;
 
 import java.util.List;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.Command;
-import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.uibinder.client.UiBinder;
+import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.user.client.Command;
+import org.gwtproject.user.client.ui.ListBox;
+import org.gwtproject.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.ModalBody;
 import org.kie.workbench.common.widgets.client.resources.i18n.CommonConstants;
 import org.uberfire.commons.Pair;

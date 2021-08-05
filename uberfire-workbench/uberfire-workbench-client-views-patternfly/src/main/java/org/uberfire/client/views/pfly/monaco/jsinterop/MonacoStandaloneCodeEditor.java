@@ -16,8 +16,8 @@
 
 package org.uberfire.client.views.pfly.monaco.jsinterop;
 
-import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.NativeEvent;
+import org.gwtproject.core.client.JavaScriptObject;
+import org.gwtproject.dom.client.NativeEvent;
 import elemental2.core.JsObject;
 import jsinterop.annotations.JsFunction;
 import jsinterop.annotations.JsOverlay;

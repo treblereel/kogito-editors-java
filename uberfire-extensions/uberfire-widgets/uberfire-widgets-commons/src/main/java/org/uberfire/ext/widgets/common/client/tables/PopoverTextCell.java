@@ -17,20 +17,20 @@
 package org.uberfire.ext.widgets.common.client.tables;
 
 import com.google.common.base.Strings;
-import com.google.gwt.cell.client.AbstractSafeHtmlCell;
-import com.google.gwt.cell.client.ValueUpdater;
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.dom.client.DivElement;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.dom.client.NativeEvent;
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.safehtml.shared.SafeHtml;
-import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
-import com.google.gwt.text.shared.SimpleSafeHtmlRenderer;
-import com.google.gwt.user.client.DOM;
+import org.gwtproject.cell.client.AbstractSafeHtmlCell;
+import org.gwtproject.cell.client.ValueUpdater;
+import org.gwtproject.core.client.Scheduler;
+import org.gwtproject.dom.client.DivElement;
+import org.gwtproject.dom.client.Element;
+import org.gwtproject.dom.client.NativeEvent;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.safehtml.shared.SafeHtml;
+import org.gwtproject.safehtml.shared.SafeHtmlBuilder;
+import org.gwtproject.text.shared.SimpleSafeHtmlRenderer;
+import org.gwtproject.user.client.DOM;
 
-import static com.google.gwt.dom.client.BrowserEvents.MOUSEOUT;
-import static com.google.gwt.dom.client.BrowserEvents.MOUSEOVER;
+import static org.gwtproject.dom.client.BrowserEvents.MOUSEOUT;
+import static org.gwtproject.dom.client.BrowserEvents.MOUSEOVER;
 
 /**
  * An extension to the normal TextCell that renders a Bootstrap Popover when text overflows.

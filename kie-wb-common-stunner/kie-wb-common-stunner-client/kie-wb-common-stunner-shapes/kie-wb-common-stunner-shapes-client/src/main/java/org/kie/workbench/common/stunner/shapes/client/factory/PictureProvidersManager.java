@@ -25,7 +25,7 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.safehtml.shared.SafeUri;
+import org.gwtproject.safehtml.shared.SafeUri;
 import org.jboss.errai.ioc.client.api.ManagedInstance;
 import org.kie.workbench.common.stunner.shapes.def.picture.PictureProvider;
 

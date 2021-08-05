@@ -19,7 +19,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.impl.
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

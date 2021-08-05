@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 
 import javax.enterprise.context.Dependent;
 
-import com.google.gwt.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.Composite;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.extras.select.client.ui.Option;

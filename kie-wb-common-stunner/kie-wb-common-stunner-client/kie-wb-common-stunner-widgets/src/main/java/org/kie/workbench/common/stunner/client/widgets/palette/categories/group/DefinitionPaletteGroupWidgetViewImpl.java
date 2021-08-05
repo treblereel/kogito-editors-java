@@ -20,7 +20,7 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.event.dom.client.ClickEvent;
+import org.gwtproject.event.dom.client.ClickEvent;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import org.jboss.errai.common.client.dom.ListItem;
 import org.jboss.errai.ui.client.local.api.IsElement;

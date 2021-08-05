@@ -19,8 +19,8 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.impl;
 import java.util.Collections;
 import java.util.Map;
 
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.user.client.ui.Widget;
 
 import org.jboss.errai.common.client.dom.DOMUtil;
 import org.jboss.errai.ui.client.local.api.IsElement;

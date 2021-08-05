@@ -20,9 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
-import com.google.gwt.event.logical.shared.ValueChangeHandler;
-import com.google.gwtmockito.GwtMock;
-import com.google.gwtmockito.GwtMockito;
+import org.gwtproject.event.logical.shared.ValueChangeHandler;
+import org.gwtprojectmockito.GwtMock;
+import org.gwtprojectmockito.GwtMockito;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLInputElement;
 import org.junit.Assert;

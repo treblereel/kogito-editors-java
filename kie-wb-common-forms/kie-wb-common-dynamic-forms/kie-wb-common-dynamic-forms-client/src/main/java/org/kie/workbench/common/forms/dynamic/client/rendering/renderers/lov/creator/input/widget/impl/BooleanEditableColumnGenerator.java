@@ -22,8 +22,8 @@ import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.cell.client.SelectionCell;
-import com.google.gwt.user.cellview.client.Column;
+import org.gwtproject.cell.client.SelectionCell;
+import org.gwtproject.user.cellview.client.Column;
 import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.CellEditionHandler;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.ColumnFieldUpdater;

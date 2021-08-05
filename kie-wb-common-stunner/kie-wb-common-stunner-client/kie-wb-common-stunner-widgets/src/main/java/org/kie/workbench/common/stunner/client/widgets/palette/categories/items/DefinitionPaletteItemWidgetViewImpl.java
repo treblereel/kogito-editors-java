@@ -20,7 +20,7 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.event.dom.client.MouseDownEvent;
+import org.gwtproject.event.dom.client.MouseDownEvent;
 import org.jboss.errai.common.client.dom.Anchor;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import org.jboss.errai.common.client.dom.Span;

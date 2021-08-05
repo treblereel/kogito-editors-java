@@ -17,18 +17,17 @@ package org.uberfire.ext.widgets.common.client.common;
 
 import java.util.Date;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.editor.client.IsEditor;
-import com.google.gwt.editor.client.LeafValueEditor;
-import com.google.gwt.event.dom.client.BlurHandler;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
-import com.google.gwt.event.logical.shared.ValueChangeHandler;
-import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.i18n.client.LocaleInfo;
-import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.*;
-import com.google.web.bindery.event.shared.HandlerRegistration;
+import org.gwtproject.dom.client.Element;
+import org.gwtproject.editor.client.IsEditor;
+import org.gwtproject.editor.client.LeafValueEditor;
+import org.gwtproject.event.dom.client.BlurHandler;
+import org.gwtproject.event.logical.shared.ValueChangeEvent;
+import org.gwtproject.event.logical.shared.ValueChangeHandler;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.i18n.client.DateTimeFormat;
+import org.gwtproject.i18n.client.LocaleInfo;
+import org.gwtproject.user.client.Event;
+import org.gwtproject.user.client.ui.*;
 import org.gwtbootstrap3.client.shared.event.HideEvent;
 import org.gwtbootstrap3.client.shared.event.HideHandler;
 import org.gwtbootstrap3.client.shared.event.ShowHandler;
@@ -95,7 +94,7 @@ public class DatePicker extends Composite
     }
 
     public DatePicker(final boolean allowEmptyValues) {
-        datePicker = GWT.create(org.gwtbootstrap3.extras.datepicker.client.ui.DatePicker.class);
+        datePicker = new org.gwtbootstrap3.extras.datepicker.client.ui.DatePicker();
         this.allowEmptyValues = allowEmptyValues;
         datePicker.setContainer(RootPanel.get());
 
@@ -432,7 +431,7 @@ public class DatePicker extends Composite
     }-*/;
 
     @Override
-    public com.google.gwt.event.shared.HandlerRegistration addValueChangeHandler(final ValueChangeHandler<Date> handler) {
+    public org.gwtproject.event.shared.HandlerRegistration addValueChangeHandler(final ValueChangeHandler<Date> handler) {
         return datePicker.addValueChangeHandler(handler);
     }
 

@@ -24,8 +24,8 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.logging.client.LogConfiguration;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.logging.client.LogConfiguration;
 import org.kie.workbench.common.stunner.core.api.DefinitionManager;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;
 import org.kie.workbench.common.stunner.core.client.canvas.CanvasHandler;

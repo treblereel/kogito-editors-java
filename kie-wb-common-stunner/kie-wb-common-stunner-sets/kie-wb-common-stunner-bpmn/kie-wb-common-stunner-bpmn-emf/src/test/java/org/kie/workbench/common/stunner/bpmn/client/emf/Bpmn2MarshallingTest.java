@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.emf;
 
-import com.google.gwt.junit.client.GWTTestCase;
+import org.gwtproject.junit.client.GWTTestCase;
 import org.eclipse.bpmn2.DocumentRoot;
 import org.eclipse.bpmn2.FlowElement;
 import org.eclipse.bpmn2.Process;

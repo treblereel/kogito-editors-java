@@ -19,7 +19,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.HTML;
+import org.gwtproject.user.client.ui.HTML;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.jboss.errai.databinding.client.api.Converter;
 import org.kie.workbench.common.forms.adf.rendering.Renderer;

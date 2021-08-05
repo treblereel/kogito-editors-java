@@ -16,7 +16,7 @@
 
 package org.uberfire.client.views.pfly.widgets;
 
-import com.google.gwt.core.client.JavaScriptObject;
+import org.gwtproject.core.client.JavaScriptObject;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 

@@ -18,16 +18,15 @@ package org.uberfire.ext.widgets.common.client.dropdown.footer;
 
 import javax.inject.Inject;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import org.jboss.errai.common.client.dom.Anchor;
+import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLElement;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.Templated;
+import org.gwtproject.event.dom.client.ClickEvent;
 import org.jboss.errai.common.client.dom.DOMUtil;
-import org.jboss.errai.common.client.dom.Div;
-import org.jboss.errai.common.client.dom.HTMLElement;
-import org.jboss.errai.common.client.dom.Span;
-import org.jboss.errai.ui.client.local.api.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 
 @Templated
 public class LiveSearchFooterViewImpl implements LiveSearchFooterView,
@@ -37,27 +36,27 @@ public class LiveSearchFooterViewImpl implements LiveSearchFooterView,
 
     @Inject
     @DataField
-    private Div container;
+    private HTMLDivElement container;
 
     @Inject
     @DataField
-    private Div footer;
+    private HTMLDivElement footer;
 
     @Inject
     @DataField
-    private Anchor newEntryAnchor;
+    private HTMLAnchorElement newEntryAnchor;
 
     @Inject
     @DataField
-    private Span newEntryAnchorLabel;
+    private HTMLElement newEntryAnchorLabel;
 
     @Inject
     @DataField
-    private Anchor resetAnchor;
+    private HTMLAnchorElement resetAnchor;
 
     @Inject
     @DataField
-    private Span resetAnchorLabel;
+    private HTMLElement resetAnchorLabel;
 
     @Override
     public void init(Presenter presenter) {
@@ -66,22 +65,25 @@ public class LiveSearchFooterViewImpl implements LiveSearchFooterView,
 
     @Override
     public void setResetLabel(String resetLabel) {
-        resetAnchorLabel.setTextContent(resetLabel);
+        resetAnchorLabel.textContent = (resetLabel);
     }
 
     @Override
     public void setNewEntryLabel(String newEntryLabel) {
-        newEntryAnchorLabel.setTextContent(newEntryLabel);
+        newEntryAnchorLabel.textContent = (newEntryLabel);
     }
 
     @Override
     public void showReset(boolean show) {
-        resetAnchor.setHidden(!show);
+        throw new Error(getClass().getCanonicalName()+".showReset");
+        //resetAnchor.style.display =  .setHidden(!show);
     }
 
     @Override
     public void showAddNewEntry(boolean show) {
-        newEntryAnchor.setHidden(!show);
+        throw new Error(getClass().getCanonicalName()+".showAddNewEntry");
+
+        //newEntryAnchor.setHidden(!show);
     }
 
     @Override

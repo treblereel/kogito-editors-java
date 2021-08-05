@@ -24,8 +24,8 @@ import java.util.Map;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.constants.ColumnSize;
 import org.jboss.errai.common.client.dom.Document;
 import org.jboss.errai.common.client.dom.HTMLElement;

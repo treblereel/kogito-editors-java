@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.impl;
 
-import com.google.gwt.user.cellview.client.Column;
+import org.gwtproject.user.cellview.client.Column;
 import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.CellEditionHandler;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.EditableColumnGenerator;

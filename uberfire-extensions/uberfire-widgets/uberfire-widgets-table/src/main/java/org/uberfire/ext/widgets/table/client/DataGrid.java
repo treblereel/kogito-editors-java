@@ -16,8 +16,8 @@
 
 package org.uberfire.ext.widgets.table.client;
 
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.view.client.ProvidesKey;
+import org.gwtproject.dom.client.Element;
+import org.gwtproject.view.client.ProvidesKey;
 
 public class DataGrid<T> extends org.gwtbootstrap3.client.ui.gwt.DataGrid<T> {
 

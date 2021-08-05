@@ -16,17 +16,17 @@
 
 package org.uberfire.ext.widgets.common.client.resources;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.resources.client.ClientBundle;
-import com.google.gwt.resources.client.ImageResource;
-import com.google.gwt.resources.client.ImageResource.ImageOptions;
-import com.google.gwt.resources.client.ImageResource.RepeatStyle;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.ImageResource;
+import org.gwtproject.resources.client.ImageResource.ImageOptions;
+import org.gwtproject.resources.client.ImageResource.RepeatStyle;
 
 public interface CommonImages
         extends
         ClientBundle {
 
-    public static final CommonImages INSTANCE = GWT.create(CommonImages.class);
+    public static final CommonImages INSTANCE = new CommonImages_default_InlineClientBundleGenerator();
 
     @Source("images/new_item.gif")
     ImageResource newItem();

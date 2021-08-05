@@ -59,6 +59,30 @@
       <groupId>com.google.jsinterop</groupId>
       <artifactId>jsinterop-annotations</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.gwtproject.widgets</groupId>
+      <artifactId>gwt-widgets</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>io.crysknife</groupId>
+      <artifactId>crysknife-core</artifactId>
+    </dependency>
+
   </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.java</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+  </build>
 
 </project>

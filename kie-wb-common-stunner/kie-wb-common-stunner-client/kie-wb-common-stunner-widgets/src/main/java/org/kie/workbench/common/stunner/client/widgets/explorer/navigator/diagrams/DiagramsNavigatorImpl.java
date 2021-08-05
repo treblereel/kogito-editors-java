@@ -27,8 +27,8 @@ import javax.enterprise.event.Event;
 import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 
-import com.google.gwt.logging.client.LogConfiguration;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.logging.client.LogConfiguration;
+import org.gwtproject.user.client.ui.Widget;
 import org.jboss.errai.ioc.client.api.ManagedInstance;
 import org.kie.workbench.common.stunner.client.widgets.event.LoadDiagramEvent;
 import org.kie.workbench.common.stunner.client.widgets.explorer.navigator.Navigator;

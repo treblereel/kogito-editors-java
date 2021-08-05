@@ -16,8 +16,8 @@
 
 package org.uberfire.ext.widgets.common.client.common;
 
-import com.google.gwt.event.dom.client.ChangeEvent;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.event.dom.client.ChangeEvent;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.Input;
 import org.junit.Test;
 import org.junit.runner.RunWith;

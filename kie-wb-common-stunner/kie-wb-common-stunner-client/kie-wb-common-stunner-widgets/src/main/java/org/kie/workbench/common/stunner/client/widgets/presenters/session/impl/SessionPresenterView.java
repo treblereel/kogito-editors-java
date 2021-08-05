@@ -23,15 +23,15 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.event.dom.client.ContextMenuEvent;
-import com.google.gwt.event.dom.client.ScrollEvent;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
-import com.google.gwt.user.client.Timer;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.Panel;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.event.dom.client.ContextMenuEvent;
+import org.gwtproject.event.dom.client.ScrollEvent;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.safehtml.shared.SafeHtmlBuilder;
+import org.gwtproject.user.client.Timer;
+import org.gwtproject.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.Panel;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 import org.gwtbootstrap3.extras.animate.client.ui.constants.Animation;
@@ -50,8 +50,8 @@ import org.kie.workbench.common.stunner.core.client.canvas.event.selection.Canva
 import org.kie.workbench.common.stunner.core.client.components.palette.PaletteDefinition;
 import org.uberfire.client.workbench.widgets.ResizeFlowPanel;
 
-import static com.google.gwt.dom.client.Style.Display.BLOCK;
-import static com.google.gwt.dom.client.Style.Display.NONE;
+import static org.gwtproject.dom.client.Style.Display.BLOCK;
+import static org.gwtproject.dom.client.Style.Display.NONE;
 import static org.kie.workbench.common.stunner.client.widgets.resources.i18n.StunnerWidgetsConstants.SessionPresenterView_Error;
 import static org.kie.workbench.common.stunner.client.widgets.resources.i18n.StunnerWidgetsConstants.SessionPresenterView_Info;
 import static org.kie.workbench.common.stunner.client.widgets.resources.i18n.StunnerWidgetsConstants.SessionPresenterView_Warning;

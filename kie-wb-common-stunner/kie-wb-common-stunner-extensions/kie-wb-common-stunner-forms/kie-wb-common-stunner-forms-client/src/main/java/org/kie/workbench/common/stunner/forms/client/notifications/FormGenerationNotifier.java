@@ -22,7 +22,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
+import org.gwtproject.safehtml.shared.SafeHtmlBuilder;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.extras.notify.client.ui.Notify;
 import org.kie.workbench.common.stunner.core.client.i18n.ClientTranslationService;

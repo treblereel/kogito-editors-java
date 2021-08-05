@@ -18,18 +18,18 @@ package org.uberfire.ext.widgets.common.client.dropdown.items;
 
 import javax.inject.Inject;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.DomEvent;
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.event.dom.client.KeyDownEvent;
-import org.jboss.errai.common.client.dom.Anchor;
+import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLDListElement;
+import elemental2.dom.HTMLElement;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.Templated;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.event.dom.client.DomEvent;
+import org.gwtproject.event.dom.client.KeyCodes;
+import org.gwtproject.event.dom.client.KeyDownEvent;
 import org.jboss.errai.common.client.dom.DOMUtil;
-import org.jboss.errai.common.client.dom.ListItem;
-import org.jboss.errai.common.client.dom.Span;
-import org.jboss.errai.ui.client.local.api.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 
 @Templated
 public class LiveSearchSelectorDropDownItemViewImpl<TYPE> implements LiveSearchSelectorDropDownItemView<TYPE>,
@@ -40,19 +40,19 @@ public class LiveSearchSelectorDropDownItemViewImpl<TYPE> implements LiveSearchS
 
     @Inject
     @DataField
-    private ListItem item;
+    private HTMLDListElement item;
 
     @Inject
     @DataField
-    private Anchor itemAnchor;
+    private HTMLAnchorElement itemAnchor;
 
     @Inject
     @DataField
-    private Span itemText;
+    private HTMLElement itemText;
 
     @Inject
     @DataField
-    private Span itemIcon;
+    private HTMLElement itemIcon;
 
     private LiveSearchSelectorDropDownItem presenter;
 
@@ -62,7 +62,7 @@ public class LiveSearchSelectorDropDownItemViewImpl<TYPE> implements LiveSearchS
 
     @Override
     public void render(String value) {
-        itemText.setTextContent(value);
+        itemText.textContent = (value);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class LiveSearchSelectorDropDownItemViewImpl<TYPE> implements LiveSearchS
 
     @Override
     public void select() {
-        item.setClassName("appformer-live-search-selector-dditem selected");
+        item.className = ("appformer-live-search-selector-dditem selected");
         if (iconVisible) {
             DOMUtil.removeCSSClass(itemIcon, ICON_HIDDEN_CLASSNAME);
             DOMUtil.addCSSClass(itemIcon, ICON_VISIBLE_CLASSNAME);
@@ -82,7 +82,7 @@ public class LiveSearchSelectorDropDownItemViewImpl<TYPE> implements LiveSearchS
 
     @Override
     public void reset() {
-        item.setClassName("appformer-live-search-selector-dditem");
+        item.className = ("appformer-live-search-selector-dditem");
         DOMUtil.removeCSSClass(itemIcon, ICON_VISIBLE_CLASSNAME);
         DOMUtil.addCSSClass(itemIcon, ICON_HIDDEN_CLASSNAME);
     }

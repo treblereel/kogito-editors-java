@@ -19,7 +19,7 @@ package org.kie.workbench.common.stunner.client.lienzo.components.mediators;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
-import com.google.gwt.event.dom.client.ClickEvent;
+import org.gwtproject.event.dom.client.ClickEvent;
 import org.jboss.errai.common.client.dom.Anchor;
 import org.jboss.errai.common.client.dom.ListItem;
 import org.jboss.errai.common.client.dom.Span;

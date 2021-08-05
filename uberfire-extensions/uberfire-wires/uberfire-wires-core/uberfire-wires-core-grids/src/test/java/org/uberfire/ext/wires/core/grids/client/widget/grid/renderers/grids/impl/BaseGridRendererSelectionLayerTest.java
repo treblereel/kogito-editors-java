@@ -22,7 +22,7 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
-import com.google.gwtmockito.WithClassesToStub;
+import org.gwtprojectmockito.WithClassesToStub;
 import org.gwtbootstrap3.client.ui.html.Text;
 import org.junit.Test;
 import org.junit.runner.RunWith;

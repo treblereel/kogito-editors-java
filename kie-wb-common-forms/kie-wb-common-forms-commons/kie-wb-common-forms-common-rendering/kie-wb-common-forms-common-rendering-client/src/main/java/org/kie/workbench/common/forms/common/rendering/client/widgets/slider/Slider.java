@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.forms.common.rendering.client.widgets.slider;
 
-import com.google.gwt.dom.client.Element;
+import org.gwtproject.dom.client.Element;
 import org.gwtbootstrap3.extras.slider.client.ui.base.constants.HandleType;
 
 /*

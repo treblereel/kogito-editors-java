@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.marshall.converters.fromstunner.properties;
 
-import com.google.gwt.safehtml.shared.SafeHtmlUtils;
+import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.eclipse.bpmn2.TextAnnotation;
 import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.customproperties.CustomElement;
 

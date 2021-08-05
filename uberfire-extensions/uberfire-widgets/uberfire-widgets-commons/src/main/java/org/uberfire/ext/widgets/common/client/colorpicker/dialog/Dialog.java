@@ -18,14 +18,14 @@ package org.uberfire.ext.widgets.common.client.colorpicker.dialog;
 import java.util.Arrays;
 import java.util.List;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.DialogBox;
-import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.event.dom.client.ClickHandler;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.user.client.ui.Button;
+import org.gwtproject.user.client.ui.DialogBox;
+import org.gwtproject.user.client.ui.FlowPanel;
+import org.gwtproject.user.client.ui.VerticalPanel;
+import org.gwtproject.user.client.ui.Widget;
 import org.uberfire.ext.widgets.common.client.resources.i18n.CommonConstants;
 
 public abstract class Dialog extends DialogBox {

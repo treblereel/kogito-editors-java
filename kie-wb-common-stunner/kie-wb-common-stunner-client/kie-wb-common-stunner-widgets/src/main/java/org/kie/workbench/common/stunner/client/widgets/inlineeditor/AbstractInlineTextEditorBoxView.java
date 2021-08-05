@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.client.widgets.inlineeditor;
 
 import javax.inject.Inject;
 
-import com.google.gwt.core.client.Scheduler;
+import org.gwtproject.core.client.Scheduler;
 import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.ui.client.local.api.IsElement;
 import org.jboss.errai.ui.client.local.spi.TranslationService;

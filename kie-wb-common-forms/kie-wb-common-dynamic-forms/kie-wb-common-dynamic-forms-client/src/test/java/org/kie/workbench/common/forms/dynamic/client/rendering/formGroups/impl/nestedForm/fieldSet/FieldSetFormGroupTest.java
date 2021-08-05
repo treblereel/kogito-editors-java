@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.impl.nestedForm.fieldSet;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.junit.runner.RunWith;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.impl.AbstractFormGroupTest;
 
