@@ -20,7 +20,7 @@ import com.ait.lienzo.client.core.event.AbstractNodeHumanInputEvent;
 import com.ait.lienzo.client.core.shape.Node;
 import com.ait.lienzo.client.core.shape.Shape;
 import com.ait.lienzo.tools.client.event.HandlerRegistration;
-import org.gwtproject.user.client.Timer;
+import org.gwtproject.timer.client.Timer;
 import elemental2.core.JsArray;
 import elemental2.core.JsIteratorIterable;
 import elemental2.core.JsMap;

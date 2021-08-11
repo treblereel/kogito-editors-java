@@ -16,11 +16,8 @@
 
 package org.kie.workbench.common.forms.processing.engine.handling;
 
-import org.jboss.errai.ioc.client.api.EntryPoint;
-import org.jboss.errai.ui.shared.api.annotations.Bundle;
-
-@EntryPoint
-@Bundle("resources/i18n/ProcessingEngineConstants.properties")
+//@EntryPoint
+//@Bundle("resources/i18n/ProcessingEngineConstants.properties")
 public class ProcessingEngineEntryPoint {
 
 }

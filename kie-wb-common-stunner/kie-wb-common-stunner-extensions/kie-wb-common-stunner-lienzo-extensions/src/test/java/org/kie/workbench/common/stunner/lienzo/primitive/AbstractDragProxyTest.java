@@ -23,7 +23,7 @@ import org.gwtproject.event.dom.client.MouseMoveEvent;
 import org.gwtproject.event.dom.client.MouseMoveHandler;
 import org.gwtproject.event.dom.client.MouseUpEvent;
 import org.gwtproject.event.dom.client.MouseUpHandler;
-import org.gwtproject.user.client.Timer;
+import org.gwtproject.timer.client.Timer;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

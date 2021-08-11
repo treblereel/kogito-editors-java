@@ -20,13 +20,13 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.HTMLButtonElement;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.event.dom.client.MouseDownEvent;
-import org.jboss.errai.common.client.dom.Button;
 import org.jboss.errai.common.client.dom.DOMUtil;
-import org.jboss.errai.ui.client.local.api.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.client.widgets.components.glyph.DOMGlyphRenderers;
 import org.kie.workbench.common.stunner.core.definition.shape.Glyph;
 import org.kie.workbench.common.stunner.core.util.StringUtils;
@@ -37,7 +37,7 @@ public class CollapsedDefinitionPaletteItemWidgetViewImpl implements CollapsedDe
                                                                      IsElement {
 
     @DataField
-    private Button icon;
+    private HTMLButtonElement icon;
 
     private DOMGlyphRenderers domGlyphRenderers;
 
@@ -48,7 +48,7 @@ public class CollapsedDefinitionPaletteItemWidgetViewImpl implements CollapsedDe
     }
 
     @Inject
-    public CollapsedDefinitionPaletteItemWidgetViewImpl(final Button icon,
+    public CollapsedDefinitionPaletteItemWidgetViewImpl(final HTMLButtonElement icon,
                                                         final DOMGlyphRenderers domGlyphRenderers) {
         this.icon = icon;
         this.domGlyphRenderers = domGlyphRenderers;
@@ -63,14 +63,14 @@ public class CollapsedDefinitionPaletteItemWidgetViewImpl implements CollapsedDe
     public void render(final Glyph glyph,
                        final double width,
                        final double height) {
-        final org.jboss.errai.common.client.api.IsElement glyphElement = domGlyphRenderers.render(glyph, width, height);
+        final IsElement glyphElement = domGlyphRenderers.render(glyph, width, height);
         icon.appendChild(glyphElement.getElement());
 
         final String tooltip = presenter.getItem().getTooltip();
         if (!StringUtils.isEmpty(tooltip)) {
-            icon.setTitle(tooltip);
+            icon.title = (tooltip);
         } else {
-            icon.setTitle("");
+            icon.title = ("");
         }
     }
 

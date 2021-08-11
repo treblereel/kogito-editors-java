@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.comboBoxEditor
 
 import javax.annotation.PostConstruct;
 
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.comboBoxEditor.annotation.FixedValues;
 import org.kie.workbench.common.stunner.bpmn.client.forms.util.ListBoxValues;
 

@@ -20,10 +20,9 @@ import java.lang.annotation.Annotation;
 
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.core.client.session.impl.InstanceUtils;
 import org.kie.workbench.common.stunner.core.diagram.Metadata;
 import org.kie.workbench.common.stunner.core.preferences.StunnerPreferences;
@@ -40,7 +39,7 @@ public class StunnerPreferencesRegistryLoader {
 
     @Inject
     public StunnerPreferencesRegistryLoader(final DefinitionUtils definitionUtils,
-                                            final @Any ManagedInstance<StunnerPreferencesRegistryHolder> preferencesHolders,
+                                            final ManagedInstance<StunnerPreferencesRegistryHolder> preferencesHolders,
                                             final StunnerPreferences preferences,
                                             final StunnerTextPreferences textPreferences) {
         this.definitionUtils = definitionUtils;

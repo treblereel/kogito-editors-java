@@ -20,11 +20,9 @@ import javax.annotation.PostConstruct;
 
 import org.gwtproject.core.client.ScriptInjector;
 import org.gwtbootstrap3.extras.typeahead.client.TypeaheadClientBundle;
-import org.jboss.errai.ioc.client.api.EntryPoint;
-import org.jboss.errai.ui.shared.api.annotations.Bundle;
 
-@EntryPoint
-@Bundle("resources/i18n/FormWidgetsConstants.properties")
+//@EntryPoint
+//@Bundle("resources/i18n/FormWidgetsConstants.properties")
 public class FormWidgetsEntryPoint {
 
     @PostConstruct

@@ -20,12 +20,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import elemental2.dom.HTMLDivElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.HasValue;
 import org.jboss.errai.common.client.dom.DOMUtil;
-import org.jboss.errai.common.client.dom.Div;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 
 @Templated
 public class MultipleInputViewImpl<TYPE> extends Composite implements MultipleInputView<TYPE> {
@@ -34,7 +34,7 @@ public class MultipleInputViewImpl<TYPE> extends Composite implements MultipleIn
 
     @Inject
     @DataField
-    private Div container;
+    private HTMLDivElement container;
 
     @Override
     public void init(Presenter<TYPE> presenter) {

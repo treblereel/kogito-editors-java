@@ -29,6 +29,7 @@ import elemental2.dom.Node;
 import elemental2.dom.NodeList;
 import jsinterop.base.Js;
 import org.gwtproject.dom.client.Style;
+import org.gwtproject.dom.style.shared.HasCssName;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.RootPanel;
 import org.gwtproject.user.client.ui.Widget;
@@ -420,6 +421,14 @@ public abstract class DOMUtil {
      */
     public static <E extends Style.HasCssName> void addEnumStyleName(final HTMLElement element,
                                                                      final E style) {
+        if (style != null && style.getCssName() != null && !style.getCssName().isEmpty()) {
+            addCSSClass(element,
+                        style.getCssName());
+        }
+    }
+
+    public static <E extends HasCssName> void addEnumStyleName(final HTMLElement element,
+                                                               final E style) {
         if (style != null && style.getCssName() != null && !style.getCssName().isEmpty()) {
             addCSSClass(element,
                         style.getCssName());

@@ -22,10 +22,6 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import org.jboss.errai.ioc.client.container.IOC;
-import org.jboss.errai.ioc.client.container.SyncBeanDef;
-import org.jboss.errai.ioc.client.container.SyncBeanManager;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.AbstractFormGenerator;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.I18nHelper;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.layout.LayoutGenerator;
@@ -36,17 +32,20 @@ import org.kie.workbench.common.forms.adf.service.definitions.I18nSettings;
 @ApplicationScoped
 public class ClientFormGenerator extends AbstractFormGenerator {
 
-    protected TranslationService translationService;
+    //protected TranslationService translationService;
 
     @Inject
-    public ClientFormGenerator(LayoutGenerator layoutGenerator,
-                               TranslationService translationService) {
+    public ClientFormGenerator(LayoutGenerator layoutGenerator
+                               //TranslationService translationService
+    ) {
         super(layoutGenerator);
-        this.translationService = translationService;
+        //this.translationService = translationService;
     }
 
     @PostConstruct
     public void initialize() {
+        throw new Error(getClass().getCanonicalName()+".initialize");
+/*
         SyncBeanManager beanManager = IOC.getBeanManager();
 
         Collection<SyncBeanDef<FormElementProcessor>> processors = beanManager.lookupBeans(FormElementProcessor.class);
@@ -65,12 +64,14 @@ public class ClientFormGenerator extends AbstractFormGenerator {
                 .forEach(provider -> {
                     registerResources(provider);
                     beanManager.destroyBean(provider);
-                });
+                });*/
     }
 
     @Override
     protected I18nHelper getI18nHelper(I18nSettings settings) {
+        throw new Error(getClass().getCanonicalName()+".getI18nHelper");
+/*
         return new ClientI18nHelper(settings,
-                                    translationService);
+                                    translationService);*/
     }
 }

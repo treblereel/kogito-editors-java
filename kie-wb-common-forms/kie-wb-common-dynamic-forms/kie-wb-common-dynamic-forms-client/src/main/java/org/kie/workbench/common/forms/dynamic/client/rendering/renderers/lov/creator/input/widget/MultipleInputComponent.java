@@ -29,11 +29,11 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.HTMLElement;
+import io.crysknife.client.IsElement;
 import org.gwtproject.view.client.AbstractDataProvider;
 import org.gwtproject.view.client.AsyncDataProvider;
 import org.gwtproject.view.client.HasData;
-import org.jboss.errai.common.client.api.IsElement;
-import org.jboss.errai.common.client.dom.HTMLElement;
 import org.uberfire.mvp.Command;
 
 import static org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.MultipleInputComponent.Action.ADD;

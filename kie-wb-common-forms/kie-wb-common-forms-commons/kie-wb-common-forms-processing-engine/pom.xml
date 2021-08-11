@@ -20,6 +20,10 @@
 
   <dependencies>
 
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>compat</artifactId>
+    </dependency>
   </dependencies>
     <!-- Tests -->
 <!--    <dependency>

@@ -26,7 +26,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.ManagedInstance;
 
 @ApplicationScoped
 public class ImageStripRegistry {
@@ -52,11 +52,14 @@ public class ImageStripRegistry {
     }
 
     public ImageStrip get(final Class<? extends ImageStrip> stripType) {
-        final ManagedInstance<? extends ImageStrip> i = stripInstances.select(stripType);
+        throw new Error(getClass().getCanonicalName()+".get" + stripType);
+
+
+/*        final ManagedInstance<? extends ImageStrip> i = stripInstances.select(stripType);
         if (!i.isUnsatisfied() && !i.isAmbiguous()) {
             return i.get();
         }
-        return null;
+        return null;*/
     }
 
     public ImageStrip[] get(final Annotation... qualifiers) {

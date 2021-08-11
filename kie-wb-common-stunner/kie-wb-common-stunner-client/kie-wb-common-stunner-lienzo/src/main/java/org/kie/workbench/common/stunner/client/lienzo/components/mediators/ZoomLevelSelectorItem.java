@@ -18,15 +18,16 @@ package org.kie.workbench.common.stunner.client.lienzo.components.mediators;
 
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
+import javax.inject.Named;
 
+import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLLIElement;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.event.dom.client.ClickEvent;
-import org.jboss.errai.common.client.dom.Anchor;
-import org.jboss.errai.common.client.dom.ListItem;
-import org.jboss.errai.common.client.dom.Span;
-import org.jboss.errai.ui.client.local.api.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.uberfire.mvp.Command;
 
 @Templated
@@ -37,20 +38,21 @@ public class ZoomLevelSelectorItem implements IsElement {
 
     @Inject
     @DataField
-    ListItem levelItem;
+    HTMLLIElement levelItem;
 
     @Inject
     @DataField
-    Anchor levelItemAnchor;
+    HTMLAnchorElement levelItemAnchor;
 
     @Inject
     @DataField
-    Span levelItemText;
+    @Named("span")
+    HTMLElement levelItemText;
 
     private Command onClick;
 
     public ZoomLevelSelectorItem setText(final String value) {
-        levelItemText.setTextContent(value);
+        levelItemText.textContent = (value);
         return this;
     }
 
@@ -60,11 +62,11 @@ public class ZoomLevelSelectorItem implements IsElement {
     }
 
     public void select() {
-        levelItem.setClassName(ITEM_CLASS_NAME + " " + ITEM_SELECTED);
+        levelItem.className = (ITEM_CLASS_NAME + " " + ITEM_SELECTED);
     }
 
     public void reset() {
-        levelItem.setClassName(ITEM_CLASS_NAME);
+        levelItem.className = (ITEM_CLASS_NAME);
     }
 
     @EventHandler("levelItemAnchor")

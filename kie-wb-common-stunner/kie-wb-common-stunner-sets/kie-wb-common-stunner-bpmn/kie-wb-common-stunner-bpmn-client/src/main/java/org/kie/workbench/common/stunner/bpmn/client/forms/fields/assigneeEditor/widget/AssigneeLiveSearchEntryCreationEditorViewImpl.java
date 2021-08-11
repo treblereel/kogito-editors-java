@@ -25,10 +25,10 @@ import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.common.client.dom.Label;
 import org.jboss.errai.common.client.dom.Span;
 import org.jboss.errai.common.client.dom.TextInput;
-import org.jboss.errai.ui.client.local.api.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
 import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.uberfire.client.views.pfly.widgets.ValidationState;
 
 @Templated

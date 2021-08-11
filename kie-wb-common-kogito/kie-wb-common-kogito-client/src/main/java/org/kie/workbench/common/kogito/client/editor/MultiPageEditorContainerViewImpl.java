@@ -18,7 +18,6 @@ package org.kie.workbench.common.kogito.client.editor;
 import javax.inject.Inject;
 
 import org.gwtproject.user.client.ui.IsWidget;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.kogito.client.resources.i18n.KogitoClientConstants;
 import org.uberfire.client.views.pfly.multipage.MultiPageEditorImpl;
 import org.uberfire.client.views.pfly.multipage.PageImpl;
@@ -28,17 +27,17 @@ public class MultiPageEditorContainerViewImpl
         extends MultiPageEditorImpl
         implements MultiPageEditorContainerView {
 
-    private TranslationService translationService;
+    //private TranslationService translationService;
     private Presenter presenter;
 
     public MultiPageEditorContainerViewImpl() {
         //CDI proxy
     }
 
-    @Inject
+/*    @Inject
     public MultiPageEditorContainerViewImpl(final TranslationService translationService) {
         this.translationService = translationService;
-    }
+    }*/
 
     @Override
     public void init(final Presenter presenter) {
@@ -47,8 +46,8 @@ public class MultiPageEditorContainerViewImpl
 
     @Override
     public void setEditorWidget(final IsWidget editorView) {
-        addPage(new PageImpl(editorView,
-                             translationService.format(KogitoClientConstants.KieEditorWrapperView_EditTabTitle)) {
+        addPage(new PageImpl(editorView,"EditTabTitle"){
+                             //translationService.format(KogitoClientConstants.KieEditorWrapperView_EditTabTitle)) {
             @Override
             public void onFocus() {
 

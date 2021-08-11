@@ -22,18 +22,20 @@ import java.util.Map;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
+import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLInputElement;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.Templated;
+import jsinterop.base.Js;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.user.client.ui.SimplePanel;
 import org.gwtproject.user.client.ui.Widget;
-import org.jboss.errai.common.client.dom.Anchor;
 import org.jboss.errai.common.client.dom.DOMUtil;
-import org.jboss.errai.common.client.dom.Div;
-import org.jboss.errai.common.client.dom.Span;
-import org.jboss.errai.ui.client.local.api.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.labels.help.FieldHelp;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.labels.required.FieldRequired;
 import org.kie.workbench.common.forms.dynamic.client.rendering.util.FormsElementWrapperWidgetUtil;
@@ -53,26 +55,26 @@ public class CollapsibleFormGroupViewImpl implements IsElement,
 
     @Inject
     @DataField
-    private Anchor anchor;
+    private HTMLAnchorElement anchor;
 
     @Inject
     @DataField
-    private Span anchorText;
+    private HTMLElement anchorText;
 
     @Inject
     @DataField
-    private Div panel;
+    private HTMLDivElement panel;
 
     @DataField
     private SimplePanel container = new SimplePanel();
 
     @Inject
     @DataField
-    private Div formGroup;
+    private HTMLDivElement formGroup;
 
     @Inject
     @DataField
-    private Div helpBlock;
+    private HTMLDivElement helpBlock;
 
     @Inject
     private FormsElementWrapperWidgetUtil wrapperWidgetUtil;
@@ -92,10 +94,10 @@ public class CollapsibleFormGroupViewImpl implements IsElement,
 
         String id = Document.get().createUniqueId();
         anchor.setAttribute("data-target", "#" + id);
-        panel.setId(id);
+        panel.id = (id);
 
-        formGroup.setHidden(true);
-        anchorText.setTextContent(field.getLabel());
+        formGroup.hidden = (true);
+        anchorText.textContent = (field.getLabel());
 
         if (field.getRequired()) {
             anchor.appendChild(fieldRequired.getElement());
@@ -115,7 +117,8 @@ public class CollapsibleFormGroupViewImpl implements IsElement,
 
     @Override
     public void click() {
-        anchor.click();
+        Js.<HTMLInputElement>uncheckedCast(anchor).click();
+        //anchor.click();
     }
 
     @Override

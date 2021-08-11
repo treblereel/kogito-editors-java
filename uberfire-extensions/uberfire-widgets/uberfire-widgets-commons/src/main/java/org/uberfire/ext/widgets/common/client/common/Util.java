@@ -19,9 +19,9 @@ package org.uberfire.ext.widgets.common.client.common;
 import org.gwtproject.resources.client.ImageResource;
 import org.gwtproject.safehtml.shared.SafeHtml;
 import org.gwtproject.safehtml.shared.SafeHtmlBuilder;
-import org.gwtproject.user.client.Window;
 import org.gwtproject.user.client.ui.AbstractImagePrototype;
 import org.gwtproject.user.client.ui.HTML;
+import org.gwtproject.user.window.client.Window;
 
 public class Util {
 

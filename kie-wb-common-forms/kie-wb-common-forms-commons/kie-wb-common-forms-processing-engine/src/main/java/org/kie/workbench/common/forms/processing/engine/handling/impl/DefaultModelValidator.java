@@ -27,8 +27,8 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Path;
 import javax.validation.Validator;
 
+import io.crysknife.ui.databinding.client.BindableProxy;
 import org.gwtproject.core.client.GWT;
-import org.jboss.errai.databinding.client.BindableProxy;
 import org.kie.workbench.common.forms.processing.engine.handling.FormField;
 import org.kie.workbench.common.forms.processing.engine.handling.ModelValidator;
 

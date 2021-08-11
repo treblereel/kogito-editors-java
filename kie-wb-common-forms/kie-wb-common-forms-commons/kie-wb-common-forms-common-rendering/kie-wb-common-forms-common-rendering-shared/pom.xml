@@ -25,6 +25,10 @@
     </dependency>-->
 
 
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>compat</artifactId>
+    </dependency>
   </dependencies>
 
 </project>

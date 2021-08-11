@@ -48,6 +48,10 @@
       <artifactId>jsinterop-annotations</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.gwtproject.typedarrays</groupId>
+      <artifactId>gwt-typedarrays</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-commons-editor-api</artifactId>
     </dependency>

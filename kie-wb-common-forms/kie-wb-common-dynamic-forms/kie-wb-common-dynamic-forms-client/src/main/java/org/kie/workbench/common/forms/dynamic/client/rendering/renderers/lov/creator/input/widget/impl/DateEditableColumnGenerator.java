@@ -22,11 +22,10 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.client.ManagedInstance;
 import org.gwtproject.cell.client.TextCell;
 import org.gwtproject.i18n.client.DateTimeFormat;
 import org.gwtproject.user.cellview.client.Column;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.CellEditionHandler;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.ColumnFieldUpdater;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.TableEntry;
@@ -40,8 +39,8 @@ public class DateEditableColumnGenerator extends AbstractEditableColumnGenerator
     private ManagedInstance<DateTimePickerCell> dateTimePickerCells;
 
     @Inject
-    public DateEditableColumnGenerator(TranslationService translationService, ManagedInstance<DateTimePickerCell> dateTimePickerCells) {
-        super(translationService);
+    public DateEditableColumnGenerator(/*TranslationService translationService, */ManagedInstance<DateTimePickerCell> dateTimePickerCells) {
+        //super(translationService);
         this.dateTimePickerCells = dateTimePickerCells;
     }
 

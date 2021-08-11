@@ -19,9 +19,9 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.label
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.HTMLElement;
+import io.crysknife.client.IsElement;
 import org.gwtproject.user.client.ui.IsWidget;
-import org.jboss.errai.common.client.api.IsElement;
-import org.jboss.errai.common.client.dom.HTMLElement;
 import org.kie.soup.commons.validation.PortablePreconditions;
 import org.kie.workbench.common.forms.model.FieldDefinition;
 

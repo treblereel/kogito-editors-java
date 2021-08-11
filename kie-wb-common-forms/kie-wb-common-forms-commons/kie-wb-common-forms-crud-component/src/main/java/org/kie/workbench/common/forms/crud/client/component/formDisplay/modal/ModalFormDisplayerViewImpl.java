@@ -20,6 +20,8 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.event.dom.client.ClickHandler;
 import org.gwtproject.user.client.ui.Composite;
@@ -33,9 +35,6 @@ import org.gwtbootstrap3.client.ui.ModalFooter;
 import org.gwtbootstrap3.client.ui.ModalSize;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
 import org.gwtbootstrap3.client.ui.constants.ModalBackdrop;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 import org.kie.workbench.common.forms.crud.client.component.formDisplay.IsFormView;
 import org.kie.workbench.common.forms.crud.client.resources.i18n.CrudComponentConstants;
 
@@ -56,11 +55,11 @@ public class ModalFormDisplayerViewImpl extends Composite implements ModalFormDi
 
     private ModalBody modalBody;
 
-    private TranslationService translationService;
+    //private TranslationService translationService;
 
     @Inject
-    public ModalFormDisplayerViewImpl(TranslationService translationService) {
-        this.translationService = translationService;
+    public ModalFormDisplayerViewImpl(/*TranslationService translationService*/) {
+        //this.translationService = translationService;
     }
 
     @PostConstruct
@@ -82,11 +81,11 @@ public class ModalFormDisplayerViewImpl extends Composite implements ModalFormDi
 
         modal.add(modalBody);
 
-        submit = new Button(translationService.getTranslation(CrudComponentConstants.ModalFormDisplayerViewImplAccept));
+        submit = new Button("accept");
 
         submit.setType(ButtonType.PRIMARY);
 
-        cancel = new Button(translationService.getTranslation(CrudComponentConstants.ModalFormDisplayerViewImplCancel));
+        cancel = new Button("cancel");
 
         modal.add(new ModalFooter() {{
             add(submit);

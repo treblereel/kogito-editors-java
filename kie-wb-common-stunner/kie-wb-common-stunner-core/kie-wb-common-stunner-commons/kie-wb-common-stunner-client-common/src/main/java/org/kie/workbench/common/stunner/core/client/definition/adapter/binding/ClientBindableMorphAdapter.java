@@ -22,9 +22,8 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import org.jboss.errai.databinding.client.api.DataBinder;
-import org.jboss.errai.ioc.client.container.SyncBeanDef;
-import org.jboss.errai.ioc.client.container.SyncBeanManager;
+import io.crysknife.client.BeanManager;
+import io.crysknife.ui.databinding.client.api.DataBinder;
 import org.kie.workbench.common.stunner.core.api.FactoryManager;
 import org.kie.workbench.common.stunner.core.definition.adapter.BindableMorphAdapter;
 import org.kie.workbench.common.stunner.core.definition.clone.CloneManager;
@@ -34,10 +33,10 @@ import org.kie.workbench.common.stunner.core.util.DefinitionUtils;
 @Dependent
 public class ClientBindableMorphAdapter<S> extends BindableMorphAdapter<S> {
 
-    private final SyncBeanManager beanManager;
+    private final BeanManager beanManager;
 
     @Inject
-    public ClientBindableMorphAdapter(final SyncBeanManager beanManager,
+    public ClientBindableMorphAdapter(final BeanManager beanManager,
                                       final FactoryManager factoryManager,
                                       final DefinitionUtils definitionUtils,
                                       final CloneManager cloneManager) {
@@ -51,11 +50,12 @@ public class ClientBindableMorphAdapter<S> extends BindableMorphAdapter<S> {
     @SuppressWarnings("unchecked")
     public void init() {
         // Morph definitions.
-        Collection<SyncBeanDef<MorphDefinitionProvider>> beanMorphAdapters = beanManager.lookupBeans(MorphDefinitionProvider.class);
+        throw new Error(getClass().getCanonicalName()+".init");
+/*        Collection<SyncBeanDef<MorphDefinitionProvider>> beanMorphAdapters = beanManager.lookupBeans(MorphDefinitionProvider.class);
         for (SyncBeanDef<MorphDefinitionProvider> morphAdapter : beanMorphAdapters) {
             MorphDefinitionProvider provider = morphAdapter.getInstance();
             morphDefinitions.addAll(provider.getMorphDefinitions());
-        }
+        }*/
     }
 
     @Override

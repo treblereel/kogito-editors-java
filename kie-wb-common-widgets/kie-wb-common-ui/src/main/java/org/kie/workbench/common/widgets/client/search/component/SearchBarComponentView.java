@@ -26,9 +26,9 @@ import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import org.jboss.errai.ui.client.local.spi.TranslationService;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
+import io.crysknife.ui.templates.client.annotation.DataField;
 import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.Templated;
 
 import static org.gwtproject.event.dom.client.KeyCodes.KEY_ENTER;
 import static org.gwtproject.event.dom.client.KeyCodes.KEY_ESCAPE;

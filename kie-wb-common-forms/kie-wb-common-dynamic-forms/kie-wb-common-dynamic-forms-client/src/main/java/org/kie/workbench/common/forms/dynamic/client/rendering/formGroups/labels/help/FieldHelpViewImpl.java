@@ -18,14 +18,16 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.label
 
 import javax.inject.Inject;
 
-import org.jboss.errai.common.client.dom.Anchor;
-import org.jboss.errai.ui.client.local.api.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
+import jsinterop.base.Js;
+import org.gwtbootstrap3.client.ui.Anchor;
 import org.uberfire.client.views.pfly.widgets.JQueryProducer;
 import org.uberfire.client.views.pfly.widgets.Popover;
 
 @Templated
+@Deprecated
 public class FieldHelpViewImpl implements IsElement,
                                           FieldHelpView {
 
@@ -40,10 +42,10 @@ public class FieldHelpViewImpl implements IsElement,
 
     @Override
     public void showHelpMessage(String helpMessage) {
-        this.helpMessage.setAttribute("data-content",
+        this.helpMessage.getElement().setAttribute("data-content",
                                       helpMessage);
 
-        jQueryPopover.wrap(this.helpMessage).popover();
+        jQueryPopover.wrap(Js.uncheckedCast(this.helpMessage.getElement())).popover();
     }
 
     @Override

@@ -19,6 +19,7 @@ package org.kie.workbench.common.stunner.core.client.canvas;
 import javax.annotation.PostConstruct;
 
 import org.gwtproject.dom.client.Style;
+import org.gwtproject.dom.style.shared.Cursor;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.ProvidesResize;
 import org.gwtproject.user.client.ui.RequiresResize;
@@ -96,7 +97,7 @@ public abstract class AbstractCanvasView<V extends AbstractCanvasView>
         canvasPanel = null;
     }
 
-    public static Style.Cursor toViewCursor(final AbstractCanvas.Cursors cursor) {
+    public static Cursor toViewCursor(final AbstractCanvas.Cursors cursor) {
         switch (cursor) {
             case DEFAULT:
                 return Style.Cursor.DEFAULT;

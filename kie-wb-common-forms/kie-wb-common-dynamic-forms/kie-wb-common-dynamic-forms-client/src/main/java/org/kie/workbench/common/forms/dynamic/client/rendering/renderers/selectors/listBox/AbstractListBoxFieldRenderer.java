@@ -21,10 +21,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import io.crysknife.ui.databinding.client.api.Converter;
 import org.gwtproject.user.client.ui.HTML;
 import org.gwtbootstrap3.client.ui.ValueListBox;
-import org.jboss.errai.databinding.client.api.Converter;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.forms.common.rendering.client.util.valueConverters.ValueConvertersFactory;
 import org.kie.workbench.common.forms.common.rendering.client.widgets.util.DefaultValueListBoxRenderer;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.FormGroup;
@@ -45,10 +44,10 @@ public abstract class AbstractListBoxFieldRenderer<FIELD extends ListBoxBaseDefi
 
     protected ValueListBox<TYPE> widgetList;
 
-    private final TranslationService translationService;
+    //private final TranslationService translationService;
 
-    public AbstractListBoxFieldRenderer(TranslationService translationService) {
-        this.translationService = translationService;
+    public AbstractListBoxFieldRenderer(/*TranslationService translationService*/) {
+        //this.translationService = translationService;
 
         widgetList = getListWidget();
     }
@@ -95,8 +94,8 @@ public abstract class AbstractListBoxFieldRenderer<FIELD extends ListBoxBaseDefi
             if (!values.contains(null)) {
                 values.add(0,
                            null);
-                optionsValues.put(null,
-                                  translationService.getTranslation(FormRenderingConstants.ListBoxFieldRendererEmptyOptionText));
+                optionsValues.put(null, "emptyOptionText");
+                                 // translationService.getTranslation(FormRenderingConstants.ListBoxFieldRendererEmptyOptionText));
             } else {
                 Collections.swap(values,
                                  values.indexOf(null),

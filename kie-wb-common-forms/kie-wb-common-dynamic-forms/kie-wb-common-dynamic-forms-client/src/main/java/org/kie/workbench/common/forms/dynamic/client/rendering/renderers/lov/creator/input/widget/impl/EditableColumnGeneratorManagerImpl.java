@@ -16,15 +16,12 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.impl;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Singleton;
 
-import org.jboss.errai.ioc.client.container.IOC;
-import org.jboss.errai.ioc.client.container.SyncBeanDef;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.EditableColumnGenerator;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.EditableColumnGeneratorManager;
 
@@ -35,9 +32,11 @@ public class EditableColumnGeneratorManagerImpl implements EditableColumnGenerat
 
     @PostConstruct
     public void init() {
-        Collection<SyncBeanDef<EditableColumnGenerator>> beanDefs = IOC.getBeanManager().lookupBeans(EditableColumnGenerator.class);
+        throw new Error(getClass().getCanonicalName() +".init");
 
-        beanDefs.stream().map(beanDef -> beanDef.newInstance()).forEach(this::registerGenerator);
+/*        Collection<SyncBeanDef<EditableColumnGenerator>> beanDefs = IOC.getBeanManager().lookupBeans(EditableColumnGenerator.class);
+
+        beanDefs.stream().map(beanDef -> beanDef.newInstance()).forEach(this::registerGenerator);*/
     }
 
     public void registerGenerator(EditableColumnGenerator generator) {

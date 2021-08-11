@@ -21,7 +21,6 @@ import java.math.BigInteger;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.CellEditionHandler;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.TableEntry;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.impl.numeric.AbstractNumericEditableColumnGenerator;
@@ -31,8 +30,8 @@ import org.kie.workbench.common.forms.dynamic.client.resources.i18n.FormRenderin
 public class BigIntegerEditableColumnGenerator extends AbstractNumericEditableColumnGenerator<BigInteger> {
 
     @Inject
-    public BigIntegerEditableColumnGenerator(TranslationService translationService) {
-        super(translationService);
+    public BigIntegerEditableColumnGenerator(/*TranslationService translationService*/) {
+        //super(translationService);
     }
 
     @Override
@@ -48,7 +47,8 @@ public class BigIntegerEditableColumnGenerator extends AbstractNumericEditableCo
             try {
                 doConvert(flatValue);
             } catch (Exception ex) {
-                cellEditionHandler.showValidationError(translationService.getTranslation(FormRenderingConstants.InvalidInteger));
+                cellEditionHandler.showValidationError("InvalidInteger");
+                //cellEditionHandler.showValidationError(translationService.getTranslation(FormRenderingConstants.InvalidInteger));
                 return false;
             }
         }

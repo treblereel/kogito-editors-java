@@ -26,37 +26,37 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true)
 public abstract class Popover extends JQueryProducer.JQueryElement {
 
-    abstract void popover();
+    public abstract void popover();
 
-    abstract void popover(String method);
+    public abstract void popover(String method);
 
-    abstract void popover(PopoverOptions options);
+    public abstract void popover(PopoverOptions options);
 
     @JsOverlay
-    void destroy() {
+    public void destroy() {
         popover("destroy");
     }
 
     @JsOverlay
-    void show() {
+    public void show() {
         popover("show");
     }
 
     @JsOverlay
-    void hide() {
+    public void hide() {
         popover("hide");
     }
 
     @JsOverlay
-    void toggle() {
+    public void toggle() {
         popover("toggle");
     }
 
-    abstract void on(String event,
+    public abstract void on(String event,
             PopoverEventCallback callback);
 
     @JsOverlay
-    void addShowListener(final PopoverEventCallback callback) {
+    public void addShowListener(final PopoverEventCallback callback) {
         on("show.bs.popover",
            callback);
     }

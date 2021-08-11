@@ -23,7 +23,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.jboss.errai.common.client.api.IsElement;
+import io.crysknife.client.IsElement;
 import org.jboss.errai.common.client.dom.HTMLElement;
 import org.kie.workbench.common.stunner.bpmn.client.components.monaco_editor.MonacoEditorLanguage;
 import org.kie.workbench.common.stunner.bpmn.client.components.monaco_editor.MonacoEditorPresenter;

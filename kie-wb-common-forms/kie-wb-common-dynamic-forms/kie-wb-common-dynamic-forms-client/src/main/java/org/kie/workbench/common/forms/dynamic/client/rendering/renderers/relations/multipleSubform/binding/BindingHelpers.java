@@ -19,7 +19,6 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.relati
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jboss.errai.ioc.client.container.IOC;
 import org.kie.workbench.common.forms.dynamic.service.shared.FormRenderingContext;
 import org.kie.workbench.common.forms.dynamic.service.shared.impl.MapModelRenderingContext;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.relations.multipleSubform.definition.MultipleSubFormFieldDefinition;
@@ -30,6 +29,8 @@ public class BindingHelpers {
 
     public static BindingHelper getHelper(FormRenderingContext context,
                                           MultipleSubFormFieldDefinition field) {
+        throw new Error(BindingHelpers.class.getCanonicalName()+".getHelper");
+/*
 
         Class<? extends BindingHelper> helperClazz = null;
 
@@ -44,6 +45,6 @@ public class BindingHelpers {
         helper.setUp(field,
                      context);
 
-        return helper;
+        return helper;*/
     }
 }

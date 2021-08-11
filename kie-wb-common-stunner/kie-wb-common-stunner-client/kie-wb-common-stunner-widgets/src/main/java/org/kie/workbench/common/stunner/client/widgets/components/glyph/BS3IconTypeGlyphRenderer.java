@@ -24,8 +24,8 @@ import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 
 import org.gwtbootstrap3.client.ui.Icon;
-import org.jboss.errai.common.client.api.IsElement;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.IsElement;
+import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.core.client.components.glyph.DOMGlyphRenderer;
 import org.kie.workbench.common.stunner.core.client.components.views.WidgetElementRendererView;
 import org.uberfire.mvp.Command;

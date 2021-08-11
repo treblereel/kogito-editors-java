@@ -17,18 +17,20 @@
 package org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.labels.label;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.HTMLElement;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.jboss.errai.common.client.dom.DOMUtil;
-import org.jboss.errai.common.client.dom.Span;
-import org.jboss.errai.ui.client.local.api.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.labels.help.FieldHelp;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.labels.required.FieldRequired;
 
 @Templated
+@Dependent
 public class FieldLabelViewImpl implements IsElement,
                                            FieldLabelView {
 
@@ -44,7 +46,7 @@ public class FieldLabelViewImpl implements IsElement,
 
     @Inject
     @DataField
-    private Span labelText;
+    private HTMLElement labelText;
 
     @PostConstruct
     public void init() {
@@ -63,7 +65,7 @@ public class FieldLabelViewImpl implements IsElement,
 
         getElement().appendChild(labelText);
 
-        labelText.setTextContent(label);
+        labelText.textContent = (label);
 
         getElement().setAttribute("for",
                                   inputId);
@@ -86,7 +88,7 @@ public class FieldLabelViewImpl implements IsElement,
 
         getElement().appendChild(labelText);
 
-        labelText.setTextContent(label);
+        labelText.textContent = (label);
 
         setRequired(required);
 

@@ -18,9 +18,10 @@ package org.kie.workbench.common.forms.common.rendering.client.widgets.typeahead
 
 import javax.inject.Inject;
 
+import org.gwtproject.event.legacy.shared.GwtEvent;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
-import org.gwtproject.event.shared.GwtEvent;
+import org.gwtproject.event.shared.Event;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.user.client.ui.HasValue;
 import org.gwtproject.user.client.ui.IsWidget;
@@ -91,8 +92,12 @@ public class BindableTypeAhead<T> implements IsWidget,
         return view.asWidget();
     }
 
-    @Override
     public void fireEvent(GwtEvent<?> event) {
+        view.asWidget().fireEvent(event);
+    }
+
+    @Override
+    public void fireEvent(Event<?> event) {
         view.asWidget().fireEvent(event);
     }
 }

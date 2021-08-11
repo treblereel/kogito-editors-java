@@ -23,9 +23,9 @@ import org.gwtproject.user.client.ui.Composite;
 import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.common.client.dom.Element;
 import org.jboss.errai.common.client.dom.NodeList;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.client.ManagedInstance;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 
 import static com.google.common.base.Strings.isNullOrEmpty;
 

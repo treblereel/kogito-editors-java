@@ -20,7 +20,7 @@ import java.util.List;
 
 import org.assertj.core.api.Assertions;
 import org.jboss.errai.common.client.dom.HTMLElement;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.ManagedInstance;
 import org.junit.Before;
 import org.junit.Test;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.FormGroup;

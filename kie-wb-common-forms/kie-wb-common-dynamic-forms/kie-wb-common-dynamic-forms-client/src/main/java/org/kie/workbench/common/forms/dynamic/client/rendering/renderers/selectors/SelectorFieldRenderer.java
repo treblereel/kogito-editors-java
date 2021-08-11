@@ -23,9 +23,9 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 
+import io.crysknife.ui.databinding.client.BindableListWrapper;
 import org.jboss.errai.common.client.api.Caller;
 import org.jboss.errai.common.client.api.RemoteCallback;
-import org.jboss.errai.databinding.client.BindableListWrapper;
 import org.kie.workbench.common.forms.dynamic.client.config.ClientSelectorDataProviderManager;
 import org.kie.workbench.common.forms.dynamic.client.rendering.FieldRenderer;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.impl.def.DefaultFormGroup;

@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.gwtprojectmockito.GwtMockitoTestRunner;
-import org.jboss.errai.common.client.api.IsElement;
+import io.crysknife.client.IsElement;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

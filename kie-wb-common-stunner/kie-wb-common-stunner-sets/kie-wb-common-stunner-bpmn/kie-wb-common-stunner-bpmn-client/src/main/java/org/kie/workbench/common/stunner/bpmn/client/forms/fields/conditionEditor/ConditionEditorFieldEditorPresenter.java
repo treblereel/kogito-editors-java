@@ -19,7 +19,7 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.conditionEdito
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.jboss.errai.common.client.api.IsElement;
+import io.crysknife.client.IsElement;
 import org.jboss.errai.common.client.dom.HTMLElement;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.scriptEditor.ScriptTypeFieldEditorPresenter;
 import org.kie.workbench.common.stunner.bpmn.client.forms.util.FieldEditorPresenter;

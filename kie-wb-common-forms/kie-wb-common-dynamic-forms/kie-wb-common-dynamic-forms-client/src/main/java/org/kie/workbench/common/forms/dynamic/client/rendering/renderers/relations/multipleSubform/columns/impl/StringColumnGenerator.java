@@ -19,9 +19,9 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.relati
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Default;
 
+import io.crysknife.ui.databinding.client.HasProperties;
 import org.gwtproject.user.cellview.client.Column;
 import org.gwtproject.user.cellview.client.TextColumn;
-import org.jboss.errai.databinding.client.HasProperties;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.relations.multipleSubform.columns.ColumnGenerator;
 
 @Dependent

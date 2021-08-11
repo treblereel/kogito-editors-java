@@ -25,7 +25,7 @@ import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.gwtproject.logging.client.LogConfiguration;
+import elemental2.dom.DomGlobal;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.jboss.errai.common.client.ui.ElementWrapperWidget;
 import org.kie.workbench.common.stunner.core.client.api.SessionManager;
@@ -163,9 +163,11 @@ public class DiagramEditorPropertiesScreen extends AbstractActivity {
 
     private void log(final Level level,
                      final String message) {
-        if (LogConfiguration.loggingIsEnabled()) {
+        DomGlobal.console.log(message);
+
+/*        if (LogConfiguration.loggingIsEnabled()) {
             LOGGER.log(level,
                        message);
-        }
+        }*/
     }
 }

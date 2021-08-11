@@ -23,12 +23,14 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import org.gwtproject.dom.client.Style;
 import org.gwtproject.event.dom.client.ContextMenuEvent;
 import org.gwtproject.event.dom.client.ScrollEvent;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.safehtml.shared.SafeHtmlBuilder;
-import org.gwtproject.user.client.Timer;
+import org.gwtproject.timer.client.Timer;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.Panel;
@@ -39,11 +41,8 @@ import org.gwtbootstrap3.extras.notify.client.constants.NotifyType;
 import org.gwtbootstrap3.extras.notify.client.ui.Notify;
 import org.gwtbootstrap3.extras.notify.client.ui.NotifySettings;
 import org.jboss.errai.common.client.ui.ElementWrapperWidget;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.ForEvent;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.client.widgets.palette.PaletteWidget;
 import org.kie.workbench.common.stunner.client.widgets.presenters.session.SessionPresenter;
 import org.kie.workbench.common.stunner.core.client.canvas.event.selection.CanvasFocusedShapeEvent;
@@ -85,8 +84,8 @@ public class SessionPresenterView extends Composite
     @DataField
     private SessionContainer sessionContainer;
 
-    @Inject
-    private TranslationService translationService;
+    //@Inject
+    //private TranslationService translationService;
 
     private final NotifySettings settings = NotifySettings.newSettings();
 
@@ -326,12 +325,13 @@ public class SessionPresenterView extends Composite
         return settings;
     }
 
-    TranslationService getTranslationService() {
+/*    TranslationService getTranslationService() {
         return translationService;
-    }
+    }*/
 
     private String translate(final String translationKey) {
-        return getTranslationService().getTranslation(translationKey);
+        return translationKey;
+        //return getTranslationService().getTranslation(translationKey);
     }
 
     private static String buildHtmlEscapedText(final String message) {

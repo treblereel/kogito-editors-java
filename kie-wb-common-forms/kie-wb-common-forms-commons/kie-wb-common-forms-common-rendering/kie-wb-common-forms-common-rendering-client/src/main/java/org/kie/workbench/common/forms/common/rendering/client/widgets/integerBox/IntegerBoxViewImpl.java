@@ -16,16 +16,17 @@
 
 package org.kie.workbench.common.forms.common.rendering.client.widgets.integerBox;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import elemental2.dom.HTMLInputElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.gwtproject.user.client.Event;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.HasValue;
-import org.jboss.errai.common.client.dom.TextInput;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.SinkNative;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 
 @Templated
 public class IntegerBoxViewImpl extends Composite implements IntegerBoxView {
@@ -34,7 +35,12 @@ public class IntegerBoxViewImpl extends Composite implements IntegerBoxView {
 
     @Inject
     @DataField
-    private TextInput input;
+    private HTMLInputElement input;
+
+    @PostConstruct
+    protected void init() {
+        input.type = "text";
+    }
 
     @Override
     public void setPresenter(IntegerBox presenter) {
@@ -43,12 +49,12 @@ public class IntegerBoxViewImpl extends Composite implements IntegerBoxView {
 
     @Override
     public void setValue(String value) {
-        input.setValue(value);
+        input.value = (value);
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        input.setDisabled(!enabled);
+        input.disabled = (!enabled);
     }
 
     public void updateValue(Event event) {
@@ -57,12 +63,12 @@ public class IntegerBoxViewImpl extends Composite implements IntegerBoxView {
 
     @Override
     public String getTextValue() {
-        return input.getValue();
+        return input.value;
     }
 
     @Override
     public void setId(String id) {
-        input.setId(id);
+        input.id = (id);
     }
 
     @Override
@@ -73,7 +79,7 @@ public class IntegerBoxViewImpl extends Composite implements IntegerBoxView {
 
     @Override
     public void setMaxLength(int maxLength) {
-        input.setMaxLength(maxLength);
+        input.maxLength = (maxLength);
     }
 
     public void onKeyDown(Event event) {
@@ -88,10 +94,10 @@ public class IntegerBoxViewImpl extends Composite implements IntegerBoxView {
         }
     }
 
-    @SinkNative(Event.ONKEYDOWN | Event.ONCHANGE)
+    //@SinkNative(Event.ONKEYDOWN | Event.ONCHANGE)
     @EventHandler("input")
-    public void onEvent(Event event) {
-        switch (event.getTypeInt()) {
+    public void onEvent(@ForEvent({"keydown","change"})  Event event) {
+        switch (event.getKeyCode()) {
             case Event.ONCHANGE:
                 updateValue(event);
                 break;

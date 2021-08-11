@@ -19,19 +19,19 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.relati
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.ui.databinding.client.BindableProxy;
+import io.crysknife.ui.databinding.client.HasProperties;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.gwtproject.core.client.GWT;
 import org.gwtproject.user.client.TakesValue;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.FlowPanel;
 import org.gwtproject.view.client.AsyncDataProvider;
 import org.gwtproject.view.client.HasData;
-import org.jboss.errai.databinding.client.BindableProxy;
-import org.jboss.errai.databinding.client.HasProperties;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 import org.kie.workbench.common.forms.crud.client.component.CrudActionsHelper;
 import org.kie.workbench.common.forms.crud.client.component.CrudComponent;
 import org.kie.workbench.common.forms.crud.client.component.formDisplay.FormDisplayer;
@@ -51,6 +51,7 @@ import org.kie.workbench.common.forms.processing.engine.handling.IsNestedModel;
 import org.uberfire.ext.widgets.table.client.ColumnMeta;
 
 @Templated
+@Dependent
 public class MultipleSubFormWidget extends Composite implements TakesValue<List<Object>>,
                                                                 IsNestedModel {
 
@@ -69,7 +70,7 @@ public class MultipleSubFormWidget extends Composite implements TakesValue<List<
 
     protected CrudComponent crudComponent;
 
-    protected TranslationService translationService;
+    //protected TranslationService translationService;
 
     private MultipleSubFormFieldDefinition field;
 
@@ -89,12 +90,13 @@ public class MultipleSubFormWidget extends Composite implements TakesValue<List<
     @Inject
     public MultipleSubFormWidget(ColumnGeneratorManager columnGeneratorManager,
                                  DynamicFormRenderer formRenderer,
-                                 CrudComponent crudComponent,
-                                 TranslationService translationService) {
+                                 CrudComponent crudComponent
+            //,TranslationService translationService
+    ) {
         this.columnGeneratorManager = columnGeneratorManager;
         this.formRenderer = formRenderer;
         this.crudComponent = crudComponent;
-        this.translationService = translationService;
+        //this.translationService = translationService;
     }
 
     protected void init() {
@@ -220,7 +222,7 @@ public class MultipleSubFormWidget extends Composite implements TakesValue<List<
             @Override
             public void createInstance() {
                 IsFormView form = getCreateInstanceForm();
-                crudComponent.displayForm(translationService.getTranslation(CrudComponentConstants.CrudComponentViewImplNewInstanceTitle),
+                crudComponent.displayForm("newInstanceTitle",
                                           form,
                                           new FormDisplayer.FormDisplayerCallback() {
 
@@ -250,7 +252,7 @@ public class MultipleSubFormWidget extends Composite implements TakesValue<List<
             @Override
             public void editInstance(int index) {
                 IsFormView form = getEditInstanceForm(index);
-                crudComponent.displayForm(translationService.getTranslation(CrudComponentConstants.CrudComponentViewImplEditInstanceTitle),
+                crudComponent.displayForm("editInstanceTitle",
                                           form,
                                           new FormDisplayer.FormDisplayerCallback() {
 

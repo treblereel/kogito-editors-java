@@ -28,6 +28,7 @@ import com.ait.lienzo.gwtlienzo.event.shared.EventHandler;
 import com.ait.lienzo.tools.client.event.INodeEvent;
 import org.gwtproject.dom.client.Style;
 import elemental2.dom.UIEvent;
+import org.gwtproject.dom.style.shared.Cursor;
 import org.uberfire.ext.wires.core.grids.client.widget.layer.GridLayer;
 import org.uberfire.ext.wires.core.grids.client.widget.layer.pinning.TransformMediator;
 
@@ -96,8 +97,9 @@ public class RestrictedMousePanMediator extends AbstractMediator {
         setCursor(Style.Cursor.DEFAULT);
     }
 
-    protected void setCursor(final Style.Cursor cursor) {
+    private void setCursor(Cursor cursor) {
         getLayerViewport().getElement().style.cursor = cursor.getCssName();
+
     }
 
     protected Viewport getLayerViewport() {

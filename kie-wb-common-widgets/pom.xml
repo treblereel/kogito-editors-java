@@ -16,7 +16,9 @@
   <description>Kie Workbench - Common UI components</description>
 
   <modules>
+<!--
     <module>kie-wb-common-ui</module>
+-->
   </modules>
 
 </project>

@@ -29,8 +29,8 @@ import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
-import org.gwtproject.logging.client.LogConfiguration;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import elemental2.dom.DomGlobal;
+import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.core.api.DefinitionManager;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvas;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;
@@ -181,11 +181,13 @@ public class ManagedSession
                                callback.execute();
                            },
                            throwable -> {
-                               if (LogConfiguration.loggingIsEnabled()) {
+
+                               DomGlobal.console.log(throwable);
+/*                               if (LogConfiguration.loggingIsEnabled()) {
                                    LOGGER.log(Level.SEVERE,
                                               "An error was produced during StunnerPreferences initialization.",
                                               throwable);
-                               }
+                               }*/
                                throw new RuntimeException(throwable);
                            });
     }
@@ -351,6 +353,9 @@ public class ManagedSession
     private static Object doLookup(final ManagedInstance instance,
                                    final ControlRegistrationEntry entry,
                                    final Annotation qualifier) {
+        throw new Error(ManagedSession.class.getCanonicalName()+".doLookup");
+/*
+
         final ManagedInstance i = null != entry.qualifier ?
                 instance.select(entry.type,
                                 entry.qualifier,
@@ -364,7 +369,7 @@ public class ManagedSession
                                         DefinitionManager.DEFAULT_QUALIFIER).get() :
                         instance.select(entry.type,
                                         DefinitionManager.DEFAULT_QUALIFIER).get()) :
-                i.get();
+                i.get();*/
     }
 
     private boolean isControlActive(final Class<? extends CanvasControl> type) {

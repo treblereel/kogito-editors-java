@@ -25,7 +25,7 @@ import javax.inject.Inject;
 import elemental2.dom.Element;
 import elemental2.dom.HTMLSelectElement;
 import org.jboss.errai.common.client.dom.elemental2.Elemental2DomUtil;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.ManagedInstance;
 import org.uberfire.client.mvp.UberElemental;
 
 @Dependent

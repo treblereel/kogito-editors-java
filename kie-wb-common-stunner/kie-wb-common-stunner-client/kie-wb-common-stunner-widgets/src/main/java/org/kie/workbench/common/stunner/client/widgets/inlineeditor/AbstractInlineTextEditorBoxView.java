@@ -18,11 +18,10 @@ package org.kie.workbench.common.stunner.client.widgets.inlineeditor;
 
 import javax.inject.Inject;
 
+import elemental2.dom.HTMLDivElement;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
 import org.gwtproject.core.client.Scheduler;
-import org.jboss.errai.common.client.dom.Div;
-import org.jboss.errai.ui.client.local.api.IsElement;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.uberfire.mvp.Command;
 
 public abstract class AbstractInlineTextEditorBoxView<T extends InlineEditorBoxView.Presenter> implements IsElement {
@@ -32,7 +31,7 @@ public abstract class AbstractInlineTextEditorBoxView<T extends InlineEditorBoxV
 
     protected T presenter;
 
-    protected TranslationService translationService;
+    //protected TranslationService translationService;
 
     private static final String DISPLAY = "display";
     private static final String DISPLAY_NONE = "none";
@@ -40,7 +39,7 @@ public abstract class AbstractInlineTextEditorBoxView<T extends InlineEditorBoxV
 
     @Inject
     @DataField
-    Div editNameBox;
+    HTMLDivElement editNameBox;
 
     protected AbstractInlineTextEditorBoxView(Command showCommand, Command hideCommand) {
         this.showCommand = showCommand;
@@ -48,9 +47,9 @@ public abstract class AbstractInlineTextEditorBoxView<T extends InlineEditorBoxV
     }
 
     protected AbstractInlineTextEditorBoxView() {
-        showCommand = () -> this.getElement().getStyle().setProperty(DISPLAY,
+        showCommand = () -> this.getElement().style.setProperty(DISPLAY,
                                                                      DISPLAY_BLOCK);
-        hideCommand = () -> this.getElement().getStyle().setProperty(DISPLAY,
+        hideCommand = () -> this.getElement().style.setProperty(DISPLAY,
                                                                      DISPLAY_NONE);
     }
 
@@ -65,7 +64,7 @@ public abstract class AbstractInlineTextEditorBoxView<T extends InlineEditorBoxV
     }
 
     public boolean isVisible() {
-        return !(getElement().getStyle().getPropertyValue(DISPLAY)).equals(DISPLAY_NONE);
+        return !(getElement().style.getPropertyValue(DISPLAY)).equals(DISPLAY_NONE);
     }
 
     public void scheduleDeferredCommand(final Scheduler.ScheduledCommand command) {

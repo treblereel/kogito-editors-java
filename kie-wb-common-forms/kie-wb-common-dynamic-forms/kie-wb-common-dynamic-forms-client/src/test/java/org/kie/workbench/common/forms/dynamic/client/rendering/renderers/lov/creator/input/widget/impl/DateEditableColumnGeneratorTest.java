@@ -19,7 +19,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.cr
 import java.util.Date;
 
 import org.gwtprojectmockito.GwtMockitoTestRunner;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.ManagedInstance;
 import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;

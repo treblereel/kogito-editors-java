@@ -38,6 +38,11 @@
 
     <dependency>
       <groupId>org.kie.kogito</groupId>
+      <artifactId>appformer-client-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-core-api</artifactId>
     </dependency>
 

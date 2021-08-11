@@ -35,9 +35,9 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import org.gwtproject.core.client.GWT;
-import org.jboss.errai.common.client.api.IsElement;
+import io.crysknife.client.IsElement;
 import org.jboss.errai.common.client.dom.HTMLElement;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.ManagedInstance;
 import org.kie.soup.commons.util.Maps;
 import org.kie.workbench.common.stunner.bpmn.client.components.palette.BPMNCategoryDefinitionProvider;
 import org.kie.workbench.common.stunner.bpmn.client.documentation.decorator.PropertyDecorator;

@@ -147,7 +147,7 @@ public class ObserverBuilderControl extends AbstractElementBuilderControl
                 getCanvasElement().getOwnerDocument().getScrollTop();
     }
 
-    private org.gwtproject.user.client.Element getCanvasElement() {
+    private org.gwtproject.dom.client.Element getCanvasElement() {
         return canvasHandler.getAbstractCanvas().getView().asWidget().getElement();
     }
 }

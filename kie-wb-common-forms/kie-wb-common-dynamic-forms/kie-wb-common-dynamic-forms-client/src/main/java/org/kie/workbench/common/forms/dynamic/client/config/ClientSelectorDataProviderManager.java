@@ -21,8 +21,6 @@ import java.util.Collection;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 
-import org.jboss.errai.ioc.client.container.IOC;
-import org.jboss.errai.ioc.client.container.SyncBeanDef;
 import org.kie.workbench.common.forms.dynamic.model.config.SelectorDataProvider;
 import org.kie.workbench.common.forms.dynamic.service.shared.AbstractSelectorDataProviderManager;
 
@@ -33,11 +31,12 @@ public class ClientSelectorDataProviderManager extends AbstractSelectorDataProvi
 
     @PostConstruct
     public void init() {
-        Collection<SyncBeanDef<SelectorDataProvider>> providers = IOC.getBeanManager().lookupBeans(SelectorDataProvider.class);
+        throw new Error(getClass().getCanonicalName()+".init");
+/*        Collection<SyncBeanDef<SelectorDataProvider>> providers = IOC.getBeanManager().lookupBeans(SelectorDataProvider.class);
 
         for (SyncBeanDef<SelectorDataProvider> provider : providers) {
             registerProvider(provider.newInstance());
-        }
+        }*/
     }
 
     @Override

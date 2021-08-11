@@ -27,7 +27,7 @@ import com.ait.lienzo.client.widget.panel.util.PanelTransformUtils;
 import com.ait.lienzo.tools.client.event.EventType;
 import com.ait.lienzo.tools.client.event.HandlerRegistration;
 import com.ait.lienzo.tools.client.event.MouseEventUtil;
-import org.gwtproject.user.client.Timer;
+import org.gwtproject.timer.client.Timer;
 import org.gwtproject.user.client.ui.IsWidget;
 import elemental2.dom.Element;
 import elemental2.dom.EventListener;

@@ -25,7 +25,7 @@ import java.util.stream.Stream;
 
 import org.jboss.errai.common.client.api.annotations.MapsTo;
 import org.jboss.errai.common.client.api.annotations.Portable;
-import org.jboss.errai.databinding.client.api.Bindable;
+import io.crysknife.ui.databinding.client.api.Bindable;
 import org.kie.workbench.common.stunner.core.util.HashUtil;
 
 @Portable

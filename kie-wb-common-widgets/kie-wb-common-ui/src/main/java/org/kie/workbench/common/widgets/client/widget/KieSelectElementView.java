@@ -21,9 +21,9 @@ import javax.inject.Inject;
 import org.gwtproject.event.dom.client.ChangeEvent;
 import elemental2.dom.HTMLSelectElement;
 import org.jboss.errai.ui.client.local.api.elemental2.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
+import io.crysknife.ui.templates.client.annotation.DataField;
 import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.Templated;
 
 @Templated
 public class KieSelectElementView implements KieSelectElement.View,

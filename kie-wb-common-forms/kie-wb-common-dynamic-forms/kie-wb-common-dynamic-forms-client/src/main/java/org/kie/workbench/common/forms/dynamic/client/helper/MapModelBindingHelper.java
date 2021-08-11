@@ -26,11 +26,13 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 
-import org.jboss.errai.databinding.client.MapPropertyType;
-import org.jboss.errai.databinding.client.PropertyType;
-import org.jboss.errai.databinding.client.api.DataBinder;
-import org.jboss.errai.ioc.client.container.IOC;
+import elemental2.dom.DomGlobal;
+import io.crysknife.client.BeanManager;
+import io.crysknife.ui.databinding.client.MapPropertyType;
+import io.crysknife.ui.databinding.client.PropertyType;
+import io.crysknife.ui.databinding.client.api.DataBinder;
 import org.kie.workbench.common.forms.dynamic.service.shared.impl.MapModelRenderingContext;
 import org.kie.workbench.common.forms.fields.shared.AbstractFieldDefinition;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.relations.multipleSubform.definition.MultipleSubFormFieldDefinition;
@@ -43,6 +45,9 @@ public class MapModelBindingHelper {
     protected Map<Class<? extends AbstractFieldDefinition>, PropertyGenerator> propertiesGenerator = new HashMap<>();
 
     protected Map<String, Class> basicProperties = new HashMap<>();
+
+    @Inject
+    BeanManager beanManager;
 
     @PostConstruct
     public void initialize() {
@@ -104,11 +109,20 @@ public class MapModelBindingHelper {
     }
 
     protected void lookupPropertyGenerators() {
+        DomGlobal.console.log(getClass().getCanonicalName()+".lookupPropertyGenerators Check it");
+        beanManager.lookupBeans(PropertyGenerator.class).forEach(beanDef -> {
+            PropertyGenerator generator = beanDef.get();
+            propertiesGenerator.put(generator.getType(),
+                                    generator);
+        });
+
+        //throw new Error(getClass().getCanonicalName()+".lookupPropertyGenerators");
+/*
         IOC.getBeanManager().lookupBeans(PropertyGenerator.class).forEach(beanDef -> {
             PropertyGenerator generator = beanDef.getInstance();
             propertiesGenerator.put(generator.getType(),
                                     generator);
-        });
+        });*/
     }
 
     public void initContext(MapModelRenderingContext context) {

@@ -22,7 +22,7 @@ import javax.inject.Inject;
 import elemental2.dom.HTMLOptionElement;
 import elemental2.dom.HTMLSelectElement;
 import org.jboss.errai.ui.client.local.spi.TranslationService;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.uberfire.client.views.pfly.selectpicker.JQuerySelectPickerEvent;
 
 @Dependent

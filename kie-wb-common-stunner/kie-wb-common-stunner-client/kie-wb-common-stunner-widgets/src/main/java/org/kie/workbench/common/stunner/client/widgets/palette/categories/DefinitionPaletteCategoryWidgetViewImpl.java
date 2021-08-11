@@ -20,21 +20,21 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLButtonElement;
+import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLLIElement;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.event.dom.client.MouseDownEvent;
 import org.gwtproject.event.dom.client.MouseMoveEvent;
 import org.gwtproject.event.dom.client.MouseOutEvent;
 import org.gwtproject.event.dom.client.MouseUpEvent;
-import org.jboss.errai.common.client.dom.Button;
 import org.jboss.errai.common.client.dom.DOMUtil;
-import org.jboss.errai.common.client.dom.Div;
-import org.jboss.errai.common.client.dom.Document;
-import org.jboss.errai.common.client.dom.HTMLElement;
-import org.jboss.errai.common.client.dom.ListItem;
-import org.jboss.errai.ui.client.local.api.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.client.widgets.components.glyph.DOMGlyphRenderers;
 import org.kie.workbench.common.stunner.client.widgets.palette.categories.group.DefinitionPaletteGroupWidget;
 import org.kie.workbench.common.stunner.client.widgets.palette.categories.items.DefinitionPaletteItemWidget;
@@ -51,23 +51,20 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
     private static final int DRAG_DELTA = 2;
 
     @Inject
-    private Document document;
+    @DataField
+    private HTMLLIElement listGroupItem;
 
     @Inject
     @DataField
-    private ListItem listGroupItem;
+    private HTMLButtonElement categoryIcon;
 
     @Inject
     @DataField
-    private Button categoryIcon;
+    private HTMLDivElement floatingPanel;
 
     @Inject
     @DataField
-    private Div floatingPanel;
-
-    @Inject
-    @DataField
-    private Button closeCategoryButton;
+    private HTMLButtonElement closeCategoryButton;
 
     @Inject
     private DOMGlyphRenderers domGlyphRenderers;
@@ -92,8 +89,8 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
                        double width,
                        double height) {
         DefaultPaletteCategory category = presenter.getCategory();
-        categoryIcon.setTitle(category.getTitle());
-        final org.jboss.errai.common.client.api.IsElement glyphElement =
+        categoryIcon.title = (category.getTitle());
+        final IsElement glyphElement =
                 domGlyphRenderers.render(glyph,
                                          width,
                                          height);
@@ -107,9 +104,9 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
 
     @Override
     public void addGroup(DefinitionPaletteGroupWidget groupWidget) {
-        HTMLElement groupHeader = document.createElement("h5");
+        HTMLElement groupHeader = (HTMLElement)DomGlobal.document.createElement("h5");
 
-        groupHeader.setTextContent(groupWidget.getItem().getTitle());
+        groupHeader.textContent = (groupWidget.getItem().getTitle());
         floatingPanel.appendChild(groupHeader);
 
         floatingPanel.appendChild(groupWidget.getElement());
@@ -202,9 +199,9 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
     }
 
     private void setCloseButtonVisible(boolean visible) {
-        closeCategoryButton.getStyle().removeProperty("display");
+        closeCategoryButton.style.removeProperty("display");
         if (!visible) {
-            closeCategoryButton.getStyle().setProperty("display", "none");
+            closeCategoryButton.style.setProperty("display", "none");
         }
     }
 

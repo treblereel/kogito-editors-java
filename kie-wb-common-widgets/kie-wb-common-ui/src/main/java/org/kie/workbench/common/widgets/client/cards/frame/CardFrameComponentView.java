@@ -27,9 +27,9 @@ import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLHeadingElement;
 import elemental2.dom.HTMLInputElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
+import io.crysknife.ui.templates.client.annotation.DataField;
 import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.Templated;
 
 @Templated
 public class CardFrameComponentView implements CardFrameComponent.View {

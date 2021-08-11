@@ -85,10 +85,10 @@
     <module>errai-api</module>
 -->
     <!-- APPFORMER
-    <module>appformer-bom</module>
+    <module>appformer-bom</module> -->
     <module>appformer-client-api</module>
-    <module>appformer-kogito-bridge</module>
-    -->
+    <!--   <module>appformer-kogito-bridge</module>
+      -->
 
     <!--
         <module>appformer-js-monaco</module>
@@ -291,6 +291,12 @@
         <groupId>com.google.jsinterop</groupId>
         <artifactId>base</artifactId>
         <version>1.0.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>appformer-client-api</artifactId>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>

@@ -30,7 +30,7 @@ import org.gwtproject.event.dom.client.KeyDownEvent;
 import org.gwtproject.event.dom.client.MouseMoveEvent;
 import org.gwtproject.event.dom.client.MouseUpEvent;
 import org.gwtproject.event.shared.HandlerRegistration;
-import org.gwtproject.user.client.Timer;
+import org.gwtproject.timer.client.Timer;
 import org.gwtproject.user.client.ui.AbsolutePanel;
 import org.gwtproject.user.client.ui.RootPanel;
 import elemental2.dom.CSSProperties;

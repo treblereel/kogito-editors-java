@@ -22,9 +22,10 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import org.gwtproject.event.dom.client.KeyCodes;
+import org.gwtproject.event.legacy.shared.GwtEvent;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
-import org.gwtproject.event.shared.GwtEvent;
+import org.gwtproject.event.shared.Event;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.user.client.ui.HasValue;
 import org.gwtproject.user.client.ui.IsWidget;
@@ -76,7 +77,7 @@ public class IntegerBox implements IsWidget,
                                           ValueChangeEvent.getType());
     }
 
-    @Override
+    //@Override
     public void fireEvent(GwtEvent<?> event) {
         view.asWidget().fireEvent(event);
     }
@@ -133,5 +134,10 @@ public class IntegerBox implements IsWidget,
             return null;
         }
         return Long.valueOf(value);
+    }
+
+    @Override
+    public void fireEvent(Event<?> event) {
+        view.asWidget().fireEvent(event);
     }
 }

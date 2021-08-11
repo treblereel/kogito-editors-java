@@ -26,7 +26,7 @@ import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 
 import org.gwtproject.safehtml.shared.SafeUri;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.core.client.ShapeSet;
 import org.kie.workbench.common.stunner.core.client.ShapeSetThumbProvider;
 

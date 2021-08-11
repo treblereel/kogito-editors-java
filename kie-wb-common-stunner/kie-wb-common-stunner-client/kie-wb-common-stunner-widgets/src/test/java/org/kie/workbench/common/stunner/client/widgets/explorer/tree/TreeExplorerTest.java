@@ -23,9 +23,9 @@ import java.util.OptionalInt;
 
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtprojectmockito.GwtMockitoTestRunner;
-import org.jboss.errai.common.client.api.IsElement;
+import io.crysknife.client.IsElement;
 import org.jboss.errai.common.client.ui.ElementWrapperWidget;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.ManagedInstance;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

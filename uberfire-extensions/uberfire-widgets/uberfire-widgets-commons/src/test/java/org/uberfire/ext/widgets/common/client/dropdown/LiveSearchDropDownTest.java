@@ -18,7 +18,7 @@ package org.uberfire.ext.widgets.common.client.dropdown;
 
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtprojectmockito.GwtMockitoTestRunner;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.ManagedInstance;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

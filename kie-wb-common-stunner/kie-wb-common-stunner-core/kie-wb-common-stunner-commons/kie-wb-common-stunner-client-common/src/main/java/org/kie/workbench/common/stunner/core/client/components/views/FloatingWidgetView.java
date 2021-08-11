@@ -21,7 +21,7 @@ import javax.enterprise.context.Dependent;
 import org.gwtproject.dom.client.Style;
 import org.gwtproject.event.dom.client.MouseOutEvent;
 import org.gwtproject.event.dom.client.MouseOverEvent;
-import org.gwtproject.user.client.Timer;
+import org.gwtproject.timer.client.Timer;
 import org.gwtproject.user.client.ui.FlowPanel;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.RootPanel;

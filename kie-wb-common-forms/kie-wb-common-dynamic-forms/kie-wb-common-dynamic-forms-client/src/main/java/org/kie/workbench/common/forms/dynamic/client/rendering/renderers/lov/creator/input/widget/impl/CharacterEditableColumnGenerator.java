@@ -22,19 +22,17 @@ import javax.inject.Inject;
 import org.gwtproject.cell.client.EditTextCell;
 import org.gwtproject.cell.client.TextCell;
 import org.gwtproject.user.cellview.client.Column;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.CellEditionHandler;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.ColumnFieldUpdater;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.TableEntry;
-import org.kie.workbench.common.forms.dynamic.client.resources.i18n.FormRenderingConstants;
 import org.uberfire.ext.widgets.table.client.UberfirePagedTable;
 
 @Dependent
 public class CharacterEditableColumnGenerator extends AbstractEditableColumnGenerator<String> {
 
     @Inject
-    public CharacterEditableColumnGenerator(TranslationService translationService) {
-        super(translationService);
+    public CharacterEditableColumnGenerator(/*TranslationService translationService*/) {
+        //super(translationService);
     }
 
     @Override
@@ -63,7 +61,8 @@ public class CharacterEditableColumnGenerator extends AbstractEditableColumnGene
                                        TableEntry<String> model) {
                 if (value != null && !value.isEmpty()) {
                     if (value.length() != 1) {
-                        cellEditionHandler.showValidationError(translationService.getTranslation(FormRenderingConstants.CharacterEditableColumnGeneratorValidationError));
+                        cellEditionHandler.showValidationError("validationError");
+                        //cellEditionHandler.showValidationError(translationService.getTranslation(FormRenderingConstants.CharacterEditableColumnGeneratorValidationError));
                         return false;
                     }
                 }

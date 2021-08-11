@@ -16,8 +16,8 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.labels.required;
 
-import org.jboss.errai.ui.client.local.api.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.Templated;
 
 @Templated
 public class FieldRequiredViewImpl implements FieldRequiredView,

@@ -21,9 +21,10 @@ import java.util.Date;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import org.gwtproject.event.legacy.shared.GwtEvent;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
-import org.gwtproject.event.shared.GwtEvent;
+import org.gwtproject.event.shared.Event;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.Widget;
@@ -91,7 +92,6 @@ public class DatePickerWrapper implements IsWidget,
         return view.getDateValue();
     }
 
-    @Override
     public void fireEvent(GwtEvent<?> event) {
         asWidget().fireEvent(event);
     }
@@ -104,5 +104,10 @@ public class DatePickerWrapper implements IsWidget,
     @Override
     public void disableActions() {
         view.disableActions();
+    }
+
+    @Override
+    public void fireEvent(Event<?> event) {
+        asWidget().fireEvent(event);
     }
 }

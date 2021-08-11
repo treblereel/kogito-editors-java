@@ -20,14 +20,13 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.LIElement;
 import org.gwtproject.dom.client.UListElement;
 import org.gwtproject.user.client.ui.Composite;
 import org.jboss.errai.common.client.api.Assert;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 
 @Templated
 public class ConfigErrorDisplayerViewImpl extends Composite implements ConfigErrorDisplayerView {
@@ -35,11 +34,11 @@ public class ConfigErrorDisplayerViewImpl extends Composite implements ConfigErr
     @DataField
     protected UListElement list = Document.get().createULElement();
 
-    protected TranslationService translationService;
+    //protected TranslationService translationService;
 
     @Inject
-    public ConfigErrorDisplayerViewImpl(TranslationService translationService) {
-        this.translationService = translationService;
+    public ConfigErrorDisplayerViewImpl(/*TranslationService translationService*/) {
+        //this.translationService = translationService;
     }
 
     @Override
@@ -51,7 +50,8 @@ public class ConfigErrorDisplayerViewImpl extends Composite implements ConfigErr
 
         errorMessages.forEach(message -> {
             LIElement listElement = Document.get().createLIElement();
-            listElement.setInnerHTML(translationService.getTranslation(message));
+            listElement.setInnerHTML(message);
+            //listElement.setInnerHTML(translationService.getTranslation(message));
             list.appendChild(listElement);
         });
     }

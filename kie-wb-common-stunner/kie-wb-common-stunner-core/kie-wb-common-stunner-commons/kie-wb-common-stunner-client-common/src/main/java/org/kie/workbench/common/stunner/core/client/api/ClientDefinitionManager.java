@@ -22,8 +22,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import org.jboss.errai.ioc.client.container.SyncBeanDef;
-import org.jboss.errai.ioc.client.container.SyncBeanManager;
+import io.crysknife.client.BeanManager;
 import org.kie.workbench.common.stunner.core.api.AbstractDefinitionManager;
 import org.kie.workbench.common.stunner.core.definition.DefinitionSetProxy;
 import org.kie.workbench.common.stunner.core.definition.adapter.AdapterManager;
@@ -38,7 +37,7 @@ import org.kie.workbench.common.stunner.core.registry.RegistryFactory;
 @ApplicationScoped
 public class ClientDefinitionManager extends AbstractDefinitionManager {
 
-    private final SyncBeanManager beanManager;
+    private final BeanManager beanManager;
 
     protected ClientDefinitionManager() {
         super();
@@ -46,7 +45,7 @@ public class ClientDefinitionManager extends AbstractDefinitionManager {
     }
 
     @Inject
-    public ClientDefinitionManager(final SyncBeanManager beanManager,
+    public ClientDefinitionManager(final BeanManager beanManager,
                                    final RegistryFactory registryFactory,
                                    final AdapterManager adapterManager,
                                    final CloneManager cloneManager) {
@@ -59,6 +58,9 @@ public class ClientDefinitionManager extends AbstractDefinitionManager {
     @PostConstruct
     @SuppressWarnings("all")
     public void init() {
+        throw new Error(getClass().getCanonicalName()+".init");
+/*
+
         // DefinitionSet client adapters.
         Collection<SyncBeanDef<DefinitionSetAdapter>> beanDefSetAdapters = beanManager.lookupBeans(DefinitionSetAdapter.class);
         for (SyncBeanDef<DefinitionSetAdapter> defSet : beanDefSetAdapters) {
@@ -95,6 +97,6 @@ public class ClientDefinitionManager extends AbstractDefinitionManager {
             DefinitionSetProxy definitionSetProxy = defSet.getInstance();
             Object definitionSet = definitionSetProxy.getDefinitionSet();
             addDefinitionSet(definitionSet);
-        }
+        }*/
     }
 }

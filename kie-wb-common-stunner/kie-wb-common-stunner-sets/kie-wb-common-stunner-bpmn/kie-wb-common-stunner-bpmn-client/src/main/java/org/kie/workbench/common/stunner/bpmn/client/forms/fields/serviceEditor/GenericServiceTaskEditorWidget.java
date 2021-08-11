@@ -33,10 +33,10 @@ import org.jboss.errai.common.client.dom.Option;
 import org.jboss.errai.common.client.dom.Select;
 import org.jboss.errai.common.client.dom.TextInput;
 import org.jboss.errai.common.client.dom.Window;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
+import io.crysknife.ui.templates.client.annotation.DataField;
 import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import org.jboss.errai.ui.shared.api.annotations.ForEvent;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.bpmn.definition.property.service.GenericServiceTaskValue;
 
 @Dependent

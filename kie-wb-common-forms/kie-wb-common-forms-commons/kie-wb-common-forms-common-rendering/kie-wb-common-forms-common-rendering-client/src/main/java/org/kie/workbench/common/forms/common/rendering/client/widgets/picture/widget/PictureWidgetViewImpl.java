@@ -20,6 +20,9 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.gwtproject.core.client.GWT;
 import org.gwtproject.dom.client.CanvasElement;
 import org.gwtproject.dom.client.Document;
@@ -31,9 +34,6 @@ import org.gwtproject.user.client.DOM;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.Image;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 
 @Dependent
 @Templated

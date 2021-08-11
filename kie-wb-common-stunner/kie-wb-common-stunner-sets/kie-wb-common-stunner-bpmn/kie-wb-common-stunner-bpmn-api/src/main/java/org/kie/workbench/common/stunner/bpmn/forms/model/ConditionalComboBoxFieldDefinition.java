@@ -17,7 +17,7 @@
 package org.kie.workbench.common.stunner.bpmn.forms.model;
 
 import org.jboss.errai.common.client.api.annotations.Portable;
-import org.jboss.errai.databinding.client.api.Bindable;
+import io.crysknife.ui.databinding.client.api.Bindable;
 
 @Portable
 @Bindable

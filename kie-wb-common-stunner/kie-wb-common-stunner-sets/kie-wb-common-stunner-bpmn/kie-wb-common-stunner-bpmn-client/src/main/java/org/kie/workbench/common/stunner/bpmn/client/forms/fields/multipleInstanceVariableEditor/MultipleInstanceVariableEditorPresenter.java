@@ -27,7 +27,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import elemental2.promise.IThenable;
-import org.jboss.errai.common.client.api.IsElement;
+import io.crysknife.client.IsElement;
 import org.jboss.errai.ui.client.widget.HasModel;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.Variable;
 import org.kie.workbench.common.stunner.bpmn.client.forms.util.FieldEditorPresenter;

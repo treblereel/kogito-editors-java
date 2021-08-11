@@ -46,6 +46,14 @@
       <groupId>org.gwtproject.widgets</groupId>
       <artifactId>gwt-widgets</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.gwtproject.validation</groupId>
+      <artifactId>gwt-validation-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.crysknife</groupId>
+      <artifactId>databinding-api</artifactId>
+    </dependency>
   </dependencies>
 
 

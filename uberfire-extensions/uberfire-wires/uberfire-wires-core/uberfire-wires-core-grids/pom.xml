@@ -24,22 +24,26 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>lienzo-core</artifactId>
     </dependency>
-
-<!--    <dependency>
+    <dependency>
       <groupId>org.kie.kogito</groupId>
-      <artifactId>lienzo-tests</artifactId>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>org.mortbay.jasper</groupId>
-          <artifactId>apache-el</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.eclipse.jetty</groupId>
-          <artifactId>jetty-annotations</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>-->
+      <artifactId>compat</artifactId>
+    </dependency>
+
+    <!--    <dependency>
+          <groupId>org.kie.kogito</groupId>
+          <artifactId>lienzo-tests</artifactId>
+          <scope>test</scope>
+          <exclusions>
+            <exclusion>
+              <groupId>org.mortbay.jasper</groupId>
+              <artifactId>apache-el</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.eclipse.jetty</groupId>
+              <artifactId>jetty-annotations</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>-->
 
  <!--   <dependency>
       <groupId>org.assertj</groupId>

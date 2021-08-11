@@ -22,6 +22,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import jsinterop.base.Js;
 import org.gwtproject.cell.client.AbstractEditableCell;
 import org.gwtproject.cell.client.ValueUpdater;
 import org.gwtproject.dom.client.Element;
@@ -125,7 +126,7 @@ public class DateTimePickerCell extends AbstractEditableCell<Date, Date> {
 
             dateTimePicker.setDate(date);
 
-            lastParent.appendChild((Node) dateTimePicker.getElement());
+            lastParent.appendChild(Js.uncheckedCast(dateTimePicker.getElement()));
 
             dateTimePicker.show();
         }

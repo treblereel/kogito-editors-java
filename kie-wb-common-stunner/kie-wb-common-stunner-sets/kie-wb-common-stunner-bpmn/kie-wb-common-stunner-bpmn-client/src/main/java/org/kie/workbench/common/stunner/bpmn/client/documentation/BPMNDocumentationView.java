@@ -25,8 +25,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import elemental2.dom.HTMLElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.bpmn.documentation.BPMNDocumentationService;
 import org.kie.workbench.common.stunner.bpmn.qualifiers.BPMN;
 import org.kie.workbench.common.stunner.core.client.i18n.ClientTranslationService;

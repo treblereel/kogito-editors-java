@@ -24,7 +24,7 @@ import org.gwtproject.event.dom.client.MouseMoveHandler;
 import org.gwtproject.event.dom.client.MouseUpEvent;
 import org.gwtproject.event.dom.client.MouseUpHandler;
 import org.gwtproject.event.shared.HandlerRegistration;
-import org.gwtproject.user.client.Timer;
+import org.gwtproject.timer.client.Timer;
 import org.gwtproject.user.client.ui.RootPanel;
 
 public abstract class AbstractDragProxy<T> {

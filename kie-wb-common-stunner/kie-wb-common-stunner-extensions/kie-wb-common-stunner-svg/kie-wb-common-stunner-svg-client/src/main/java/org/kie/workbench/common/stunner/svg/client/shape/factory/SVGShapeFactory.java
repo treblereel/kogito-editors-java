@@ -20,7 +20,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import org.jboss.errai.ioc.client.container.SyncBeanManager;
+import io.crysknife.client.BeanManager;
 import org.kie.workbench.common.stunner.core.client.shape.Shape;
 import org.kie.workbench.common.stunner.core.client.shape.factory.ShapeDefFactory;
 import org.kie.workbench.common.stunner.core.client.shape.factory.ShapeDefFunctionalFactory;
@@ -39,7 +39,7 @@ import org.kie.workbench.common.stunner.svg.client.shape.view.impl.SVGShapeViewI
 public class SVGShapeFactory
         implements ShapeDefFactory<Object, SVGShapeDef, SVGShape<?>> {
 
-    private final SyncBeanManager beanManager;
+    private final BeanManager beanManager;
     private final ShapeDefFunctionalFactory<Object, SVGShapeDef, Shape> functionalFactory;
 
     protected SVGShapeFactory() {
@@ -48,7 +48,7 @@ public class SVGShapeFactory
     }
 
     @Inject
-    public SVGShapeFactory(final SyncBeanManager beanManager,
+    public SVGShapeFactory(final BeanManager beanManager,
                            final ShapeDefFunctionalFactory<Object, SVGShapeDef, Shape> functionalFactory) {
         this.beanManager = beanManager;
         this.functionalFactory = functionalFactory;
@@ -99,7 +99,7 @@ public class SVGShapeFactory
 
     Object getViewFactory(final SVGShapeDef def) {
         final Class<?> viewFactoryType = def.getViewFactoryType();
-        final Object factory = beanManager.lookupBean(viewFactoryType).getInstance();
+        final Object factory = beanManager.lookupBean(viewFactoryType).get();
         if (null == factory) {
             throw new RuntimeException("No SVG view factory present of type [" + viewFactoryType.getName() + "]");
         }

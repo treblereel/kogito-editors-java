@@ -55,6 +55,23 @@
       <groupId>com.google.elemental2</groupId>
       <artifactId>elemental2-dom</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.gwtproject.event</groupId>
+      <artifactId>gwt-event-dom</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.gwtproject.widgets</groupId>
+      <artifactId>gwt-widgets</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>compat</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>compat</artifactId>
+    </dependency>
 
     <!-- Testing. -->
   </dependencies>

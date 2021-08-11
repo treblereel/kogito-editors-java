@@ -21,10 +21,10 @@ import javax.inject.Inject;
 import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.common.client.dom.Image;
 import org.jboss.errai.common.client.dom.Span;
-import org.jboss.errai.ui.client.local.api.IsElement;
+import io.crysknife.client.IsElement;
 import org.jboss.errai.ui.client.local.spi.TranslationService;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.uberfire.client.views.pfly.widgets.Modal;
 
 @Templated

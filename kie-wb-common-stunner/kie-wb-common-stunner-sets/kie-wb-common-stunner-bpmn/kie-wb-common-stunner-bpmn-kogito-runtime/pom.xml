@@ -355,11 +355,11 @@
       <artifactId>uberfire-widgets-table</artifactId>
       <scope>provided</scope>
     </dependency>
-    <dependency>
+<!--    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-ui</artifactId>
       <scope>provided</scope>
-    </dependency>
+    </dependency>-->
 
     <!-- GWT and extensions -->
     <dependency>

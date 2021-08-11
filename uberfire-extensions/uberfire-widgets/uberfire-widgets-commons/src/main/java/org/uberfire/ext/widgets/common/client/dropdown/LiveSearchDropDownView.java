@@ -20,9 +20,16 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLButtonElement;
+import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLInputElement;
+import elemental2.dom.HTMLUListElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import org.gwtbootstrap3.client.ui.html.Span;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.event.dom.client.KeyDownEvent;
 import org.gwtproject.event.dom.client.KeyUpEvent;
@@ -40,35 +47,35 @@ public class LiveSearchDropDownView<TYPE> extends Composite
 
     @Inject
     @DataField
-    Div mainPanel;
+    HTMLDivElement mainPanel;
 
     @Inject
     @DataField
-    Div dropDownPanel;
+    HTMLDivElement dropDownPanel;
 
     @Inject
     @DataField
-    Button dropDownButton;
+    HTMLButtonElement dropDownButton;
 
     @Inject
     @DataField
-    Span dropDownText;
+    HTMLElement dropDownText;
 
     @Inject
     @DataField
-    Div searchPanel;
+    HTMLDivElement searchPanel;
 
     @Inject
     @DataField
-    Input searchInput;
+    HTMLInputElement searchInput;
 
     @Inject
     @DataField
-    UnorderedList dropDownMenu;
+    HTMLUListElement dropDownMenu;
 
     @Inject
     @DataField
-    Div spinnerPanel;
+    HTMLDivElement spinnerPanel;
 
     @Inject
     @DataField
@@ -112,21 +119,22 @@ public class LiveSearchDropDownView<TYPE> extends Composite
 
     @Override
     public void setMaxHeight(int maxHeight) {
-        dropDownMenu.getStyle().setProperty("max-height",
+        dropDownMenu.style.setProperty("max-height",
                                             maxHeight + "px");
     }
 
     @Override
     public void setWidth(int minWidth) {
-        dropDownButton.getStyle().setProperty("width",
+        dropDownButton.style.setProperty("width",
                                               minWidth + "px");
-        dropDownPanel.getStyle().setProperty("width",
+        dropDownPanel.style.setProperty("width",
                                              minWidth + "px");
     }
 
     @Override
     public void setSearchEnabled(boolean enabled) {
-        searchPanel.setHidden(!enabled);
+        DomGlobal.console.log(getClass().getCanonicalName() + ".setSearchEnabled " + enabled);
+        searchPanel.hidden = !enabled;
     }
 
     @Override
@@ -144,7 +152,8 @@ public class LiveSearchDropDownView<TYPE> extends Composite
     }
 
     private void refreshFooter() {
-        liveSearchFooter.getElement().setHidden(!resetEnabled && !newItemEnabled);
+        DomGlobal.console.log(getClass().getCanonicalName() + ".refreshFooter " + (!resetEnabled && !newItemEnabled));
+        liveSearchFooter.getElement().hidden = (!resetEnabled && !newItemEnabled);
     }
 
     @Override
@@ -178,17 +187,17 @@ public class LiveSearchDropDownView<TYPE> extends Composite
 
     @Override
     public void setSelectedValue(String selectedItem) {
-        dropDownText.setTextContent(selectedItem);
+        dropDownText.textContent = (selectedItem);
     }
 
     @Override
     public void setDropDownText(String text) {
-        dropDownText.setTextContent(text);
+        dropDownText.textContent = (text);
     }
 
     @Override
     public void clearSearch() {
-        searchInput.setValue("");
+        searchInput.value = ("");
     }
 
     @Override
@@ -199,22 +208,22 @@ public class LiveSearchDropDownView<TYPE> extends Composite
 
     @Override
     public void searchInProgress(String msg) {
-        spinnerText.setTextContent(msg);
-        spinnerPanel.getStyle().removeProperty("display");
-        dropDownMenu.getStyle().setProperty("display",
+        spinnerText.setText(msg);
+        spinnerPanel.style.removeProperty("display");
+        dropDownMenu.style.setProperty("display",
                                             "none");
     }
 
     @Override
     public void searchFinished() {
-        spinnerPanel.getStyle().setProperty("display",
+        spinnerPanel.style.setProperty("display",
                                             "none");
-        dropDownMenu.getStyle().removeProperty("display");
+        dropDownMenu.style.removeProperty("display");
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        dropDownButton.setDisabled(!enabled);
+        dropDownButton.disabled = (!enabled);
     }
 
     @Override
@@ -260,7 +269,7 @@ public class LiveSearchDropDownView<TYPE> extends Composite
 
     @EventHandler("searchInput")
     void onSearchChanged(KeyUpEvent event) {
-        String pattern = searchInput.getValue();
+        String pattern = searchInput.value;
         presenter.search(pattern);
     }
 

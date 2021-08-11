@@ -89,6 +89,8 @@ public class GridLienzoPanel extends FocusPanel implements RequiresResize,
     protected GridLienzoPanel(final LienzoFixedPanel lienzoPanel) {
         this.lienzoPanel = lienzoPanel;
         this.lienzoPanelWidget = ElementWrapperWidget.getWidget(lienzoPanel.getElement());
+
+        //this.lienzoPanelWidget = lienzoPanel.getElement();
         this.gridLienzoScrollHandler = new GridLienzoScrollHandler(this);
 
         setupPanels();

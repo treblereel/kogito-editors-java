@@ -26,20 +26,18 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import org.jboss.errai.ioc.client.container.IOC;
-import org.jboss.errai.ioc.client.container.SyncBeanDef;
-import org.jboss.errai.ioc.client.container.SyncBeanManager;
+import io.crysknife.client.BeanManager;
 import org.uberfire.ext.layout.editor.client.api.LayoutDragComponent;
 
 @Dependent
 public class LayoutDragComponentHelper {
 
-    private SyncBeanManager beanManager;
+    private BeanManager beanManager;
 
     private List<Object> instances = new ArrayList<>();
 
     @Inject
-    public LayoutDragComponentHelper(SyncBeanManager beanManager) {
+    public LayoutDragComponentHelper(BeanManager beanManager) {
         this.beanManager = beanManager;
     }
 
@@ -55,7 +53,10 @@ public class LayoutDragComponentHelper {
     }
 
     private LayoutDragComponent lookupBean(String dragTypeClassName) {
-        Collection<SyncBeanDef<LayoutDragComponent>> iocBeanDefs = beanManager.lookupBeans(LayoutDragComponent.class);
+        throw new Error(getClass().getCanonicalName()+".lookupBean: " + dragTypeClassName);
+
+
+/*        Collection<SyncBeanDef<LayoutDragComponent>> iocBeanDefs = beanManager.lookupBeans(LayoutDragComponent.class);
 
         Optional<SyncBeanDef<LayoutDragComponent>> optional = iocBeanDefs.stream()
                 .filter(syncBeanDefBeanClassNamePredicate(dragTypeClassName))
@@ -70,14 +71,16 @@ public class LayoutDragComponentHelper {
             return instance;
         }
 
-        return null;
+        return null;*/
     }
 
-    Predicate<SyncBeanDef<LayoutDragComponent>> syncBeanDefBeanClassNamePredicate(String dragTypeClassName) {
+/*    Predicate<SyncBeanDef<LayoutDragComponent>> syncBeanDefBeanClassNamePredicate(String dragTypeClassName) {
         return beanDef -> beanDef.getBeanClass().getName().equals(dragTypeClassName);
-    }
+    }*/
 
     protected void destroy(Object o) {
-        IOC.getBeanManager().destroyBean(o);
+        throw new Error(getClass().getCanonicalName()+".destroy: " + o.getClass().getCanonicalName());
+
+        //IOC.getBeanManager().destroyBean(o);
     }
 }

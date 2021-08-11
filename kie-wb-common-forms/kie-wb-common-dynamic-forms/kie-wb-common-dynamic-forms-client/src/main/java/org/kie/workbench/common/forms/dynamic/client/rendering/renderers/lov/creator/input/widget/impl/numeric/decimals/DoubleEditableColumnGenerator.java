@@ -19,7 +19,6 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.cr
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.CellEditionHandler;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.TableEntry;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.impl.numeric.AbstractNumericEditableColumnGenerator;
@@ -29,8 +28,8 @@ import org.kie.workbench.common.forms.dynamic.client.resources.i18n.FormRenderin
 public class DoubleEditableColumnGenerator extends AbstractNumericEditableColumnGenerator<Double> {
 
     @Inject
-    public DoubleEditableColumnGenerator(TranslationService translationService) {
-        super(translationService);
+    public DoubleEditableColumnGenerator(/*TranslationService translationService*/) {
+        //super(translationService);
     }
 
     @Override
@@ -46,9 +45,9 @@ public class DoubleEditableColumnGenerator extends AbstractNumericEditableColumn
             try {
                 doConvert(flatValue);
             } catch (Exception ex) {
-                cellEditionHandler.showValidationError(translationService.format(FormRenderingConstants.InvalidDecimalWithRange,
+                cellEditionHandler.showValidationError("InvalidDecimalWithRange"/*translationService.format(FormRenderingConstants.InvalidDecimalWithRange,
                                                                                  Double.MIN_VALUE,
-                                                                                 Double.MAX_VALUE));
+                                                                                 Double.MAX_VALUE)*/);
                 return false;
             }
         }
