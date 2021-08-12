@@ -5,7 +5,7 @@ package bpsim.impl;
 import bpsim.BpsimPackage;
 import bpsim.DateTimeParameterType;
 
-import org.gwtproject.user.client.rpc.GwtTransient;
+import com.google.gwt.user.client.rpc.GwtTransient;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 

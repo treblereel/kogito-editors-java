@@ -24,20 +24,19 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLButtonElement;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLTableCellElement;
+import elemental2.dom.HTMLTableSectionElement;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Style;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.HasValue;
-import org.jboss.errai.common.client.dom.Anchor;
-import org.jboss.errai.common.client.dom.Button;
 import org.jboss.errai.common.client.dom.DOMUtil;
-import org.jboss.errai.common.client.dom.Document;
-import org.jboss.errai.common.client.dom.HTMLElement;
-import org.jboss.errai.common.client.dom.Span;
-import org.jboss.errai.common.client.dom.TableCell;
-import org.jboss.errai.common.client.dom.TableSection;
 import io.crysknife.ui.templates.client.annotation.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.forms.common.rendering.client.widgets.FormWidget;
 import org.uberfire.commons.Pair;
@@ -55,28 +54,26 @@ public class AssigneeEditorWidgetViewImpl extends Composite implements AssigneeE
     private Map<AssigneeListItem, HTMLElement> elements = new HashMap<>();
     private boolean readOnly = false;
 
-    @Inject
-    private Document document;
-
     @Named("th")
     @Inject
     @DataField
-    private TableCell nameth;
+    private HTMLTableCellElement nameth;
 
     @Inject
     @DataField
-    private Anchor addAnchor;
+    private HTMLAnchorElement addAnchor;
 
     @Inject
     @DataField
-    private Span addAnchorLabel;
+    @Named("span")
+    private HTMLElement addAnchorLabel;
 
     @Named("tbody")
     @Inject
     @DataField
-    protected TableSection assigneeRows;
+    protected HTMLTableSectionElement assigneeRows;
 
-    protected List<Pair<LiveSearchDropDown<String>, Button>> assigneeRowsElements = new ArrayList<>();
+    protected List<Pair<LiveSearchDropDown<String>, HTMLButtonElement>> assigneeRowsElements = new ArrayList<>();
 
     @Override
     public HasValue<String> wrapped() {
@@ -87,8 +84,8 @@ public class AssigneeEditorWidgetViewImpl extends Composite implements AssigneeE
     public void init(final Presenter presenter) {
         this.presenter = presenter;
 
-        nameth.setTextContent(presenter.getNameHeader());
-        addAnchorLabel.setTextContent(presenter.getAddLabel());
+        nameth.textContent = (presenter.getNameHeader());
+        addAnchorLabel.textContent  = (presenter.getAddLabel());
     }
 
     @Override
@@ -105,23 +102,23 @@ public class AssigneeEditorWidgetViewImpl extends Composite implements AssigneeE
 
     @Override
     public void add(final AssigneeListItem listItem) {
-        HTMLElement tableRow = document.createElement("tr");
+        HTMLElement tableRow = (HTMLElement) DomGlobal.document.createElement("tr");
 
-        HTMLElement liveSearchTd = document.createElement("td");
+        HTMLElement liveSearchTd = (HTMLElement) DomGlobal.document.createElement("td");
 
         listItem.getLiveSearchDropDown().asWidget().getElement().getStyle().setWidth(100, Style.Unit.PCT);
 
         DOMUtil.appendWidgetToElement(liveSearchTd, listItem.getLiveSearchDropDown());
         listItem.getLiveSearchDropDown().setEnabled(!readOnly);
-        HTMLElement actionTd = document.createElement("td");
+        HTMLElement actionTd = (HTMLElement) DomGlobal.document.createElement("td");
 
-        Button button = (Button) document.createElement("button");
-        button.setClassName("btn btn-link fa fa-trash");
+        HTMLButtonElement button = (HTMLButtonElement) DomGlobal.document.createElement("button");
+        button.className = ("btn btn-link fa fa-trash");
         button.addEventListener("click", event -> {
             listItem.notifyRemoval();
             DOMUtil.removeFromParent(tableRow);
         }, false);
-        button.setDisabled(readOnly);
+        button.disabled = (readOnly);
 
         actionTd.appendChild(button);
 
@@ -135,12 +132,12 @@ public class AssigneeEditorWidgetViewImpl extends Composite implements AssigneeE
 
     @Override
     public void enableAddButton() {
-        addAnchor.setHidden(false);
+        addAnchor.hidden = (false);
     }
 
     @Override
     public void disableAddButton() {
-        addAnchor.setHidden(true);
+        addAnchor.hidden = (true);
     }
 
     @Override
@@ -155,7 +152,7 @@ public class AssigneeEditorWidgetViewImpl extends Composite implements AssigneeE
         }
         assigneeRowsElements.forEach(element -> {
             element.getK1().setEnabled(!readOnly);
-            element.getK2().setDisabled(readOnly);
+            element.getK2().disabled = (readOnly);
         });
     }
 

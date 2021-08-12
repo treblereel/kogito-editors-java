@@ -24,9 +24,10 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import org.gwtproject.core.client.GWT;
+import org.gwtproject.event.legacy.shared.GwtEvent;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
-import org.gwtproject.event.shared.GwtEvent;
+import org.gwtproject.event.shared.Event;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.json.client.JSONObject;
 import org.gwtproject.json.client.JSONParser;
@@ -90,8 +91,12 @@ public class TimeZonePicker implements IsWidget,
         return view.asWidget().addHandler(handler, ValueChangeEvent.getType());
     }
 
-    @Override
     public void fireEvent(GwtEvent<?> event) {
+        view.asWidget().fireEvent(event);
+    }
+
+    @Override
+    public void fireEvent(Event<?> event) {
         view.asWidget().fireEvent(event);
     }
 

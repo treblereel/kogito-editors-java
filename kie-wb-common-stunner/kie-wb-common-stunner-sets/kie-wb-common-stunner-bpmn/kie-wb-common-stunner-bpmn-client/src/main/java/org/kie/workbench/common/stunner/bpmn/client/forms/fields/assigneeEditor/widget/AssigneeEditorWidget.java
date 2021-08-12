@@ -25,14 +25,13 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
+import org.gwtproject.event.legacy.shared.GwtEvent;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
-import org.gwtproject.event.shared.GwtEvent;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.Widget;
 import io.crysknife.client.ManagedInstance;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerBPMNConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.Assignee;
 import org.kie.workbench.common.stunner.bpmn.client.forms.util.StringUtils;
@@ -46,8 +45,6 @@ public class AssigneeEditorWidget implements IsWidget,
     private AssigneeEditorWidgetView view;
 
     private ManagedInstance<AssigneeListItem> listItems;
-
-    private TranslationService translationService;
 
     private Event<NotificationEvent> notification;
 
@@ -64,11 +61,9 @@ public class AssigneeEditorWidget implements IsWidget,
     @Inject
     public AssigneeEditorWidget(AssigneeEditorWidgetView view,
                                 ManagedInstance<AssigneeListItem> listItems,
-                                TranslationService translationService,
                                 Event<NotificationEvent> notification) {
         this.view = view;
         this.listItems = listItems;
-        this.translationService = translationService;
         this.notification = notification;
 
         this.view.init(this);
@@ -173,7 +168,6 @@ public class AssigneeEditorWidget implements IsWidget,
         view.enableAddButton();
     }
 
-    @Override
     public void fireEvent(GwtEvent<?> gwtEvent) {
         view.asWidget().fireEvent(gwtEvent);
     }
@@ -185,12 +179,12 @@ public class AssigneeEditorWidget implements IsWidget,
 
     @Override
     public String getNameHeader() {
-        return translationService.getTranslation(StunnerBPMNConstants.ASSIGNEE_LABEL);
+        return "label";
     }
 
     @Override
     public String getAddLabel() {
-        return translationService.getTranslation(StunnerBPMNConstants.ASSIGNEE_NEW);
+        return "newLabel";
     }
 
     @PreDestroy
@@ -205,8 +199,13 @@ public class AssigneeEditorWidget implements IsWidget,
 
     private void onError(Throwable e) {
         if (errorNotificationsEnabled) {
-            notification.fire(new NotificationEvent(translationService.format(StunnerBPMNConstants.ASSIGNEE_SEARCH_ERROR, e.getMessage() != null ? e.getMessage() : "")));
+            notification.fire(new NotificationEvent("searchError" +  (e.getMessage() != null ? e.getMessage() : "")));
             errorNotificationsEnabled = false;
         }
+    }
+
+    @Override
+    public void fireEvent(org.gwtproject.event.shared.Event<?> event) {
+        view.asWidget().fireEvent(event);
     }
 }

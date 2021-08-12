@@ -89,7 +89,6 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-forms-client</artifactId>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.kie.kogito</groupId>
@@ -119,6 +118,10 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>appformer-kogito-bridge</artifactId>
     </dependency>
 
   </dependencies>

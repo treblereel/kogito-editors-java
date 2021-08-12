@@ -14,7 +14,7 @@
  */
 package org.eclipse.bpmn2.di.impl;
 
-import org.gwtproject.user.client.rpc.GwtTransient;
+import com.google.gwt.user.client.rpc.GwtTransient;
 
 import org.eclipse.bpmn2.di.BPMNLabelStyle;
 import org.eclipse.bpmn2.di.BpmnDiPackage;

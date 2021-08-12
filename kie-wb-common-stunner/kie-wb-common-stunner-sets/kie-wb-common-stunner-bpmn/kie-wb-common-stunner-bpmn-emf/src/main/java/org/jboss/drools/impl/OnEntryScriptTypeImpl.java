@@ -2,7 +2,7 @@
  */
 package org.jboss.drools.impl;
 
-import org.gwtproject.user.client.rpc.GwtTransient;
+import com.google.gwt.user.client.rpc.GwtTransient;
 
 import org.eclipse.emf.common.notify.Notification;
 

@@ -22,6 +22,7 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Specializes;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import org.appformer.kogito.bridge.client.interop.WindowRef;
 import org.appformer.kogito.bridge.client.stateControl.interop.StateControl;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;

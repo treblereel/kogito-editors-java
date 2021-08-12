@@ -57,21 +57,25 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-kogito-client</artifactId>
     </dependency>
-
-<!--    <dependency>
+    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>appformer-kogito-bridge</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>javax.servlet</groupId>
-          <artifactId>javax.servlet-api</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>javax.annotation</groupId>
-          <artifactId>javax.annotation-api</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>-->
+    </dependency>
+
+    <!--    <dependency>
+          <groupId>org.kie.kogito</groupId>
+          <artifactId>appformer-kogito-bridge</artifactId>
+          <exclusions>
+            <exclusion>
+              <groupId>javax.servlet</groupId>
+              <artifactId>javax.servlet-api</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>javax.annotation</groupId>
+              <artifactId>javax.annotation-api</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>-->
 
   </dependencies>
 

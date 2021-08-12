@@ -14,7 +14,7 @@
  */
 package org.eclipse.dd.di.impl;
 
-import org.gwtproject.user.client.rpc.GwtTransient;
+import com.google.gwt.user.client.rpc.GwtTransient;
 
 import java.util.Collection;
 import java.util.Map;

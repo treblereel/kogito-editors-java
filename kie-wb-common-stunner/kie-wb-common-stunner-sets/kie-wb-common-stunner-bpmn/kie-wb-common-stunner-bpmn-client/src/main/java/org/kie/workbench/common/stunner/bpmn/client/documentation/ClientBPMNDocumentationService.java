@@ -34,9 +34,9 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import elemental2.dom.HTMLElement;
 import org.gwtproject.core.client.GWT;
 import io.crysknife.client.IsElement;
-import org.jboss.errai.common.client.dom.HTMLElement;
 import io.crysknife.client.ManagedInstance;
 import org.kie.soup.commons.util.Maps;
 import org.kie.workbench.common.stunner.bpmn.client.components.palette.BPMNCategoryDefinitionProvider;
@@ -509,7 +509,7 @@ public class ClientBPMNDocumentationService implements BPMNDocumentationService 
                     .map(glyphImg -> (ImageStripGlyph) glyphImg)
                     .map(glyphImg -> glyphRenderer.render(glyphImg, ICON_WIDTH, ICON_HEIGHT))
                     .map(IsElement::getElement)
-                    .map(HTMLElement::getInnerHTML);
+                    .map(elm -> elm.innerHTML);
         }
 
         private Optional<String> getServiceTaskIcon(Object definition) {
@@ -555,7 +555,7 @@ public class ClientBPMNDocumentationService implements BPMNDocumentationService 
             return Optional.ofNullable(categoryDefinitionProvider.glyphProvider().apply(category))
                     .map(glyph -> glyphRenderer.render(glyph, ICON_WIDTH, ICON_HEIGHT))
                     .map(IsElement::getElement)
-                    .map(HTMLElement::getInnerHTML)
+                    .map(elm -> elm.innerHTML)
                     //try to get the service task icon if category icon is not found
                     .orElseGet(() -> Optional.ofNullable(category)
                             .map(name -> workItemDefinitionRegistry

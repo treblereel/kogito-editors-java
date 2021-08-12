@@ -208,6 +208,10 @@
       <artifactId>lienzo-core</artifactId>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.gwtproject.json</groupId>
+      <artifactId>gwt-json</artifactId>
+    </dependency>
 
     <!-- test -->
   <!--  <dependency>

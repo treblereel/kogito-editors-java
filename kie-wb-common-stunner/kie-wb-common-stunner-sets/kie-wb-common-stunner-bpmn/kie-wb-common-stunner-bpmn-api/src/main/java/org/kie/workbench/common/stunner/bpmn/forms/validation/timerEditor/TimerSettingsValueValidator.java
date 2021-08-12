@@ -22,6 +22,7 @@ import java.util.List;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import elemental2.dom.DomGlobal;
 import org.gwtproject.i18n.shared.DateTimeFormat;
 import org.gwtproject.regexp.shared.MatchResult;
 import org.gwtproject.regexp.shared.RegExp;

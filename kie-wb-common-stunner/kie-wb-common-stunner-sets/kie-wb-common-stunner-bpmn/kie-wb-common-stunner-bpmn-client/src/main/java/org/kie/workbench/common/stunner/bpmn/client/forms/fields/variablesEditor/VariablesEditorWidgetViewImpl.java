@@ -28,6 +28,8 @@ import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
+import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.Style;
 import org.gwtproject.dom.client.TableCellElement;
@@ -40,11 +42,9 @@ import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.HasValue;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.jboss.errai.ui.client.widget.ListWidget;
-import org.jboss.errai.ui.client.widget.Table;
 import io.crysknife.ui.templates.client.annotation.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import org.jboss.errai.ui.client.widget.Table;
 import org.kie.workbench.common.stunner.bpmn.client.forms.DataTypeNamesService;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.VariableRow;
@@ -108,7 +108,7 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
     @Inject
     @DataField
     @Table(root = "tbody")
-    protected ListWidget<VariableRow, VariableListItemWidgetViewImpl> variableRows;
+    protected ListComponent<VariableRow, ?> variableRows;
 
     @Inject
     protected Event<NotificationEvent> notification;
@@ -332,7 +332,8 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
 
     @Override
     public VariableListItemWidgetView getVariableWidget(final int index) {
-        return variableRows.getComponent(index);
+        throw new Error(getClass().getCanonicalName()+".getVariableWidget");
+        //return variableRows.getComponent(index);
     }
 
     @Override

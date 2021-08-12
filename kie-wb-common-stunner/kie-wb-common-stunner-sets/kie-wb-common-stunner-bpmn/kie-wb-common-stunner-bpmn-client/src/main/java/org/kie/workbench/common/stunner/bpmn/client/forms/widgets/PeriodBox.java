@@ -22,9 +22,10 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import org.gwtproject.event.legacy.shared.GwtEvent;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
-import org.gwtproject.event.shared.GwtEvent;
+import org.gwtproject.event.shared.Event;
 import org.gwtproject.event.shared.HandlerManager;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.user.client.ui.Composite;
@@ -189,8 +190,14 @@ public class PeriodBox extends Composite implements IsWidget,
         return this;
     }
 
-    @Override
     public void fireEvent(GwtEvent<?> event) {
+        if (handlerManager != null) {
+            handlerManager.fireEvent(event);
+        }
+    }
+
+    @Override
+    public void fireEvent(Event<?> event) {
         if (handlerManager != null) {
             handlerManager.fireEvent(event);
         }

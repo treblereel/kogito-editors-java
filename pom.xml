@@ -69,6 +69,7 @@
 
   <modules>
     <module>compat</module>
+    <module>emf</module>
     <!-- ERRAI
     <module>errai-bom</module>
     <module>errai-common</module>
@@ -87,8 +88,7 @@
     <!-- APPFORMER
     <module>appformer-bom</module> -->
     <module>appformer-client-api</module>
-    <!--   <module>appformer-kogito-bridge</module>
-      -->
+    <module>appformer-kogito-bridge</module>
 
     <!--
         <module>appformer-js-monaco</module>
@@ -294,11 +294,27 @@
       </dependency>
 
       <dependency>
+        <groupId>org.kie.kogito.emf</groupId>
+        <artifactId>ecore</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie.kogito.emf</groupId>
+        <artifactId>common</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>appformer-client-api</artifactId>
         <version>${project.version}</version>
       </dependency>
-
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>appformer-kogito-bridge</artifactId>
+        <version>${project.version}</version>
+      </dependency>
       <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-stunner-client-api</artifactId>
@@ -548,7 +564,17 @@
         <scope>provided</scope>
       </dependency>
 
+      <dependency>
+        <groupId>org.eclipselabs</groupId>
+        <artifactId>org.eclipse.emf.gwt.ecore</artifactId>
+        <version>2.9.0</version>
+      </dependency>
 
+      <dependency>
+        <groupId>org.eclipselabs</groupId>
+        <artifactId>org.eclipse.emf.gwt.common</artifactId>
+        <version>2.9.0</version>
+      </dependency>
 
       <dependency>
         <groupId>org.slf4j</groupId>

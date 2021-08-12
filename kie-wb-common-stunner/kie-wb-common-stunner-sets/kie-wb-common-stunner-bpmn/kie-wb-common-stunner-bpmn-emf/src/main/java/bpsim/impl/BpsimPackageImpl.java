@@ -49,7 +49,7 @@ import bpsim.UserDistributionType;
 import bpsim.VendorExtension;
 import bpsim.WeibullDistributionType;
 
-import org.gwtproject.user.client.rpc.IsSerializable;
+import com.google.gwt.user.client.rpc.IsSerializable;
 
 import org.eclipse.emf.common.util.Reflect;
 

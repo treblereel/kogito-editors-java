@@ -25,7 +25,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.jboss.errai.common.client.dom.HTMLElement;
+import elemental2.dom.HTMLElement;
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.bpmn.client.forms.util.FieldEditorPresenter;
 import org.kie.workbench.common.stunner.bpmn.forms.conditions.Condition;

@@ -19,7 +19,6 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.stunner.client.widgets.resources.i18n.StunnerWidgetsConstants;
 import org.kie.workbench.common.stunner.client.widgets.screens.DiagramEditorExplorerScreen;
 import org.uberfire.client.workbench.docks.UberfireDocks;
@@ -29,13 +28,14 @@ public class DiagramEditorPreviewAndExplorerDock extends BaseDiagramEditorDock {
 
     protected DiagramEditorPreviewAndExplorerDock() {
         // CDI proxy
-        this(null, null);
+        this(null);
     }
 
     @Inject
-    public DiagramEditorPreviewAndExplorerDock(final UberfireDocks uberfireDocks,
-                                               final TranslationService translationService) {
-        super(uberfireDocks, translationService);
+    public DiagramEditorPreviewAndExplorerDock(final UberfireDocks uberfireDocks/*,
+                                               final TranslationService translationService*/) {
+        super(uberfireDocks);
+        //super(uberfireDocks, translationService);
     }
 
     @Override

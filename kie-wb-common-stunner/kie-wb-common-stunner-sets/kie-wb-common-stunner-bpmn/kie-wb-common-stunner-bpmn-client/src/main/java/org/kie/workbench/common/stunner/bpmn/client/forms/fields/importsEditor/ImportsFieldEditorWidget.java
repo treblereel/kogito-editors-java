@@ -19,6 +19,7 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
@@ -28,7 +29,6 @@ import org.gwtproject.user.client.ui.HasValue;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.TextBox;
 import io.crysknife.ui.templates.client.annotation.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.ImportsEditor;

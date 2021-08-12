@@ -21,20 +21,20 @@ import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.HeadingElement;
-import org.gwtproject.dom.client.Style;
 import org.gwtproject.dom.client.TableCellElement;
 import org.gwtproject.dom.client.TableElement;
+import org.gwtproject.dom.style.shared.Display;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.jboss.errai.ui.client.widget.ListWidget;
-import org.jboss.errai.ui.client.widget.Table;
 import io.crysknife.ui.templates.client.annotation.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import org.jboss.errai.ui.client.widget.Table;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.editor.ImportsEditorWidgetView;
 import org.kie.workbench.common.stunner.bpmn.definition.property.diagram.imports.DefaultImport;
@@ -53,7 +53,7 @@ public class DefaultImportsEditorWidgetView extends Composite implements Imports
     @Inject
     @DataField
     @Table(root = "tbody")
-    protected ListWidget<DefaultImport, DefaultImportListItemWidgetView> defaultImports;
+    protected ListComponent<DefaultImport, ?> defaultImports;
     @DataField
     private HeadingElement tableTitle = Document.get().createHElement(3);
     private Presenter presenter;
@@ -76,7 +76,7 @@ public class DefaultImportsEditorWidgetView extends Composite implements Imports
     }
 
     @Override
-    public void setDisplayStyle(Style.Display displayStyle) {
+    public void setDisplayStyle(Display displayStyle) {
         table.getStyle().setDisplay(displayStyle);
     }
 
@@ -92,7 +92,8 @@ public class DefaultImportsEditorWidgetView extends Composite implements Imports
 
     @Override
     public DefaultImportListItemWidgetView getImportWidget(final int index) {
-        return defaultImports.getComponent(index);
+        throw new Error(getClass().getCanonicalName()+".getVariableWidget");
+       // return defaultImports.getComponent(index);
     }
 
     @EventHandler("addImportButton")

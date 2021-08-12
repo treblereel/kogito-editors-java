@@ -18,10 +18,10 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.assigneeEditor
 
 import javax.inject.Inject;
 
+import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLElement;
 import org.gwtproject.user.client.ui.Widget;
 import org.jboss.errai.common.client.dom.DOMUtil;
-import org.jboss.errai.common.client.dom.Div;
-import org.jboss.errai.common.client.dom.HTMLElement;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
@@ -38,15 +38,15 @@ public class AssigneeFormGroupViewImpl implements IsElement,
 
     @Inject
     @DataField
-    protected Div fieldContainer;
+    protected HTMLDivElement fieldContainer;
 
     @Inject
     @DataField
-    private Div formGroup;
+    private HTMLDivElement formGroup;
 
     @Inject
     @DataField
-    protected Div helpBlock;
+    protected HTMLDivElement helpBlock;
 
     @Override
     public void render(Widget widget,

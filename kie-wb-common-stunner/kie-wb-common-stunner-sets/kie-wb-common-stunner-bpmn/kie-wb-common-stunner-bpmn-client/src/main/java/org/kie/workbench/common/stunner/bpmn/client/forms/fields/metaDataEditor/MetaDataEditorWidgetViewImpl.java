@@ -22,6 +22,8 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
+import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.Style;
 import org.gwtproject.dom.client.TableCellElement;
@@ -34,11 +36,9 @@ import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.HasValue;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.jboss.errai.ui.client.widget.ListWidget;
-import org.jboss.errai.ui.client.widget.Table;
 import io.crysknife.ui.templates.client.annotation.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import org.jboss.errai.ui.client.widget.Table;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.MetaDataRow;
 import org.uberfire.workbench.events.NotificationEvent;
 
@@ -70,7 +70,7 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
     @Inject
     @DataField
     @Table(root = "tbody")
-    protected ListWidget<MetaDataRow, MetaDataListItemWidgetViewImpl> metaDataRows;
+    protected ListComponent<MetaDataRow, ?> metaDataRows;
 
     @Inject
     protected Event<NotificationEvent> notification;
@@ -152,7 +152,9 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     @Override
     public int getMetaDataRowsCount() {
-        return metaDataRows.getValue().size();
+        throw new Error(getClass().getCanonicalName()+".getMetaDataRowsCount");
+
+        //return metaDataRows.getValue().size();
     }
 
     @Override
@@ -167,21 +169,27 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     @Override
     public void setMetaDataRows(final List<MetaDataRow> rows) {
+        throw new Error(getClass().getCanonicalName()+".getMetaDataWidget");
+/*
         metaDataRows.setValue(rows);
         for (int i = 0; i < getMetaDataRowsCount(); i++) {
             MetaDataListItemWidgetView widget = getMetaDataWidget(i);
             widget.setParentWidget(presenter);
-        }
+        }*/
     }
 
     @Override
     public List<MetaDataRow> getMetaDataRows() {
-        return metaDataRows.getValue();
+        throw new Error(getClass().getCanonicalName()+".getMetaDataRows");
+
+        //return metaDataRows.getValue();
     }
 
     @Override
     public MetaDataListItemWidgetView getMetaDataWidget(final int index) {
-        return metaDataRows.getComponent(index);
+        throw new Error(getClass().getCanonicalName()+".getMetaDataWidget");
+
+        //return metaDataRows.getComponent(index);
     }
 
     @EventHandler("addButton")

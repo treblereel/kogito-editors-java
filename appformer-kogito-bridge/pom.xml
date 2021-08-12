@@ -60,6 +60,10 @@
       <artifactId>uberfire-api</artifactId>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>appformer-client-api</artifactId>
+    </dependency>
 
     <!-- Test dependencies -->
 

@@ -18,16 +18,16 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.
 
 import javax.inject.Inject;
 
+import io.crysknife.ui.databinding.client.api.AutoBound;
+import io.crysknife.ui.databinding.client.api.Bound;
+import io.crysknife.ui.databinding.client.api.DataBinder;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.Input;
 import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.jboss.errai.databinding.client.api.DataBinder;
-import org.jboss.errai.ui.shared.api.annotations.AutoBound;
-import org.jboss.errai.ui.shared.api.annotations.Bound;
 import io.crysknife.ui.templates.client.annotation.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.editor.ImportListItemWidgetView;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.editor.ImportsEditorWidgetView;

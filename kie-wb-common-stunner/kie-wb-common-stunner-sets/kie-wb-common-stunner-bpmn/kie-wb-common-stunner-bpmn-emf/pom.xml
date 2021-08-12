@@ -32,15 +32,25 @@
 
   <dependencies>
 
-<!--    <dependency>
-      <groupId>org.eclipselabs</groupId>
-      <artifactId>org.eclipse.emf.gwt.ecore</artifactId>
+    <dependency>
+      <groupId>org.kie.kogito.emf</groupId>
+      <artifactId>ecore</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.eclipselabs</groupId>
-      <artifactId>org.eclipse.emf.gwt.common</artifactId>
-    </dependency>-->
+      <groupId>org.kie.kogito.emf</groupId>
+      <artifactId>common</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.gwtproject.xml</groupId>
+      <artifactId>gwt-xml</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.gwtproject.json</groupId>
+      <artifactId>gwt-json</artifactId>
+    </dependency>
 
     <!-- Testing scope. -->
 

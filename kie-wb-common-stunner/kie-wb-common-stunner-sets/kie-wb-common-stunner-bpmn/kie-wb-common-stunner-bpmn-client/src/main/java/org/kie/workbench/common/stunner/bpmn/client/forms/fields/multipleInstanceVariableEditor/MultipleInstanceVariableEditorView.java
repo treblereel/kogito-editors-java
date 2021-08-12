@@ -20,18 +20,21 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import elemental2.dom.EventListener;
+import elemental2.dom.HTMLInputElement;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
+import jsinterop.base.Js;
 import org.gwtproject.text.shared.Renderer;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.gwtbootstrap3.client.ui.ValueListBox;
-import org.jboss.errai.common.client.dom.Event;
-import org.jboss.errai.common.client.dom.TextInput;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.ForEvent;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import org.gwtproject.user.client.Event;
 import org.kie.workbench.common.stunner.bpmn.client.forms.DataTypeNamesService;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.Variable;
@@ -57,7 +60,7 @@ public class MultipleInstanceVariableEditorView
 
     @Inject
     @DataField("variableName")
-    private TextInput variableName;
+    private HTMLInputElement variableName;
 
     protected Variable variable;
 
@@ -88,8 +91,15 @@ public class MultipleInstanceVariableEditorView
 
     private MultipleInstanceVariableEditorPresenter presenter;
 
+    @PostConstruct
+    private void beforeLoad() {
+        this.getElement().addEventListener("change", evt -> onVariableChange(Js.uncheckedCast(evt)));
+    }
+
     @Override
     public void init(MultipleInstanceVariableEditorPresenter presenter) {
+        variableName.type = "text";
+
         this.presenter = presenter;
 
         dataTypeComboBox.init(this,
@@ -122,7 +132,7 @@ public class MultipleInstanceVariableEditorView
 
     @Override
     public void setVariableName(String variableName) {
-        this.variableName.setValue(getNonNullName(variableName));
+        this.variableName.value = (getNonNullName(variableName));
     }
 
     @Override
@@ -132,7 +142,7 @@ public class MultipleInstanceVariableEditorView
 
     @Override
     public String getVariableName() {
-        return variableName.getValue();
+        return variableName.value;
     }
 
     @Override
@@ -152,12 +162,13 @@ public class MultipleInstanceVariableEditorView
 
     @Override
     public void setReadOnly(boolean readOnly) {
-        variableName.setDisabled(readOnly);
+        variableName.disabled = (readOnly);
         dataType.setEnabled(!readOnly);
     }
 
-    @EventHandler
-    private void onVariableChange(@ForEvent("change") final Event event) {
+    //@EventHandler
+    //private void onVariableChange(@ForEvent("change") final Event event) {
+    private void onVariableChange(final Event event) {
         presenter.onVariableChange();
     }
 

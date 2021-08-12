@@ -15,7 +15,6 @@
  */
 package org.kie.workbench.common.stunner.kogito.client.docks;
 
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.stunner.client.widgets.editor.DiagramEditorDock;
 import org.uberfire.client.workbench.docks.UberfireDock;
 import org.uberfire.client.workbench.docks.UberfireDockPosition;
@@ -29,11 +28,11 @@ public abstract class BaseDiagramEditorDock implements DiagramEditorDock {
     protected final UberfireDocks uberfireDocks;
     protected UberfireDock uberfireDock;
     protected boolean isOpened = false;
-    protected final TranslationService translationService;
+    //protected final TranslationService translationService;
 
-    protected BaseDiagramEditorDock(UberfireDocks uberfireDocks, TranslationService translationService) {
+    protected BaseDiagramEditorDock(UberfireDocks uberfireDocks/*, TranslationService translationService*/) {
         this.uberfireDocks = uberfireDocks;
-        this.translationService = translationService;
+        //this.translationService = translationService;
     }
 
     @Override
@@ -92,7 +91,8 @@ public abstract class BaseDiagramEditorDock implements DiagramEditorDock {
     protected abstract String getScreenId();
 
     protected String dockLabel() {
-        return translationService.getTranslation(getLabelKey());
+        return getLabelKey();
+        //return translationService.getTranslation(getLabelKey());
     }
 
     protected abstract String getLabelKey();

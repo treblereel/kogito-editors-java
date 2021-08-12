@@ -19,8 +19,7 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.assigneeEditor
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import org.jboss.errai.common.client.dom.HTMLElement;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import elemental2.dom.HTMLElement;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerBPMNConstants;
 import org.uberfire.ext.widgets.common.client.dropdown.InlineCreationEditor;
 import org.uberfire.ext.widgets.common.client.dropdown.LiveSearchEntry;
@@ -31,7 +30,6 @@ import org.uberfire.mvp.ParameterizedCommand;
 public class AssigneeLiveSearchEntryCreationEditor implements InlineCreationEditor<String>,
                                                               AssigneeLiveSearchEntryCreationEditorView.Presenter {
 
-    private TranslationService translationService;
     private AssigneeLiveSearchEntryCreationEditorView view;
 
     private ParameterizedCommand<LiveSearchEntry<String>> okCommand;
@@ -40,10 +38,8 @@ public class AssigneeLiveSearchEntryCreationEditor implements InlineCreationEdit
     private ParameterizedCommand<String> customEntryCommand;
 
     @Inject
-    public AssigneeLiveSearchEntryCreationEditor(AssigneeLiveSearchEntryCreationEditorView view, TranslationService translationService) {
+    public AssigneeLiveSearchEntryCreationEditor(AssigneeLiveSearchEntryCreationEditorView view) {
         this.view = view;
-        this.translationService = translationService;
-
         view.init(this);
     }
 
@@ -81,7 +77,7 @@ public class AssigneeLiveSearchEntryCreationEditor implements InlineCreationEdit
         view.clearErrors();
 
         if (value == null || value.isEmpty()) {
-            view.showError(translationService.getTranslation(StunnerBPMNConstants.ASSIGNEE_CANNOT_BE_EMPTY));
+            view.showError(StunnerBPMNConstants.ASSIGNEE_CANNOT_BE_EMPTY);
             return false;
         }
 
@@ -95,6 +91,6 @@ public class AssigneeLiveSearchEntryCreationEditor implements InlineCreationEdit
 
     @Override
     public String getFieldLabel() {
-        return translationService.getTranslation(StunnerBPMNConstants.ASSIGNEE_LABEL);
+        return StunnerBPMNConstants.ASSIGNEE_LABEL;
     }
 }

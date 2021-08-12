@@ -14,7 +14,7 @@
  */
 package org.eclipse.bpmn2.impl;
 
-import org.gwtproject.user.client.rpc.GwtTransient;
+import com.google.gwt.user.client.rpc.GwtTransient;
 
 import javax.xml.namespace.QName;
 

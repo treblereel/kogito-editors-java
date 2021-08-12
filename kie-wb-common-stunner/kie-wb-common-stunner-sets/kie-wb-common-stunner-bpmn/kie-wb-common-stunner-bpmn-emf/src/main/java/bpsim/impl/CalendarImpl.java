@@ -5,7 +5,7 @@ package bpsim.impl;
 import bpsim.BpsimPackage;
 import bpsim.Calendar;
 
-import org.gwtproject.user.client.rpc.GwtTransient;
+import com.google.gwt.user.client.rpc.GwtTransient;
 
 import org.eclipse.emf.common.notify.Notification;
 

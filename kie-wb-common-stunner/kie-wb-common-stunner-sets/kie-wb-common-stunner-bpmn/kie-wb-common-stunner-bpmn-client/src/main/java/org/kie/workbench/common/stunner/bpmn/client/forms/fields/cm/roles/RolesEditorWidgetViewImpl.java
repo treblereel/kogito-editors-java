@@ -25,6 +25,12 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
+import io.crysknife.ui.databinding.client.api.AutoBound;
+import io.crysknife.ui.databinding.client.api.Bound;
+import io.crysknife.ui.databinding.client.api.DataBinder;
+import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.databinding.client.components.ListContainer;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
 import org.gwtproject.event.shared.HandlerRegistration;
@@ -32,11 +38,6 @@ import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.HasValue;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.jboss.errai.databinding.client.api.DataBinder;
-import org.jboss.errai.databinding.client.components.ListComponent;
-import org.jboss.errai.databinding.client.components.ListContainer;
-import org.jboss.errai.ui.shared.api.annotations.AutoBound;
-import org.jboss.errai.ui.shared.api.annotations.Bound;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.KeyValueRow;
@@ -130,6 +131,9 @@ public class RolesEditorWidgetViewImpl extends Composite implements RolesEditorW
 
     @Override
     public void init(final Presenter presenter) {
+
+        DomGlobal.console.warn(getClass().getCanonicalName() + ": databinding is not finished!!!");
+
         this.presenter = Optional.ofNullable(presenter);
         addButton.setIcon(IconType.PLUS);
         addButton.addClickHandler((e) -> handleAddVarButton());

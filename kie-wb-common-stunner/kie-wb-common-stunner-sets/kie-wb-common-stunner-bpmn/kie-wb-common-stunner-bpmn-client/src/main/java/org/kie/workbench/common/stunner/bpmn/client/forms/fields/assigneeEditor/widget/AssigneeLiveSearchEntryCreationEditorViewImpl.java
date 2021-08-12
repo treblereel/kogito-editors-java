@@ -17,17 +17,18 @@
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.assigneeEditor.widget;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
+import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLInputElement;
+import elemental2.dom.HTMLLabelElement;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.event.dom.client.ClickEvent;
-import org.jboss.errai.common.client.dom.Anchor;
 import org.jboss.errai.common.client.dom.DOMUtil;
-import org.jboss.errai.common.client.dom.Div;
-import org.jboss.errai.common.client.dom.Label;
-import org.jboss.errai.common.client.dom.Span;
-import org.jboss.errai.common.client.dom.TextInput;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import org.uberfire.client.views.pfly.widgets.ValidationState;
 
@@ -37,58 +38,61 @@ public class AssigneeLiveSearchEntryCreationEditorViewImpl implements AssigneeLi
 
     @Inject
     @DataField
-    private Div assigneeInputFormGroup;
+    private HTMLDivElement assigneeInputFormGroup;
 
     @Inject
     @DataField
-    private Label assigneeInputLabel;
+    private HTMLLabelElement assigneeInputLabel;
 
     @Inject
     @DataField
-    private TextInput assigneeInput;
+    private HTMLInputElement assigneeInput;
 
     @Inject
     @DataField
-    private Span assigneeInputHelpBlock;
+    @Named("span")
+    private HTMLElement assigneeInputHelpBlock;
 
     @Inject
     @DataField
-    private Anchor acceptButton;
+    private HTMLAnchorElement acceptButton;
 
     @Inject
     @DataField
-    private Anchor cancelButton;
+    private HTMLAnchorElement cancelButton;
 
     private Presenter presenter;
 
     @Override
     public void init(Presenter presenter) {
+
+        assigneeInput.type = "text";
         this.presenter = presenter;
 
-        assigneeInputLabel.setTextContent(presenter.getFieldLabel());
+        assigneeInputLabel.textContent = (presenter.getFieldLabel());
     }
 
     @Override
     public void clear() {
-        assigneeInput.setValue("");
+        assigneeInput.value = ("");
         clearErrors();
     }
 
     @Override
     public String getValue() {
-        return assigneeInput.getValue();
+        return assigneeInput.value;
     }
 
     @Override
     public void showError(String errorMessage) {
         DOMUtil.addCSSClass(assigneeInputFormGroup, ValidationState.ERROR.getCssName());
-        assigneeInputHelpBlock.setTextContent(errorMessage);
+        assigneeInputHelpBlock.textContent = (errorMessage);
     }
 
     @Override
     public void clearErrors() {
         DOMUtil.removeCSSClass(assigneeInputFormGroup, ValidationState.ERROR.getCssName());
-        assigneeInputHelpBlock.setTextContent("");
+        assigneeInputHelpBlock.textContent = ("");
     }
 
     @EventHandler("acceptButton")

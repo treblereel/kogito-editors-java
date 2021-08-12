@@ -5,7 +5,7 @@ package bpsim.impl;
 import bpsim.BetaDistributionType;
 import bpsim.BpsimPackage;
 
-import org.gwtproject.user.client.rpc.GwtTransient;
+import com.google.gwt.user.client.rpc.GwtTransient;
 
 import org.eclipse.emf.common.notify.Notification;
 
