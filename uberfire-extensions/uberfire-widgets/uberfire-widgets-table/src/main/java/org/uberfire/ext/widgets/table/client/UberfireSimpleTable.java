@@ -73,9 +73,12 @@ public class UberfireSimpleTable<T>
         setupGridTable();
     }
 
-    protected static native void addDataGridStyles(final JavaScriptObject grid,
+    protected static void addDataGridStyles(final JavaScriptObject grid,
                                                    final String header,
-                                                   final String content)/*-{
+                                                   final String content) {
+        throw new Error(UberfireSimpleTable.class.getClass().getCanonicalName()+".addDataGridStyles");
+
+    }/*-{
         $wnd.jQuery(grid).find('table:first').addClass(header);
         $wnd.jQuery(grid).find('table:last').addClass(content);
     }-*/;

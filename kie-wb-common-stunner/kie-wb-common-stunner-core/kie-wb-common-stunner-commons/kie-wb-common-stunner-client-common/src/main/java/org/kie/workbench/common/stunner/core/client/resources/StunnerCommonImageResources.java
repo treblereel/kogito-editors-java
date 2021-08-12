@@ -23,7 +23,7 @@ import org.gwtproject.resources.client.ImageResource;
 
 public interface StunnerCommonImageResources extends ClientBundleWithLookup {
 
-    StunnerCommonImageResources INSTANCE = GWT.create(StunnerCommonImageResources.class);
+    StunnerCommonImageResources INSTANCE = null;
 
     @Source("images/edit.png")
     ImageResource edit();

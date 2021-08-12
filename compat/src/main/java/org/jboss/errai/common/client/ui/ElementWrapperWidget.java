@@ -77,7 +77,9 @@ public abstract class ElementWrapperWidget<T> extends Widget {
   }
 */
 
-  private static native Element asElement(Object obj) /*-{
+  private static Element asElement(Object obj) {
+    return Js.uncheckedCast(obj);
+  }/*-{
     return obj;
   }-*/;
 

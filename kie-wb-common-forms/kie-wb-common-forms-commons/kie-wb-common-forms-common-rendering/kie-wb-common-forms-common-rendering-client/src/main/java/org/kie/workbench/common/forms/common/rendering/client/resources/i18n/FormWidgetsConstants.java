@@ -21,7 +21,7 @@ import org.gwtproject.i18n.client.Messages;
 
 public interface FormWidgetsConstants extends Messages {
 
-    public static final FormWidgetsConstants INSTANCE = GWT.create(FormWidgetsConstants.class);
+    public static final FormWidgetsConstants INSTANCE = null;
 
     public String takePicture();
 

@@ -26,7 +26,7 @@ public interface CoreConstants
         extends
         Messages {
 
-    CoreConstants INSTANCE = GWT.create(CoreConstants.class);
+    CoreConstants INSTANCE = null;
 
     String multipleMatchingActivitiesFound();
 

@@ -28,7 +28,6 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
-import com.google.common.base.Strings;
 import io.crysknife.ui.databinding.client.api.AutoBound;
 import io.crysknife.ui.databinding.client.api.Bound;
 import io.crysknife.ui.databinding.client.api.DataBinder;
@@ -498,7 +497,7 @@ public class VariableListItemWidgetViewImpl implements VariableListItemWidgetVie
 
         final String tagAdded = tagNamesComboBox.getValue();
 
-        if (!Strings.isNullOrEmpty(tagAdded) && !tagSet.contains(tagAdded)) {
+        if ((tagAdded != null && !tagAdded.isEmpty()) && !tagSet.contains(tagAdded)) {
             for (final HTMLAnchorElement closeAnchor : removeButtons.values()) {
                 closeAnchor.onclick.onInvoke(new elemental2.dom.Event("DoNotUpdateModel"));
             }

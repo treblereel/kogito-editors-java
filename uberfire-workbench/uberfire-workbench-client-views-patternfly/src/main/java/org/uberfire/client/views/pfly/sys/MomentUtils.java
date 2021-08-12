@@ -42,7 +42,10 @@ public class MomentUtils {
         }
     }
 
-    public static native void setMomentLocale(final String locale) /*-{
+    public static void setMomentLocale(final String locale) {
+        throw new Error(MomentUtils.class.getClass().getCanonicalName()+".setMomentLocale");
+
+    }/*-{
         $wnd.moment.locale(locale);
     }-*/;
 

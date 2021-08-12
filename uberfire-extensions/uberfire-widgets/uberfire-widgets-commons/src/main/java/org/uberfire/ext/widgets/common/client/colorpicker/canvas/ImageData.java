@@ -15,11 +15,13 @@
  */
 package org.uberfire.ext.widgets.common.client.colorpicker.canvas;
 
+import jsinterop.annotations.JsConstructor;
 import org.gwtproject.core.client.JavaScriptObject;
 import org.gwtproject.core.client.JsArrayInteger;
 
 public class ImageData extends JavaScriptObject {
 
+    @JsConstructor
     protected ImageData() {
     }
 

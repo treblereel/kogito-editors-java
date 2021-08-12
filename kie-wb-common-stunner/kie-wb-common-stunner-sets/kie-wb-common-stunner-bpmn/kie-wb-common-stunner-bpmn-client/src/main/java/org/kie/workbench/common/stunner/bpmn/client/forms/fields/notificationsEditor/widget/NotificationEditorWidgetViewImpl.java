@@ -17,6 +17,7 @@
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.notificationsEditor.widget;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +27,6 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.validation.Validator;
 
-import com.google.common.collect.ImmutableMap;
 import io.crysknife.ui.databinding.client.api.AutoBound;
 import io.crysknife.ui.databinding.client.api.Bound;
 import io.crysknife.ui.databinding.client.api.DataBinder;
@@ -469,9 +469,11 @@ public class NotificationEditorWidgetViewImpl extends Composite implements Notif
         taskExpiration.addValueChangeHandler(this::onTaskExpressionChange);
         repeatCount.value = "1";
 
-        panels = ImmutableMap.of(Expiration.TIME_PERIOD.getName(), timeperiodDiv,
-                                 Expiration.EXPRESSION.getName(), expressionDiv,
-                                 Expiration.DATETIME.getName(), datetimeDiv);
+        panels = new HashMap<>();
+        panels.put(Expiration.TIME_PERIOD.getName(), timeperiodDiv);
+        panels.put(Expiration.EXPRESSION.getName(), expressionDiv);
+        panels.put(Expiration.DATETIME.getName(), datetimeDiv);
+
         initPopover();
     }
 

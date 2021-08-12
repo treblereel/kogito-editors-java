@@ -25,7 +25,7 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 /**
  * Wrapper class for the <a href="https://momentjs.com/docs/#/durations/">moment.duration</a> function.
  */
-@JsType(isNative = true)
+@JsType(isNative = true, namespace = GLOBAL, name = "Moment")
 public abstract class MomentDuration {
 
     @JsProperty(namespace = GLOBAL, name = "moment")

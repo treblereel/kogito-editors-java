@@ -16,7 +16,6 @@
 
 package org.uberfire.ext.widgets.core.client.resources;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.resources.client.ClientBundle;
 import org.gwtproject.resources.client.ImageResource;
 
@@ -24,7 +23,7 @@ public interface CoreImages
         extends
         ClientBundle {
 
-    CoreImages INSTANCE = GWT.create(CoreImages.class);
+    CoreImages INSTANCE = null;
 
     @Source("images/open_folder.gif")
     ImageResource openedFolder();

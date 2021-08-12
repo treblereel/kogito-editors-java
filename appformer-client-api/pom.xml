@@ -32,8 +32,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>javax.enterprise</groupId>
-      <artifactId>cdi-api</artifactId>
+      <groupId>io.crysknife</groupId>
+      <artifactId>crysknife-annotations</artifactId>
     </dependency>
     <dependency>
       <groupId>com.google.jsinterop</groupId>

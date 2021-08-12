@@ -63,7 +63,7 @@ public class FormLabelHelp extends Composite implements HasText {
 
     private HelpIcon getHelpIcon() {
         if (helpIcon == null) {
-            helpIcon = GWT.create(HelpIcon.class);
+            helpIcon = new HelpIcon();
             panel.add(helpIcon);
         }
         return helpIcon;

@@ -22,7 +22,7 @@ public interface CoreResources
         extends
         ClientBundle {
 
-    CoreResources INSTANCE = GWT.create(CoreResources.class);
+    CoreResources INSTANCE = null;
 
     CoreImages images();
 }

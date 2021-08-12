@@ -60,7 +60,7 @@ import static org.gwtproject.user.client.ui.HasHorizontalAlignment.HorizontalAli
 @Dependent
 public class TabPanelWithDropdowns extends Composite {
 
-    private static TabPanelWithDropdownsBinder uiBinder = GWT.create(TabPanelWithDropdownsBinder.class);
+    private static TabPanelWithDropdownsBinder uiBinder = null;
     /**
      * Widgets we have created that can have the CSS style name "active" added to them. When a new tab is selected, all
      * of these widgets get the "active" style removed from them.

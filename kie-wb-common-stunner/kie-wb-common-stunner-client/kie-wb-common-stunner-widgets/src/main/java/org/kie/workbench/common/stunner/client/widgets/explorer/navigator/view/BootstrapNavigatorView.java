@@ -43,7 +43,7 @@ public class BootstrapNavigatorView
 
     }
 
-    private static ViewBinder uiBinder = GWT.create(ViewBinder.class);
+    private static ViewBinder uiBinder = null;
 
     @UiField
     ResizeFlowPanel mainPanel;

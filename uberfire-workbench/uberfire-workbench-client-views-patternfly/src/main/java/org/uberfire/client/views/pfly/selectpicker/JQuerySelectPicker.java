@@ -23,7 +23,7 @@ import jsinterop.annotations.JsType;
 
 import static jsinterop.annotations.JsPackage.GLOBAL;
 
-@JsType(isNative = true)
+@JsType(isNative = true, namespace = GLOBAL, name = "jQuery")
 public abstract class JQuerySelectPicker {
 
     @JsMethod(namespace = GLOBAL, name = "jQuery")

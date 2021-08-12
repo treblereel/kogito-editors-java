@@ -23,7 +23,7 @@ import org.gwtproject.resources.client.ClientBundle;
  */
 public interface WorkbenchResources extends ClientBundle {
 
-    WorkbenchResources INSTANCE = GWT.create(WorkbenchResources.class);
+    WorkbenchResources INSTANCE = null;
 
     @Source("css/workbench.css")
     WorkbenchCss CSS();

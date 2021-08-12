@@ -18,7 +18,6 @@ package org.kie.workbench.common.stunner.bpmn.client.marshall.converters.customp
 
 import java.util.Objects;
 
-import com.google.common.base.Strings;
 import org.eclipse.bpmn2.ItemDefinition;
 import org.eclipse.bpmn2.Property;
 import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.fromstunner.Ids;
@@ -102,7 +101,7 @@ public class VariableDeclaration {
     @Override
     public String toString() {
         String tagString = "";
-        if (!Strings.isNullOrEmpty(tags)) {
+        if (tags != null && tags.isEmpty()) {
             tagString = ":" + tags;
         }
         if (type == null || type.isEmpty()) {

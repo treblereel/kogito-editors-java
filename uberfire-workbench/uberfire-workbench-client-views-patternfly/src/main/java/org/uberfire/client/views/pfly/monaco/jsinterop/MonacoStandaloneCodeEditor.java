@@ -24,7 +24,7 @@ import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
-@JsType(isNative = true, namespace = JsPackage.GLOBAL)
+@JsType(isNative = true, namespace = JsPackage.GLOBAL,name = "Object")
 public class MonacoStandaloneCodeEditor {
 
     public JsObject _contentWidgets;

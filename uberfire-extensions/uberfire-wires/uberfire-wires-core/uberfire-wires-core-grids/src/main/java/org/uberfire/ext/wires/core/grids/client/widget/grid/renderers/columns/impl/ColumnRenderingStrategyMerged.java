@@ -114,7 +114,7 @@ public class ColumnRenderingStrategyMerged {
         //Column content
         commands.add((GridRenderer.RenderBodyGridContentCommand) (rc) -> {
             if (columnRenderingConstraint.apply(rc.isSelectionLayer(), column)) {
-                final Group columnGroup = GWT.create(Group.class);
+                final Group columnGroup = new Group();
                 columnGroup.setX(x);
                 int iterations = 0;
                 for (int rowIndex = minVisibleRowIndex; rowIndex <= maxVisibleRowIndex; rowIndex++) {
@@ -234,7 +234,7 @@ public class ColumnRenderingStrategyMerged {
 
                 //Clip Column Group
                 final double gridLinesStrokeWidth = theme.getBodyGridLine().getStrokeWidth();
-                final BoundingBoxPathClipperFactory boundingBoxPathClipperFactory = GWT.create(BoundingBoxPathClipperFactory.class);
+                final BoundingBoxPathClipperFactory boundingBoxPathClipperFactory = new BoundingBoxPathClipperFactory();
                 final IPathClipper clipper = boundingBoxPathClipperFactory.newClipper(gridLinesStrokeWidth,
                                                                                       0,
                                                                                       columnWidth - gridLinesStrokeWidth,

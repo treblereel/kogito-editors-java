@@ -17,6 +17,8 @@ package org.uberfire.ext.widgets.common.client.common;
 
 import java.util.Date;
 
+import org.gwtbootstrap3.client.shared.js.JQuery;
+import org.gwtbootstrap3.extras.datepicker.client.ui.base.DatePickerBase;
 import org.gwtproject.dom.client.Element;
 import org.gwtproject.editor.client.IsEditor;
 import org.gwtproject.editor.client.LeafValueEditor;
@@ -420,12 +422,17 @@ public class DatePicker extends Composite
     }
 
     //Unfortunately the wrapped DatePicker hides the "update" method so we have to repeat it here
-    private native void update(Element e) /*-{
+    private void update(Element e) {
+        ((DatePickerBase.JQueryDatePicker)DatePickerBase.JQueryDatePicker.$(e)).datepicker("update");
+    }/*-{
         $wnd.jQuery(e).datepicker('update');
     }-*/;
 
-    private final native String parseDate(Element e,
-                                          String format) /*-{
+    private final String parseDate(Element e,
+                                          String format) {
+        return ((DatePickerBase.JQueryDatePicker)DatePickerBase.JQueryDatePicker.$(e)).datepicker("getFormattedDate", format);
+
+    }/*-{
         var dateStr = $wnd.jQuery(e).datepicker('getFormattedDate', format);
         return dateStr
     }-*/;

@@ -29,7 +29,6 @@ import org.gwtproject.event.dom.client.MouseUpHandler;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.user.client.ui.Composite;
 import org.uberfire.ext.widgets.common.client.colorpicker.canvas.Canvas;
-import org.uberfire.ext.widgets.common.client.colorpicker.canvas.RenderingContext;
 
 public class HuePicker extends Composite {
 

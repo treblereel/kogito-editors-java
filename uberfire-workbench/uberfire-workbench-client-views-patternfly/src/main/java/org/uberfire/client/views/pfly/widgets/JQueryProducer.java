@@ -25,7 +25,9 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@JsType(isNative = true)
+import static jsinterop.annotations.JsPackage.GLOBAL;
+
+@JsType(isNative = true, namespace = GLOBAL, name = "jQuery")
 public abstract class JQueryProducer {
 
     /**
@@ -57,7 +59,7 @@ public abstract class JQueryProducer {
      * <p>
      * <p>
      */
-    @JsType(isNative = true)
+    @JsType(isNative = true, namespace = GLOBAL, name = "jQuery")
     public static abstract class JQueryElement extends HTMLElement {
 
         abstract void after(HTMLElement element);
@@ -73,7 +75,7 @@ public abstract class JQueryProducer {
      * <p>
      * Interface for an element array returned by some {@link JQueryElement} methods.
      */
-    @JsType(isNative = true)
+    @JsType(isNative = true, namespace = GLOBAL, name = "jQuery")
     public interface JQueryArray {
 
         JQueryElement first();

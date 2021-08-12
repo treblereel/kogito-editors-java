@@ -34,7 +34,7 @@ public class ToolbarItemView extends Composite implements ToolbarItem.View {
 
     }
 
-    private static ViewBinder uiBinder = GWT.create(ViewBinder.class);
+    private static ViewBinder uiBinder = null;
 
     @UiField
     Button button;

@@ -44,12 +44,8 @@ import org.kie.workbench.common.forms.model.impl.meta.entries.FieldTypeEntry;
 import org.kie.workbench.common.forms.service.shared.FieldManager;
 import org.kie.workbench.common.forms.service.shared.meta.processing.MetaDataEntryManager;
 import org.kie.workbench.common.forms.service.shared.meta.processing.MetaDataEntryProcessor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public abstract class AbstractFieldManager implements FieldManager {
-
-    private static transient Logger log = LoggerFactory.getLogger(FieldManager.class);
 
     protected Set<BasicTypeFieldProvider> basicProviders = new TreeSet<>((o1, o2) -> o1.getPriority() - o2.getPriority());
 

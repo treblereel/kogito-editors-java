@@ -27,6 +27,8 @@ import elemental2.dom.HTMLOptionElement;
 import elemental2.dom.HTMLOptionsCollection;
 import elemental2.dom.HTMLSelectElement;
 import io.crysknife.client.IsElement;
+import org.gwtbootstrap3.client.shared.js.JQuery;
+import org.gwtbootstrap3.extras.select.client.ui.SelectPicker;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.user.client.TakesValue;
 
@@ -154,32 +156,52 @@ public class Select implements IsElement,
         selectpicker(select);
     }
 
-    private native void refreshElement(final HTMLElement e) /*-{
+    private void refreshElement(final HTMLElement e) {
+        SelectPicker.jQuery(e).selectpicker("refresh");
+    }/*-{
         $wnd.jQuery(e).selectpicker('refresh');
     }-*/;
 
-    private native void setValue(final HTMLElement e,
-                                 final String value) /*-{
+    private void setValue(final HTMLElement e,
+                                 final String value) {
+        SelectPicker.jQuery(e).selectpicker("val", value);
+
+    }/*-{
         $wnd.jQuery(e).selectpicker('val', value);
     }-*/;
 
-    private native void disable(final HTMLElement e) /*-{
+    private void disable(final HTMLElement e) {
+        SelectPicker.jQuery(e).prop("disabled", true);
+
+    }/*-{
         $wnd.jQuery(e).prop('disabled', true);
     }-*/;
 
-    private native void enable(final HTMLElement e) /*-{
+    private void enable(final HTMLElement e) {
+        SelectPicker.jQuery(e).prop("disabled", false);
+
+    }/*-{
         $wnd.jQuery(e).prop('disabled', false);
     }-*/;
 
-    private native void removeAllOptions(final HTMLElement e) /*-{
+    private void removeAllOptions(final HTMLElement e) {
+        SelectPicker.jQuery(e).find("option").remove();
+
+    }/*-{
         $wnd.jQuery(e).find('option').remove();
     }-*/;
 
-    private native void selectpicker(final HTMLElement e) /*-{
+    private void selectpicker(final HTMLElement e) {
+        SelectPicker.jQuery(e).selectpicker();
+
+    }/*-{
         $wnd.jQuery(e).selectpicker();
     }-*/;
 
-    private native void selectpicker(final HTMLElement e, final String method) /*-{
+    private void selectpicker(final HTMLElement e, final String method) {
+        SelectPicker.jQuery(e).selectpicker(method);
+
+    }/*-{
         $wnd.jQuery(e).selectpicker(method);
     }-*/;
 

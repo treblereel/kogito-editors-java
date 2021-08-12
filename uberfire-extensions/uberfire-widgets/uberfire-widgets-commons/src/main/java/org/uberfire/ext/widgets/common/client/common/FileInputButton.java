@@ -16,6 +16,7 @@
 
 package org.uberfire.ext.widgets.common.client.common;
 
+import jsinterop.annotations.JsConstructor;
 import org.gwtproject.core.client.JavaScriptObject;
 import org.gwtproject.core.client.JsArray;
 import org.gwtproject.dom.client.Element;
@@ -44,6 +45,7 @@ public class FileInputButton extends Composite implements HasValueChangeHandlers
     private FileUpload upload;
     private Icon icon;
 
+    @JsConstructor
     public FileInputButton() {
         wrapper = new Span();
         wrapper.addStyleName(Styles.BTN);
@@ -111,7 +113,10 @@ public class FileInputButton extends Composite implements HasValueChangeHandlers
                               getFiles(upload.getElement()));
     }
 
-    private native JsArray<UploadFile> getFiles(Element el) /*-{
+    private JsArray<UploadFile> getFiles(Element el) {
+        throw new Error(getClass().getCanonicalName()+".getFiles");
+
+    }/*-{
         if (el.files) {
             return el.files;
         } else {
@@ -127,18 +132,28 @@ public class FileInputButton extends Composite implements HasValueChangeHandlers
 
     public static class UploadFile extends JavaScriptObject {
 
+        @JsConstructor
         protected UploadFile() {
         }
 
-        public final native int getSize() /*-{
+        public final int getSize() {
+            throw new Error(getClass().getCanonicalName()+".getSize");
+
+        }/*-{
             return this.fileSize != null ? this.fileSize : this.size;
         }-*/;
 
-        public final native String getName() /*-{
+        public final String getName() {
+            throw new Error(getClass().getCanonicalName()+".getName");
+
+        }/*-{
             return this.fileName != null ? this.fileName : this.name;
         }-*/;
 
-        public final native String getType() /*-{
+        public final String getType() {
+            throw new Error(getClass().getCanonicalName()+".getType");
+
+        }/*-{
             return this.type;
         }-*/;
     }

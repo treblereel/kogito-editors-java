@@ -118,7 +118,7 @@ public class ColumnRenderingStrategyFlattened {
                 }
 
                 //Clip Column Group
-                final BoundingBoxPathClipperFactory boundingBoxPathClipperFactory = GWT.create(BoundingBoxPathClipperFactory.class);
+                final BoundingBoxPathClipperFactory boundingBoxPathClipperFactory = new BoundingBoxPathClipperFactory();
                 final IPathClipper clipper = boundingBoxPathClipperFactory.newClipper(0,
                                                                                       0,
                                                                                       columnWidth,

@@ -37,7 +37,7 @@ import org.uberfire.ext.widgets.core.client.tree.TreeItem;
 @Dependent
 public class TreeExplorerView extends Composite implements TreeExplorer.View {
 
-    static ViewBinder uiBinder = GWT.create(ViewBinder.class);
+    static ViewBinder uiBinder = null;
 
     @UiField
     Tree<TreeItem> tree;

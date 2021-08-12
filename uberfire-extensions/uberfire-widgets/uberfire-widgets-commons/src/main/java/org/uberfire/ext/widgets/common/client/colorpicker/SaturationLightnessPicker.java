@@ -18,7 +18,6 @@ package org.uberfire.ext.widgets.common.client.colorpicker;
 import elemental2.core.Uint8ClampedArray;
 import elemental2.dom.CanvasRenderingContext2D;
 import jsinterop.base.Js;
-import org.gwtproject.core.client.JsArrayInteger;
 import org.gwtproject.event.dom.client.MouseDownEvent;
 import org.gwtproject.event.dom.client.MouseDownHandler;
 import org.gwtproject.event.dom.client.MouseMoveEvent;
@@ -30,9 +29,6 @@ import org.gwtproject.event.dom.client.MouseUpHandler;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.user.client.ui.Composite;
 import org.uberfire.ext.widgets.common.client.colorpicker.canvas.Canvas;
-import org.uberfire.ext.widgets.common.client.colorpicker.canvas.Gradient;
-import org.uberfire.ext.widgets.common.client.colorpicker.canvas.ImageData;
-import org.uberfire.ext.widgets.common.client.colorpicker.canvas.RenderingContext;
 
 public class SaturationLightnessPicker extends Composite {
 

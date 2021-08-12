@@ -83,7 +83,7 @@ public class TreeItem<I extends TreeItem> extends Composite implements OuiaCompo
             folder.getElement().getStyle().setDisplay(Style.Display.BLOCK);
             {
                 this.state = State.CLOSE;
-                this.header = GWT.create(FlowPanel.class);
+                this.header = new FlowPanel();
                 this.icon = icon;
                 this.content = contentProvider.get();
                 final Anchor name = new Anchor();

@@ -63,7 +63,7 @@ public abstract class AbstractDockItem extends Composite implements OuiaComponen
 
     void configureText(final Button itemButton,
                        final String text) {
-        Span itemButtonText = GWT.create(Span.class);
+        Span itemButtonText = new Span();
         itemButtonText.setText(text);
         itemButton.insert(itemButtonText,
                           0);

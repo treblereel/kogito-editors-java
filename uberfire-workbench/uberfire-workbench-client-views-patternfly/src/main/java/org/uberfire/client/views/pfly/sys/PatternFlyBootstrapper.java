@@ -101,7 +101,10 @@ public class PatternFlyBootstrapper {
      *
      * @return true is jQuery is loaded, false otherwise.
      */
-    private static native boolean isjQueryLoaded() /*-{
+    private static boolean isjQueryLoaded() {
+        throw new Error(PatternFlyBootstrapper.class.getClass().getCanonicalName()+".isjQueryLoaded");
+
+    }/*-{
         return (typeof $wnd['jQuery'] !== 'undefined');
     }-*/;
 }

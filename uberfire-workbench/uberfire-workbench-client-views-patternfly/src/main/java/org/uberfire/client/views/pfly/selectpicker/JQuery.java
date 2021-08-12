@@ -26,7 +26,7 @@ import jsinterop.annotations.JsType;
 
 import static jsinterop.annotations.JsPackage.GLOBAL;
 
-@JsType(isNative = true)
+@JsType(isNative = true, namespace = GLOBAL, name = "jQuery")
 public abstract class JQuery {
 
     @JsProperty(namespace = GLOBAL, name = "jQuery")

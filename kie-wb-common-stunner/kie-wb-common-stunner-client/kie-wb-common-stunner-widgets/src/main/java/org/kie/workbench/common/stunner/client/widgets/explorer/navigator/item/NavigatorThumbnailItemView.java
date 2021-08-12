@@ -45,7 +45,7 @@ public class NavigatorThumbnailItemView
 
     }
 
-    private static ViewBinder uiBinder = GWT.create(ViewBinder.class);
+    private static ViewBinder uiBinder = null;
 
     @UiField
     FlowPanel mainPanel;

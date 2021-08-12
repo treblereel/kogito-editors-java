@@ -35,7 +35,7 @@ public class DefaultToolbarView extends Composite implements ToolbarView<Toolbar
 
     }
 
-    private static ViewBinder uiBinder = GWT.create(ViewBinder.class);
+    private static ViewBinder uiBinder = null;
 
     @UiField
     ButtonGroup mainGroup;

@@ -15,10 +15,12 @@
  */
 package org.uberfire.ext.widgets.common.client.colorpicker.canvas;
 
+import jsinterop.annotations.JsConstructor;
 import org.gwtproject.core.client.JavaScriptObject;
 
 public class Gradient extends JavaScriptObject {
 
+    @JsConstructor
     protected Gradient() {
     }
 

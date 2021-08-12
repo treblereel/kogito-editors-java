@@ -30,6 +30,7 @@ import elemental2.dom.NodeList;
 import jsinterop.base.Js;
 import org.gwtproject.dom.client.Style;
 import org.gwtproject.dom.style.shared.HasCssName;
+import org.gwtproject.user.client.ui.FakeWidget;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.RootPanel;
 import org.gwtproject.user.client.ui.Widget;
@@ -451,8 +452,11 @@ public abstract class DOMUtil {
         }
     }
 
-    private static native void onAttach(Widget w)/*-{
+    private static void onAttach(Widget w) {
+        new FakeWidget(w);
+    }/*-{
     w.@com.google.gwt.user.client.ui.Widget::onAttach()();
-  }-*/;
+  }-*/
+
 
 }
