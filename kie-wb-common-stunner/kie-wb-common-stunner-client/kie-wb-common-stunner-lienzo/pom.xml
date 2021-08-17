@@ -47,7 +47,6 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-client-api</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -58,19 +57,16 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-client-common</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-shapes-api</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-lienzo-extensions</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <!-- Lienzo. -->
@@ -78,7 +74,6 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>lienzo-core</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <!-- GWT and GWT Extensions -->
@@ -86,19 +81,16 @@
     <dependency>
       <groupId>org.gwtbootstrap3</groupId>
       <artifactId>gwtbootstrap3</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.gwtbootstrap3</groupId>
       <artifactId>gwtbootstrap3-extras</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.google.elemental2</groupId>
       <artifactId>elemental2-dom</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -114,7 +106,6 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-commons-editor-client</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -130,5 +121,19 @@
     </dependency>
 
   </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.java</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+  </build>
 
 </project>

@@ -15,7 +15,6 @@
  */
 package org.uberfire.ext.widgets.core.client.resources;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.resources.client.ClientBundle;
 import org.gwtproject.resources.client.CssResource;
 

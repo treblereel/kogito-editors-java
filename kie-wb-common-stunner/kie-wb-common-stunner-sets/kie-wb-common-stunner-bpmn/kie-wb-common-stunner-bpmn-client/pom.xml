@@ -154,13 +154,11 @@
     <dependency>
       <groupId>org.gwtbootstrap3</groupId>
       <artifactId>gwtbootstrap3</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.gwtbootstrap3</groupId>
       <artifactId>gwtbootstrap3-extras</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <!-- Elemental2 -->
@@ -206,7 +204,6 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>lienzo-core</artifactId>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.gwtproject.json</groupId>
@@ -243,4 +240,18 @@
     </dependency>-->
 
   </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.java</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+  </build>
 </project>

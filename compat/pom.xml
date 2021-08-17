@@ -11,8 +11,6 @@
 
   <artifactId>compat</artifactId>
 
-
-
   <build>
     <resources>
       <resource>
@@ -53,6 +51,19 @@
     <dependency>
       <groupId>io.crysknife</groupId>
       <artifactId>databinding-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.google.elemental2</groupId>
+      <artifactId>elemental2-webstorage</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.treblereel.gwt.nio</groupId>
+      <artifactId>gwt-nio</artifactId>
+      <version>1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.treblereel.gwt.xml.mapper</groupId>
+      <artifactId>api</artifactId>
     </dependency>
   </dependencies>
 

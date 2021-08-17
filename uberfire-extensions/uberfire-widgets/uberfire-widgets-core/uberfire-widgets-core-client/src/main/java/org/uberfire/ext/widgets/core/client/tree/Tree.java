@@ -125,7 +125,7 @@ public class Tree<T extends TreeItem> extends Composite implements HasSelectionH
     }
 
     public Iterable<T> getItems() {
-        return () -> new T.TreeItemIterator<T>(container);
+        return () -> new TreeItem.TreeItemIterator<>(container);
     }
 
     public boolean isEmpty() {
