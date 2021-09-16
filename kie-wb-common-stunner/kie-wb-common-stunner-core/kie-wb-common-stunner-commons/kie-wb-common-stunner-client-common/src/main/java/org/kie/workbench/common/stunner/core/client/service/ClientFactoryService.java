@@ -36,17 +36,21 @@ import org.kie.workbench.common.stunner.core.service.FactoryService;
 public class ClientFactoryService {
 
     ClientFactoryManager clientFactoryManager;
+/*
     Caller<FactoryService> factoryServiceCaller;
+*/
 
     protected ClientFactoryService() {
         super();
     }
 
     @Inject
-    public ClientFactoryService(final ClientFactoryManager clientFactoryManager,
-                                final Caller<FactoryService> factoryServiceCaller) {
+    public ClientFactoryService(final ClientFactoryManager clientFactoryManager
+            /*,final Caller<FactoryService> factoryServiceCaller*/) {
         this.clientFactoryManager = clientFactoryManager;
+/*
         this.factoryServiceCaller = factoryServiceCaller;
+*/
     }
 
     public <T> void newDefinition(final String definitionId,
@@ -55,11 +59,13 @@ public class ClientFactoryService {
         if (null != def) {
             callback.onSuccess(def);
         } else {
-            factoryServiceCaller.call((T t) -> callback.onSuccess(t),
+            throw new Error(getClass().getCanonicalName()+".newDefinition");
+
+/*            factoryServiceCaller.call((T t) -> callback.onSuccess(t),
                                       (message, throwable) -> {
                                           callback.onError(new ClientRuntimeError(throwable));
                                           return false;
-                                      }).newDefinition(definitionId);
+                                      }).newDefinition(definitionId);*/
         }
     }
 
@@ -71,12 +77,14 @@ public class ClientFactoryService {
         if (null != element) {
             callback.onSuccess(element);
         } else {
-            factoryServiceCaller.call((Element t) -> callback.onSuccess(t),
+            throw new Error(getClass().getCanonicalName()+".newElement");
+
+/*            factoryServiceCaller.call((Element t) -> callback.onSuccess(t),
                                       (message, throwable) -> {
                                           callback.onError(new ClientRuntimeError(throwable));
                                           return false;
                                       }).newElement(uuid,
-                                                    definitionId);
+                                                    definitionId);*/
         }
     }
 
@@ -90,13 +98,16 @@ public class ClientFactoryService {
         if (null != diagram) {
             callback.onSuccess(diagram);
         } else {
-            factoryServiceCaller.call((D d) -> callback.onSuccess(d),
+            throw new Error(getClass().getCanonicalName()+".newDiagram");
+
+
+/*            factoryServiceCaller.call((D d) -> callback.onSuccess(d),
                                       (message, throwable) -> {
                                           callback.onError(new ClientRuntimeError(throwable));
                                           return false;
                                       }).newDiagram(uuid,
                                                     id,
-                                                    metadata);
+                                                    metadata);*/
         }
     }
 

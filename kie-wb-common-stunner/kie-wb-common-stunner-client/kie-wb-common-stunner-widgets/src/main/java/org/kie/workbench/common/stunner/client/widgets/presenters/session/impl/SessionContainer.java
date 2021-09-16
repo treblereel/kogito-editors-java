@@ -16,6 +16,8 @@
 
 package org.kie.workbench.common.stunner.client.widgets.presenters.session.impl;
 
+import javax.enterprise.context.Dependent;
+
 import org.gwtproject.safehtml.shared.annotations.IsSafeHtml;
 import org.gwtproject.user.client.ui.HTML;
 import org.gwtproject.user.client.ui.HasHTML;
@@ -27,6 +29,7 @@ import org.uberfire.client.workbench.widgets.ResizeFlowPanel;
  * to propagate RequiresResize to child elements. In order for errai-ui to correctly substitute
  * the remainder of the HTML template the Panel needs to implement HasHTML.
  */
+@Dependent
 public class SessionContainer extends ResizeFlowPanel implements HasHTML {
 
     private final HTML container = new HTML();

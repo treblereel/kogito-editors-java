@@ -67,9 +67,9 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     private boolean notInitialized = true;
 
-    @Inject
-    @DataField
-    @Table(root = "tbody")
+    //@Inject
+    //@DataField
+    //@Table(root = "tbody")
     protected ListComponent<MetaDataRow, ?> metaDataRows;
 
     @Inject

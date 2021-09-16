@@ -18,6 +18,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.impl.
 
 import java.util.List;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import io.crysknife.ui.templates.client.annotation.DataField;
@@ -29,6 +30,7 @@ import org.gwtproject.user.client.ui.Composite;
 import org.jboss.errai.common.client.api.Assert;
 
 @Templated
+@Dependent
 public class ConfigErrorDisplayerViewImpl extends Composite implements ConfigErrorDisplayerView {
 
     @DataField

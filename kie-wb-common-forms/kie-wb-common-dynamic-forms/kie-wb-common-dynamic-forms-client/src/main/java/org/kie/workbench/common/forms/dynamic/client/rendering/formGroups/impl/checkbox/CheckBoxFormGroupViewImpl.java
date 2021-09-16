@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.PreDestroy;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLDivElement;
@@ -33,6 +34,7 @@ import org.kie.workbench.common.forms.dynamic.client.rendering.util.FormsElement
 import org.kie.workbench.common.forms.model.FieldDefinition;
 
 @Templated
+@Dependent
 public class CheckBoxFormGroupViewImpl implements IsElement,
                                                   CheckBoxFormGroupView {
 

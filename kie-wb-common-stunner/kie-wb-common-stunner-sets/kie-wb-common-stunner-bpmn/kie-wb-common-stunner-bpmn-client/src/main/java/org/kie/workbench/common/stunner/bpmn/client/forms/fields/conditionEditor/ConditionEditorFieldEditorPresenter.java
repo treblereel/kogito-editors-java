@@ -17,6 +17,7 @@
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.conditionEditor;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLElement;
@@ -34,6 +35,7 @@ import org.uberfire.client.mvp.UberElement;
 
 import static org.kie.workbench.common.stunner.core.util.StringUtils.isEmpty;
 
+@Dependent
 public class ConditionEditorFieldEditorPresenter
         extends FieldEditorPresenter<ScriptTypeValue> {
 

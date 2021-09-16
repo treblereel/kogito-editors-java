@@ -16,6 +16,7 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.editor.wsdlImport;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import io.crysknife.ui.databinding.client.api.AutoBound;
@@ -33,6 +34,7 @@ import org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.p
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.editor.ImportsEditorWidgetView;
 import org.kie.workbench.common.stunner.bpmn.definition.property.diagram.imports.WSDLImport;
 
+@Dependent
 @Templated("WSDLImportsEditorWidget.html#wsdlImport")
 public class WSDLImportListItemWidgetView extends Composite implements ImportListItemWidgetView<WSDLImport> {
 

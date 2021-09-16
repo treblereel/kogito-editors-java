@@ -21,7 +21,7 @@ import org.gwtproject.i18n.client.Messages;
 
 public interface ProjectConcurrentChangePopupConstants extends Messages {
 
-    public static final ProjectConcurrentChangePopupConstants INSTANCE = GWT.create(ProjectConcurrentChangePopupConstants.class);
+    public static final ProjectConcurrentChangePopupConstants INSTANCE = null;
 
     String ConcurrentUpdate(String identity, String projectURI);
 

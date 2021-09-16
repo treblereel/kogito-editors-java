@@ -54,10 +54,11 @@ public class WSDLImportsEditorWidgetView extends Composite implements ImportsEdi
     @DataField
     protected TableCellElement namespaceTableHeader = Document.get().createTHElement();
 
-    @Inject
-    @DataField
-    @Table(root = "tbody")
-    protected ListComponent<WSDLImport, ?> wsdlImports;
+    //@Inject
+    //@DataField
+    //@Table(root = "tbody")
+    //protected ListComponent<WSDLImport, ?> wsdlImports;
+
     @DataField
     private HeadingElement tableTitle = Document.get().createHElement(3);
     private Presenter presenter;
@@ -77,7 +78,8 @@ public class WSDLImportsEditorWidgetView extends Composite implements ImportsEdi
 
     @Override
     public int getImportsCount() {
-        return wsdlImports.getValue().size();
+        throw new Error(getClass().getCanonicalName()+".getImportsCount");
+        //return wsdlImports.getValue().size();
     }
 
     @Override
@@ -87,12 +89,16 @@ public class WSDLImportsEditorWidgetView extends Composite implements ImportsEdi
 
     @Override
     public List<WSDLImport> getImports() {
-        return wsdlImports.getValue();
+        throw new Error(getClass().getCanonicalName()+".getImports");
+
+        //return wsdlImports.getValue();
     }
 
     @Override
     public void setImports(List<WSDLImport> imports) {
-        wsdlImports.setValue(imports);
+        throw new Error(getClass().getCanonicalName()+".setImports");
+
+        //wsdlImports.setValue(imports);
     }
 
     @Override

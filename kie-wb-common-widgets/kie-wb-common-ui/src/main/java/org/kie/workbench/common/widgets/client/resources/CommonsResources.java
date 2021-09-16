@@ -22,7 +22,7 @@ public interface CommonsResources
         extends
         ClientBundle {
 
-    CommonsResources INSTANCE = GWT.create( CommonsResources.class );
+    CommonsResources INSTANCE = null;
 
     @Source("css/CommonsCss.css")
     CommonsCss css();

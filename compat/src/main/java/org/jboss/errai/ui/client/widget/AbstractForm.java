@@ -61,7 +61,7 @@ public abstract class AbstractForm extends Composite {
   private HTMLIFrameElement iFrame;
 
   @PostConstruct
-  private void setupIFrame() {
+  public void setupIFrame() {
     iFrame = getOrMakeIFrame();
 
     iFrame.style.display = Display.NONE.getCssName();

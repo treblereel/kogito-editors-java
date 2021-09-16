@@ -23,7 +23,7 @@ public interface CollapseExpand
         extends
         ClientBundle {
 
-    public static final CollapseExpand INSTANCE = GWT.create( CollapseExpand.class );
+    public static final CollapseExpand INSTANCE = null;
 
     @Source("images/collapse_expand/collapse.gif")
     ImageResource collapse();

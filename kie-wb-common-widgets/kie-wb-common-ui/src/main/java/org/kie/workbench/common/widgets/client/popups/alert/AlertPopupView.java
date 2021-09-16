@@ -16,7 +16,6 @@
 
 package org.kie.workbench.common.widgets.client.popups.alert;
 
-import org.gwtproject.user.client.Window;
 import org.gwtproject.user.client.ui.IsWidget;
 
 /**

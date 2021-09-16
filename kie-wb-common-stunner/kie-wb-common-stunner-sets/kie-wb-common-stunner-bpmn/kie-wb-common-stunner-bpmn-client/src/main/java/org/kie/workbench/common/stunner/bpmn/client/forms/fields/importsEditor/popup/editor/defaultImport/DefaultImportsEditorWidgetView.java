@@ -20,6 +20,7 @@ import java.util.List;
 
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import io.crysknife.ui.databinding.client.components.ListComponent;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
@@ -34,13 +35,13 @@ import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
-import org.jboss.errai.ui.client.widget.Table;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.editor.ImportsEditorWidgetView;
 import org.kie.workbench.common.stunner.bpmn.definition.property.diagram.imports.DefaultImport;
 
 @Dependent
 @Templated("DefaultImportsEditorWidget.html#widget")
+@Named("DefaultImportsEditorWidgetView")
 public class DefaultImportsEditorWidgetView extends Composite implements ImportsEditorWidgetView<DefaultImport> {
 
     @DataField
@@ -50,9 +51,9 @@ public class DefaultImportsEditorWidgetView extends Composite implements Imports
     protected Button addImportButton;
     @DataField
     protected TableCellElement classNameTableHeader = Document.get().createTHElement();
-    @Inject
-    @DataField
-    @Table(root = "tbody")
+    //@Inject
+    //@DataField
+    //@Table(root = "tbody")
     protected ListComponent<DefaultImport, ?> defaultImports;
     @DataField
     private HeadingElement tableTitle = Document.get().createHElement(3);
@@ -72,7 +73,9 @@ public class DefaultImportsEditorWidgetView extends Composite implements Imports
 
     @Override
     public int getImportsCount() {
-        return defaultImports.getValue().size();
+
+        throw new Error(getClass().getCanonicalName()+".getImportsCount");
+        //return defaultImports.getValue().size();
     }
 
     @Override

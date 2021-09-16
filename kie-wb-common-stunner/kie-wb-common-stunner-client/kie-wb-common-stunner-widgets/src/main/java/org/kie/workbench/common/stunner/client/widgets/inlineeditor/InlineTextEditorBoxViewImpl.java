@@ -17,6 +17,7 @@
 package org.kie.workbench.common.stunner.client.widgets.inlineeditor;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.CSSStyleDeclaration;
@@ -38,6 +39,7 @@ import org.uberfire.mvp.Command;
 
 @Templated(value = "InlineTextEditorBox.html", stylesheet = "InlineTextEditorBox.css")
 @InlineTextEditorBox
+@Dependent
 public class InlineTextEditorBoxViewImpl
         extends AbstractInlineTextEditorBoxView
         implements InlineEditorBoxView,

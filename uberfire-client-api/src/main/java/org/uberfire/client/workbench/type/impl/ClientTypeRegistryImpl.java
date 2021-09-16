@@ -37,7 +37,7 @@ import static java.util.Collections.unmodifiableList;
 public class ClientTypeRegistryImpl implements ClientTypeRegistry {
 
     protected final BeanManager iocManager;
-    private List<ClientResourceType> localResourceTypes = new ArrayList<ClientResourceType>();
+    private List<ClientResourceType> localResourceTypes = new ArrayList<>();
 
     @Inject
     public ClientTypeRegistryImpl(final BeanManager iocManager) {
@@ -47,7 +47,7 @@ public class ClientTypeRegistryImpl implements ClientTypeRegistry {
     @PostConstruct
     public void init() {
 
-        iocManager.lookupBeans(ClientResourceType.class).forEach(availableType -> {
+        iocManager.<ClientResourceType>lookupBeans(ClientResourceType.class).forEach(availableType -> {
             localResourceTypes.add(availableType.get());
             DomGlobal.console.log("CHECK THIS!! " + availableType.getClass().getCanonicalName());
         });

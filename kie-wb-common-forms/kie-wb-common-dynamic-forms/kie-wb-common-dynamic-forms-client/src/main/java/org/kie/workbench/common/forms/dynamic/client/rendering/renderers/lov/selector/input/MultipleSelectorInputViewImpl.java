@@ -18,6 +18,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.se
 
 import java.util.List;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLDivElement;
@@ -30,6 +31,7 @@ import org.gwtproject.user.client.ui.IsWidget;
 import org.jboss.errai.common.client.dom.DOMUtil;
 
 @Templated
+@Dependent
 public class MultipleSelectorInputViewImpl<TYPE> extends Composite implements MultipleSelectorInputView<TYPE> {
 
     private Presenter presenter;

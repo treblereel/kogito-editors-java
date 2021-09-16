@@ -17,6 +17,7 @@
 package org.kie.workbench.common.stunner.forms.client.widgets;
 
 import javax.annotation.PreDestroy;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLDivElement;
@@ -26,6 +27,7 @@ import org.jboss.errai.common.client.dom.DOMUtil;
 import io.crysknife.ui.templates.client.annotation.Templated;
 
 @Templated
+@Dependent
 public class FormPropertiesWidgetViewImpl implements FormPropertiesWidgetView,
                                                      IsElement {
 

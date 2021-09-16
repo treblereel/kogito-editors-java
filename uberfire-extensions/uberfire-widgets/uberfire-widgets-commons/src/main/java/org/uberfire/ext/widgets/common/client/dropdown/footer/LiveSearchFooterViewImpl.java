@@ -16,7 +16,9 @@
 
 package org.uberfire.ext.widgets.common.client.dropdown.footer;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLDivElement;
@@ -29,6 +31,7 @@ import org.gwtproject.event.dom.client.ClickEvent;
 import org.jboss.errai.common.client.dom.DOMUtil;
 
 @Templated
+@Dependent
 public class LiveSearchFooterViewImpl implements LiveSearchFooterView,
                                                  IsElement {
 
@@ -48,6 +51,7 @@ public class LiveSearchFooterViewImpl implements LiveSearchFooterView,
 
     @Inject
     @DataField
+    @Named("span")
     private HTMLElement newEntryAnchorLabel;
 
     @Inject
@@ -56,6 +60,7 @@ public class LiveSearchFooterViewImpl implements LiveSearchFooterView,
 
     @Inject
     @DataField
+    @Named("span")
     private HTMLElement resetAnchorLabel;
 
     @Override

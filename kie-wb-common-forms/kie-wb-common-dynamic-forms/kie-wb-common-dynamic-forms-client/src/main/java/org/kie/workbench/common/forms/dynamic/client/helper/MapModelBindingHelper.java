@@ -110,7 +110,7 @@ public class MapModelBindingHelper {
 
     protected void lookupPropertyGenerators() {
         DomGlobal.console.log(getClass().getCanonicalName()+".lookupPropertyGenerators Check it");
-        beanManager.lookupBeans(PropertyGenerator.class).forEach(beanDef -> {
+        beanManager.<PropertyGenerator>lookupBeans(PropertyGenerator.class).forEach(beanDef -> {
             PropertyGenerator generator = beanDef.get();
             propertiesGenerator.put(generator.getType(),
                                     generator);

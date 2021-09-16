@@ -99,7 +99,7 @@ public class ReassignmentEditorWidgetViewImpl extends Composite implements Reass
     @Inject
     private HTMLButtonElement closeButton, okButton;
 
-    @Inject
+    //@Inject
     private Validator validator;
 
     @Inject

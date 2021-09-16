@@ -25,6 +25,7 @@ import javax.inject.Inject;
 
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.client.lienzo.components.glyph.LienzoGlyphRenderer;
+import org.kie.workbench.common.stunner.client.lienzo.components.glyph.LienzoShapeGlyphRenderer;
 import org.kie.workbench.common.stunner.core.client.components.views.WidgetElementRendererView;
 import org.kie.workbench.common.stunner.core.definition.shape.ShapeGlyph;
 import org.uberfire.mvp.Command;
@@ -46,7 +47,7 @@ public class ElementShapeGlyphRenderer extends LienzoElementGlyphRenderer<ShapeG
     }
 
     @Inject
-    public ElementShapeGlyphRenderer(final LienzoGlyphRenderer<ShapeGlyph> lienzoShapeGlyphRenderer,
+    public ElementShapeGlyphRenderer(final LienzoShapeGlyphRenderer lienzoShapeGlyphRenderer,
                                      final @Any ManagedInstance<WidgetElementRendererView> viewInstances) {
         super(viewInstances::get);
         this.lienzoShapeGlyphRenderer = lienzoShapeGlyphRenderer;

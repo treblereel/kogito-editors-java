@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.PreDestroy;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -40,6 +41,7 @@ import org.kie.workbench.common.forms.dynamic.client.rendering.util.FormsElement
 import org.kie.workbench.common.forms.model.FieldDefinition;
 
 @Templated
+@Dependent
 public class FieldSetFormGroupViewImpl implements IsElement,
                                                   FieldSetFormGroupView {
 

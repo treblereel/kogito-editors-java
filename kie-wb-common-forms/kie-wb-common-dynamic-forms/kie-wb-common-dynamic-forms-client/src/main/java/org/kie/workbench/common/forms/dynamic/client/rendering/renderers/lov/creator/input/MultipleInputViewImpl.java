@@ -18,6 +18,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.cr
 
 import java.util.List;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLDivElement;
@@ -28,6 +29,7 @@ import org.gwtproject.user.client.ui.HasValue;
 import org.jboss.errai.common.client.dom.DOMUtil;
 
 @Templated
+@Dependent
 public class MultipleInputViewImpl<TYPE> extends Composite implements MultipleInputView<TYPE> {
 
     private Presenter<TYPE> presenter;

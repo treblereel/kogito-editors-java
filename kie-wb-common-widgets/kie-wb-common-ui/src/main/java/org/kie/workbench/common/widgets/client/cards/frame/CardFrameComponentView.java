@@ -16,9 +16,11 @@
 
 package org.kie.workbench.common.widgets.client.cards.frame;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.event.dom.client.KeyCodes;
 import org.gwtproject.event.dom.client.KeyDownEvent;
@@ -28,10 +30,10 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLHeadingElement;
 import elemental2.dom.HTMLInputElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import io.crysknife.ui.templates.client.annotation.Templated;
 
 @Templated
+@Dependent
 public class CardFrameComponentView implements CardFrameComponent.View {
 
     public static final String CARD_UUID_ATTR = "data-card-uuid";

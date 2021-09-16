@@ -17,8 +17,10 @@
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.metaDataEditor;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.client.IsElement;
 import io.crysknife.ui.databinding.client.api.AutoBound;
 import io.crysknife.ui.databinding.client.api.Bound;
 import io.crysknife.ui.databinding.client.api.DataBinder;
@@ -36,8 +38,10 @@ import org.kie.workbench.common.stunner.bpmn.client.forms.util.StringUtils;
 import org.kie.workbench.common.stunner.bpmn.client.forms.widgets.AttributeValueTextBox;
 import org.kie.workbench.common.stunner.bpmn.client.forms.widgets.VariableNameTextBox;
 
+@Dependent
 @Templated("MetaDataEditorWidget.html#metaDataRow")
-public class MetaDataListItemWidgetViewImpl implements MetaDataListItemWidgetView {
+public class MetaDataListItemWidgetViewImpl implements MetaDataListItemWidgetView,
+                                                       IsElement {
 
     @Inject
     @AutoBound

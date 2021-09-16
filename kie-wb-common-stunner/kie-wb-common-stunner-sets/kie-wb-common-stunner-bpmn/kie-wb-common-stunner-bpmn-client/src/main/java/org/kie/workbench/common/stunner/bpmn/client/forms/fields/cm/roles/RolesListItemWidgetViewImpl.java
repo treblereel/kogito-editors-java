@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
@@ -43,6 +44,7 @@ import org.uberfire.workbench.events.NotificationEvent;
 import static org.kie.workbench.common.stunner.bpmn.client.forms.util.StringUtils.ALPHA_NUM_REGEXP;
 
 @Templated("RolesEditorWidget.html#tableRow")
+@Dependent
 public class RolesListItemWidgetViewImpl implements RolesListItemWidgetView,
                                                     IsElement {
 

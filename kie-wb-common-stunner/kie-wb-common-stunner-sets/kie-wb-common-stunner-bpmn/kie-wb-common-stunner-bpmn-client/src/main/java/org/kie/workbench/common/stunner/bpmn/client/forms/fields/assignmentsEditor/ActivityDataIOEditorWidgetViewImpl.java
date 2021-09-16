@@ -84,9 +84,9 @@ public class ActivityDataIOEditorWidgetViewImpl extends Composite implements Act
     /**
      * The list of assignments that currently exist.
      */
-    @Inject
-    @DataField
-    @Table(root = "tbody")
+    //@Inject
+    //@DataField
+    //@Table(root = "tbody")
     protected ListComponent<AssignmentRow, ?> assignments;
 
     @Inject
@@ -111,7 +111,9 @@ public class ActivityDataIOEditorWidgetViewImpl extends Composite implements Act
 
     @Override
     public int getAssignmentsCount() {
-        return assignments.getValue().size();
+        throw new Error(getClass().getCanonicalName()+".getAssignmentsCount");
+
+        //return assignments.getValue().size();
     }
 
     @Override

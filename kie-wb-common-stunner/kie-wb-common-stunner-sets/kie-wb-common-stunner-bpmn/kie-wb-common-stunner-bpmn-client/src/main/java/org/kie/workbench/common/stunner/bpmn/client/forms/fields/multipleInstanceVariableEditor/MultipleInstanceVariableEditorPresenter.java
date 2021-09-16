@@ -24,6 +24,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.promise.IThenable;
@@ -40,6 +41,7 @@ import org.uberfire.client.mvp.UberElement;
 import static java.util.stream.Collectors.toMap;
 import static org.kie.workbench.common.stunner.bpmn.client.forms.util.StringUtils.createDataTypeDisplayName;
 
+@Dependent
 public class MultipleInstanceVariableEditorPresenter extends FieldEditorPresenter<String> {
 
     public interface View extends UberElement<MultipleInstanceVariableEditorPresenter>,

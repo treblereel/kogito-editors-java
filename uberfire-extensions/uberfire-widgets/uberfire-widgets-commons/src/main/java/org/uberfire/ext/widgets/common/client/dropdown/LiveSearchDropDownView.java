@@ -19,6 +19,7 @@ package org.uberfire.ext.widgets.common.client.dropdown;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLButtonElement;
@@ -59,6 +60,7 @@ public class LiveSearchDropDownView<TYPE> extends Composite
 
     @Inject
     @DataField
+    @Named("span")
     HTMLElement dropDownText;
 
     @Inject
@@ -280,12 +282,12 @@ public class LiveSearchDropDownView<TYPE> extends Composite
     }
 
     @EventHandler("searchInput")
-    void onSearchOver(MouseOverEvent event) {
+    void onSearchOverMouseOverEvent(MouseOverEvent event) {
         searchInput.focus();
     }
 
     @EventHandler("searchInput")
-    void onSearchOver(KeyDownEvent event) {
+    void onSearchOverKeyDownEvent(KeyDownEvent event) {
         // Capture and ignore in order to avoid the js errors
         event.stopPropagation();
     }

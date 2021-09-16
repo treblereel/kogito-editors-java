@@ -16,7 +16,9 @@
 
 package org.uberfire.ext.widgets.common.client.dropdown.noItems;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
@@ -25,6 +27,7 @@ import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
 
 @Templated
+@Dependent
 public class NoItemsComponentViewImpl implements NoItemsComponentView,
                                                  IsElement {
     @Inject
@@ -33,6 +36,7 @@ public class NoItemsComponentViewImpl implements NoItemsComponentView,
 
     @Inject
     @DataField
+    @Named("span")
     private HTMLElement message;
 
     @Override

@@ -21,6 +21,7 @@ import java.util.function.Consumer;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvas;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;
@@ -41,7 +42,7 @@ public class DefaultViewerSession
 
     @Inject
     public DefaultViewerSession(final ManagedSession session,
-                                final CanvasCommandManager<AbstractCanvasHandler> canvasCommandManager) {
+                                @Named("CanvasCommandManagerImpl") final CanvasCommandManager<AbstractCanvasHandler> canvasCommandManager) {
         this.session = session;
         this.canvasCommandManager = canvasCommandManager;
     }

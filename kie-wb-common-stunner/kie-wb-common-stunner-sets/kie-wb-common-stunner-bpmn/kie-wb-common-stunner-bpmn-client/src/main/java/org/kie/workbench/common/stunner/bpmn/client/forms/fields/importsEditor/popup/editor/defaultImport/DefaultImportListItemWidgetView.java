@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
@@ -47,6 +48,7 @@ import org.kie.workbench.common.stunner.bpmn.client.forms.widgets.CustomDataType
 import org.kie.workbench.common.stunner.bpmn.definition.property.diagram.imports.DefaultImport;
 import org.uberfire.workbench.events.NotificationEvent;
 
+@Dependent
 @Templated("DefaultImportsEditorWidget.html#defaultImport")
 public class DefaultImportListItemWidgetView extends Composite implements ImportListItemWidgetView<DefaultImport>,
                                                                           ComboBoxView.ModelPresenter {

@@ -46,7 +46,7 @@ public class ConversionMessageWidget extends Composite {
 
     }
 
-    private static ConversionMessageWidgetBinder uiBinder = GWT.create(ConversionMessageWidgetBinder.class);
+    private static ConversionMessageWidgetBinder uiBinder = null;
 
     public ConversionMessageWidget(final MessageType messageType, final String message) {
         initWidget(uiBinder.createAndBindUi(this));

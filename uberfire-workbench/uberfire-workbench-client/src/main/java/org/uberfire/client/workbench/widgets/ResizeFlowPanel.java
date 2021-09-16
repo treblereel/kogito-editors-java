@@ -16,6 +16,8 @@
 
 package org.uberfire.client.workbench.widgets;
 
+import javax.enterprise.context.Dependent;
+
 import org.gwtproject.user.client.ui.FlowPanel;
 import org.gwtproject.user.client.ui.LayoutPanel;
 import org.gwtproject.user.client.ui.ProvidesResize;
@@ -26,6 +28,7 @@ import org.gwtproject.user.client.ui.Widget;
  * A FlowPanel that can exist in a hierarchy of {@link LayoutPanel}s. Behaves exactly like FlowPanel, but also
  * propagates <tt>onResize</tt> events to the child widgets.
  */
+@Dependent
 public class ResizeFlowPanel extends FlowPanel implements RequiresResize,
                                                           ProvidesResize {
 

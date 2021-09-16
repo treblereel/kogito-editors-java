@@ -17,6 +17,7 @@
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLButtonElement;
@@ -35,6 +36,7 @@ import org.kie.workbench.common.forms.dynamic.client.resources.i18n.FormRenderin
 import org.uberfire.ext.widgets.table.client.UberfirePagedTable;
 
 @Templated
+@Dependent
 public class MultipleInputComponentViewImpl<TYPE> implements MultipleInputComponentView<TYPE>,
                                                              IsElement {
 

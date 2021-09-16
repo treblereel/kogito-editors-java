@@ -25,9 +25,11 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
+import io.crysknife.client.IsElement;
 import io.crysknife.ui.databinding.client.api.AutoBound;
 import io.crysknife.ui.databinding.client.api.Bound;
 import io.crysknife.ui.databinding.client.api.DataBinder;
@@ -74,8 +76,11 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
  * they use a combination of ListBox and TextBox to implement a drop-down combo
  * to hold the values.
  */
+
+@Dependent
 @Templated(value = "VariablesEditorWidget.html#variableRow", stylesheet = "VariablesEditorWidget.css")
 public class VariableListItemWidgetViewImpl implements VariableListItemWidgetView,
+                                                       IsElement,
                                                        ComboBoxView.ModelPresenter {
 
     /**

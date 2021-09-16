@@ -49,7 +49,7 @@ public class FormGenerationNotifier {
     }
 
     @PostConstruct
-    private void init() {
+    public void init() {
         messageNotifier = this::doShowNotification;
         errorNotifier = this::doShowError;
     }

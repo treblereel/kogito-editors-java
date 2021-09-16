@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -43,6 +44,7 @@ import org.uberfire.commons.Pair;
 import org.uberfire.ext.widgets.common.client.dropdown.LiveSearchDropDown;
 
 @Templated
+@Dependent
 public class AssigneeEditorWidgetViewImpl extends Composite implements AssigneeEditorWidgetView,
                                                                        FormWidget<String> {
 

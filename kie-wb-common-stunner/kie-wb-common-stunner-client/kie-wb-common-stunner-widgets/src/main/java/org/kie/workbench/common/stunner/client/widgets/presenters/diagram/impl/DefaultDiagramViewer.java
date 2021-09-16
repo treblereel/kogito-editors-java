@@ -22,6 +22,7 @@ import java.util.Collections;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Any;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.client.lienzo.canvas.LienzoCanvas;
@@ -50,6 +51,7 @@ import org.kie.workbench.common.stunner.core.util.DefinitionUtils;
  * any controls that allow the diagram's authoring.
  */
 @Dependent
+@Named("DefaultDiagramViewer")
 public class DefaultDiagramViewer
         extends AbstractDiagramViewer<Diagram, AbstractCanvasHandler> {
 

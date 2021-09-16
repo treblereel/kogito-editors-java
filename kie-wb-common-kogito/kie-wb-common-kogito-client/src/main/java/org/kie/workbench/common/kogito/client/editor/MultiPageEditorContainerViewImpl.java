@@ -15,6 +15,7 @@
  */
 package org.kie.workbench.common.kogito.client.editor;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import org.gwtproject.user.client.ui.IsWidget;
@@ -23,6 +24,7 @@ import org.uberfire.client.views.pfly.multipage.MultiPageEditorImpl;
 import org.uberfire.client.views.pfly.multipage.PageImpl;
 import org.uberfire.client.workbench.widgets.multipage.MultiPageEditor;
 
+@Dependent
 public class MultiPageEditorContainerViewImpl
         extends MultiPageEditorImpl
         implements MultiPageEditorContainerView {

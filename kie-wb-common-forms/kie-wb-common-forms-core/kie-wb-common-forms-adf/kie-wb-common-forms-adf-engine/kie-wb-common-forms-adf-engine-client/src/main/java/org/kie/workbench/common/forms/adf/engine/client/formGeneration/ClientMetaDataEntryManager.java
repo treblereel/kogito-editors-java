@@ -32,6 +32,6 @@ public class ClientMetaDataEntryManager extends AbstractMetaDataEntryManager {
 
     @PostConstruct
     public void init() {
-        beanManager.lookupBeans(MetaDataEntryProcessor.class).forEach(beanDef -> registerProcessor(beanDef.get()));
+        beanManager.<MetaDataEntryProcessor>lookupBeans(MetaDataEntryProcessor.class).forEach(beanDef -> registerProcessor(beanDef.get()));
     }
 }

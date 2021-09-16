@@ -17,6 +17,7 @@
 package org.kie.workbench.common.forms.common.rendering.client.widgets.decimalBox;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLInputElement;
@@ -29,6 +30,7 @@ import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.HasValue;
 
 @Templated
+@Dependent
 public class DecimalBoxViewImpl extends Composite implements DecimalBoxView {
 
     private DecimalBox presenter;

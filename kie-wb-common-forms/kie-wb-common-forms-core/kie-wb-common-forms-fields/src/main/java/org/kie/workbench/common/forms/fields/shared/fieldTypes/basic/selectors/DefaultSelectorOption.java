@@ -42,7 +42,7 @@ public class DefaultSelectorOption<T> implements SelectorOption<Object> {
             required = true
     )
     @NotNull
-    private Object value;
+    private T value;
 
     @FormField(
             labelKey = "text",
@@ -63,7 +63,7 @@ public class DefaultSelectorOption<T> implements SelectorOption<Object> {
     }
 
     @Override
-    public Object getValue() {
+    public T getValue() {
         return value;
     }
 

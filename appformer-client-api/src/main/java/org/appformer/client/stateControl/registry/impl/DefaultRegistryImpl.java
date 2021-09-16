@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
+import javax.enterprise.context.Dependent;
+
 import org.appformer.client.stateControl.registry.DefaultRegistry;
 import org.appformer.client.stateControl.registry.Registry;
 import org.appformer.client.stateControl.registry.RegistryChangeListener;
@@ -31,6 +33,7 @@ import org.appformer.client.stateControl.registry.RegistryChangeListener;
  * Note: The Stack class behavior when using the iterator is not the expected one, so used
  * ArrayDeque instead of an Stack to provide right iteration order.
  */
+@Dependent
 public class DefaultRegistryImpl<C> implements DefaultRegistry<C> {
 
     private final Deque<C> items = new ArrayDeque<>();

@@ -16,6 +16,7 @@
 
 package org.kie.workbench.common.stunner.forms.client.widgets.container;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLDivElement;
@@ -26,6 +27,7 @@ import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.forms.client.widgets.container.displayer.FormDisplayer;
 
 @Templated
+@Dependent
 public class FormsContainerViewImpl implements FormsContainerView,
                                                IsElement {
 

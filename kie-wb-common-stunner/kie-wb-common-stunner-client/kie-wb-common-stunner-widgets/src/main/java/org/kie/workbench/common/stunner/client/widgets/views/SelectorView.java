@@ -78,7 +78,7 @@ public class SelectorView implements IsElement {
     }
 
     @EventHandler("selector-input")
-    private void onValueChanged(@ForEvent("change") final Event event) {
+    public void onValueChanged(@ForEvent("change") final Event event) {
         selector.onValueChanged();
     }
 

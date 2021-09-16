@@ -16,6 +16,7 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.labels.help;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import io.crysknife.client.IsElement;
@@ -28,6 +29,7 @@ import org.uberfire.client.views.pfly.widgets.Popover;
 
 @Templated
 @Deprecated
+@Dependent
 public class FieldHelpViewImpl implements IsElement,
                                           FieldHelpView {
 

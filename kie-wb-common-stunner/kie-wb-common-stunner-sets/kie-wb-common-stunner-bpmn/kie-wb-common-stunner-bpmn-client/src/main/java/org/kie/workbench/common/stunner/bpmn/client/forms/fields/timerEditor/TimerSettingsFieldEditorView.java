@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.function.Supplier;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.DomGlobal;
@@ -47,6 +48,7 @@ import org.uberfire.client.views.pfly.widgets.Popover;
 import org.uberfire.commons.Pair;
 
 @Templated
+@Dependent
 public class TimerSettingsFieldEditorView
         implements IsElement,
                    TimerSettingsFieldEditorPresenter.View {

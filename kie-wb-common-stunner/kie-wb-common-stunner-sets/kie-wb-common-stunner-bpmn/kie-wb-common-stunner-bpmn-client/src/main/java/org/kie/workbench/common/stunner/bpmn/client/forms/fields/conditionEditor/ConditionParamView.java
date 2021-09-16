@@ -17,6 +17,7 @@
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.conditionEditor;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -38,6 +39,7 @@ import org.uberfire.client.views.pfly.widgets.Popover;
 import static org.kie.workbench.common.stunner.core.util.StringUtils.isEmpty;
 
 @Templated
+@Dependent
 public class ConditionParamView
         implements IsElement,
                    ConditionParamPresenter.View {
@@ -133,7 +135,7 @@ public class ConditionParamView
     }
 
     @EventHandler("param-input")
-    private void onValueChange(@ForEvent("change") final Event event) {
+    public void onValueChange(@ForEvent("change") final Event event) {
         presenter.onValueChange();
     }
 }

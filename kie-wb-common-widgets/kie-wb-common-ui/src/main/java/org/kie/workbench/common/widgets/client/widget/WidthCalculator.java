@@ -16,12 +16,12 @@
 package org.kie.workbench.common.widgets.client.widget;
 
 import org.gwtproject.cell.client.Cell;
+import org.gwtproject.dom.client.Element;
 import org.gwtproject.dom.client.Style.Position;
 import org.gwtproject.dom.client.Style.Unit;
 import org.gwtproject.dom.client.Style.Visibility;
 import org.gwtproject.safehtml.shared.SafeHtmlBuilder;
 import org.gwtproject.user.client.DOM;
-import org.gwtproject.user.client.Element;
 import org.gwtproject.user.client.ui.RootPanel;
 
 import java.util.List;

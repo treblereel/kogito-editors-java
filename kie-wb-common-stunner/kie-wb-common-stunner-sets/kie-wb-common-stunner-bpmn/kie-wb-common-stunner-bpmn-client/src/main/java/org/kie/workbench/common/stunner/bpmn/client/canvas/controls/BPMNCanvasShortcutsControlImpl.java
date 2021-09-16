@@ -20,6 +20,7 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 
+import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.bpmn.qualifiers.BPMN;
 import org.kie.workbench.common.stunner.core.client.canvas.controls.keyboard.AbstractCanvasShortcutsControlImpl;
 import org.kie.workbench.common.stunner.core.client.canvas.controls.keyboard.shortcut.KeyboardShortcut;
@@ -29,7 +30,7 @@ import org.kie.workbench.common.stunner.core.client.canvas.controls.keyboard.sho
 public class BPMNCanvasShortcutsControlImpl extends AbstractCanvasShortcutsControlImpl {
 
     @Inject
-    public BPMNCanvasShortcutsControlImpl(final @BPMN Instance<KeyboardShortcut> implementedActions) {
+    public BPMNCanvasShortcutsControlImpl(final @BPMN ManagedInstance<KeyboardShortcut> implementedActions) {
         super(implementedActions);
     }
 }

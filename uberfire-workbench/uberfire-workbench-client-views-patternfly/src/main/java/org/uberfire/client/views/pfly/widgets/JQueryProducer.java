@@ -27,8 +27,9 @@ import jsinterop.annotations.JsType;
 
 import static jsinterop.annotations.JsPackage.GLOBAL;
 
+//TODO it was abstract
 @JsType(isNative = true, namespace = GLOBAL, name = "jQuery")
-public abstract class JQueryProducer {
+public class JQueryProducer {
 
     /**
      * <p>

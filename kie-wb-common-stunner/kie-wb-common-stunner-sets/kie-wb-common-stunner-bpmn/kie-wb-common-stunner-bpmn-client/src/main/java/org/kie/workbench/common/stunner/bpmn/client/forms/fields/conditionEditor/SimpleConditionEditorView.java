@@ -17,6 +17,7 @@
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.conditionEditor;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -33,6 +34,7 @@ import org.uberfire.client.views.pfly.widgets.Popover;
 import org.uberfire.ext.widgets.common.client.dropdown.LiveSearchDropDown;
 
 @Templated
+@Dependent
 public class SimpleConditionEditorView
         implements IsElement,
                    SimpleConditionEditorPresenter.View {

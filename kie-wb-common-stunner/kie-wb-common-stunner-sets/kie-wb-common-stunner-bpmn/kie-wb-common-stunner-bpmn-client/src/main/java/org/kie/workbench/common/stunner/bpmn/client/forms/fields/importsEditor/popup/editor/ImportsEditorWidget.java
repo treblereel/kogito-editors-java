@@ -21,6 +21,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.gwtproject.user.client.ui.Widget;
 
@@ -30,6 +31,7 @@ import static org.gwtproject.dom.client.Style.Display.TABLE;
 public abstract class ImportsEditorWidget<T> implements ImportsEditorWidgetView.Presenter<T> {
 
     @Inject
+    @Named("DefaultImportsEditorWidgetView")
     protected ImportsEditorWidgetView<T> view;
 
     @PostConstruct

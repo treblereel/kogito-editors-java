@@ -29,6 +29,7 @@ import elemental2.dom.DomGlobal;
 import io.crysknife.ui.databinding.client.api.AutoBound;
 import io.crysknife.ui.databinding.client.api.Bound;
 import io.crysknife.ui.databinding.client.api.DataBinder;
+import io.crysknife.ui.databinding.client.components.DefaultListComponent;
 import io.crysknife.ui.databinding.client.components.ListComponent;
 import io.crysknife.ui.databinding.client.components.ListContainer;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
@@ -67,11 +68,11 @@ public class RolesEditorWidgetViewImpl extends Composite implements RolesEditorW
     @AutoBound
     protected DataBinder<List<KeyValueRow>> binder;
 
-    @Inject
-    @DataField("list")
-    @Bound
-    @ListContainer("tbody")
-    protected ListComponent<KeyValueRow, RolesListItemWidgetView> list;
+    //@Inject
+    //@DataField("list")
+    //@Bound
+    //@ListContainer("tbody")
+    //protected ListComponent<KeyValueRow, RolesListItemWidgetView> list = new DefaultListComponent<>();
 
     @Inject
     protected Event<NotificationEvent> notification;
@@ -169,7 +170,9 @@ public class RolesEditorWidgetViewImpl extends Composite implements RolesEditorW
 
     @Override
     public RolesListItemWidgetView getWidget(int index) {
-        return list.getComponent(index);
+
+        throw new Error(getClass().getCanonicalName()+".getWidget");
+        //return list.getComponent(index);
     }
 
     protected void handleAddVarButton() {

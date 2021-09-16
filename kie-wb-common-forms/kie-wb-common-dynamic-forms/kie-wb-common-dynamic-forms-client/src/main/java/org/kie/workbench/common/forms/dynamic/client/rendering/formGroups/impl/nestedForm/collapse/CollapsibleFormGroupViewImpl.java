@@ -20,7 +20,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.PreDestroy;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLDivElement;
@@ -42,6 +44,7 @@ import org.kie.workbench.common.forms.dynamic.client.rendering.util.FormsElement
 import org.kie.workbench.common.forms.model.FieldDefinition;
 
 @Templated
+@Dependent
 public class CollapsibleFormGroupViewImpl implements IsElement,
                                                      CollapsibleFormGroupView {
 
@@ -59,6 +62,7 @@ public class CollapsibleFormGroupViewImpl implements IsElement,
 
     @Inject
     @DataField
+    @Named("span")
     private HTMLElement anchorText;
 
     @Inject

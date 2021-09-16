@@ -20,6 +20,7 @@ import java.util.Date;
 
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
@@ -58,6 +59,7 @@ public class DatePickerWrapperViewImpl extends Composite implements DatePickerWr
 
     @Inject
     @DataField
+    @Named("span")
     private HTMLElement selector;
 
     @Inject

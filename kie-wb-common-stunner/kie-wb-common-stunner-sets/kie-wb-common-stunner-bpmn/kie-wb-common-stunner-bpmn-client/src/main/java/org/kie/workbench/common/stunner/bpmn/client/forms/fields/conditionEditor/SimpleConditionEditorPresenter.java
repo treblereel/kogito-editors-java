@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLElement;
@@ -39,6 +40,7 @@ import org.uberfire.ext.widgets.common.client.dropdown.SingleLiveSearchSelection
 
 import static org.kie.workbench.common.stunner.core.util.StringUtils.isEmpty;
 
+@Dependent
 public class SimpleConditionEditorPresenter
         extends FieldEditorPresenter<Condition> {
 

@@ -16,7 +16,9 @@
 
 package org.kie.workbench.common.stunner.client.lienzo.components.views;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import elemental2.dom.HTMLElement;
 import io.crysknife.client.IsElement;
@@ -24,10 +26,12 @@ import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
 
 @Templated
+@Dependent
 public class AlertView implements IsElement {
 
     @Inject
     @DataField
+    @Named("span")
     HTMLElement text;
 
     public void setText(final String text) {

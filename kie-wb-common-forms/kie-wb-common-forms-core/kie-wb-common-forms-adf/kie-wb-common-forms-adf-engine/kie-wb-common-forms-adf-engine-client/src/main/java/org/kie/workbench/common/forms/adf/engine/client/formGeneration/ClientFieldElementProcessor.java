@@ -45,7 +45,8 @@ public class ClientFieldElementProcessor extends AbstractFieldElementProcessor {
     @PostConstruct
     public void initialize() {
         DomGlobal.console.log("check this " + getClass().getCanonicalName());
-        beanManager.lookupBeans(FieldInitializer.class).forEach(initializerDef -> registerInitializer(initializerDef.get()));
+        beanManager.<FieldInitializer>lookupBeans(FieldInitializer.class)
+                .forEach(initializerDef -> registerInitializer(initializerDef.get()));
 
         //Collection<SyncBeanDef<FieldInitializer>> initializers = IOC.getBeanManager().lookupBeans(FieldInitializer.class);
         //initializers.forEach(initializerDef -> registerInitializer(initializerDef.getInstance()));

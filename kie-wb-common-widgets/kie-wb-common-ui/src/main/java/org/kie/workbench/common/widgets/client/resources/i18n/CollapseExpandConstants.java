@@ -26,7 +26,7 @@ public interface CollapseExpandConstants
         extends
         Messages {
 
-    public static final CollapseExpandConstants INSTANCE = GWT.create( CollapseExpandConstants.class );
+    public static final CollapseExpandConstants INSTANCE = null;
 
     String CollapseAll();
 

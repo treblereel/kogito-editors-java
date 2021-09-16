@@ -23,7 +23,7 @@ import org.kie.workbench.common.forms.model.TypeInfo;
 import org.kie.workbench.common.stunner.bpmn.forms.model.cm.RolesEditorFieldDefinition;
 import org.kie.workbench.common.stunner.bpmn.forms.model.cm.RolesEditorFieldType;
 
-@Model
+//@Model
 public class RolesEditorFieldProvider extends BasicTypeFieldProvider<RolesEditorFieldDefinition> {
 
     @Override

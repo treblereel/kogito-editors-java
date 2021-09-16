@@ -17,14 +17,12 @@ package org.kie.workbench.common.widgets.client;
 
 import javax.annotation.PostConstruct;
 
-import org.jboss.errai.ioc.client.api.EntryPoint;
-import org.jboss.errai.ui.shared.api.annotations.Bundle;
 import org.kie.workbench.common.widgets.client.resources.CommonsResources;
 import org.kie.workbench.common.widgets.client.resources.RoundedCornersResource;
 import org.uberfire.client.views.pfly.sys.PatternFlyBootstrapper;
 
-@EntryPoint
-@Bundle("resources/i18n/KieWorkbenchWidgetsConstants.properties")
+//@EntryPoint
+//@Bundle("resources/i18n/KieWorkbenchWidgetsConstants.properties")
 public class KieWorkbenchWidgetsCommonEntryPoint {
 
     @PostConstruct

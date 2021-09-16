@@ -16,6 +16,7 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.impl;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLDivElement;
@@ -26,6 +27,7 @@ import org.gwtbootstrap3.extras.datetimepicker.client.ui.DateTimePicker;
 import org.jboss.errai.common.client.dom.DOMUtil;
 
 @Templated
+@Dependent
 public class DateTimePickerPresenterViewImpl implements DateTimePickerPresenterView,
                                                         IsElement {
 

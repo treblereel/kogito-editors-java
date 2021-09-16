@@ -21,6 +21,7 @@ import java.util.stream.Stream;
 
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import elemental2.dom.Document;
 import elemental2.dom.DomGlobal;
@@ -45,11 +46,13 @@ public class InlineNotification implements IsElement {
 
     @Inject
     @DataField("message")
-    private HTMLDivElement message;
+    @Named("span")
+    private HTMLElement message;
 
     @Inject
     @DataField("icon")
-    private HTMLDivElement icon;
+    @Named("span")
+    private HTMLElement icon;
 
     @Inject
     @DataField("dismiss")

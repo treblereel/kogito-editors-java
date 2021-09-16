@@ -13,19 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.kie.workbench.common.widgets.client.datamodel.copied;
+package org.drools.workbench.models.datamodel.workitems;
 
-
-import org.kie.soup.project.datamodel.imports.Imports;
-import org.uberfire.backend.vfs.Path;
+import java.io.Serializable;
 
 /**
- * Service to get incremental updates to a DataModelOracle
+ * Implementations have a value
  */
+public interface HasValue<T extends Serializable> {
 
-public interface IncrementalDataModelService {
+    T getValue();
 
-    PackageDataModelOracleIncrementalPayload getUpdates(final Path resourcePath,
-                                                        final Imports imports,
-                                                        final String factType);
+    void setValue( T value );
+
 }

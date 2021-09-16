@@ -25,6 +25,7 @@ import java.util.stream.StreamSupport;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
@@ -52,6 +53,7 @@ import static org.kie.workbench.common.stunner.core.client.canvas.resources.Stun
 import static org.kie.workbench.common.stunner.core.graph.util.NodeDefinitionHelper.getContentDefinitionId;
 
 @Default
+@Dependent
 public class DeleteNodeConfirmationImpl implements DeleteNodeConfirmation {
 
     private SessionManager sessionManager;

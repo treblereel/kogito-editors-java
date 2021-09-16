@@ -16,7 +16,9 @@
 
 package org.uberfire.ext.widgets.common.client.dropdown.items;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLDListElement;
@@ -32,6 +34,7 @@ import org.gwtproject.event.dom.client.KeyDownEvent;
 import org.jboss.errai.common.client.dom.DOMUtil;
 
 @Templated
+@Dependent
 public class LiveSearchSelectorDropDownItemViewImpl<TYPE> implements LiveSearchSelectorDropDownItemView<TYPE>,
                                                                      IsElement {
 
@@ -48,10 +51,12 @@ public class LiveSearchSelectorDropDownItemViewImpl<TYPE> implements LiveSearchS
 
     @Inject
     @DataField
+    @Named("span")
     private HTMLElement itemText;
 
     @Inject
     @DataField
+    @Named("span")
     private HTMLElement itemIcon;
 
     private LiveSearchSelectorDropDownItem presenter;

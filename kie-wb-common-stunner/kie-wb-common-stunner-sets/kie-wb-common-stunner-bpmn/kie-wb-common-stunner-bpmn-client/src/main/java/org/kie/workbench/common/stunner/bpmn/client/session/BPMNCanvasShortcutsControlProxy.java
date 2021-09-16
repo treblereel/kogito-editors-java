@@ -20,6 +20,7 @@ import java.util.Objects;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.bpmn.qualifiers.BPMN;
@@ -42,7 +43,7 @@ public class BPMNCanvasShortcutsControlProxy implements BPMNCanvasShortcutsContr
     private final AbstractCanvasShortcutsControlImpl delegate;
 
     @Inject
-    public BPMNCanvasShortcutsControlProxy(final @BPMN AbstractCanvasShortcutsControlImpl delegate) {
+    public BPMNCanvasShortcutsControlProxy(final @Named("KogitoBPMNCanvasShortcutsControlImpl") AbstractCanvasShortcutsControlImpl delegate) {
         this.delegate = Objects.requireNonNull(delegate);
     }
 

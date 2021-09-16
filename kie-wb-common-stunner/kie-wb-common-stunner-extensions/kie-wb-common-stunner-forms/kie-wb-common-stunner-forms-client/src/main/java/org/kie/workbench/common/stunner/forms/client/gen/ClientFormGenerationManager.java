@@ -40,25 +40,27 @@ public class ClientFormGenerationManager {
 
     private final ClientTranslationService translationService;
     private final FormGenerationNotifier formGenerationNotifier;
-    private final Caller<FormGenerationService> formGenerationService;
+    private FormGenerationService formGenerationService;
 
     protected ClientFormGenerationManager() {
-        this(null, null, null);
+        this(null, null);
     }
 
     @Inject
     public ClientFormGenerationManager(final ClientTranslationService translationService,
-                                       final FormGenerationNotifier formGenerationNotifier,
-                                       final Caller<FormGenerationService> formGenerationService) {
+                                       final FormGenerationNotifier formGenerationNotifier/*,
+                                       final Caller<FormGenerationService> formGenerationService*/) {
 
         this.translationService = translationService;
         this.formGenerationNotifier = formGenerationNotifier;
-        this.formGenerationService = formGenerationService;
+        //this.formGenerationService = formGenerationService;
     }
 
     public void call(final Consumer<FormGenerationService> service) {
+        throw new Error(getClass().getCanonicalName()+".call");
+/*
         service.accept(formGenerationService.call(getRemoteCallback(),
-                                                  getErrorCallback()));
+                                                  getErrorCallback()));*/
     }
 
     // Listen for form generation events.

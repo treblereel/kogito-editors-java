@@ -28,6 +28,7 @@ import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
+import elemental2.dom.HTMLBodyElement;
 import io.crysknife.ui.databinding.client.components.ListComponent;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
@@ -108,7 +109,7 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
     @Inject
     @DataField
     @Table(root = "tbody")
-    protected ListComponent<VariableRow, ?> variableRows;
+    protected HTMLBodyElement variableRows;
 
     @Inject
     protected Event<NotificationEvent> notification;
@@ -301,7 +302,8 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
 
     @Override
     public int getVariableRowsCount() {
-        return variableRows.getValue().size();
+        throw new Error(getClass().getCanonicalName()+".getVariableRowsCount");
+        //return variableRows.getValue().size();
     }
 
     @Override
@@ -316,18 +318,21 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
 
     @Override
     public void setVariableRows(final List<VariableRow> rows) {
-        variableRows.setValue(rows);
+        throw new Error(getClass().getCanonicalName()+".setVariableRows");
+
+/*        variableRows.setValue(rows);
         for (int i = 0; i < getVariableRowsCount(); i++) {
             VariableListItemWidgetView widget = getVariableWidget(i);
             widget.setDataTypes(dataTypeListBoxValues);
             widget.setTagTypes(rows.get(i).getTags());
             widget.setParentWidget(presenter);
-        }
+        }*/
     }
 
     @Override
     public List<VariableRow> getVariableRows() {
-        return variableRows.getValue();
+        throw new Error(getClass().getCanonicalName()+".getVariableRows");
+        //return variableRows.getValue();
     }
 
     @Override

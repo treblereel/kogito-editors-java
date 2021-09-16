@@ -32,7 +32,6 @@ import org.kie.workbench.common.stunner.bpmn.client.forms.util.ListBoxValues;
 import org.kie.workbench.common.stunner.bpmn.forms.model.ComboBoxFieldDefinition;
 import org.kie.workbench.common.stunner.core.client.i18n.ClientTranslationService;
 
-@Dependent
 public abstract class AbstractComboBoxFieldRenderer<T extends ComboBoxFieldDefinition>
         extends SelectorFieldRenderer<T, StringSelectorOption, String> {
 

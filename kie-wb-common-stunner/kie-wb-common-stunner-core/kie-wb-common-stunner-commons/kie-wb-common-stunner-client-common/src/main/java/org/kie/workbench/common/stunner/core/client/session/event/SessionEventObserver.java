@@ -25,6 +25,7 @@ import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 
+import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.core.diagram.Diagram;
 
 @ApplicationScoped
@@ -38,8 +39,8 @@ public class SessionEventObserver {
     }
 
     @Inject
-    public SessionEventObserver(@Any final Instance<SessionDiagramOpenedHandler> sessionDiagramOpenedHandlersInstance,
-                                @Any final Instance<SessionDiagramSavedHandler> sessionDiagramSavedHandlersInstance) {
+    public SessionEventObserver(@Any final ManagedInstance<SessionDiagramOpenedHandler> sessionDiagramOpenedHandlersInstance,
+                                @Any final ManagedInstance<SessionDiagramSavedHandler> sessionDiagramSavedHandlersInstance) {
         sessionDiagramOpenedHandlersInstance.iterator().forEachRemaining(handler -> this.sessionDiagramOpenedHandlers.add(handler));
         sessionDiagramSavedHandlersInstance.iterator().forEachRemaining(handler -> this.sessionDiagramSavedHandlers.add(handler));
     }

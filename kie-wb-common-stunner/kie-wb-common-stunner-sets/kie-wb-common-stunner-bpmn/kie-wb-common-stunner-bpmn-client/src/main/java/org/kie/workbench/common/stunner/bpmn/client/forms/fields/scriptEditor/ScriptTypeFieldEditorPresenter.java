@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLElement;
@@ -37,6 +38,7 @@ import static org.kie.workbench.common.stunner.bpmn.forms.model.ScriptTypeMode.C
 import static org.kie.workbench.common.stunner.bpmn.forms.model.ScriptTypeMode.DROOLS_CONDITION;
 import static org.kie.workbench.common.stunner.bpmn.forms.model.ScriptTypeMode.FLOW_CONDITION;
 
+@Dependent
 public class ScriptTypeFieldEditorPresenter
         extends FieldEditorPresenter<ScriptTypeValue> {
 

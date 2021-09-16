@@ -27,6 +27,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Path;
 import javax.validation.Validator;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.ui.databinding.client.BindableProxy;
 import org.gwtproject.core.client.GWT;
 import org.kie.workbench.common.forms.processing.engine.handling.FormField;
@@ -41,8 +42,8 @@ public class DefaultModelValidator<MODEL> implements ModelValidator<MODEL> {
     private Validator validator;
 
     @Inject
-    public DefaultModelValidator(Validator validator) {
-        this.validator = validator;
+    public DefaultModelValidator(/*Validator validator*/) {
+        //this.validator = validator;
     }
 
     @Override
@@ -50,6 +51,8 @@ public class DefaultModelValidator<MODEL> implements ModelValidator<MODEL> {
                             MODEL model) {
         boolean isValid = true;
 
+        DomGlobal.console.log(getClass().getCanonicalName()+".validate");
+/*
         if (model instanceof BindableProxy) {
             model = ((BindableProxy<MODEL>)model).deepUnwrap();
         }
@@ -93,7 +96,7 @@ public class DefaultModelValidator<MODEL> implements ModelValidator<MODEL> {
             }
         } catch (IllegalArgumentException ex) {
             GWT.log("Error trying to validate model: model does not any validation constraint. ");
-        }
+        }*/
 
         return isValid;
     }

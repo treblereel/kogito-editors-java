@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.EventListener;
@@ -53,6 +54,7 @@ import static org.kie.workbench.common.stunner.bpmn.client.forms.fields.multiple
 import static org.kie.workbench.common.stunner.bpmn.client.forms.fields.multipleInstanceVariableEditor.MultipleInstanceVariableEditorPresenter.getRealType;
 
 @Templated
+@Dependent
 public class MultipleInstanceVariableEditorView
         implements IsElement,
                    MultipleInstanceVariableEditorPresenter.View,
@@ -92,7 +94,7 @@ public class MultipleInstanceVariableEditorView
     private MultipleInstanceVariableEditorPresenter presenter;
 
     @PostConstruct
-    private void beforeLoad() {
+    public void beforeLoad() {
         this.getElement().addEventListener("change", evt -> onVariableChange(Js.uncheckedCast(evt)));
     }
 

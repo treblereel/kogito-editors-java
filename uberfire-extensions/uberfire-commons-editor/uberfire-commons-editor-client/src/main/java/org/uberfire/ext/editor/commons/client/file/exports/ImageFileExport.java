@@ -19,6 +19,10 @@ package org.uberfire.ext.editor.commons.client.file.exports;
 import java.util.Optional;
 import java.util.function.BiConsumer;
 
+import javax.enterprise.context.Dependent;
+import javax.enterprise.inject.Typed;
+import javax.inject.Named;
+
 import org.gwtproject.typedarrays.client.ArrayBufferNative;
 import org.gwtproject.typedarrays.client.Uint8ArrayNative;
 import org.gwtproject.typedarrays.shared.ArrayBuffer;
@@ -27,6 +31,9 @@ import elemental2.dom.Blob;
 import elemental2.dom.BlobPropertyBag;
 import elemental2.dom.DomGlobal;
 
+@Typed(ImageFileExport.class)
+@Dependent
+@Named("ImageFileExport")
 public class ImageFileExport extends AbstractFileExport<ImageDataUriContent> {
 
     public ImageFileExport() {

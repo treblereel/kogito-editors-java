@@ -17,6 +17,7 @@
 package org.kie.workbench.common.stunner.client.lienzo.components.mediators;
 
 import javax.annotation.PreDestroy;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -31,6 +32,7 @@ import io.crysknife.ui.templates.client.annotation.Templated;
 import org.uberfire.mvp.Command;
 
 @Templated
+@Dependent
 public class ZoomLevelSelectorItem implements IsElement {
 
     static final String ITEM_CLASS_NAME = "zoom-selector-item";

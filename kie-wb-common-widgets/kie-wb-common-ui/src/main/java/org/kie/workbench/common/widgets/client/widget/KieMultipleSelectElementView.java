@@ -18,18 +18,26 @@ package org.kie.workbench.common.widgets.client.widget;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import jsinterop.base.Js;
 import org.gwtproject.core.client.JsArrayString;
 import org.gwtproject.event.dom.client.ChangeEvent;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLSelectElement;
-import org.jboss.errai.ui.client.local.api.elemental2.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import org.uberfire.client.views.pfly.selectpicker.JQuery;
+import org.uberfire.client.views.pfly.selectpicker.JQuerySelectPicker;
+
+import static org.uberfire.client.views.pfly.selectpicker.JQuery.$;
 
 @Templated
+@Dependent
 public class KieMultipleSelectElementView implements KieMultipleSelectElement.View,
                                                      IsElement {
 
@@ -49,7 +57,7 @@ public class KieMultipleSelectElementView implements KieMultipleSelectElement.Vi
     }
 
     @EventHandler("select")
-    private void onSelectChanged(final ChangeEvent ignore) {
+    public void onSelectChanged(final ChangeEvent ignore) {
         presenter.onChange();
     }
 
@@ -67,7 +75,11 @@ public class KieMultipleSelectElementView implements KieMultipleSelectElement.Vi
         setValue(select, toJsArray(value));
     }
 
-    public native void setValue(final HTMLSelectElement select, final JsArrayString value) /*-{
+    public void setValue(final HTMLSelectElement select, final JsArrayString value) {
+        JQuerySelectPicker.$(select).val(value);
+        JQuerySelectPicker.$(select).selectpicker("refresh");
+
+    }/*-{
         $wnd.jQuery(select).val(value);
         $wnd.jQuery(select).selectpicker('refresh');
     }-*/;
@@ -92,11 +104,18 @@ public class KieMultipleSelectElementView implements KieMultipleSelectElement.Vi
         return value;
     }
 
-    public native JsArrayString getValue(final HTMLSelectElement select) /*-{
+    public JsArrayString getValue(final HTMLSelectElement select) {
+        return Js.uncheckedCast(JQuerySelectPicker.$(select).val());
+
+    }/*-{
         return $wnd.jQuery(select).val();
     }-*/;
 
-    private native void selectpicker(final HTMLSelectElement select)/*-{
+    private void selectpicker(final HTMLSelectElement select) {
+        JQuerySelectPicker.$(select).selectpicker();
+
+
+    }/*-{
         $wnd.jQuery(select).selectpicker();
     }-*/;
 }

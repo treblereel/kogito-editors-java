@@ -39,48 +39,71 @@
 
 
   <dependencies>
-    <!--Logs-->
-<!--    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <scope>provided</scope>
-    </dependency>-->
 
-<!--    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-ext</artifactId>
+    <dependency>
+      <groupId>org.treblereel.j2cl.processors</groupId>
+      <artifactId>annotations</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.treblereel.j2cl.processors</groupId>
+      <artifactId>processors</artifactId>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
+      <groupId>io.crysknife</groupId>
+      <artifactId>crysknife-core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>io.crysknife</groupId>
+      <artifactId>templates-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>io.crysknife</groupId>
+      <artifactId>templates-generator</artifactId>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>log4j-over-slf4j</artifactId>
-      <scope>provided</scope>
-    </dependency>
-
-    &lt;!&ndash; Errai &ndash;&gt;
-    <dependency>
-      <groupId>com.google.inject</groupId>
-      <artifactId>guice</artifactId>
+      <groupId>io.crysknife</groupId>
+      <artifactId>gwt-dom-generator</artifactId>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.jboss.spec.javax.xml.bind</groupId>
-      <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
+      <groupId>io.crysknife</groupId>
+      <artifactId>elemental2-generator</artifactId>
       <scope>provided</scope>
-    </dependency>-->
+    </dependency>
+
+    <dependency>
+      <groupId>io.crysknife</groupId>
+      <artifactId>databinding-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>io.crysknife</groupId>
+      <artifactId>databinding-generator</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>io.crysknife</groupId>
+      <artifactId>crysknife-processor</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
 
     <!-- Stunner -->
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-core-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>kie-wb-common-stunner-widgets</artifactId>
     </dependency>
     <dependency>
       <groupId>org.kie.kogito</groupId>
@@ -94,12 +117,6 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-core-common</artifactId>
     </dependency>
-<!--    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kie-wb-common-stunner-processors</artifactId>
-      <scope>provided</scope>
-    </dependency>-->
-
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-client-common</artifactId>
@@ -124,15 +141,6 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-svg-client</artifactId>
     </dependency>
-<!--    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kie-wb-common-stunner-svg-gen</artifactId>
-      <scope>provided</scope>
-    </dependency>-->
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kie-wb-common-stunner-widgets</artifactId>
-    </dependency>
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-forms-api</artifactId>
@@ -150,11 +158,6 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-bpmn-emf</artifactId>
     </dependency>
-<!--    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kie-wb-common-stunner-bpmn-marshalling</artifactId>
-      <scope>provided</scope>
-    </dependency>-->
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-bpmn-client</artifactId>
@@ -248,29 +251,12 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-simple-docks-client</artifactId>
     </dependency>
-<!--    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>uberfire-workbench-processors</artifactId>
-      <scope>provided</scope>
-    </dependency>-->
-<!--    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>uberfire-workbench-client-views-patternfly</artifactId>
-      <scope>provided</scope>
-    </dependency>-->
 
     <!-- UberFire Kogito dependencies -->
     <dependency>
       <groupId>com.google.elemental2</groupId>
       <artifactId>elemental2-promise</artifactId>
     </dependency>
-
-    <!-- Core utility classes -->
-<!--    <dependency>
-      <groupId>org.kie.soup</groupId>
-      <artifactId>kie-soup-commons</artifactId>
-      <scope>provided</scope>
-    </dependency>-->
 
     <!-- Generic ui components -->
     <dependency>
@@ -281,11 +267,20 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-widgets-table</artifactId>
     </dependency>
-<!--    <dependency>
+
+
+<!--
+    TODO resource in transitive dep
+-->
+    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-ui</artifactId>
-      <scope>provided</scope>
-    </dependency>-->
+    </dependency>
+
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>kie-wb-common-stunner-widgets</artifactId>
+    </dependency>
 
     <!-- Kogito -->
     <dependency>
@@ -381,9 +376,11 @@
         </executions>
         <configuration>
           <defaultWebappDirectory>${project.build.directory}/gwt/launcherDir</defaultWebappDirectory>
-          <compilationLevel>ADVANCED</compilationLevel>
+          <compilationLevel>BUNDLE</compilationLevel>
         </configuration>
       </plugin>
+
+
       <!-- Override the enforcer rules here to exclude some classes from BPMN client-side marshallers (Eclipse EMF)-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

@@ -16,6 +16,7 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.assigneeEditor.widget;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -33,6 +34,7 @@ import io.crysknife.ui.templates.client.annotation.Templated;
 import org.uberfire.client.views.pfly.widgets.ValidationState;
 
 @Templated
+@Dependent
 public class AssigneeLiveSearchEntryCreationEditorViewImpl implements AssigneeLiveSearchEntryCreationEditorView,
                                                                       IsElement {
 

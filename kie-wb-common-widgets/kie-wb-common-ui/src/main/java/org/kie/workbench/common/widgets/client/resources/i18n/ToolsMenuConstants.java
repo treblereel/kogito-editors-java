@@ -23,7 +23,7 @@ public interface ToolsMenuConstants
         extends
         Messages {
 
-    public static final ToolsMenuConstants INSTANCE = GWT.create( ToolsMenuConstants.class );
+    public static final ToolsMenuConstants INSTANCE = null;
 
     String ProjectEditor();
     

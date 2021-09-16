@@ -21,7 +21,7 @@ import org.gwtproject.i18n.client.Messages;
 public interface HumanReadableConstants
         extends Messages {
 
-    public static final HumanReadableConstants INSTANCE = GWT.create(HumanReadableConstants.class);
+    public static final HumanReadableConstants INSTANCE = null;
 
     String isEqualTo();
 

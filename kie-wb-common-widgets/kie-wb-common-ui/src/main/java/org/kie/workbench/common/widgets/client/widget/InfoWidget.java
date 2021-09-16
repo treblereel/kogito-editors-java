@@ -32,7 +32,7 @@ public class InfoWidget extends Composite implements RequiresResize {
 
     }
 
-    private static NoSuchFileWidgetBinder uiBinder = GWT.create(NoSuchFileWidgetBinder.class);
+    private static NoSuchFileWidgetBinder uiBinder = null;
 
     @UiField
     HTMLPanel container;

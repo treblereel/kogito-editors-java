@@ -56,7 +56,17 @@ public class ImportsValue {
         return wsdlImports;
     }
 
+    //TODO
+    public List<WSDLImport> getWsdlImports() {
+        return wsdlImports;
+    }
+
     public void setWSDLImports(final List<WSDLImport> wsdlImports) {
+        this.wsdlImports = wsdlImports;
+    }
+
+    //TODO
+    public void setWsdlImports(final List<WSDLImport> wsdlImports) {
         this.wsdlImports = wsdlImports;
     }
 

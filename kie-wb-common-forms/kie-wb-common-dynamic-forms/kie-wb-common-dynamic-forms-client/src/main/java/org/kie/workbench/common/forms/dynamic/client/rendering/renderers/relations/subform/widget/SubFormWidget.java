@@ -17,6 +17,7 @@
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.relations.subform.widget;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import io.crysknife.ui.templates.client.annotation.DataField;
@@ -32,6 +33,7 @@ import org.kie.workbench.common.forms.processing.engine.handling.IsNestedModel;
 import org.kie.workbench.common.forms.processing.engine.handling.NeedsFlush;
 
 @Templated
+@Dependent
 public class SubFormWidget extends Composite implements TakesValue<Object>,
                                                         IsNestedModel,
                                                         NeedsFlush {

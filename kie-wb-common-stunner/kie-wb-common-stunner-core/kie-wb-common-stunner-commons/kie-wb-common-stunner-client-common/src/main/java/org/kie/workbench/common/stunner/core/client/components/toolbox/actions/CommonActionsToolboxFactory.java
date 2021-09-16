@@ -26,6 +26,7 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;
@@ -53,7 +54,8 @@ public class CommonActionsToolboxFactory
     private final Command viewsDestroyer;
 
     @Inject
-    public CommonActionsToolboxFactory(final CanvasCommandManager<AbstractCanvasHandler> commandManager,
+    public CommonActionsToolboxFactory(final @Named("CanvasCommandManagerImpl")
+                                                    CanvasCommandManager<AbstractCanvasHandler> commandManager,
                                        final CanvasCommandFactory<AbstractCanvasHandler> commandFactory,
                                        final @Default ManagedInstance<DeleteNodeToolboxAction> deleteNodeActions,
                                        final @Any @CommonActionsToolbox ManagedInstance<ActionsToolboxView> views) {

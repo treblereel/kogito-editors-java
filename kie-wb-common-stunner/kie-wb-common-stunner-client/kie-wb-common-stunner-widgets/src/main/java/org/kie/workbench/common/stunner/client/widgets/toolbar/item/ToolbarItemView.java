@@ -16,7 +16,8 @@
 
 package org.kie.workbench.common.stunner.client.widgets.toolbar.item;
 
-import org.gwtproject.core.client.GWT;
+import javax.enterprise.context.Dependent;
+
 import org.gwtproject.dom.client.Style;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
@@ -28,6 +29,7 @@ import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.uberfire.mvp.Command;
 
+@Dependent
 public class ToolbarItemView extends Composite implements ToolbarItem.View {
 
     interface ViewBinder extends UiBinder<Widget, ToolbarItemView> {

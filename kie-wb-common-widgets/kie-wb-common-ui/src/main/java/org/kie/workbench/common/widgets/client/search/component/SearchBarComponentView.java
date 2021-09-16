@@ -20,14 +20,13 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.event.dom.client.KeyUpEvent;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import io.crysknife.ui.templates.client.annotation.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import io.crysknife.ui.templates.client.annotation.Templated;
 
 import static org.gwtproject.event.dom.client.KeyCodes.KEY_ENTER;
@@ -64,7 +63,6 @@ public class SearchBarComponentView implements SearchBarComponent.View {
     @DataField("total-of-results")
     private final HTMLElement totalOfResults;
 
-    private final TranslationService translationService;
 
     private SearchBarComponent<?> presenter;
 
@@ -75,7 +73,7 @@ public class SearchBarComponentView implements SearchBarComponent.View {
                                   final HTMLButtonElement nextElement,
                                   final HTMLButtonElement closeSearch,
                                   final HTMLInputElement inputElement,
-                                  final TranslationService translationService,
+                                  //final TranslationService translationService,
                                   final @Named("span") HTMLElement currentResult,
                                   final @Named("span") HTMLElement totalOfResults) {
         this.searchButton = searchButton;
@@ -84,7 +82,7 @@ public class SearchBarComponentView implements SearchBarComponent.View {
         this.nextElement = nextElement;
         this.closeSearch = closeSearch;
         this.inputElement = inputElement;
-        this.translationService = translationService;
+        //this.translationService = translationService;
         this.currentResult = currentResult;
         this.totalOfResults = totalOfResults;
     }
@@ -93,7 +91,7 @@ public class SearchBarComponentView implements SearchBarComponent.View {
     public void init(final SearchBarComponent searchBarComponent) {
 
         presenter = searchBarComponent;
-        inputElement.placeholder = translationService.format(SearchBarComponentView_Find);
+        inputElement.placeholder = SearchBarComponentView_Find;
 
         disableSearch();
     }

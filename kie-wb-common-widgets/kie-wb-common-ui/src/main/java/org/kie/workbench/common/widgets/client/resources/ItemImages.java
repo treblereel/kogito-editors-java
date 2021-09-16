@@ -24,7 +24,7 @@ public interface ItemImages
         extends
         ClientBundle {
 
-    public static final ItemImages INSTANCE = GWT.create( ItemImages.class );
+    public static final ItemImages INSTANCE = null;
 
     @Source("images/items/new_item.gif")
     ImageResource newItem();

@@ -17,6 +17,7 @@
 package org.kie.workbench.common.stunner.client.widgets.marshaller;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -48,6 +49,7 @@ import org.uberfire.ext.widgets.table.client.UberfirePagedTable;
 import org.uberfire.mvp.Command;
 
 @Templated
+@Dependent
 public class MarshallingResponsePopupView
         implements MarshallingResponsePopup.View,
                    IsElement {

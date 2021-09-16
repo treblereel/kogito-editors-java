@@ -18,11 +18,11 @@ package org.kie.workbench.common.widgets.client.popups.launcher;
 
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
+import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLElement;
 import io.crysknife.client.IsElement;
-import org.jboss.errai.common.client.dom.Anchor;
-import org.jboss.errai.common.client.dom.HTMLElement;
-import org.jboss.errai.common.client.dom.Span;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
 
@@ -32,15 +32,17 @@ public class AppLauncherItemView implements IsElement {
 
     @Inject
     @DataField("btn")
-    private Anchor anchor;
+    private HTMLAnchorElement anchor;
 
     @Inject
     @DataField("fa")
-    private Span icon;
+    @Named("span")
+    private HTMLElement icon;
 
     @Inject
     @DataField("text")
-    private Span text;
+    @Named("span")
+    private HTMLElement text;
 
     @Override
     public HTMLElement getElement() {
@@ -48,19 +50,19 @@ public class AppLauncherItemView implements IsElement {
     }
 
     public void setName(final String name){
-        text.setTextContent(name);
+        text.textContent = (name);
     }
 
     public void setURL(final String url){
-        anchor.setHref(url);
+        anchor.href = (url);
     }
 
     public void setIcon(final String iconClass){
-        icon.getClassList().add(iconClass);
+        icon.classList.add(iconClass);
     }
 
     public String getName(){
-        return text.getTextContent();
+        return text.textContent;
     }
 
 }

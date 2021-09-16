@@ -30,13 +30,14 @@ import org.kie.workbench.common.stunner.core.client.canvas.controls.inlineeditor
 import org.kie.workbench.common.stunner.core.client.canvas.controls.inlineeditor.InlineTextEditorBox;
 import org.kie.workbench.common.stunner.core.client.canvas.controls.inlineeditor.TextEditorBox;
 import org.kie.workbench.common.stunner.core.client.components.views.FloatingView;
+import org.kie.workbench.common.stunner.core.client.components.views.FloatingWidgetView;
 import org.kie.workbench.common.stunner.core.graph.Element;
 
 @BPMN
 public class BPMNInlineTextEditorControl extends CanvasInlineTextEditorControl {
 
     @Inject
-    public BPMNInlineTextEditorControl(FloatingView<IsWidget> floatingView,
+    public BPMNInlineTextEditorControl(FloatingWidgetView floatingView,
                                        @InlineTextEditorBox TextEditorBox<AbstractCanvasHandler, Element> textEditorBox) {
         super(floatingView, textEditorBox);
     }

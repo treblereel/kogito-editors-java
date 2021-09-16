@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import io.crysknife.ui.databinding.client.BindableListWrapper;
@@ -42,8 +43,8 @@ public abstract class SelectorFieldRenderer<FIELD extends SelectorFieldBaseDefin
     @Inject
     protected SelectorDataProviderManager clientProviderManager;
 
-    @Inject
-    protected Caller<BackendSelectorDataProviderService> backendSelectorDataProviderService;
+    //@Inject
+    protected BackendSelectorDataProviderService backendSelectorDataProviderService;
 
     @Override
     public void init(FormRenderingContext renderingContext,
@@ -63,13 +64,15 @@ public abstract class SelectorFieldRenderer<FIELD extends SelectorFieldBaseDefin
                         renderingContext,
                         field.getDataProvider()));
             } else {
-                backendSelectorDataProviderService.call(new RemoteCallback<SelectorData>() {
+                throw new Error(getClass().getCanonicalName()+".refreshSelectorOptions");
+
+/*                backendSelectorDataProviderService.call(new RemoteCallback<SelectorData>() {
                     @Override
                     public void callback(SelectorData data) {
                         refreshSelectorOptions(data);
                     }
                 }).getDataFromProvider(renderingContext,
-                                       field.getDataProvider());
+                                       field.getDataProvider());*/
             }
         } else {
             refreshSelectorOptions(field.getOptions());

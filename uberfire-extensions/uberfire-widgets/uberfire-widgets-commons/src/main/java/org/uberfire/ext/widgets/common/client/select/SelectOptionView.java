@@ -17,6 +17,7 @@
 
 package org.uberfire.ext.widgets.common.client.select;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import io.crysknife.client.IsElement;
@@ -28,6 +29,7 @@ import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLLIElement;
 
 @Templated
+@Dependent
 public class SelectOptionView implements SelectOptionComponent.View,
                                          IsElement {
 

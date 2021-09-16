@@ -18,6 +18,8 @@
 package org.uberfire.ext.widgets.common.client.select;
 
 import java.util.List;
+
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -28,6 +30,7 @@ import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
 
 @Templated
+@Dependent
 public class SelectView implements SelectComponent.View,
                                    IsElement {
 

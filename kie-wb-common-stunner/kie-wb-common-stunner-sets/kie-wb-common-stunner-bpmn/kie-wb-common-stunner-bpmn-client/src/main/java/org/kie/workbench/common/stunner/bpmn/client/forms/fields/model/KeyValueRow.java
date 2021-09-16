@@ -56,6 +56,14 @@ public class KeyValueRow {
         this.value = value;
     }
 
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String value) {
+        this.uuid = value;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

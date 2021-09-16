@@ -19,6 +19,7 @@ package org.kie.workbench.common.stunner.core.client.components.proxies;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.kie.workbench.common.stunner.core.client.api.SessionManager;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;
@@ -52,7 +53,7 @@ public class NodeProxy implements ShapeProxy {
 
     @Inject
     public NodeProxy(final ElementProxy proxy,
-                     final ShapeProxyView<NodeShape> view) {
+                     @EdgeShapeQualifier @Named("LienzoConnectorProxyView") final ShapeProxyView<NodeShape> view) {
         this.proxy = proxy;
         this.view = view;
     }

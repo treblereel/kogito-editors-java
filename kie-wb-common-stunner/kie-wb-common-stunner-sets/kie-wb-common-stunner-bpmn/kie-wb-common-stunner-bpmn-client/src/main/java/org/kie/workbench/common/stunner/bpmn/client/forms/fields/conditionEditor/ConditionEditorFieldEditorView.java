@@ -127,12 +127,12 @@ public class ConditionEditorFieldEditorView
     }
 
     @EventHandler("simple-condition-radio")
-    private void onSimpleConditionChange(@ForEvent("change") final Event event) {
+    public void onSimpleConditionChange(@ForEvent("change") final Event event) {
         presenter.onSimpleConditionSelected();
     }
 
     @EventHandler("script-condition-radio")
-    private void onScriptConditionChange(@ForEvent("change") final Event event) {
+    public void onScriptConditionChange(@ForEvent("change") final Event event) {
         presenter.onScriptEditorSelected();
     }
 }

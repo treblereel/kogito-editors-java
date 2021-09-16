@@ -23,6 +23,7 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import io.crysknife.client.BeanManager;
 import org.gwtproject.core.client.Scheduler;
@@ -46,6 +47,7 @@ import org.uberfire.mvp.PlaceRequest;
 import org.uberfire.mvp.impl.DefaultPlaceRequest;
 import org.uberfire.workbench.model.ActivityResourceType;
 
+@Singleton
 public class WorkbenchEntryPoint {
 
     @Inject
@@ -57,7 +59,7 @@ public class WorkbenchEntryPoint {
     private final Map<String, Activity> idActivityMap = new HashMap<>();
 
     @PostConstruct
-    private void afterInitialization() {
+    void afterInitialization() {
         WorkbenchResources.INSTANCE.CSS().ensureInjected();
 
         setupRootContainer();
@@ -72,7 +74,7 @@ public class WorkbenchEntryPoint {
     }
 
     @PostConstruct
-    private void postConstruct() {
+    void postConstruct() {
         JSFunctions.nativeRegisterGwtEditorProvider();
     }
 

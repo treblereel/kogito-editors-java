@@ -23,6 +23,7 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Typed;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.client.widgets.presenters.diagram.DiagramEditor;
@@ -87,7 +88,7 @@ public class DefaultDiagramEditor
 
     @Inject
     public DefaultDiagramEditor(final DefinitionUtils definitionUtils,
-                                final DiagramViewer<Diagram, AbstractCanvasHandler> viewer,
+                                final @Named("DefaultDiagramViewer") DiagramViewer<Diagram, AbstractCanvasHandler> viewer,
                                 final @Any ManagedInstance<CanvasCommandManager<AbstractCanvasHandler>> commandManagers,
                                 final @Any ManagedInstance<LocationControl<AbstractCanvasHandler, Element>> locationControls,
                                 final @Any ManagedInstance<ResizeControl<AbstractCanvasHandler, Element>> resizeControls,

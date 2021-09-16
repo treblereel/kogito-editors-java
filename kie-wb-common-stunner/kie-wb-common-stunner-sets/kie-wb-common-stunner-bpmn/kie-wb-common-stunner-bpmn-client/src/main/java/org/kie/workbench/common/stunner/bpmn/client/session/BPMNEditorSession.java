@@ -19,6 +19,7 @@ package org.kie.workbench.common.stunner.bpmn.client.session;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.appformer.client.stateControl.registry.DefaultRegistry;
 import org.appformer.client.stateControl.registry.Registry;
@@ -56,7 +57,7 @@ public class BPMNEditorSession extends DefaultEditorSession {
 
     @Inject
     public BPMNEditorSession(final ManagedSession session,
-                             final CanvasCommandManager<AbstractCanvasHandler> canvasCommandManager,
+                             @Named("CanvasCommandManagerImpl") final CanvasCommandManager<AbstractCanvasHandler> canvasCommandManager,
                              final SessionCommandManager<AbstractCanvasHandler> sessionCommandManager,
                              final Registry<org.kie.workbench.common.stunner.core.command.Command<AbstractCanvasHandler, CanvasViolation>> commandRegistry,
                              final DefaultRegistry<org.kie.workbench.common.stunner.core.command.Command<AbstractCanvasHandler, CanvasViolation>> redoCommandRegistry,

@@ -22,7 +22,9 @@ import java.util.function.Supplier;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
+import javax.enterprise.inject.Typed;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.kie.workbench.common.stunner.core.client.api.ClientFactoryManager;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;
@@ -40,6 +42,7 @@ import org.kie.workbench.common.stunner.core.graph.Element;
  * It operates with instances of type <code>CanvasCommand</code> and throw different context events.
  */
 @Dependent
+@Named("CanvasCommandManagerImpl")
 public class CanvasCommandManagerImpl<H extends AbstractCanvasHandler>
         implements
         CanvasCommandManager<H> {

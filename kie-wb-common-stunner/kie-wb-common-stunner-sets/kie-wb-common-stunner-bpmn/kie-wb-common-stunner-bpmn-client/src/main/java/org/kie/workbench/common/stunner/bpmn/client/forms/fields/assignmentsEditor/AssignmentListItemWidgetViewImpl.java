@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
@@ -63,6 +64,7 @@ import static org.kie.workbench.common.stunner.bpmn.client.forms.util.StringUtil
  * to hold the values.
  */
 @Templated("ActivityDataIOEditorWidget.html#assignment")
+@Dependent
 public class AssignmentListItemWidgetViewImpl extends Composite implements AssignmentListItemWidgetView,
                                                                            ComboBoxView.ModelPresenter {
 

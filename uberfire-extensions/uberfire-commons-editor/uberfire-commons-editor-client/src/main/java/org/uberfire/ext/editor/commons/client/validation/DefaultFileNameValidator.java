@@ -18,6 +18,7 @@ package org.uberfire.ext.editor.commons.client.validation;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import org.jboss.errai.common.client.api.Caller;
 import org.jboss.errai.common.client.api.RemoteCallback;
 import org.uberfire.ext.editor.commons.service.ValidationService;
@@ -28,13 +29,16 @@ import org.uberfire.ext.editor.commons.service.ValidationService;
 @ApplicationScoped
 public class DefaultFileNameValidator implements Validator {
 
-    @Inject
+    //@Inject
     private Caller<ValidationService> validationService;
 
     @Override
     public void validate(final String value,
                          final ValidatorCallback callback) {
-        validationService.call(new RemoteCallback<Boolean>() {
+        DomGlobal.console.log(getClass().getCanonicalName()+".validate");
+
+
+/*        validationService.call(new RemoteCallback<Boolean>() {
             @Override
             public void callback(final Boolean response) {
                 if (Boolean.TRUE.equals(response)) {
@@ -43,6 +47,6 @@ public class DefaultFileNameValidator implements Validator {
                     callback.onFailure();
                 }
             }
-        }).isFileNameValid(value);
+        }).isFileNameValid(value);*/
     }
 }

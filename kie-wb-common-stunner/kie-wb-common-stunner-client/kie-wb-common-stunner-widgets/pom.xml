@@ -30,11 +30,6 @@
   <description>Kie Workbench - Common - Stunner - Client Widgets</description>
   <packaging>jar</packaging>
 
-  <properties>
-    <java.module.name>org.kie.wb.common.stunner.widgets</java.module.name>
-    <jacoco.line.coveredratio.minimum>0.0</jacoco.line.coveredratio.minimum>
-  </properties>
-
   <dependencies>
 
     <!-- Stunner. -->
@@ -150,6 +145,8 @@
         <directory>src/main/java</directory>
         <includes>
           <include>**/*.java</include>
+          <include>**/*.html</include>
+          <include>**/*.css</include>
         </includes>
       </resource>
       <resource>
