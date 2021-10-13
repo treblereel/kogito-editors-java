@@ -23,8 +23,9 @@ import javax.inject.Named;
 
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLElement;
+import elemental2.dom.MouseEvent;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
-import org.gwtproject.event.dom.client.MouseDownEvent;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
@@ -91,11 +92,11 @@ public class DefinitionPaletteItemWidgetViewImpl implements DefinitionPaletteIte
     }
 
     @EventHandler("itemAnchor")
-    public void onMouseDown(MouseDownEvent mouseDownEvent) {
-        presenter.onMouseDown(mouseDownEvent.getClientX(),
-                              mouseDownEvent.getClientY(),
-                              mouseDownEvent.getX(),
-                              mouseDownEvent.getY());
+    public void onMouseDown(@ForEvent("MouseDown") MouseEvent mouseDownEvent) {
+        presenter.onMouseDown(mouseDownEvent.clientX,
+                              mouseDownEvent.clientY,
+                              mouseDownEvent.x,
+                              mouseDownEvent.y);
     }
 
     @PreDestroy

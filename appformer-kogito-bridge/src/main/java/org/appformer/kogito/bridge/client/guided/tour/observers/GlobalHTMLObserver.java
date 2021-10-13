@@ -40,8 +40,9 @@ public class GlobalHTMLObserver extends GuidedTourObserver<GlobalHTMLObserver> {
 
     final EventListener CLICK_LISTENER = this::onHTMLElementEvent;
 
-    @Inject
-    public GlobalHTMLObserver(final GlobalHTMLObserver selfDisposer) {
+    //@Inject
+    //public GlobalHTMLObserver(final GlobalHTMLObserver selfDisposer) {
+    public GlobalHTMLObserver() {
         super(null);
     }
 

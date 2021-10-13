@@ -99,7 +99,7 @@ public abstract class FieldRenderer<F extends FieldDefinition, G extends FormGro
 
                 @Override
                 public boolean isRequired() {
-                    return field.getRequired();
+                    return field.isRequired();
                 }
 
                 @Override

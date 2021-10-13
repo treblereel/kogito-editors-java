@@ -22,7 +22,7 @@ import java.io.Serializable;
  */
 public interface HasValue<T extends Serializable> {
 
-    T getValue();
+    T isValue();
 
     void setValue( T value );
 

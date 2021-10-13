@@ -27,12 +27,13 @@ import org.gwtbootstrap3.client.ui.Tooltip;
 import org.gwtbootstrap3.client.ui.constants.ButtonSize;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
 import org.uberfire.client.resources.WebAppResource;
+import org.uberfire.client.resources.WebAppResource_default_InlineClientBundleGenerator;
 import org.uberfire.client.workbench.docks.UberfireDock;
 import org.uberfire.mvp.ParameterizedCommand;
 
 public class SideDockItem extends AbstractSideDockItem {
 
-    private static WebAppResource CSS = GWT.create(WebAppResource.class);
+    private static WebAppResource CSS = new WebAppResource_default_InlineClientBundleGenerator();
     private final ParameterizedCommand<String> openCommand;
     private final ParameterizedCommand<String> closeCommand;
 
@@ -44,7 +45,7 @@ public class SideDockItem extends AbstractSideDockItem {
 
     private boolean opened;
 
-    private ViewBinder uiBinder = GWT.create(ViewBinder.class);
+    private ViewBinder uiBinder = new SideDockItem_ViewBinderImpl();
 
     SideDockItem(final UberfireDock dock,
                  final ParameterizedCommand<String> openCommand,

@@ -62,8 +62,8 @@ public class WorkItemStringParameterWidget extends WorkItemParameterWidget {
         this.parameterEditor.setEnabled(!isReadOnly);
 
         //Setup widget to select a literal value
-        if (ppd.getValue() != null) {
-            this.parameterEditor.setText(ppd.getValue());
+        if (ppd.isValue() != null) {
+            this.parameterEditor.setText(ppd.isValue());
         }
 
         //Setup widget to use bindings

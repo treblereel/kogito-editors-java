@@ -50,7 +50,7 @@ public class SliderFieldRenderer extends FieldRenderer<SliderBaseDefinition, Sli
                             field.getStep().doubleValue());
 
         slider.setId(generateUniqueId());
-        slider.setEnabled(!field.getReadOnly() && renderingContext.getRenderMode().equals(RenderMode.EDIT_MODE));
+        slider.setEnabled(!field.isReadOnly() && renderingContext.getRenderMode().equals(RenderMode.EDIT_MODE));
 
         int precision = field.getPrecision().intValue();
         NumberFormat format = createFormatter(precision);

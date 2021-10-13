@@ -29,6 +29,7 @@ import org.gwtproject.user.client.ui.Widget;
 import org.uberfire.client.docks.view.items.AbstractDockItem;
 import org.uberfire.client.docks.view.items.SingleSideDockItem;
 import org.uberfire.client.resources.WebAppResource;
+import org.uberfire.client.resources.WebAppResource_default_InlineClientBundleGenerator;
 import org.uberfire.client.util.CSSLocatorsUtils;
 import org.uberfire.client.workbench.docks.UberfireDock;
 import org.uberfire.client.workbench.docks.UberfireDockPosition;
@@ -45,10 +46,10 @@ public class DocksCollapsedBar extends Composite implements OuiaComponent {
     @UiField
     FlowPanel docksBarPanel;
     private UberfireDockPosition position;
-    private WebAppResource CSS = GWT.create(WebAppResource.class);
+    private WebAppResource CSS = new WebAppResource_default_InlineClientBundleGenerator();
     private AbstractDockItem firstDockItem;
     private SingleSideDockItem singleSideDockItem;
-    private ViewBinder uiBinder = GWT.create(ViewBinder.class);
+    private ViewBinder uiBinder = new DocksCollapsedBar_ViewBinderImpl();
     private List<AbstractDockItem> docksItems = new ArrayList<AbstractDockItem>();
 
     public DocksCollapsedBar(UberfireDockPosition position) {

@@ -15,7 +15,6 @@
  */
 package org.uberfire.client.resources;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.resources.client.ClientBundle;
 
 /**
@@ -23,7 +22,7 @@ import org.gwtproject.resources.client.ClientBundle;
  */
 public interface WorkbenchResources extends ClientBundle {
 
-    WorkbenchResources INSTANCE = null;
+    WorkbenchResources INSTANCE = new WorkbenchResources_default_InlineClientBundleGenerator();
 
     @Source("css/workbench.css")
     WorkbenchCss CSS();

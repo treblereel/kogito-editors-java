@@ -62,7 +62,7 @@ public class WorkItemBooleanParameterWidget extends WorkItemParameterWidget {
 
         //Setup widget to select a literal value
         boolean isItemSelected = false;
-        Boolean selectedItem = ppd.getValue();
+        Boolean selectedItem = ppd.isValue();
         if (ppd.getValues() != null) {
             for (int index = 0; index < ppd.getValues().length; index++) {
                 Boolean item = ppd.getValues()[index];

@@ -88,7 +88,7 @@ public class ColumnRenderingStrategyFlattened {
         //Column content
         commands.add((GridRenderer.RenderBodyGridContentCommand) (rc) -> {
             if (columnRenderingConstraint.apply(rc.isSelectionLayer(), column)) {
-                final Group columnGroup = GWT.create(Group.class);
+                final Group columnGroup = new Group();
                 columnGroup.setX(x);
                 final int columnIndex = model.getColumns().indexOf(column);
                 for (int rowIndex = minVisibleRowIndex; rowIndex <= maxVisibleRowIndex; rowIndex++) {

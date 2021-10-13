@@ -99,7 +99,7 @@ public class SVGShapeFactory
 
     Object getViewFactory(final SVGShapeDef def) {
         final Class<?> viewFactoryType = def.getViewFactoryType();
-        final Object factory = beanManager.lookupBean(viewFactoryType).get();
+        final Object factory = beanManager.lookupBean(viewFactoryType).getInstance();
         if (null == factory) {
             throw new RuntimeException("No SVG view factory present of type [" + viewFactoryType.getName() + "]");
         }

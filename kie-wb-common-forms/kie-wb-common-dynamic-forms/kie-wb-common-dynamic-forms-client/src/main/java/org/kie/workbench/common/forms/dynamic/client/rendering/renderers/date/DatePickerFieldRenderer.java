@@ -51,11 +51,11 @@ public class DatePickerFieldRenderer extends FieldRenderer<DatePickerFieldDefini
 
         DefaultFormGroup formGroup = formGroupsInstance.get();
         String inputId = generateUniqueId();
-        datePickerWrapper.setDatePickerWidget(field.getShowTime());
+        datePickerWrapper.setDatePickerWidget(field.isShowTime());
         datePickerWrapper.setId(inputId);
         datePickerWrapper.setName(fieldNS);
         datePickerWrapper.setPlaceholder(field.getPlaceHolder());
-        datePickerWrapper.setEnabled(!field.getReadOnly());
+        datePickerWrapper.setEnabled(!field.isReadOnly());
         handler = readOnly -> datePickerWrapper.setEnabled(!readOnly);
 
         if (renderMode.equals(RenderMode.READ_ONLY_MODE)) {

@@ -62,7 +62,6 @@
       <groupId>io.crysknife</groupId>
       <artifactId>databinding-api</artifactId>
     </dependency>
-
   </dependencies>
 
   <build>

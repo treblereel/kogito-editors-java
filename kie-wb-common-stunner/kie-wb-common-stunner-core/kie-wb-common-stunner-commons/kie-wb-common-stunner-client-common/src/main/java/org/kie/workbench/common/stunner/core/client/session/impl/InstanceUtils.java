@@ -29,13 +29,10 @@ public class InstanceUtils {
     public static <T> T lookup(final ManagedInstance instance,
                                final Class<T> type,
                                final Annotation... qualifier) {
-        throw new Error(InstanceUtils.class.getCanonicalName()+".lookup ");
-/*
-
         final ManagedInstance<T> i = instance.select(type, qualifier);
         return i.isUnsatisfied() ?
                 (T) instance.select(type, DefinitionManager.DEFAULT_QUALIFIER).get() :
-                i.get();*/
+                i.get();
     }
 
     public static <T> T lookup(final ManagedInstance<T> instance,

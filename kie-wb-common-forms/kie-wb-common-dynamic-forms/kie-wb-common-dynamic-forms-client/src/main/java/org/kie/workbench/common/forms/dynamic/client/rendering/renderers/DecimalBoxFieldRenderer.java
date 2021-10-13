@@ -60,7 +60,7 @@ public class DecimalBoxFieldRenderer extends FieldRenderer<DecimalBoxFieldDefini
             decimalBox.setId(inputId);
             decimalBox.setPlaceholder(field.getPlaceHolder());
             decimalBox.setMaxLength(field.getMaxLength());
-            decimalBox.setEnabled(!field.getReadOnly());
+            decimalBox.setEnabled(!field.isReadOnly());
             formGroup.render(inputId,
                              decimalBox.asWidget(),
                              field);

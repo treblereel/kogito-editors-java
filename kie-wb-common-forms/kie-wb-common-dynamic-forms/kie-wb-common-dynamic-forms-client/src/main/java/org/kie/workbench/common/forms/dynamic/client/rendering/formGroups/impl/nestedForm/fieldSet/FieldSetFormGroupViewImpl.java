@@ -86,7 +86,7 @@ public class FieldSetFormGroupViewImpl implements IsElement,
 
         legendText.setText(field.getLabel());
 
-        if (field.getRequired()) {
+        if (field.isRequired()) {
             legend.appendChild(fieldRequired.getElement());
         }
 

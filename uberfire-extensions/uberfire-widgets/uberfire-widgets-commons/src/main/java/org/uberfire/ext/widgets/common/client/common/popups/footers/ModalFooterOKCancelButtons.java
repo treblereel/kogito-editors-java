@@ -31,7 +31,7 @@ import org.kie.soup.commons.validation.PortablePreconditions;
  */
 public class ModalFooterOKCancelButtons extends ModalFooter {
 
-    private static ModalFooterOKCancelButtonsBinder uiBinder = GWT.create(ModalFooterOKCancelButtonsBinder.class);
+    private static ModalFooterOKCancelButtonsBinder uiBinder = new ModalFooterOKCancelButtons_ModalFooterOKCancelButtonsBinderImpl();
 
     private final Command okCommand;
     private final Command cancelCommand;

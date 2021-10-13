@@ -19,7 +19,6 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.comboBoxEditor
 import java.util.List;
 import java.util.Map;
 
-import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.FormGroup;
@@ -76,7 +75,7 @@ public abstract class AbstractComboBoxFieldRenderer<T extends ComboBoxFieldDefin
     protected FormGroup getFormGroup(RenderMode renderMode) {
         DefaultFormGroup formGroup = formGroupsInstance.get();
 
-        view.setReadOnly(field.getReadOnly());
+        view.setReadOnly(field.isReadOnly());
         refreshSelectorOptions();
 
         formGroup.render(view.asWidget(), field);

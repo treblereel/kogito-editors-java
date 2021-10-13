@@ -42,7 +42,7 @@ public class IsAsync implements BPMNProperty {
         this.value = value;
     }
 
-    public Boolean getValue() {
+    public Boolean isValue() {
         return value;
     }
 

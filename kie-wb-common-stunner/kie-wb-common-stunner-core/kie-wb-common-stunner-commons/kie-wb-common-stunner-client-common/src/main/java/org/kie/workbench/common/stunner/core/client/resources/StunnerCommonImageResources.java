@@ -16,14 +16,13 @@
 
 package org.kie.workbench.common.stunner.core.client.resources;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.resources.client.ClientBundle;
 import org.gwtproject.resources.client.ClientBundleWithLookup;
 import org.gwtproject.resources.client.ImageResource;
 
 public interface StunnerCommonImageResources extends ClientBundleWithLookup {
 
-    StunnerCommonImageResources INSTANCE = null;
+    StunnerCommonImageResources INSTANCE = new StunnerCommonImageResources_default_InlineClientBundleGenerator();
 
     @Source("images/edit.png")
     ImageResource edit();

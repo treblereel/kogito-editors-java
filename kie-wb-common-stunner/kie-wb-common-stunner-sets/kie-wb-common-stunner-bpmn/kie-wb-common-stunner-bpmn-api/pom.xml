@@ -69,11 +69,11 @@
       <artifactId>kie-wb-common-stunner-shapes-api</artifactId>
     </dependency>
 
-<!--    <dependency>
+    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-processors</artifactId>
       <scope>provided</scope>
-    </dependency>-->
+    </dependency>
 
     <dependency>
       <groupId>org.kie.kogito</groupId>

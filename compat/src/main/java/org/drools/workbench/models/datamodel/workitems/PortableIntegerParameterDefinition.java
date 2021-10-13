@@ -31,7 +31,7 @@ public class PortableIntegerParameterDefinition
 
     }
 
-    public Integer getValue() {
+    public Integer isValue() {
         return this.value;
     }
 

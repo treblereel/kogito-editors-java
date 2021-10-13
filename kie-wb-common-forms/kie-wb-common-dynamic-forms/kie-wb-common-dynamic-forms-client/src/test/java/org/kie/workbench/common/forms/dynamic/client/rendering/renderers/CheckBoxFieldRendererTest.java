@@ -64,7 +64,7 @@ public class CheckBoxFieldRendererTest extends AbstractFieldRendererTest<CheckBo
         verify(formGroupsInstance).get();
         verify(checkBox).setId(any());
         verify(checkBox).setName(Mockito.<String>any());
-        verify(checkBox).setEnabled(eq(!fieldDefinition.getReadOnly()));
+        verify(checkBox).setEnabled(eq(!fieldDefinition.isReadOnly()));
 
         verify(formGroup).render(eq(checkBox), eq(fieldDefinition));
     }

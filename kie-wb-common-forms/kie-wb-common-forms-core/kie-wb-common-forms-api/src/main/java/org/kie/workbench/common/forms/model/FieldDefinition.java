@@ -31,11 +31,11 @@ public interface FieldDefinition {
 
     void setLabel(String label);
 
-    Boolean getRequired();
+    Boolean isRequired();
 
     void setRequired(Boolean required);
 
-    Boolean getReadOnly();
+    Boolean isReadOnly();
 
     void setReadOnly(Boolean readOnly);
 
@@ -53,7 +53,7 @@ public interface FieldDefinition {
 
     TypeInfo getFieldTypeInfo();
 
-    Boolean getValidateOnChange();
+    Boolean isValidateOnChange();
 
     void setValidateOnChange(Boolean validateOnChange);
 

@@ -49,7 +49,7 @@ public abstract class BaseReusableSubProcessFilterProvider<T extends BaseReusabl
     @SuppressWarnings("unchecked")
     public boolean isMultipleInstance(final Object definition) {
         final T subProcess = (T) definition;
-        return subProcess.getExecutionSet().getIsMultipleInstance().getValue();
+        return subProcess.getExecutionSet().getIsMultipleInstance().isValue();
     }
 
     @Override
@@ -57,7 +57,7 @@ public abstract class BaseReusableSubProcessFilterProvider<T extends BaseReusabl
     public Collection<FormElementFilter> provideFilters(String elementUUID, Object definition) {
         Collection<FormElementFilter> filters = super.provideFilters(elementUUID, definition);
         BaseReusableSubprocessTaskExecutionSet executionSet = ((T) definition).getExecutionSet();
-        filters.add(new FormElementFilter(ABORT_PARENT, p -> Boolean.FALSE.equals(executionSet.getIndependent().getValue())));
+        filters.add(new FormElementFilter(ABORT_PARENT, p -> Boolean.FALSE.equals(executionSet.getIndependent().isValue())));
         return filters;
     }
 

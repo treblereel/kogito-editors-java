@@ -121,7 +121,7 @@ public class ApplicationCommandManager
         commandManagerInstances.destroyAll();
     }
 
-    void onSessionDestroyed(@Observes SessionDestroyedEvent event) {
+    public void onSessionDestroyed(@Observes SessionDestroyedEvent event) {
         final String sessionUUID = event.getSessionUUID();
         final RegistryAwareCommandManager commandManager = getCommandManagers().get(sessionUUID);
         commandManagerInstances.destroy(commandManager);

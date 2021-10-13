@@ -34,6 +34,7 @@ import org.gwtbootstrap3.client.ui.constants.ButtonSize;
 import org.gwtbootstrap3.client.ui.constants.HeadingSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.uberfire.client.resources.WebAppResource;
+import org.uberfire.client.resources.WebAppResource_default_InlineClientBundleGenerator;
 import org.uberfire.client.util.CSSLocatorsUtils;
 import org.uberfire.client.workbench.docks.UberfireDockPosition;
 import org.uberfire.client.workbench.ouia.OuiaAttribute;
@@ -49,7 +50,7 @@ public class DocksExpandedBar
 
     private static final String OUIA_COMPONENT_TYPE = "expanded-docks-bar";
 
-    private static WebAppResource CSS = GWT.create(WebAppResource.class);
+    private static WebAppResource CSS = new WebAppResource_default_InlineClientBundleGenerator();
     @UiField
     FlowPanel titlePanel;
 
@@ -60,7 +61,7 @@ public class DocksExpandedBar
 
     Heading title;
     private UberfireDockPosition position;
-    private ViewBinder uiBinder = GWT.create(ViewBinder.class);
+    private ViewBinder uiBinder = new DocksExpandedBar_ViewBinderImpl();
 
     public DocksExpandedBar(UberfireDockPosition position) {
         initWidget(uiBinder.createAndBindUi(this));
@@ -118,7 +119,7 @@ public class DocksExpandedBar
 
     private void createButtons(final String identifier,
                                final ParameterizedCommand<String> closeCommand) {
-        collapse = GWT.create(Button.class);
+        collapse = new Button();
         collapse.setSize(ButtonSize.SMALL);
         collapse.addClickHandler(even -> closeCommand.execute(identifier));
         final String componentType = "collapse-docks-button";

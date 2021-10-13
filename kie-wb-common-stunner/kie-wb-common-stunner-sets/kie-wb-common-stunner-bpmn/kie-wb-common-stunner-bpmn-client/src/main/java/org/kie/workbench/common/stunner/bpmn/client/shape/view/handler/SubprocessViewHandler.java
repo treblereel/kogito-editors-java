@@ -39,7 +39,7 @@ public class SubprocessViewHandler implements ShapeViewHandler<BaseSubprocess, S
     public void handle(BaseSubprocess subprocess, SVGShapeView<?> view) {
         if (subprocess instanceof ReusableSubprocess) {
             final ReusableSubprocess reusableSubprocess = (ReusableSubprocess) subprocess;
-            final boolean multipleInstance = reusableSubprocess.getExecutionSet().getIsMultipleInstance().getValue();
+            final boolean multipleInstance = reusableSubprocess.getExecutionSet().getIsMultipleInstance().isValue();
             final boolean sequential = reusableSubprocess.getExecutionSet().getMultipleInstanceExecutionMode().isSequential();
             final double normalFillApha = multipleInstance ? 0 : 1;
             final double normalFillStroke = multipleInstance ? 0 : 1;

@@ -68,11 +68,11 @@ public class RolesEditorWidgetViewImpl extends Composite implements RolesEditorW
     @AutoBound
     protected DataBinder<List<KeyValueRow>> binder;
 
-    //@Inject
-    //@DataField("list")
-    //@Bound
-    //@ListContainer("tbody")
-    //protected ListComponent<KeyValueRow, RolesListItemWidgetView> list = new DefaultListComponent<>();
+    @Inject
+    @DataField("list")
+    @Bound
+    @ListContainer("tbody")
+    protected ListComponent<KeyValueRow, RolesListItemWidgetView> list;
 
     @Inject
     protected Event<NotificationEvent> notification;
@@ -170,9 +170,7 @@ public class RolesEditorWidgetViewImpl extends Composite implements RolesEditorW
 
     @Override
     public RolesListItemWidgetView getWidget(int index) {
-
-        throw new Error(getClass().getCanonicalName()+".getWidget");
-        //return list.getComponent(index);
+        return list.getComponent(index);
     }
 
     protected void handleAddVarButton() {

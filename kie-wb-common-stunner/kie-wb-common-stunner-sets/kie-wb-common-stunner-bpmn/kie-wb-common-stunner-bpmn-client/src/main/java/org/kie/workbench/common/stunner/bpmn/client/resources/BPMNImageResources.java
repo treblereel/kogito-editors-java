@@ -16,7 +16,6 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.resources;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.resources.client.ClientBundle;
 import org.gwtproject.resources.client.ClientBundleWithLookup;
 import org.gwtproject.resources.client.DataResource;
@@ -24,7 +23,7 @@ import org.gwtproject.resources.client.ImageResource;
 
 public interface BPMNImageResources extends ClientBundleWithLookup {
 
-    BPMNImageResources INSTANCE = GWT.create(BPMNImageResources.class);
+    BPMNImageResources INSTANCE = new BPMNImageResources_default_InlineClientBundleGenerator();
 
     // ****** BPMN ShapeSet Thumbnail. *******
     @Source("images/bpmn_thumb.png")

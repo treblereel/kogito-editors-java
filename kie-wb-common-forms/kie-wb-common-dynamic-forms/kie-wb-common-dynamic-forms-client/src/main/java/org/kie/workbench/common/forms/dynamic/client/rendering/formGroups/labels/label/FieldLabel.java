@@ -55,7 +55,7 @@ public class FieldLabel implements IsElement,
 
         view.renderForInputId(inputId,
                               fieldDefinition.getLabel(),
-                              fieldDefinition.getRequired(),
+                              fieldDefinition.isRequired(),
                               fieldDefinition.getHelpMessage());
     }
 
@@ -73,7 +73,7 @@ public class FieldLabel implements IsElement,
 
         view.renderForInput(isWidget,
                             fieldDefinition.getLabel(),
-                            fieldDefinition.getRequired(),
+                            fieldDefinition.isRequired(),
                             fieldDefinition.getHelpMessage());
     }
 

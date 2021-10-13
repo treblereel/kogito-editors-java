@@ -72,7 +72,7 @@ public class IntegerBoxFieldRendererTest extends AbstractFieldRendererTest<Integ
         verify(integerBox).setId(any());
         verify(integerBox).setPlaceholder(eq(fieldDefinition.getPlaceHolder()));
         verify(integerBox).setMaxLength(eq(fieldDefinition.getMaxLength()));
-        verify(integerBox).setEnabled(eq(!fieldDefinition.getReadOnly()));
+        verify(integerBox).setEnabled(eq(!fieldDefinition.isReadOnly()));
 
         verify(integerBox).asWidget();
 

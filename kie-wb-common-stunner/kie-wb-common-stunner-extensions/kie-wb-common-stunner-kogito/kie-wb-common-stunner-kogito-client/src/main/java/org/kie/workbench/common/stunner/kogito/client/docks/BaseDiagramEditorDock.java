@@ -15,6 +15,7 @@
  */
 package org.kie.workbench.common.stunner.kogito.client.docks;
 
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.stunner.client.widgets.editor.DiagramEditorDock;
 import org.uberfire.client.workbench.docks.UberfireDock;
 import org.uberfire.client.workbench.docks.UberfireDockPosition;
@@ -47,6 +48,9 @@ public abstract class BaseDiagramEditorDock implements DiagramEditorDock {
 
     @Override
     public void open() {
+
+        DomGlobal.console.warn(getClass().getCanonicalName()+".open");
+
         if (isOpened()) {
             return;
         }
@@ -81,6 +85,10 @@ public abstract class BaseDiagramEditorDock implements DiagramEditorDock {
 
     protected UberfireDock makeUberfireDock() {
         final UberfireDock uberfireDock = new UberfireDock(position(), icon(), placeRequest());
+
+        DomGlobal.console.warn(getClass().getCanonicalName()+".makeUberfireDock " + uberfireDock);
+
+
         return uberfireDock.withSize(DOCK_SIZE).withLabel(dockLabel());
     }
 

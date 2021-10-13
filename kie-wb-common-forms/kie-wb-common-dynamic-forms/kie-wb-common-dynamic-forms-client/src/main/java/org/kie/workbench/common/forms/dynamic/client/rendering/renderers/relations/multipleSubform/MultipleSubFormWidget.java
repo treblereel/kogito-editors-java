@@ -36,7 +36,6 @@ import org.kie.workbench.common.forms.crud.client.component.CrudActionsHelper;
 import org.kie.workbench.common.forms.crud.client.component.CrudComponent;
 import org.kie.workbench.common.forms.crud.client.component.formDisplay.FormDisplayer;
 import org.kie.workbench.common.forms.crud.client.component.formDisplay.IsFormView;
-import org.kie.workbench.common.forms.crud.client.resources.i18n.CrudComponentConstants;
 import org.kie.workbench.common.forms.dynamic.client.DynamicFormRenderer;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.relations.multipleSubform.binding.BindingHelper;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.relations.multipleSubform.binding.BindingHelpers;
@@ -330,7 +329,7 @@ public class MultipleSubFormWidget extends Composite implements TakesValue<List<
         this.field = field;
         this.renderingContext = renderingContext;
 
-        isReadOnly = field.getReadOnly() || !renderingContext.getRenderMode().equals(RenderMode.EDIT_MODE);
+        isReadOnly = field.isReadOnly() || !renderingContext.getRenderMode().equals(RenderMode.EDIT_MODE);
 
         bindingHelper = BindingHelpers.getHelper(renderingContext,
                                                  field);

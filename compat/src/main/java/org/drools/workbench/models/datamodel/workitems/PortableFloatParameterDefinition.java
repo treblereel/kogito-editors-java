@@ -32,7 +32,7 @@ public class PortableFloatParameterDefinition extends PortableParameterDefinitio
 
     }
 
-    public Float getValue() {
+    public Float isValue() {
         return this.value;
     }
 

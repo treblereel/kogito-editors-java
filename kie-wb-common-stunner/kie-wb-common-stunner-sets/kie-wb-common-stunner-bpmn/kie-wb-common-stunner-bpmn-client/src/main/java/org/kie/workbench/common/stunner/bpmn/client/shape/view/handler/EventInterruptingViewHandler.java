@@ -37,15 +37,15 @@ public class EventInterruptingViewHandler
                        final SVGShapeView<?> view) {
         Boolean isInterrupting = null;
         if (bean instanceof StartMessageEvent) {
-            isInterrupting = ((StartMessageEvent) bean).getExecutionSet().getIsInterrupting().getValue();
+            isInterrupting = ((StartMessageEvent) bean).getExecutionSet().getIsInterrupting().isValue();
         } else if (bean instanceof StartTimerEvent) {
-            isInterrupting = ((StartTimerEvent) bean).getExecutionSet().getIsInterrupting().getValue();
+            isInterrupting = ((StartTimerEvent) bean).getExecutionSet().getIsInterrupting().isValue();
         } else if (bean instanceof StartSignalEvent) {
-            isInterrupting = ((StartSignalEvent) bean).getExecutionSet().getIsInterrupting().getValue();
+            isInterrupting = ((StartSignalEvent) bean).getExecutionSet().getIsInterrupting().isValue();
         } else if (bean instanceof StartConditionalEvent) {
-            isInterrupting = ((StartConditionalEvent) bean).getExecutionSet().getIsInterrupting().getValue();
+            isInterrupting = ((StartConditionalEvent) bean).getExecutionSet().getIsInterrupting().isValue();
         } else if (bean instanceof StartEscalationEvent) {
-            isInterrupting = ((StartEscalationEvent) bean).getExecutionSet().getIsInterrupting().getValue();
+            isInterrupting = ((StartEscalationEvent) bean).getExecutionSet().getIsInterrupting().isValue();
         }
         if (null != isInterrupting) {
             // Interrupting -> Normal

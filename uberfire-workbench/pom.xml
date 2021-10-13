@@ -32,9 +32,7 @@
   <modules>
     <module>uberfire-workbench-client</module>
     <module>uberfire-workbench-client-views-patternfly</module>
-<!--
     <module>uberfire-workbench-processors</module>
--->
   </modules>
 
 </project>

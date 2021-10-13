@@ -25,6 +25,7 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import org.gwtproject.safehtml.shared.SafeUri;
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.shapes.def.picture.PictureProvider;
@@ -46,7 +47,9 @@ public class PictureProvidersManager {
 
     @PostConstruct
     public void init() {
-        pictureProviderManagedInstances.forEach(providers::add);
+        DomGlobal.console.warn("PictureProvidersManager, pictureProviderManagedInstances lookup disabled");
+
+        //pictureProviderManagedInstances.forEach(providers::add);
     }
 
     @SuppressWarnings("unchecked")

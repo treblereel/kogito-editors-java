@@ -73,10 +73,10 @@ public class DefinitionPaletteItemWidget implements DefinitionPaletteItemWidgetV
     }
 
     @Override
-    public void onMouseDown(int clientX,
-                            int clientY,
-                            int x,
-                            int y) {
+    public void onMouseDown(double clientX,
+                            double clientY,
+                            double x,
+                            double y) {
         if (itemMouseDownCallback != null) {
             itemMouseDownCallback.accept(new PaletteItemMouseEvent(item.getId(),
                                                                    clientX,

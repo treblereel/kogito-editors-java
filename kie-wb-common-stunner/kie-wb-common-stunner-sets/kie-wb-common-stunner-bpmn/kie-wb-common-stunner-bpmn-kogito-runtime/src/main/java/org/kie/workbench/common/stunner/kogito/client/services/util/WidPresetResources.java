@@ -16,14 +16,13 @@
 
 package org.kie.workbench.common.stunner.kogito.client.services.util;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.resources.client.ClientBundleWithLookup;
 import org.gwtproject.resources.client.ImageResource;
 import org.gwtproject.resources.client.TextResource;
 
 public interface WidPresetResources extends ClientBundleWithLookup {
 
-    WidPresetResources INSTANCE = GWT.create(WidPresetResources.class);
+    WidPresetResources INSTANCE = new WidPresetResources_default_InlineClientBundleGenerator();
 
     @Source("WorkDefinitions.wid")
     TextResource asText();

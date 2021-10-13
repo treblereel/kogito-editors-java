@@ -31,7 +31,7 @@ public class PortableStringParameterDefinition
 
     }
 
-    public String getValue() {
+    public String isValue() {
         return this.value;
     }
 

@@ -16,14 +16,13 @@
 
 package org.uberfire.client.resources;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.resources.client.ClientBundle;
 
 public interface WebAppResource
         extends
         ClientBundle {
 
-    WebAppResource INSTANCE = GWT.create(WebAppResource.class);
+    WebAppResource INSTANCE = new WebAppResource_default_InlineClientBundleGenerator();
 
     @Source("css/docks.css")
     DocksCss CSS();

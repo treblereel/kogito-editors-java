@@ -44,7 +44,7 @@ public class RuleSelector
     private boolean ruleNamesLoaded = false;
     private Optional<Command> onRulesLoadedCommand = Optional.empty();
 
-    private Select ruleNameSelector = GWT.create(Select.class);
+    private Select ruleNameSelector = new Select();
 
     public RuleSelector() {
         ruleNameSelector.setEnabled(false);
@@ -84,7 +84,7 @@ public class RuleSelector
 
     Option makeRuleNameOption(final String ruleName,
                               final String value) {
-        final Option o = GWT.create(Option.class);
+        final Option o = new Option();
         final String simpleRuleName = getSimpleRuleName(ruleName);
         o.setText(simpleRuleName);
         o.setValue(value);

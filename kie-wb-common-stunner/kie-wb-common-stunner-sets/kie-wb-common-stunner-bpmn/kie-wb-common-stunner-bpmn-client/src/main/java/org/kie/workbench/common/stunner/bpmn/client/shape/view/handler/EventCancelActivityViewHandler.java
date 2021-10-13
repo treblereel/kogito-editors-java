@@ -37,15 +37,15 @@ public class EventCancelActivityViewHandler
                        final SVGShapeView<?> view) {
         Boolean isCancelActivity = null;
         if (bean instanceof IntermediateSignalEventCatching) {
-            isCancelActivity = ((IntermediateSignalEventCatching) bean).getExecutionSet().getCancelActivity().getValue();
+            isCancelActivity = ((IntermediateSignalEventCatching) bean).getExecutionSet().getCancelActivity().isValue();
         } else if (bean instanceof IntermediateTimerEvent) {
-            isCancelActivity = ((IntermediateTimerEvent) bean).getExecutionSet().getCancelActivity().getValue();
+            isCancelActivity = ((IntermediateTimerEvent) bean).getExecutionSet().getCancelActivity().isValue();
         } else if (bean instanceof IntermediateMessageEventCatching) {
-            isCancelActivity = ((IntermediateMessageEventCatching) bean).getExecutionSet().getCancelActivity().getValue();
+            isCancelActivity = ((IntermediateMessageEventCatching) bean).getExecutionSet().getCancelActivity().isValue();
         } else if (bean instanceof IntermediateConditionalEvent) {
-            isCancelActivity = ((IntermediateConditionalEvent) bean).getExecutionSet().getCancelActivity().getValue();
+            isCancelActivity = ((IntermediateConditionalEvent) bean).getExecutionSet().getCancelActivity().isValue();
         } else if (bean instanceof IntermediateEscalationEvent) {
-            isCancelActivity = ((IntermediateEscalationEvent) bean).getExecutionSet().getCancelActivity().getValue();
+            isCancelActivity = ((IntermediateEscalationEvent) bean).getExecutionSet().getCancelActivity().isValue();
         }
         if (null != isCancelActivity) {
             // Cancel -> Normal

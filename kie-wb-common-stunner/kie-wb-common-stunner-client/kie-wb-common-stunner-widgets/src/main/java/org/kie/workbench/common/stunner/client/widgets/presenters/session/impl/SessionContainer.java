@@ -17,6 +17,7 @@
 package org.kie.workbench.common.stunner.client.widgets.presenters.session.impl;
 
 import javax.enterprise.context.Dependent;
+import javax.enterprise.inject.Typed;
 
 import org.gwtproject.safehtml.shared.annotations.IsSafeHtml;
 import org.gwtproject.user.client.ui.HTML;
@@ -30,6 +31,7 @@ import org.uberfire.client.workbench.widgets.ResizeFlowPanel;
  * the remainder of the HTML template the Panel needs to implement HasHTML.
  */
 @Dependent
+@Typed(SessionContainer.class)
 public class SessionContainer extends ResizeFlowPanel implements HasHTML {
 
     private final HTML container = new HTML();

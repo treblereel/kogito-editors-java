@@ -40,17 +40,17 @@ public class ClientTranslationService extends AbstractTranslationService {
 /*
     private final TranslationService erraiTranslationService;
 */
-    private final ManagedInstance<DiagramElementNameProvider> elementNameProviders;
+    //private final ManagedInstance<DiagramElementNameProvider> elementNameProviders;
     private SessionManager sessionManager;
     private DefinitionUtils definitionUtils;
 
     @Inject
     public ClientTranslationService(//final TranslationService erraiTranslationService,
-                                    final ManagedInstance<DiagramElementNameProvider> elementNameProviders,
+                                    //final ManagedInstance<DiagramElementNameProvider> elementNameProviders,
                                     final SessionManager sessionManager,
                                     final DefinitionUtils definitionUtils) {
         //this.erraiTranslationService = erraiTranslationService;
-        this.elementNameProviders = elementNameProviders;
+        //this.elementNameProviders = elementNameProviders;
         this.sessionManager = sessionManager;
         this.definitionUtils = definitionUtils;
     }
@@ -123,10 +123,13 @@ public class ClientTranslationService extends AbstractTranslationService {
     }
 
     private Optional<DiagramElementNameProvider> getNameProvider(final String uuid) {
-        return StreamSupport
+        throw new Error(getClass().getCanonicalName() + ".getNameProvider");
+
+
+/*        return StreamSupport
                 .stream(elementNameProviders.spliterator(), false)
                 .filter(elementNameProvider -> Objects.equals(elementNameProvider.getDefinitionSetId(), getSessionDefinitionSetId()))
-                .findFirst();
+                .findFirst();*/
     }
 
     private String getSessionDefinitionSetId() {

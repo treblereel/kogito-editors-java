@@ -52,11 +52,6 @@ public class VariablesEditorFieldDefinition extends AbstractFieldDefinition {
         return caseFileVariable;
     }
 
-    //TODO
-    public boolean getCaseFileVariable() {
-        return caseFileVariable;
-    }
-
     public void setCaseFileVariable(boolean caseFileVariable) {
         this.caseFileVariable = caseFileVariable;
     }

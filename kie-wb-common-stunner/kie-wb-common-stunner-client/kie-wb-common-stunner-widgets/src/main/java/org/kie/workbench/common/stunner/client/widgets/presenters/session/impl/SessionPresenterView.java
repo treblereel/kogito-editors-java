@@ -23,6 +23,8 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLDivElement;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import io.crysknife.ui.templates.client.annotation.ForEvent;
 import org.gwtproject.dom.client.Style;
@@ -57,7 +59,7 @@ import static org.kie.workbench.common.stunner.client.widgets.resources.i18n.Stu
 
 // TODO: i18n.
 @Dependent
-@Templated
+@Templated(stylesheet = "SessionPresenterView.less") //TODO
 public class SessionPresenterView extends Composite
         implements SessionPresenter.View {
 
@@ -71,6 +73,10 @@ public class SessionPresenterView extends Composite
     @Inject
     @DataField
     private FlowPanel toolbarPanel;
+
+    @Inject
+    @DataField
+    HTMLDivElement diagramContainer;
 
     @Inject
     @DataField
@@ -200,6 +206,9 @@ public class SessionPresenterView extends Composite
 
     @Override
     public SessionPresenterView setCanvasWidget(final IsWidget widget) {
+        DomGlobal.console.log("setCanvasWidget " + widget.asWidget().getElement().getInnerHTML());
+
+
         setWidgetForPanel(canvasPanel,
                           widget);
         return this;

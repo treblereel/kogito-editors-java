@@ -34,7 +34,6 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
-import elemental2.dom.HTMLElement;
 import org.gwtproject.core.client.GWT;
 import io.crysknife.client.IsElement;
 import io.crysknife.client.ManagedInstance;
@@ -226,13 +225,13 @@ public class ClientBPMNDocumentationService implements BPMNDocumentationService 
 
         final String adhoc = diagramSet
                 .map(DiagramSet::getAdHoc)
-                .map(AdHoc::getValue)
+                .map(AdHoc::isValue)
                 .map(String::valueOf)
                 .orElse(null);
 
         final String executable = diagramSet
                 .map(DiagramSet::getExecutable)
-                .map(Executable::getValue)
+                .map(Executable::isValue)
                 .map(String::valueOf)
                 .orElse(null);
 

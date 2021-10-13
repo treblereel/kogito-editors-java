@@ -353,9 +353,6 @@ public class ManagedSession
     private static Object doLookup(final ManagedInstance instance,
                                    final ControlRegistrationEntry entry,
                                    final Annotation qualifier) {
-        throw new Error(ManagedSession.class.getCanonicalName()+".doLookup");
-/*
-
         final ManagedInstance i = null != entry.qualifier ?
                 instance.select(entry.type,
                                 entry.qualifier,
@@ -369,7 +366,7 @@ public class ManagedSession
                                         DefinitionManager.DEFAULT_QUALIFIER).get() :
                         instance.select(entry.type,
                                         DefinitionManager.DEFAULT_QUALIFIER).get()) :
-                i.get();*/
+                i.get();
     }
 
     private boolean isControlActive(final Class<? extends CanvasControl> type) {

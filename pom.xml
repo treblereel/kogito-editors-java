@@ -581,6 +581,18 @@
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
+        <artifactId>uberfire-workbench-processors</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>kie-wb-common-stunner-processors</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
         <artifactId>compat</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -596,6 +608,12 @@
         <groupId>org.eclipselabs</groupId>
         <artifactId>org.eclipse.emf.gwt.ecore</artifactId>
         <version>2.9.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.freemarker</groupId>
+        <artifactId>freemarker</artifactId>
+        <version>2.3.31</version>
       </dependency>
 
       <dependency>

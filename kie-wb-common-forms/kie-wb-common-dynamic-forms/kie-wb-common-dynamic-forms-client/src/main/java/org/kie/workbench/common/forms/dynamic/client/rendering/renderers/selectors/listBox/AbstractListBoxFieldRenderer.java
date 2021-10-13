@@ -30,7 +30,6 @@ import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.FormGr
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.impl.def.DefaultFormGroup;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.RequiresValueConverter;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.selectors.SelectorFieldRenderer;
-import org.kie.workbench.common.forms.dynamic.client.resources.i18n.FormRenderingConstants;
 import org.kie.workbench.common.forms.dynamic.service.shared.RenderMode;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.basic.selectors.SelectorOption;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.basic.selectors.listBox.definition.ListBoxBaseDefinition;
@@ -72,7 +71,7 @@ public abstract class AbstractListBoxFieldRenderer<FIELD extends ListBoxBaseDefi
             String inputId = generateUniqueId();
             widgetList.setId(inputId);
             widgetList.setName(fieldNS);
-            widgetList.setEnabled(!field.getReadOnly());
+            widgetList.setEnabled(!field.isReadOnly());
             refreshSelectorOptions();
             
             formGroup.render(inputId,
@@ -90,7 +89,7 @@ public abstract class AbstractListBoxFieldRenderer<FIELD extends ListBoxBaseDefi
                                 TYPE selectedValue) {
         List<TYPE> values = optionsValues.keySet().stream().collect(Collectors.toList());
 
-        if (field.getAddEmptyOption()) {
+        if (field.isAddEmptyOption()) {
             if (!values.contains(null)) {
                 values.add(0,
                            null);

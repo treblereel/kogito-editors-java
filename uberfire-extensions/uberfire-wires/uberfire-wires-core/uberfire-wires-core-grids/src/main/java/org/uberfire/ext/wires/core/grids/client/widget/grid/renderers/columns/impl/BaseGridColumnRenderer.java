@@ -192,7 +192,7 @@ public abstract class BaseGridColumnRenderer<T> implements GridColumnRenderer<T>
                                      final int headerRowIndex,
                                      final double blockWidth,
                                      final double rowHeight) {
-        final Group headerGroup = GWT.create(Group.class);
+        final Group headerGroup = new Group();
         final String title = headerMetaData.get(headerRowIndex).getTitle();
         final Text t = context.getRenderer().getTheme().getHeaderText();
         t.setText(title);

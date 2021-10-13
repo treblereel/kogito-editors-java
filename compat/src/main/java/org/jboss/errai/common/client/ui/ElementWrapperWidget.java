@@ -21,8 +21,12 @@ import java.util.Map;
 
 import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
+import io.crysknife.ui.databinding.client.NativeHasValueAccessors;
+import io.crysknife.ui.databinding.client.NativeHasValueAccessors.Accessor;
 import io.crysknife.ui.databinding.client.ValueChangeManager;
 import jsinterop.base.Js;
+import org.gwtproject.dom.client.InputElement;
+import org.gwtproject.dom.client.TextAreaElement;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
 import org.gwtproject.event.shared.HandlerRegistration;
@@ -53,10 +57,9 @@ public abstract class ElementWrapperWidget<T> extends Widget {
   }
 
   public static ElementWrapperWidget<?> getWidget(final Element element, final Class<?> valueType) {
-    return getWidget(element, valueType);
+    return getWidget((Object)element, valueType);
   }
 
-/*
   public static ElementWrapperWidget<?> getWidget(final Object obj, final Class<?> valueType) {
     final Element element = asElement(obj);
     ElementWrapperWidget<?> widget = widgetMap.get(element);
@@ -75,7 +78,6 @@ public abstract class ElementWrapperWidget<T> extends Widget {
 
     return widget;
   }
-*/
 
   private static Element asElement(Object obj) {
     return Js.uncheckedCast(obj);
@@ -84,7 +86,7 @@ public abstract class ElementWrapperWidget<T> extends Widget {
   }-*/;
 
   @SuppressWarnings({ "rawtypes", "unchecked" })
-/*  private static ElementWrapperWidget<?> createElementWrapperWidget(final Element element, final Class<?> valueType) {
+    private static ElementWrapperWidget<?> createElementWrapperWidget(final Element element, final Class<?> valueType) {
     if (valueType != null) {
       final Accessor accessor;
       if (NativeHasValueAccessors.hasValueAccessor(element)) {
@@ -96,13 +98,13 @@ public abstract class ElementWrapperWidget<T> extends Widget {
 
       return new JsTypeHasValueElementWrapperWidget<>(element, accessor, valueType);
     }
-    else if (InputElement.is(element) || TextAreaElement.is(element)) {
+    else if (InputElement.is(Js.<org.gwtproject.dom.client.Element>uncheckedCast(element)) || TextAreaElement.is(Js.<org.gwtproject.dom.client.Element>uncheckedCast(element))) {
       return new InputElementWrapperWidget<>(element);
     }
     else {
       return new DefaultElementWrapperWidget<>(element);
     }
-  }*/
+  }
 
   public static Class<?> getValueClassForInputType(final String inputType) {
     if ("checkbox".equalsIgnoreCase(inputType) || "radio".equalsIgnoreCase(inputType)) {
@@ -149,7 +151,6 @@ public abstract class ElementWrapperWidget<T> extends Widget {
 
   }
 
-/*
   private static class DefaultAccessor<T> implements Accessor<T> {
 
     private final org.jboss.errai.common.client.ui.HasValue<T> instance;
@@ -177,9 +178,7 @@ public abstract class ElementWrapperWidget<T> extends Widget {
     }
 
   }
-*/
 
-/*
   private static class JsTypeHasValueElementWrapperWidget<T> extends HasValueElementWrapperWidget<T> {
 
     private final Class<T> valueType;
@@ -207,7 +206,6 @@ public abstract class ElementWrapperWidget<T> extends Widget {
     }
 
   }
-*/
 
   private static class InputElementWrapperWidget<T> extends HasValueElementWrapperWidget<T> {
 

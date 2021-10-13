@@ -26,6 +26,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.crysknife.client.BeanManager;
+import io.crysknife.client.SyncBeanDef;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.dom.client.Style.Unit;
 import org.gwtproject.user.client.ui.DockLayoutPanel;
@@ -42,6 +43,7 @@ import org.uberfire.client.resources.WorkbenchResources;
 import org.uberfire.client.util.CSSLocatorsUtils;
 import org.uberfire.client.util.JSFunctions;
 import org.uberfire.client.util.Layouts;
+import org.uberfire.client.workbench.docks.UberfireDockContainerReadyEvent;
 import org.uberfire.client.workbench.docks.UberfireDocksContainer;
 import org.uberfire.mvp.PlaceRequest;
 import org.uberfire.mvp.impl.DefaultPlaceRequest;
@@ -58,8 +60,7 @@ public class WorkbenchEntryPoint {
     private final DockLayoutPanel rootContainer = new DockLayoutPanel(Unit.PX);
     private final Map<String, Activity> idActivityMap = new HashMap<>();
 
-    @PostConstruct
-    void afterInitialization() {
+    public void afterInitialization() {
         WorkbenchResources.INSTANCE.CSS().ensureInjected();
 
         setupRootContainer();
@@ -73,16 +74,18 @@ public class WorkbenchEntryPoint {
         JSFunctions.notifyJSReady();
     }
 
+    @Inject
+    javax.enterprise.event.Event<UberfireDockContainerReadyEvent>  uberfireDockContainerReadyEventEvent;
+
     @PostConstruct
     void postConstruct() {
-        JSFunctions.nativeRegisterGwtEditorProvider();
+        DomGlobal.console.log("JSFunctions.nativeRegisterGwtEditorProvider() SKIPPED");
+        //JSFunctions.nativeRegisterGwtEditorProvider();
     }
 
     public void openDock(final PlaceRequest place,
                          final HasWidgets container) {
-        throw new Error(getClass().getCanonicalName()+".openDock");
 
-/*
         final Activity dockActivity = openActivity(place.getIdentifier());
         if (!dockActivity.isType(ActivityResourceType.DOCK.name())) {
             throw new RuntimeException("The place should be associated with a dock activity. " + place);
@@ -97,17 +100,17 @@ public class WorkbenchEntryPoint {
         });
 
         container.add(panel);
-        resize();*/
+        resize();
     }
 
     protected void closeDock(final Activity dockActivity,
                              final HasWidgets container,
                              final SimpleLayoutPanel panel) {
 
-        throw new Error(getClass().getCanonicalName()+".closeDock");
+//        throw new Error(getClass().getCanonicalName()+".closeDock");
 
 
-/*        final Activity activity = idActivityMap.remove(dockActivity.getIdentifier());
+        final Activity activity = idActivityMap.remove(dockActivity.getIdentifier());
 
 
         if (activity != null) {
@@ -117,7 +120,7 @@ public class WorkbenchEntryPoint {
                 iocManager.destroyBean(activity);
             }
         }
-        container.remove(panel);*/
+        container.remove(panel);
     }
 
     protected SimpleLayoutPanel createPanel(final IsWidget widget) {
@@ -134,26 +137,29 @@ public class WorkbenchEntryPoint {
     }
 
     private void setupRootContainer() {
+
+        DomGlobal.console.log("setupRootContainer");
+
         uberfireDocksContainer.setup(rootContainer,
                                      () -> Scheduler.get().scheduleDeferred(this::resize));
 
         Layouts.setToFillParent(rootContainer);
         RootLayoutPanel.get().add(rootContainer);
 
-        throw new Error(getClass().getCanonicalName()+".setupRootContainer");
+        final SyncBeanDef<EditorActivity> editorBean = getBean(EditorActivity.class, null);
 
-/*        final SyncBeanDef<EditorActivity> editorBean = getBean(EditorActivity.class, null);
         JSFunctions.nativeRegisterGwtClientBean(editorBean.getName(), editorBean);
 
         final Activity editorActivity = openActivity(editorBean.getName());
-        rootContainer.add(createPanel(editorActivity.getWidget()));*/
+        rootContainer.add(createPanel(editorActivity.getWidget()));
         //resize();
     }
 
-/*    private <T extends Activity> SyncBeanDef<T> getBean(Class<T> type, final String name) {
+    private <T extends Activity> SyncBeanDef<T> getBean(Class<T> type, final String name) {
         final Optional<SyncBeanDef<T>> optionalActivity = iocManager.lookupBeans(type)
                 .stream()
-                .filter(bean -> bean.isActivated() && (name == null || bean.getName().equals(name)))
+                //.filter(bean -> bean.isActivated() && (name == null || bean.getName().equals(name)))
+                .filter(bean -> (name == null || bean.getName().equals(name)))
                 .findFirst();
 
         if (!optionalActivity.isPresent()) {
@@ -161,16 +167,16 @@ public class WorkbenchEntryPoint {
         }
 
         return optionalActivity.get();
-    }*/
+    }
 
-/*    private Activity openActivity(final String name) {
+    private Activity openActivity(final String name) {
         final Activity activity = getBean(Activity.class,
                                           name).getInstance();
         idActivityMap.put(activity.getIdentifier(), activity);
         activity.onStartup(new DefaultPlaceRequest(name));
         activity.onOpen();
         return activity;
-    }*/
+    }
 
     private void resize() {
         resizeTo(Window.getClientWidth(),

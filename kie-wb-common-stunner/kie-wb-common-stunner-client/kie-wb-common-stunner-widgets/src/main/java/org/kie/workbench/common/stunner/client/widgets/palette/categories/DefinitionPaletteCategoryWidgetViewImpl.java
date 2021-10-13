@@ -21,18 +21,16 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.DomGlobal;
+import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLLIElement;
+import elemental2.dom.MouseEvent;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
-import org.gwtproject.event.dom.client.ClickEvent;
-import org.gwtproject.event.dom.client.MouseDownEvent;
-import org.gwtproject.event.dom.client.MouseMoveEvent;
-import org.gwtproject.event.dom.client.MouseOutEvent;
-import org.gwtproject.event.dom.client.MouseUpEvent;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.client.widgets.components.glyph.DOMGlyphRenderers;
@@ -71,9 +69,9 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
 
     private Presenter presenter;
 
-    private int startX = 0;
+    private double startX = 0;
 
-    private int startY = 0;
+    private double startY = 0;
 
     private boolean mouseDown = false;
 
@@ -140,40 +138,40 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
     }
 
     @EventHandler("categoryIcon")
-    public void onMouseDown(MouseDownEvent event) {
+    public void onMouseDown(@ForEvent("mousedown") MouseEvent event) {
         mouseDown = true;
-        startX = event.getClientX();
-        startY = event.getClientY();
+        startX = event.clientX;
+        startY = event.clientY;
     }
 
     @EventHandler("categoryIcon")
-    public void onMouseMove(MouseMoveEvent event) {
-        int currentX = event.getClientX();
-        int currentY = event.getClientY();
+    public void onMouseMove(@ForEvent("mousemove") MouseEvent event) {
+        double currentX = event.clientX;
+        double currentY = event.clientY;
         if (mouseDown && isDragged(startX,
                                    startY,
                                    currentX,
                                    currentY)) {
             mouseDown = false;
-            presenter.onMouseDown(event.getClientX(),
-                                  event.getClientY(),
-                                  event.getX(),
-                                  event.getY());
+            presenter.onMouseDown(event.clientX,
+                                  event.clientY,
+                                  event.x,
+                                  event.y);
         }
     }
 
     @EventHandler("categoryIcon")
-    public void onMouseUp(MouseUpEvent event) {
+    public void onMouseUp(@ForEvent("mouseup")MouseEvent event) {
         if (mouseDown) {
             if (isDragged(startX,
                           startY,
-                          event.getClientX(),
-                          event.getClientY())) {
+                          event.clientX,
+                          event.clientY)) {
                 mouseDown = false;
-                presenter.onMouseDown(event.getClientX(),
-                                      event.getClientY(),
-                                      event.getX(),
-                                      event.getY());
+                presenter.onMouseDown(event.clientX,
+                                      event.clientY,
+                                      event.x,
+                                      event.y);
             } else {
                 mouseDown = false;
                 presenter.onOpen();
@@ -182,17 +180,17 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
     }
 
     @EventHandler("categoryIcon")
-    public void onMouseOutEvent(MouseOutEvent event) {
+    public void onMouseOutEvent(@ForEvent("mouseout") MouseEvent event) {
         mouseDown = false;
     }
 
     @EventHandler("closeCategoryButton")
-    public void onClose(ClickEvent event) {
+    public void onClose(@ForEvent("click") Event event) {
         presenter.onClose();
     }
 
     @EventHandler("floatingPanel")
-    public void onFloatingPanelOutEvent(MouseOutEvent event) {
+    public void onFloatingPanelOutEvent(@ForEvent("mouseout") MouseEvent event) {
         if (isAutoHidePanel()) {
             presenter.onClose();
         }
@@ -205,17 +203,17 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
         }
     }
 
-    private boolean isDragged(int startX,
-                              int startY,
-                              int endX,
-                              int endY) {
+    private boolean isDragged(double startX,
+                              double startY,
+                              double endX,
+                              double endY) {
         return distance(startX,
                         endX) >= DRAG_DELTA || distance(startY,
                                                         endY) >= DRAG_DELTA;
     }
 
-    private int distance(int start,
-                         int end) {
+    private double distance(double start,
+                         double end) {
         return Math.abs(start - end);
     }
 

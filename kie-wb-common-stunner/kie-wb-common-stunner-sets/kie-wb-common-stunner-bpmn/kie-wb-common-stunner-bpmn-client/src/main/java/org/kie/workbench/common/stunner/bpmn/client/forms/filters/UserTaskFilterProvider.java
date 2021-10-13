@@ -45,6 +45,6 @@ public class UserTaskFilterProvider extends MultipleInstanceNodeFilterProvider {
     @Override
     public boolean isMultipleInstance(final Object definition) {
         final UserTask userTask = (UserTask) definition;
-        return userTask.getExecutionSet().getIsMultipleInstance().getValue();
+        return userTask.getExecutionSet().getIsMultipleInstance().isValue();
     }
 }

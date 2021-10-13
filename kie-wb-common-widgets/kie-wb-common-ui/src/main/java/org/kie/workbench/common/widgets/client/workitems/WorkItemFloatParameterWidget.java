@@ -61,8 +61,8 @@ public class WorkItemFloatParameterWidget extends WorkItemParameterWidget {
         this.parameterEditor.setEnabled(!isReadOnly);
 
         //Setup widget to select a literal value
-        if (ppd.getValue() != null) {
-            this.parameterEditor.setText(Float.toString(ppd.getValue()));
+        if (ppd.isValue() != null) {
+            this.parameterEditor.setText(Float.toString(ppd.isValue()));
         }
 
         //Setup widget to use bindings

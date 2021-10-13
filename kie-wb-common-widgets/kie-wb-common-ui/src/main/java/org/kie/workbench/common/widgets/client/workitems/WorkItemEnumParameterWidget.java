@@ -54,7 +54,7 @@ public class WorkItemEnumParameterWidget extends WorkItemParameterWidget {
         this.parameterValues.setEnabled(!isReadOnly);
 
         boolean isItemSelected = false;
-        String selectedItem = ppd.getValue();
+        String selectedItem = ppd.isValue();
         if (ppd.getValues() != null) {
             for (int index = 0; index < ppd.getValues().length; index++) {
                 String item = ppd.getValues()[index];

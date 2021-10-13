@@ -58,7 +58,7 @@ public abstract class FormFieldImpl<F extends FieldDefinition> implements FormFi
 
     @Override
     public boolean isValidateOnChange() {
-        return field.getValidateOnChange();
+        return field.isValidateOnChange();
     }
 
     @Override
@@ -73,7 +73,7 @@ public abstract class FormFieldImpl<F extends FieldDefinition> implements FormFi
 
     @Override
     public void setReadOnly(boolean readOnly) {
-        if (!field.getReadOnly()) {
+        if (!field.isReadOnly()) {
             doSetReadOnly(readOnly);
         }
     }
@@ -85,7 +85,7 @@ public abstract class FormFieldImpl<F extends FieldDefinition> implements FormFi
 
     @Override
     public boolean isRequired() {
-        return field.getRequired();
+        return field.isRequired();
     }
 
     protected abstract void doSetReadOnly(boolean readOnly);

@@ -48,7 +48,7 @@ public class ClientTypeRegistryImpl implements ClientTypeRegistry {
     public void init() {
 
         iocManager.<ClientResourceType>lookupBeans(ClientResourceType.class).forEach(availableType -> {
-            localResourceTypes.add(availableType.get());
+            localResourceTypes.add(availableType.getInstance());
             DomGlobal.console.log("CHECK THIS!! " + availableType.getClass().getCanonicalName());
         });
 

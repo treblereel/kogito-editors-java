@@ -40,7 +40,7 @@ public class PortableBooleanParameterDefinition
         this.binding = binding;
     }
 
-    public Boolean getValue() {
+    public Boolean isValue() {
         return this.value;
     }
 
@@ -60,7 +60,7 @@ public class PortableBooleanParameterDefinition
         if ( this.value == null ) {
             return "null";
         }
-        return "Boolean." + Boolean.toString( this.getValue() ).toUpperCase();
+        return "Boolean." + Boolean.toString( this.isValue() ).toUpperCase();
     }
 
     @Override

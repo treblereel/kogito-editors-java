@@ -19,15 +19,17 @@ package org.kie.workbench.common.stunner.client.widgets.views;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
-import org.gwtproject.dom.client.Style;
-import org.gwtproject.safehtml.shared.SafeUri;
-import org.gwtbootstrap3.client.ui.Image;
-import org.jboss.errai.common.client.dom.DOMUtil;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import jsinterop.base.Js;
+import org.gwtbootstrap3.client.ui.Image;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.safehtml.shared.SafeUri;
+import org.jboss.errai.common.client.dom.DOMUtil;
 import org.kie.workbench.common.stunner.core.client.components.views.ImageElementRendererView;
 
 @Templated
@@ -66,21 +68,23 @@ public class ImageElementRendererViewImpl implements ImageElementRendererView,
     private void resize(final int widthPx,
                         final int heightPx) {
         icon.style.setProperty("width",
-                                    widthPx + Style.Unit.PX.name());
+                               widthPx + Style.Unit.PX.name());
         icon.style.setProperty("height",
-                                    heightPx + Style.Unit.PX.name());
-        if (DOMUtil.getFirstChildElement(icon).isPresent()) {
-            HTMLElement svgElement = (HTMLElement) DOMUtil.getFirstChildElement(icon).get();
-            svgElement.style.setProperty("width",
-                                              widthPx + Style.Unit.PX.name());
-            svgElement.style.setProperty("height",
-                                              heightPx + Style.Unit.PX.name());
-            svgElement.style.setProperty("position",
-                                              "absolute");
-            svgElement.style.setProperty("top",
-                                              "0px");
-            svgElement.style.setProperty("left",
-                                              "0px");
-        }
+                               heightPx + Style.Unit.PX.name());
+
+        DomGlobal.console.warn("icon " + icon);
+
+        HTMLElement svgElement = Js.uncheckedCast(icon.firstElementChild);
+
+        svgElement.style.setProperty("width",
+                                     widthPx + Style.Unit.PX.name());
+        svgElement.style.setProperty("height",
+                                     heightPx + Style.Unit.PX.name());
+        svgElement.style.setProperty("position",
+                                     "absolute");
+        svgElement.style.setProperty("top",
+                                     "0px");
+        svgElement.style.setProperty("left",
+                                     "0px");
     }
 }

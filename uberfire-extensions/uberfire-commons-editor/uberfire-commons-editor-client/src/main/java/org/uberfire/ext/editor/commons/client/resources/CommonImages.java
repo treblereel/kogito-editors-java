@@ -24,7 +24,7 @@ public interface CommonImages
         extends
         ClientBundle {
 
-    CommonImages INSTANCE = GWT.create(CommonImages.class);
+    CommonImages INSTANCE = null;
 
     @Source("images/edit.gif")
     ImageResource edit();

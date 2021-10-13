@@ -20,6 +20,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import io.crysknife.annotation.CircularDependency;
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.core.api.AbstractFactoryManager;
 import org.kie.workbench.common.stunner.core.api.DefinitionManager;
@@ -58,8 +59,7 @@ public class ClientFactoryManager extends AbstractFactoryManager implements Fact
                                 final ManagedInstance<GraphFactory> graphFactoryInstances,
                                 final ManagedInstance<NodeFactory> nodeFactoryInstances,
                                 final ManagedInstance<EdgeFactory> edgeFactoryInstances) {
-        super(registryFactory,
-              definitionManager);
+        super(registryFactory, definitionManager);
         this.definitionFactoryInstances = definitionFactoryInstances;
         this.diagramFactoryInstances = diagramFactoryInstances;
         this.graphFactoryInstances = graphFactoryInstances;

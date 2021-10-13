@@ -49,7 +49,7 @@ public class MultipleInputFieldRenderer extends FieldRenderer<AbstractMultipleIn
         input.setPageSize(field.getPageSize());
         input.init(field.getStandaloneClassName());
 
-        if(field.getReadOnly() || !renderMode.equals(RenderMode.EDIT_MODE)) {
+        if(field.isReadOnly() || !renderMode.equals(RenderMode.EDIT_MODE)) {
             setReadOnly(true);
         }
 

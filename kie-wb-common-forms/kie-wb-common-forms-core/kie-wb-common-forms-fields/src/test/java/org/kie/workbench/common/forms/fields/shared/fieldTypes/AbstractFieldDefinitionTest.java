@@ -63,27 +63,27 @@ public abstract class AbstractFieldDefinitionTest<FIELD extends FieldDefinition>
     public void testRequired() {
         FIELD newFieldDefinition = getEmptyFieldDefinition();
         newFieldDefinition.setRequired(true);
-        assertTrue(newFieldDefinition.getRequired());
+        assertTrue(newFieldDefinition.isRequired());
         newFieldDefinition.setRequired(false);
-        assertFalse(newFieldDefinition.getRequired());
+        assertFalse(newFieldDefinition.isRequired());
     }
 
     @Test
     public void testReadOnly() {
         FIELD newFieldDefinition = getEmptyFieldDefinition();
         newFieldDefinition.setReadOnly(true);
-        assertTrue(newFieldDefinition.getReadOnly());
+        assertTrue(newFieldDefinition.isReadOnly());
         newFieldDefinition.setReadOnly(false);
-        assertFalse(newFieldDefinition.getReadOnly());
+        assertFalse(newFieldDefinition.isReadOnly());
     }
 
     @Test
     public void testValidateOnChange() {
         FIELD newFieldDefinition = getEmptyFieldDefinition();
         newFieldDefinition.setValidateOnChange(true);
-        assertTrue(newFieldDefinition.getValidateOnChange());
+        assertTrue(newFieldDefinition.isValidateOnChange());
         newFieldDefinition.setValidateOnChange(false);
-        assertFalse(newFieldDefinition.getValidateOnChange());
+        assertFalse(newFieldDefinition.isValidateOnChange());
     }
 
     @Test

@@ -103,7 +103,7 @@ public class CollapsibleFormGroupViewImpl implements IsElement,
         formGroup.hidden = (true);
         anchorText.textContent = (field.getLabel());
 
-        if (field.getRequired()) {
+        if (field.isRequired()) {
             anchor.appendChild(fieldRequired.getElement());
         }
 

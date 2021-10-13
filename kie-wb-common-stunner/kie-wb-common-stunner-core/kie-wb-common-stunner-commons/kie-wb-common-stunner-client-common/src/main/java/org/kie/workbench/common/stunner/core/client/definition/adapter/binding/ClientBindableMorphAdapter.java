@@ -23,6 +23,7 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import io.crysknife.client.BeanManager;
+import io.crysknife.client.SyncBeanDef;
 import io.crysknife.ui.databinding.client.api.DataBinder;
 import org.kie.workbench.common.stunner.core.api.FactoryManager;
 import org.kie.workbench.common.stunner.core.definition.adapter.BindableMorphAdapter;
@@ -50,12 +51,11 @@ public class ClientBindableMorphAdapter<S> extends BindableMorphAdapter<S> {
     @SuppressWarnings("unchecked")
     public void init() {
         // Morph definitions.
-        throw new Error(getClass().getCanonicalName()+".init");
-/*        Collection<SyncBeanDef<MorphDefinitionProvider>> beanMorphAdapters = beanManager.lookupBeans(MorphDefinitionProvider.class);
+        Collection<SyncBeanDef<MorphDefinitionProvider>> beanMorphAdapters = beanManager.lookupBeans(MorphDefinitionProvider.class);
         for (SyncBeanDef<MorphDefinitionProvider> morphAdapter : beanMorphAdapters) {
             MorphDefinitionProvider provider = morphAdapter.getInstance();
             morphDefinitions.addAll(provider.getMorphDefinitions());
-        }*/
+        }
     }
 
     @Override

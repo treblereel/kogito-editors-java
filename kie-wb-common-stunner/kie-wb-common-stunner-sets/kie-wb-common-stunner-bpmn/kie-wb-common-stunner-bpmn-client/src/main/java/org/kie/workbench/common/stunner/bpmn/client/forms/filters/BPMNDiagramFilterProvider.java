@@ -69,7 +69,7 @@ public class BPMNDiagramFilterProvider implements StunnerFormElementFilterProvid
     @Override
     public Collection<FormElementFilter> provideFilters(String elementUUID, Object definition) {
         final BPMNDiagram diagram = (BPMNDiagram) definition;
-        final Boolean isAdHoc = diagram.getDiagramSet().getAdHoc().getValue();
+        final Boolean isAdHoc = diagram.getDiagramSet().getAdHoc().isValue();
 
         final Metadata metadata = sessionManager.getCurrentSession().getCanvasHandler().getDiagram().getMetadata();
         final ProjectType currentProjectType = diagramTypeService.getProjectType(metadata);

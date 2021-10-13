@@ -85,9 +85,4 @@ public class ComboBoxFieldDefinition extends SelectorFieldBaseDefinition<StringS
     public void setAllowCustomValue(Boolean allowCustomValue) {
         this.allowCustomValue = allowCustomValue;
     }
-
-    //TODO
-    public Boolean getAllowCustomValue() {
-        return allowCustomValue;
-    }
 }

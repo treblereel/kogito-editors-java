@@ -18,10 +18,6 @@ package org.kie.workbench.common.stunner.lienzo.primitive;
 
 import com.ait.lienzo.client.core.shape.Layer;
 import com.ait.lienzo.client.core.types.Transform;
-import org.gwtproject.event.dom.client.MouseDownEvent;
-import org.gwtproject.event.dom.client.MouseMoveEvent;
-import org.gwtproject.event.dom.client.MouseMoveHandler;
-import org.gwtproject.event.dom.client.MouseUpEvent;
 import org.gwtproject.event.dom.client.MouseUpHandler;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.timer.client.Timer;

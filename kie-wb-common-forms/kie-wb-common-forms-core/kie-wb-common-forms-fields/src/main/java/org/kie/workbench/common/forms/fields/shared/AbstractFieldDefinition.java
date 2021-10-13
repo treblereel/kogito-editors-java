@@ -108,7 +108,7 @@ public abstract class AbstractFieldDefinition implements FieldDefinition {
     }
 
     @Override
-    public Boolean getRequired() {
+    public Boolean isRequired() {
         return required;
     }
 
@@ -117,7 +117,7 @@ public abstract class AbstractFieldDefinition implements FieldDefinition {
         this.required = required;
     }
 
-    public Boolean getReadOnly() {
+    public Boolean isReadOnly() {
         return readOnly;
     }
 
@@ -161,7 +161,7 @@ public abstract class AbstractFieldDefinition implements FieldDefinition {
     }
 
     @Override
-    public Boolean getValidateOnChange() {
+    public Boolean isValidateOnChange() {
         return validateOnChange;
     }
 
@@ -179,9 +179,9 @@ public abstract class AbstractFieldDefinition implements FieldDefinition {
         setStandaloneClassName(other.getStandaloneClassName());
         setBinding(other.getBinding());
 
-        setRequired(other.getRequired());
-        setReadOnly(other.getReadOnly());
-        setValidateOnChange(other.getValidateOnChange());
+        setRequired(other.isRequired());
+        setReadOnly(other.isReadOnly());
+        setValidateOnChange(other.isValidateOnChange());
         setHelpMessage(other.getHelpMessage());
 
         doCopyFrom(other);

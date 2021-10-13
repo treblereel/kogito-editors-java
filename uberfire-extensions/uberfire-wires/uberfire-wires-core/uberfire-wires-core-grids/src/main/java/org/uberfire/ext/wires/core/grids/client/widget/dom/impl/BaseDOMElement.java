@@ -56,7 +56,7 @@ public abstract class BaseDOMElement<T, W extends Widget> {
     private static final NumberFormat FORMAT = NumberFormat.getFormat("0.0");
 
     protected final W widget;
-    protected final SimplePanel widgetContainer = GWT.create(SimplePanel.class);
+    protected final SimplePanel widgetContainer = new SimplePanel();
 
     protected final GridLayer gridLayer;
     protected final GridWidget gridWidget;

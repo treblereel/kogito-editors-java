@@ -52,14 +52,11 @@ public class ImageStripRegistry {
     }
 
     public ImageStrip get(final Class<? extends ImageStrip> stripType) {
-        throw new Error(getClass().getCanonicalName()+".get" + stripType);
-
-
-/*        final ManagedInstance<? extends ImageStrip> i = stripInstances.select(stripType);
+        final ManagedInstance<? extends ImageStrip> i = stripInstances.select(stripType);
         if (!i.isUnsatisfied() && !i.isAmbiguous()) {
             return i.get();
         }
-        return null;*/
+        return null;
     }
 
     public ImageStrip[] get(final Annotation... qualifiers) {

@@ -48,7 +48,7 @@ public abstract class RadioGroupFieldRendererBase<FIELD extends RadioGroupBaseDe
         for (TYPE key : optionsValues.keySet()) {
             Radio radio;
             SafeHtml text = getOptionLabel(optionsValues.get(key));
-            if (field.getInline()) {
+            if (field.isInline()) {
                 radio = new InlineRadio(field.getId(),
                                         text);
             } else {
@@ -56,7 +56,7 @@ public abstract class RadioGroupFieldRendererBase<FIELD extends RadioGroupBaseDe
                                   text);
             }
             radio.setFormValue(key.toString());
-            radio.setEnabled(!field.getReadOnly());
+            radio.setEnabled(!field.isReadOnly());
             input.add(radio);
         }
 

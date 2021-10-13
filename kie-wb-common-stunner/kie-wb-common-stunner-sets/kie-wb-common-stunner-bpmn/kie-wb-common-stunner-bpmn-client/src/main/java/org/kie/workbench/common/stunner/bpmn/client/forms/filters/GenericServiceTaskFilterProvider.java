@@ -45,6 +45,6 @@ public class GenericServiceTaskFilterProvider extends MultipleInstanceNodeFilter
     @Override
     public boolean isMultipleInstance(final Object definition) {
         final GenericServiceTask task = (GenericServiceTask) definition;
-        return task.getExecutionSet().getIsMultipleInstance().getValue();
+        return task.getExecutionSet().getIsMultipleInstance().isValue();
     }
 }

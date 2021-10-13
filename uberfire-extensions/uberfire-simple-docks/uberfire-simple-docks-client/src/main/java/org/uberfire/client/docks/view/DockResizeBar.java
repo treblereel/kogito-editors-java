@@ -22,18 +22,15 @@ import org.gwtproject.core.client.GWT;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.Element;
 import org.gwtproject.dom.client.Style;
-import org.gwtproject.event.dom.client.MouseDownEvent;
 import org.gwtproject.event.dom.client.MouseDownHandler;
-import org.gwtproject.event.dom.client.MouseMoveEvent;
 import org.gwtproject.event.dom.client.MouseMoveHandler;
-import org.gwtproject.event.dom.client.MouseOverEvent;
 import org.gwtproject.event.dom.client.MouseOverHandler;
-import org.gwtproject.event.dom.client.MouseUpEvent;
 import org.gwtproject.event.dom.client.MouseUpHandler;
 import org.gwtproject.user.client.Event;
 import org.gwtproject.user.client.ui.FlowPanel;
 import org.gwtproject.user.window.client.Window;
 import org.uberfire.client.resources.WebAppResource;
+import org.uberfire.client.resources.WebAppResource_default_InlineClientBundleGenerator;
 import org.uberfire.client.workbench.docks.UberfireDockPosition;
 import org.uberfire.client.workbench.ouia.OuiaAttribute;
 import org.uberfire.client.workbench.ouia.OuiaComponent;
@@ -45,7 +42,7 @@ public class DockResizeBar extends FlowPanel implements OuiaComponent {
 
     private static final String OUIA_COMPONENT_TYPE = "resize-docks-bar";
 
-    private static WebAppResource CSS = GWT.create(WebAppResource.class);
+    private static WebAppResource CSS = new WebAppResource_default_InlineClientBundleGenerator();
 
     private Element glassElem = null;
 

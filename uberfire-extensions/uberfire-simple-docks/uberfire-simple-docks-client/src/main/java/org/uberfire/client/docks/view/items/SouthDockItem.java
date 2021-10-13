@@ -16,7 +16,6 @@
 
 package org.uberfire.client.docks.view.items;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.event.dom.client.ClickHandler;
 import org.gwtproject.uibinder.client.UiBinder;
@@ -26,19 +25,20 @@ import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.ButtonSize;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
 import org.uberfire.client.resources.WebAppResource;
+import org.uberfire.client.resources.WebAppResource_default_InlineClientBundleGenerator;
 import org.uberfire.client.workbench.docks.UberfireDock;
 import org.uberfire.mvp.ParameterizedCommand;
 
 public class SouthDockItem
         extends AbstractDockItem {
 
-    private static WebAppResource CSS = GWT.create(WebAppResource.class);
+    private static WebAppResource CSS = new WebAppResource_default_InlineClientBundleGenerator();
     private final ParameterizedCommand<String> openCommand;
     private final ParameterizedCommand<String> closeCommand;
     @UiField
     Button itemButton;
     private boolean opened;
-    private ViewBinder uiBinder = GWT.create(ViewBinder.class);
+    private ViewBinder uiBinder = new SouthDockItem_ViewBinderImpl();
 
     SouthDockItem(final UberfireDock dock,
                   final ParameterizedCommand<String> openCommand,

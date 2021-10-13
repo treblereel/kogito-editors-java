@@ -68,7 +68,7 @@ public class DatePickerFieldRendererTest extends AbstractFieldRendererTest<org.k
     }
 
     private void testGetFormGroup(boolean showTime) {
-        when(fieldDefinition.getShowTime()).thenReturn(showTime);
+        when(fieldDefinition.isShowTime()).thenReturn(showTime);
 
         renderer.getFormGroup(RenderMode.EDIT_MODE);
 
@@ -76,7 +76,7 @@ public class DatePickerFieldRendererTest extends AbstractFieldRendererTest<org.k
         verify(datePicker).setDatePickerWidget(eq(showTime));
         verify(datePicker).setId(any());
         verify(datePicker).setPlaceholder(eq(fieldDefinition.getPlaceHolder()));
-        verify(datePicker).setEnabled(eq(!fieldDefinition.getReadOnly()));
+        verify(datePicker).setEnabled(eq(!fieldDefinition.isReadOnly()));
 
         verify(datePicker).asWidget();
 

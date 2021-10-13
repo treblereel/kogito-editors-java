@@ -72,8 +72,8 @@ public class MultipleSelectorFieldRendererTest extends AbstractFieldRendererTest
 
         verify(selector).setMaxItems(fieldDefinition.getMaxDropdownElements());
         verify(selector).setEnabled(true);
-        verify(selector).setFilterEnabled(fieldDefinition.getAllowFilter());
-        verify(selector).setClearSelectionEnabled(fieldDefinition.getAllowClearSelection());
+        verify(selector).setFilterEnabled(fieldDefinition.isAllowFilter());
+        verify(selector).setClearSelectionEnabled(fieldDefinition.isAllowClearSelection());
 
         verify(formGroup).render(any(), eq(fieldDefinition));
     }

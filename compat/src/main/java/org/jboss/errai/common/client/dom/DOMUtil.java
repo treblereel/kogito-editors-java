@@ -24,6 +24,7 @@ import java.util.stream.Stream;
 
 import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.DOMTokenList;
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import elemental2.dom.NodeList;
@@ -53,9 +54,12 @@ public abstract class DOMUtil {
      *         Otherwise return an empty optional.
      */
     public static Optional<HTMLElement> getFirstChildElement(final HTMLElement element) {
+
+        DomGlobal.console.warn("getFirstChildElement " + element + " " + element.childElementCount);
+
         for (final Node child : nodeIterable(element.childNodes)) {
             if (isElement(child)) {
-                return Optional.ofNullable((HTMLElement) child);
+                return Optional.ofNullable(Js.uncheckedCast(child));
             }
         }
 
@@ -114,7 +118,7 @@ public abstract class DOMUtil {
             @Override
             public Node next() {
                 if (hasNext()) {
-                    return Js.uncheckedCast(nodeList.item(index++));
+                    return (Node) nodeList.item(index++);
                 }
                 else {
                     throw new NoSuchElementException();

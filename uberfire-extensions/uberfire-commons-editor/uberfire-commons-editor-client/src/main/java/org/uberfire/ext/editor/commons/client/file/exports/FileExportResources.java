@@ -25,7 +25,7 @@ import org.gwtproject.resources.client.TextResource;
  */
 public interface FileExportResources extends ClientBundle {
 
-    FileExportResources INSTANCE = GWT.create(FileExportResources.class);
+    FileExportResources INSTANCE = new FileExportResources_default_InlineClientBundleGenerator();
 
     // The File Saver js.
     @Source("js/FileSaver.min.js")

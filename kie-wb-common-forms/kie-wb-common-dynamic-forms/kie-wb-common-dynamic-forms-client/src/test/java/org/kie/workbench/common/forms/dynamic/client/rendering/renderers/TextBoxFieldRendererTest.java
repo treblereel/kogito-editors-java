@@ -66,7 +66,7 @@ public class TextBoxFieldRendererTest extends AbstractFieldRendererTest<TextBoxF
         verify(textBox).setName(Mockito.<String>any());
         verify(textBox).setPlaceholder(eq(fieldDefinition.getPlaceHolder()));
         verify(textBox).setMaxLength(eq(fieldDefinition.getMaxLength()));
-        verify(textBox).setEnabled(eq(!fieldDefinition.getReadOnly()));
+        verify(textBox).setEnabled(eq(!fieldDefinition.isReadOnly()));
 
         verify(formGroup).render(Mockito.<String>any(), eq(textBox), eq(fieldDefinition));
     }

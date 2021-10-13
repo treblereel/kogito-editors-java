@@ -32,7 +32,7 @@ public class PortableEnumParameterDefinition
 
     }
 
-    public String getValue() {
+    public String isValue() {
         return value;
     }
 

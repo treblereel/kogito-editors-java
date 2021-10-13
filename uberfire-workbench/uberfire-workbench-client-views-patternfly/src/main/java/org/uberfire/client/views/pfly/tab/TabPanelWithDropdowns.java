@@ -26,7 +26,6 @@ import javax.enterprise.context.Dependent;
 
 import elemental2.dom.DomGlobal;
 import io.crysknife.client.internal.collections.Multimap;
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
@@ -60,7 +59,7 @@ import static org.gwtproject.user.client.ui.HasHorizontalAlignment.HorizontalAli
 @Dependent
 public class TabPanelWithDropdowns extends Composite {
 
-    private static TabPanelWithDropdownsBinder uiBinder = null;
+    private static TabPanelWithDropdownsBinder uiBinder = new TabPanelWithDropdowns_TabPanelWithDropdownsBinderImpl();
     /**
      * Widgets we have created that can have the CSS style name "active" added to them. When a new tab is selected, all
      * of these widgets get the "active" style removed from them.

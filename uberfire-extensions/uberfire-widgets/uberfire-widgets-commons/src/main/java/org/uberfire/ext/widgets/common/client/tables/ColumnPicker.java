@@ -53,7 +53,7 @@ public class ColumnPicker<T> extends UberfireColumnPicker<T> {
     protected void addResetButtom(final int left,
                                   final int top,
                                   VerticalPanel popupContent) {
-            Button resetButton = GWT.create(Button.class);
+            Button resetButton = new Button();
             resetButton.setText(CommonConstants.INSTANCE.Reset());
             resetButton.setSize(ButtonSize.EXTRA_SMALL);
             resetButton.addClickHandler(event -> resetTableColumns(left,

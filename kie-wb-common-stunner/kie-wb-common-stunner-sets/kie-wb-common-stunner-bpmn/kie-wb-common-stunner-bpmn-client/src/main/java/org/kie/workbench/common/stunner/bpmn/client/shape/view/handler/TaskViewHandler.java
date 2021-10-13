@@ -31,7 +31,7 @@ public class TaskViewHandler implements ShapeViewHandler<BaseTask, SVGShapeView<
     public void handle(BaseTask task, SVGShapeView<?> view) {
         if (task instanceof UserTask) {
             final UserTask userTask = (UserTask) task;
-            final boolean multipleInstance = userTask.getExecutionSet().getIsMultipleInstance().getValue();
+            final boolean multipleInstance = userTask.getExecutionSet().getIsMultipleInstance().isValue();
             final boolean sequential = userTask.getExecutionSet().getMultipleInstanceExecutionMode().isSequential();
 
             SVGViewUtils.setFillAndStroke(view, MULTIPLE_INSTANCE_ICON_PARALLEL, 0, 0);

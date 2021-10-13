@@ -64,11 +64,11 @@ public class ClientFormGenerationManager {
     }
 
     // Listen for form generation events.
-    void onFormGeneratedEvent(@Observes FormGeneratedEvent event) {
+    public void onFormGeneratedEvent(@Observes FormGeneratedEvent event) {
         formGenerationNotifier.showNotification(translationService.getValue(FormsClientConstants.FormsGenerationSuccess, event.getName()));
     }
 
-    void onFormGenerationFailureEvent(@Observes FormGenerationFailureEvent event) {
+    public void onFormGenerationFailureEvent(@Observes FormGenerationFailureEvent event) {
         formGenerationNotifier.showError(translationService.getValue(FormsClientConstants.FormsGenerationFailure, event.getName()));
     }
 

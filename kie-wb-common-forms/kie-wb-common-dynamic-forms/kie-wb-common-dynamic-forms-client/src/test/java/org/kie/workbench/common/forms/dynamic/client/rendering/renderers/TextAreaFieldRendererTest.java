@@ -66,7 +66,7 @@ public class TextAreaFieldRendererTest extends AbstractFieldRendererTest<TextAre
         verify(textArea).setName(Mockito.<String>any());
         verify(textArea).setPlaceholder(eq(fieldDefinition.getPlaceHolder()));
         verify(textArea).setVisibleLines(eq(fieldDefinition.getRows()));
-        verify(textArea).setEnabled(eq(!fieldDefinition.getReadOnly()));
+        verify(textArea).setEnabled(eq(!fieldDefinition.isReadOnly()));
 
         verify(formGroup).render(Mockito.<String>any(), eq(textArea), eq(fieldDefinition));
     }
