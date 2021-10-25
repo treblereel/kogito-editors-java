@@ -22,22 +22,20 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import io.crysknife.ui.templates.client.annotation.ForEvent;
 import io.crysknife.ui.templates.client.annotation.Templated;
-import org.gwtbootstrap3.client.ui.html.Span;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
-import org.gwtproject.user.client.Event;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.HasValue;
 import org.gwtproject.user.client.ui.RootPanel;
 import org.gwtbootstrap3.extras.datepicker.client.ui.DatePicker;
 import org.gwtbootstrap3.extras.datetimepicker.client.ui.DateTimePicker;
 import org.jboss.errai.common.client.dom.DOMUtil;
-import org.kie.workbench.common.forms.dynamic.client.resources.i18n.FormRenderingConstants;
 import org.uberfire.client.views.pfly.widgets.JQueryProducer;
 import org.uberfire.client.views.pfly.widgets.Popover;
 

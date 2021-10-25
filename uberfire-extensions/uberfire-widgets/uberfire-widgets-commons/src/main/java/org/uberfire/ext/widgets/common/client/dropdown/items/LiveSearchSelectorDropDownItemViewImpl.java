@@ -20,17 +20,17 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLDListElement;
 import elemental2.dom.HTMLElement;
+import elemental2.dom.KeyboardEvent;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import io.crysknife.ui.templates.client.annotation.Templated;
-import org.gwtproject.event.dom.client.ClickEvent;
-import org.gwtproject.event.dom.client.DomEvent;
 import org.gwtproject.event.dom.client.KeyCodes;
-import org.gwtproject.event.dom.client.KeyDownEvent;
 import org.jboss.errai.common.client.dom.DOMUtil;
 
 @Templated
@@ -106,7 +106,7 @@ public class LiveSearchSelectorDropDownItemViewImpl<TYPE> implements LiveSearchS
         this.multiSelect = multiSelect;
     }
 
-    private void onItemSelected(DomEvent event) {
+    private void onItemSelected(Event event) {
         presenter.onItemClick();
 
         if (multiSelect) {
@@ -115,13 +115,13 @@ public class LiveSearchSelectorDropDownItemViewImpl<TYPE> implements LiveSearchS
     }
 
     @EventHandler("itemAnchor")
-    public void onItemClick(ClickEvent event) {
+    public void onItemClick(@ForEvent("click")Event event) {
         onItemSelected(event);
     }
 
     @EventHandler("itemAnchor")
-    void onEnterKeyDown(KeyDownEvent event) {
-        if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
+    void onEnterKeyDown(@ForEvent("keydown") KeyboardEvent event) {
+        if (event.code.equals(KeyCodes.KEY_ENTER)) {
             onItemSelected(event);
         }
     }

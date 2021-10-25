@@ -73,10 +73,10 @@ public class CollapsedDefinitionPaletteItemWidget implements CollapsedDefinition
     }
 
     @Override
-    public void onMouseDown(final int clientX,
-                            final int clientY,
-                            final int x,
-                            final int y) {
+    public void onMouseDown(final double clientX,
+                            final double clientY,
+                            final double x,
+                            final double y) {
         if (itemMouseDownCallback != null) {
             itemMouseDownCallback.accept(new PaletteItemMouseEvent(item.getId(),
                                                                    clientX,

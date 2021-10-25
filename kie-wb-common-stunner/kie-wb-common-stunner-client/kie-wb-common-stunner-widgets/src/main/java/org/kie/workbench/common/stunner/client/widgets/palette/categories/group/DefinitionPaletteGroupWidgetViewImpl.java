@@ -20,10 +20,12 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLLIElement;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import io.crysknife.ui.templates.client.annotation.Templated;
@@ -90,12 +92,12 @@ public class DefinitionPaletteGroupWidgetViewImpl implements DefinitionPaletteGr
     }
 
     @EventHandler("moreAnchor")
-    public void showMore(ClickEvent clickEvent) {
+    public void showMore(@ForEvent("click") Event clickEvent) {
         presenter.showMore();
     }
 
     @EventHandler("lessAnchor")
-    public void showLess(ClickEvent clickEvent) {
+    public void showLess(@ForEvent("click") Event  clickEvent) {
         presenter.showLess();
     }
 

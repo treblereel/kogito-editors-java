@@ -28,7 +28,6 @@ import elemental2.dom.HTMLInputElement;
 import elemental2.dom.HTMLLabelElement;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import io.crysknife.ui.templates.client.annotation.ForEvent;
-import org.gwtproject.user.client.Event;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
@@ -135,7 +134,7 @@ public class ConditionParamView
     }
 
     @EventHandler("param-input")
-    public void onValueChange(@ForEvent("change") final Event event) {
+    public void onValueChange(@ForEvent("change") final elemental2.dom.Event event) {
         presenter.onValueChange();
     }
 }

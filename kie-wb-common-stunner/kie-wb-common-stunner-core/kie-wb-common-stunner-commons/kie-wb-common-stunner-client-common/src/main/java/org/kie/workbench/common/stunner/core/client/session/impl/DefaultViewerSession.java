@@ -42,7 +42,7 @@ public class DefaultViewerSession
 
     @Inject
     public DefaultViewerSession(final ManagedSession session,
-                                @Named("CanvasCommandManagerImpl") final CanvasCommandManager<AbstractCanvasHandler> canvasCommandManager) {
+                                final CanvasCommandManager<AbstractCanvasHandler> canvasCommandManager) {
         this.session = session;
         this.canvasCommandManager = canvasCommandManager;
     }

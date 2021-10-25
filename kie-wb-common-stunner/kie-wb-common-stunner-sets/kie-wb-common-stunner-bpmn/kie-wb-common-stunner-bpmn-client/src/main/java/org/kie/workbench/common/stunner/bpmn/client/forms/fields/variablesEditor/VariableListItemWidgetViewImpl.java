@@ -34,6 +34,7 @@ import io.crysknife.ui.databinding.client.api.AutoBound;
 import io.crysknife.ui.databinding.client.api.Bound;
 import io.crysknife.ui.databinding.client.api.DataBinder;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.TableCellElement;
 import org.gwtproject.event.dom.client.ClickEvent;
@@ -498,7 +499,7 @@ public class VariableListItemWidgetViewImpl implements VariableListItemWidgetVie
     }
 
     @EventHandler("acceptButton")
-    public void handleAcceptButton(final ClickEvent e) {
+    public void handleAcceptButton(@ForEvent("click") final elemental2.dom.Event e) {
 
         final String tagAdded = tagNamesComboBox.getValue();
 

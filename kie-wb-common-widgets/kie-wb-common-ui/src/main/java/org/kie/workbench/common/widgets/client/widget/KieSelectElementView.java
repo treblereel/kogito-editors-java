@@ -19,9 +19,10 @@ package org.kie.workbench.common.widgets.client.widget;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.Event;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
-import org.gwtproject.event.dom.client.ChangeEvent;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import elemental2.dom.HTMLSelectElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
@@ -44,7 +45,7 @@ public class KieSelectElementView implements KieSelectElement.View,
     }
 
     @EventHandler("select")
-    public void onSelectChanged(final ChangeEvent ignore) {
+    public void onSelectChanged(@ForEvent("onchange") final Event ignore) {
         presenter.onChange();
     }
 

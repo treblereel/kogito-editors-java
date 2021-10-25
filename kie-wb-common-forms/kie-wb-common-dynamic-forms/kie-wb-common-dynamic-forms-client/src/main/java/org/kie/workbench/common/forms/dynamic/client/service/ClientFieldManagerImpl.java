@@ -21,12 +21,18 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import io.crysknife.client.BeanManager;
+import io.crysknife.client.SyncBeanDef;
 import org.kie.workbench.common.forms.fields.shared.AbstractFieldManager;
 import org.kie.workbench.common.forms.fields.shared.FieldProvider;
 import org.kie.workbench.common.forms.service.shared.meta.processing.MetaDataEntryManager;
 
 @ApplicationScoped
 public class ClientFieldManagerImpl extends AbstractFieldManager {
+
+
+    @Inject
+    private BeanManager beanManager;
 
     @Inject
     public ClientFieldManagerImpl(MetaDataEntryManager metaDataEntryManager) {
@@ -35,12 +41,10 @@ public class ClientFieldManagerImpl extends AbstractFieldManager {
 
     @PostConstruct
     protected void init() {
-        throw new Error(getClass().getCanonicalName()+".init");
-/*
-        Collection<SyncBeanDef<FieldProvider>> providers = IOC.getBeanManager().lookupBeans(FieldProvider.class);
+        Collection<SyncBeanDef<FieldProvider>> providers = beanManager.lookupBeans(FieldProvider.class);
 
         for (SyncBeanDef<FieldProvider> provider : providers) {
             registerFieldProvider(provider.newInstance());
-        }*/
+        }
     }
 }

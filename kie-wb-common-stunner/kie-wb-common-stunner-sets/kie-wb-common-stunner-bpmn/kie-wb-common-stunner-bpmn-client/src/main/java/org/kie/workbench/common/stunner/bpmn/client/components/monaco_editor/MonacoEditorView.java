@@ -35,7 +35,6 @@ import io.crysknife.ui.templates.client.annotation.ForEvent;
 import jsinterop.base.Js;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
-import org.gwtproject.user.client.Event;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.uberfire.client.mvp.UberElement;
 import org.uberfire.client.views.pfly.monaco.jsinterop.MonacoEditor;
@@ -79,7 +78,7 @@ public class MonacoEditorView implements UberElement<MonacoEditorPresenter> {
     }
 
     @EventHandler("monacoLanguageSelector")
-    void onLanguageChanged(@ForEvent("change") final Event event) {
+    void onLanguageChanged(@ForEvent("change") final elemental2.dom.Event event) {
         presenter.onLanguageChanged(languageSelector.value);
     }
 

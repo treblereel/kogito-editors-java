@@ -22,17 +22,14 @@ import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLUListElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
-import org.gwtproject.event.dom.client.ClickEvent;
-import org.gwtproject.event.dom.client.DomEvent;
-import org.gwtproject.event.dom.client.KeyDownEvent;
-import org.gwtproject.event.dom.client.KeyPressEvent;
-import org.gwtproject.event.dom.client.KeyUpEvent;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import org.gwtproject.user.client.ui.Composite;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import io.crysknife.client.ManagedInstance;
@@ -133,36 +130,36 @@ public class ZoomLevelSelectorView
     }
 
     @EventHandler("increaseButton")
-    void onIncreaseLevel(ClickEvent event) {
+    void onIncreaseLevel(@ForEvent("click") Event event) {
         presenter.onIncreaseLevel();
     }
 
     @EventHandler("decreaseButton")
-    void onDecreaseLevel(ClickEvent event) {
+    void onDecreaseLevel(@ForEvent("click") Event event) {
         presenter.onDecreaseLevel();
     }
 
     @EventHandler("resetButton")
-    void onReset(ClickEvent event) {
+    void onReset(@ForEvent("click") Event event) {
         presenter.onReset();
     }
 
     @EventHandler("dropDownButton")
-    void onDropDownKeyDown(KeyDownEvent event) {
+    void onDropDownKeyDown(@ForEvent("keydown") Event event) {
         onDropDownKeyEvent(event);
     }
 
     @EventHandler("dropDownButton")
-    void onDropDownKeyUp(KeyUpEvent event) {
+    void onDropDownKeyUp(@ForEvent("keyup") Event event) {
         onDropDownKeyEvent(event);
     }
 
     @EventHandler("dropDownButton")
-    void onDropDownKeyPress(KeyPressEvent event) {
+    void onDropDownKeyPress(@ForEvent("keypress") Event event) {
         onDropDownKeyEvent(event);
     }
 
-    private void onDropDownKeyEvent(DomEvent event) {
+    private void onDropDownKeyEvent(Event event) {
         event.preventDefault();
         event.stopPropagation();
     }

@@ -20,10 +20,11 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import elemental2.dom.Event;
+import elemental2.dom.KeyboardEvent;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
-import org.gwtproject.event.dom.client.ClickEvent;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import org.gwtproject.event.dom.client.KeyCodes;
-import org.gwtproject.event.dom.client.KeyDownEvent;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
@@ -94,27 +95,27 @@ public class CardFrameComponentView implements CardFrameComponent.View {
     }
 
     @EventHandler("title-text")
-    public void onTitleTextClick(final ClickEvent e) {
+    public void onTitleTextClick(@ForEvent("click")final Event e) {
         presenter.enableEditMode();
     }
 
     @EventHandler("ok-button")
-    public void onOkButtonClick(final ClickEvent e) {
+    public void onOkButtonClick(@ForEvent("click")final Event e) {
         presenter.changeTitle();
     }
 
     @EventHandler("close-button")
-    public void onCloseButtonClick(final ClickEvent e) {
+    public void onCloseButtonClick(@ForEvent("click")final Event e) {
         presenter.refreshView();
     }
 
     @EventHandler("input-close-button")
-    public void onInputCloseButtonClick(final ClickEvent e) {
+    public void onInputCloseButtonClick(@ForEvent("click")final Event e) {
         titleInput.value = "";
     }
 
     @EventHandler("title-input")
-    public void onTitleInputKeyDownEvent(final KeyDownEvent event) {
+    public void onTitleInputKeyDownEvent(@ForEvent("keydown") final KeyboardEvent event) {
         if (isEscape(event)) {
             event.preventDefault();
             presenter.refreshView();
@@ -170,11 +171,11 @@ public class CardFrameComponentView implements CardFrameComponent.View {
         titleText.classList.toggle(readOnlyCSSClass, !enabled);
     }
 
-    private boolean isEscape(final KeyDownEvent event) {
-        return event.getNativeKeyCode() == KeyCodes.KEY_ESCAPE;
+    private boolean isEscape(final KeyboardEvent event) {
+        return Integer.parseInt(event.code) == KeyCodes.KEY_ESCAPE;
     }
 
-    private boolean isEnter(final KeyDownEvent event) {
-        return event.getNativeKeyCode() == KeyCodes.KEY_ENTER;
+    private boolean isEnter(final KeyboardEvent event) {
+        return Integer.parseInt(event.code) == KeyCodes.KEY_ENTER;
     }
 }

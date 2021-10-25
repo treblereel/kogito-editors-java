@@ -22,6 +22,9 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
+import io.crysknife.client.BeanManager;
+import io.crysknife.client.SyncBeanDef;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.AbstractFormGenerator;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.I18nHelper;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.layout.LayoutGenerator;
@@ -35,6 +38,9 @@ public class ClientFormGenerator extends AbstractFormGenerator {
     //protected TranslationService translationService;
 
     @Inject
+    private BeanManager beanManager;
+
+    @Inject
     public ClientFormGenerator(LayoutGenerator layoutGenerator
                                //TranslationService translationService
     ) {
@@ -44,9 +50,7 @@ public class ClientFormGenerator extends AbstractFormGenerator {
 
     @PostConstruct
     public void initialize() {
-        throw new Error(getClass().getCanonicalName()+".initialize");
-/*
-        SyncBeanManager beanManager = IOC.getBeanManager();
+        DomGlobal.console.log(getClass().getCanonicalName()+".initialize");
 
         Collection<SyncBeanDef<FormElementProcessor>> processors = beanManager.lookupBeans(FormElementProcessor.class);
 
@@ -64,7 +68,7 @@ public class ClientFormGenerator extends AbstractFormGenerator {
                 .forEach(provider -> {
                     registerResources(provider);
                     beanManager.destroyBean(provider);
-                });*/
+                });
     }
 
     @Override

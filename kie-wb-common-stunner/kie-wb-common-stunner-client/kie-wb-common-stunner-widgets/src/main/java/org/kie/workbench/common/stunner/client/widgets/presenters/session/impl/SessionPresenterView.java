@@ -30,6 +30,7 @@ import io.crysknife.ui.templates.client.annotation.ForEvent;
 import org.gwtproject.dom.client.Style;
 import org.gwtproject.event.dom.client.ContextMenuEvent;
 import org.gwtproject.event.dom.client.ScrollEvent;
+import org.gwtproject.event.dom.client.ScrollHandler;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.safehtml.shared.SafeHtmlBuilder;
 import org.gwtproject.timer.client.Timer;
@@ -132,10 +133,16 @@ public class SessionPresenterView extends Composite
         //getting initial session header section position
         headerInitialTop = sessionHeaderContainer.getAbsoluteTop();
         headerInitialLeft = sessionHeaderContainer.getAbsoluteLeft();
+
+
+        sessionContainer.addDomHandler(scrollEvent -> SessionPresenterView.this.onScroll(scrollEvent),
+                                       ScrollEvent.getType());
+
     }
 
-    @EventHandler("sessionContainer")
-    protected void onScroll(@ForEvent("scroll") ScrollEvent e) {
+    //TODO
+    //@EventHandler("sessionContainer")
+    protected void onScroll(ScrollEvent e) {
         // on the editor scroll recalculate palette and header positions to be fixed on the screen
         palettePanel.getElement().getStyle().setTop(paletteInitialTop + e.getRelativeElement().getScrollTop() + sessionHeaderHeight,
                                                     Style.Unit.PX);
@@ -206,9 +213,6 @@ public class SessionPresenterView extends Composite
 
     @Override
     public SessionPresenterView setCanvasWidget(final IsWidget widget) {
-        DomGlobal.console.log("setCanvasWidget " + widget.asWidget().getElement().getInnerHTML());
-
-
         setWidgetForPanel(canvasPanel,
                           widget);
         return this;

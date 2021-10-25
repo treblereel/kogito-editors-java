@@ -23,7 +23,6 @@ import com.ait.lienzo.client.core.event.NodeMouseMoveEvent;
 import com.ait.lienzo.client.core.event.NodeMouseUpEvent;
 import com.ait.lienzo.client.core.shape.Group;
 import com.ait.lienzo.client.core.types.Transform;
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.dom.client.Style;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.event.dom.client.ClickHandler;

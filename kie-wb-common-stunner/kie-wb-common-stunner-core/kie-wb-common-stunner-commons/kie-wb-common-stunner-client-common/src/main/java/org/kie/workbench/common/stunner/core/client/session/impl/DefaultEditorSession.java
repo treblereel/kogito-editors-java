@@ -70,7 +70,7 @@ public class DefaultEditorSession
 
     @Inject
     public DefaultEditorSession(final ManagedSession session,
-                                @Named("CanvasCommandManagerImpl") final CanvasCommandManager<AbstractCanvasHandler> canvasCommandManager,
+                                final CanvasCommandManager<AbstractCanvasHandler> canvasCommandManager,
                                 final SessionCommandManager<AbstractCanvasHandler> sessionCommandManager,
                                 final Registry<org.kie.workbench.common.stunner.core.command.Command<AbstractCanvasHandler, CanvasViolation>> commandRegistry,
                                 final Registry<org.kie.workbench.common.stunner.core.command.Command<AbstractCanvasHandler, CanvasViolation>> redoCommandRegistry,

@@ -35,6 +35,9 @@
     <org.kie.bpmn.kogito.browser.headless>true</org.kie.bpmn.kogito.browser.headless>
     <!-- We do not want to run selenium tests in default profile -->
     <kogito.it.tests.excludes>**/*IT.java</kogito.it.tests.excludes>
+    <showWarnings>true</showWarnings>
+    <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
+
   </properties>
 
 
@@ -364,6 +367,9 @@
         <directory>src/main/java</directory>
         <includes>
           <include>**/*.java</include>
+          <include>**/*.html</include>
+          <include>**/*.css</include>
+          <include>**/*.less</include>
         </includes>
       </resource>
       <resource>
@@ -391,51 +397,6 @@
           <webappDirectory>${project.build.directory}/gwt/launcherDir/</webappDirectory>
           <compilationLevel>BUNDLE</compilationLevel>
         </configuration>
-      </plugin>
-
-
-      <!-- Override the enforcer rules here to exclude some classes from BPMN client-side marshallers (Eclipse EMF)-->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>ban-duplicated-classes</id>
-            <phase>none</phase>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <banTransitiveDependencies>
-                  <excludes>
-                    <!-- the rule will not fail even if it detects ignoredArtifact
-                         of group org.apache.maven, because it is excluded -->
-                    <exclude>org.apache.maven:ignoredArtifact</exclude>
-                    <exclude>*:anotherIgnoredArtifact</exclude>
-                  </excludes>
-                  <includes>
-                    <!-- override "org.apache.maven:ignoredArtifact" to fail
-                         if exactly 1.0 version of ignoreArtifact is detected
-                         to be transitive dependency of the project -->
-                    <include>org.apache.maven:ignoredArtifact:[1.0]</include>
-                  </includes>
-                </banTransitiveDependencies>
-                <banDuplicateClasses>
-                  <dependencies>
-                    <dependency>
-                      <artifactId>org.eclipse.emf.gwt.ecore</artifactId>
-                      <ignoreClasses>
-                        <ignoreClass>org.eclipse.emf.ecore.util.*</ignoreClass>
-                      </ignoreClasses>
-                    </dependency>
-                  </dependencies>
-                </banDuplicateClasses>
-              </rules>
-              <fail>true</fail>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
 
       <plugin>
@@ -474,18 +435,13 @@
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-failsafe-plugin</artifactId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
         <configuration>
-          <excludes>
-            <exclude>${kogito.it.tests.excludes}</exclude>
-          </excludes>
-          <systemPropertyVariables>
-            <org.kie.bpmn.kogito.browser.headless>${org.kie.bpmn.kogito.browser.headless}</org.kie.bpmn.kogito.browser.headless>
-            <org.kie.bpmn.kogito.screenshots.dir>${project.build.directory}/screenshots</org.kie.bpmn.kogito.screenshots.dir>
-          </systemPropertyVariables>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
-
     </plugins>
 
   </build>

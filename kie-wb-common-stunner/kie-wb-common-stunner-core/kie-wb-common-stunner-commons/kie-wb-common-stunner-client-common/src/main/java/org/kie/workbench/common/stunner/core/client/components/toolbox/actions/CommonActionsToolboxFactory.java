@@ -54,8 +54,7 @@ public class CommonActionsToolboxFactory
     private final Command viewsDestroyer;
 
     @Inject
-    public CommonActionsToolboxFactory(final @Named("CanvasCommandManagerImpl")
-                                                    CanvasCommandManager<AbstractCanvasHandler> commandManager,
+    public CommonActionsToolboxFactory(final CanvasCommandManager<AbstractCanvasHandler> commandManager,
                                        final CanvasCommandFactory<AbstractCanvasHandler> commandFactory,
                                        final @Default ManagedInstance<DeleteNodeToolboxAction> deleteNodeActions,
                                        final @Any @CommonActionsToolbox ManagedInstance<ActionsToolboxView> views) {

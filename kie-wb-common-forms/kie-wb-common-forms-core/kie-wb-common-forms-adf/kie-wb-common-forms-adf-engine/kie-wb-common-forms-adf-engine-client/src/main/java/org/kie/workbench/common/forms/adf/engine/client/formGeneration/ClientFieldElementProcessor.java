@@ -24,6 +24,7 @@ import javax.inject.Inject;
 
 import elemental2.dom.DomGlobal;
 import io.crysknife.client.BeanManager;
+import io.crysknife.client.SyncBeanDef;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.processing.fields.AbstractFieldElementProcessor;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.processing.fields.FieldInitializer;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.util.PropertyValueExtractor;
@@ -45,10 +46,7 @@ public class ClientFieldElementProcessor extends AbstractFieldElementProcessor {
     @PostConstruct
     public void initialize() {
         DomGlobal.console.log("check this " + getClass().getCanonicalName());
-        beanManager.<FieldInitializer>lookupBeans(FieldInitializer.class)
-                .forEach(initializerDef -> registerInitializer(initializerDef.getInstance()));
-
-        //Collection<SyncBeanDef<FieldInitializer>> initializers = IOC.getBeanManager().lookupBeans(FieldInitializer.class);
-        //initializers.forEach(initializerDef -> registerInitializer(initializerDef.getInstance()));
+        Collection<SyncBeanDef<FieldInitializer>> initializers = beanManager.lookupBeans(FieldInitializer.class);
+        initializers.forEach(initializerDef -> registerInitializer(initializerDef.getInstance()));
     }
 }

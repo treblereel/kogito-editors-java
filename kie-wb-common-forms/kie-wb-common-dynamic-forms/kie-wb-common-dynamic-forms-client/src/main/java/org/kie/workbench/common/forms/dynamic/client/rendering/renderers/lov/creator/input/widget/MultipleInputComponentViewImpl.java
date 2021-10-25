@@ -20,6 +20,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLDivElement;
 import io.crysknife.client.IsElement;
@@ -30,9 +31,7 @@ import io.crysknife.ui.templates.client.annotation.Templated;
 import org.gwtproject.cell.client.CheckboxCell;
 import org.gwtproject.dom.client.Style;
 import org.gwtproject.user.cellview.client.Column;
-import org.gwtproject.user.client.Event;
 import org.jboss.errai.common.client.dom.DOMUtil;
-import org.kie.workbench.common.forms.dynamic.client.resources.i18n.FormRenderingConstants;
 import org.uberfire.ext.widgets.table.client.UberfirePagedTable;
 
 @Templated
@@ -201,7 +200,7 @@ public class MultipleInputComponentViewImpl<TYPE> implements MultipleInputCompon
 
     //@SinkNative(Event.ONCLICK)
     @EventHandler("removeButton")
-    public void onRemove(@ForEvent("click")  Event event) {
+    public void onRemove(@ForEvent("click") Event event) {
         hideErrorMessage();
         presenter.removeSelectedValues();
     }

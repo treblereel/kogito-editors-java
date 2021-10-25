@@ -25,7 +25,6 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import io.crysknife.ui.templates.client.annotation.ForEvent;
-import org.gwtproject.user.client.Event;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
@@ -127,12 +126,12 @@ public class ConditionEditorFieldEditorView
     }
 
     @EventHandler("simple-condition-radio")
-    public void onSimpleConditionChange(@ForEvent("change") final Event event) {
+    public void onSimpleConditionChange(@ForEvent("change") final elemental2.dom.Event event) {
         presenter.onSimpleConditionSelected();
     }
 
     @EventHandler("script-condition-radio")
-    public void onScriptConditionChange(@ForEvent("change") final Event event) {
+    public void onScriptConditionChange(@ForEvent("change") final elemental2.dom.Event event) {
         presenter.onScriptEditorSelected();
     }
 }

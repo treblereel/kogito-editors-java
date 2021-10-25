@@ -42,7 +42,6 @@ import org.kie.workbench.common.stunner.core.graph.Element;
  * It operates with instances of type <code>CanvasCommand</code> and throw different context events.
  */
 @Dependent
-@Named("CanvasCommandManagerImpl")
 public class CanvasCommandManagerImpl<H extends AbstractCanvasHandler>
         implements
         CanvasCommandManager<H> {

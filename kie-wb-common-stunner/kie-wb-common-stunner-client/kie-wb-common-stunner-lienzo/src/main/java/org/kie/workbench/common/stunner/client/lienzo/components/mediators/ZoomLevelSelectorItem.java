@@ -21,13 +21,14 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLLIElement;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
-import org.gwtproject.event.dom.client.ClickEvent;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import org.uberfire.mvp.Command;
 
@@ -72,7 +73,7 @@ public class ZoomLevelSelectorItem implements IsElement {
     }
 
     @EventHandler("levelItemAnchor")
-    void onLevelItemClick(ClickEvent event) {
+    void onLevelItemClick(@ForEvent("click") Event event) {
         onClick.execute();
     }
 

@@ -21,9 +21,11 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLButtonElement;
+import elemental2.dom.MouseEvent;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.client.widgets.components.glyph.DOMGlyphRenderers;
@@ -74,11 +76,11 @@ public class CollapsedDefinitionPaletteItemWidgetViewImpl implements CollapsedDe
     }
 
     @EventHandler("icon")
-    public void onMouseDown(final MouseDownEvent mouseDownEvent) {
-        presenter.onMouseDown(mouseDownEvent.getClientX(),
-                              mouseDownEvent.getClientY(),
-                              mouseDownEvent.getX(),
-                              mouseDownEvent.getY());
+    public void onMouseDown(@ForEvent("mousedown") final MouseEvent mouseDownEvent) {
+        presenter.onMouseDown(mouseDownEvent.clientX,
+                              mouseDownEvent.clientY,
+                              mouseDownEvent.x,
+                              mouseDownEvent.y);
     }
 
     @PreDestroy

@@ -22,6 +22,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import elemental2.dom.DomGlobal;
+import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
@@ -29,12 +30,9 @@ import elemental2.dom.HTMLInputElement;
 import elemental2.dom.HTMLUListElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import org.gwtbootstrap3.client.ui.html.Span;
-import org.gwtproject.event.dom.client.ClickEvent;
-import org.gwtproject.event.dom.client.KeyDownEvent;
-import org.gwtproject.event.dom.client.KeyUpEvent;
-import org.gwtproject.event.dom.client.MouseOverEvent;
 import org.gwtproject.user.client.ui.Composite;
 import org.jboss.errai.common.client.dom.DOMUtil;
 import org.uberfire.ext.widgets.common.client.dropdown.footer.LiveSearchFooter;
@@ -270,30 +268,30 @@ public class LiveSearchDropDownView<TYPE> extends Composite
     }
 
     @EventHandler("searchInput")
-    void onSearchChanged(KeyUpEvent event) {
+    void onSearchChanged(@ForEvent("keyup") Event event) {
         String pattern = searchInput.value;
         presenter.search(pattern);
     }
 
     @EventHandler("searchInput")
-    void onSearchClick(ClickEvent event) {
+    void onSearchClick(@ForEvent("click") Event event) {
         // Capture and ignore in order to avoid the drop-down to hide
         event.stopPropagation();
     }
 
     @EventHandler("searchInput")
-    void onSearchOverMouseOverEvent(MouseOverEvent event) {
+    void onSearchOverMouseOverEvent(@ForEvent("mouseover") Event event) {
         searchInput.focus();
     }
 
     @EventHandler("searchInput")
-    void onSearchOverKeyDownEvent(KeyDownEvent event) {
+    void onSearchOverKeyDownEvent(@ForEvent("keydown") Event event) {
         // Capture and ignore in order to avoid the js errors
         event.stopPropagation();
     }
 
     @EventHandler("dropDownButton")
-    void onDropDownClick(ClickEvent event) {
+    void onDropDownClick(@ForEvent("click") Event event) {
         presenter.onItemsShown();
     }
 }

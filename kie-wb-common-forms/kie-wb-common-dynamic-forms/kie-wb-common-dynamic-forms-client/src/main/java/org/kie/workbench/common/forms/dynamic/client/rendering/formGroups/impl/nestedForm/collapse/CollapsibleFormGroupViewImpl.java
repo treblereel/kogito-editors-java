@@ -24,6 +24,7 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
@@ -31,10 +32,10 @@ import elemental2.dom.HTMLInputElement;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import jsinterop.base.Js;
 import org.gwtproject.dom.client.Document;
-import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.user.client.ui.SimplePanel;
 import org.gwtproject.user.client.ui.Widget;
 import org.jboss.errai.common.client.dom.DOMUtil;
@@ -142,7 +143,7 @@ public class CollapsibleFormGroupViewImpl implements IsElement,
     }
 
     @EventHandler("anchor")
-    public void onClick(ClickEvent clickEvent) {
+    public void onClick(@ForEvent("click") Event clickEvent) {
         presenter.notifyClick();
     }
 

@@ -20,12 +20,13 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLInputElement;
+import elemental2.dom.KeyboardEvent;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import io.crysknife.ui.templates.client.annotation.ForEvent;
 import io.crysknife.ui.templates.client.annotation.Templated;
-import org.gwtproject.user.client.Event;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.HasValue;
 
@@ -84,10 +85,10 @@ public class DecimalBoxViewImpl extends Composite implements DecimalBoxView {
         input.maxLength = (maxLength);
     }
 
-    public void onKeyDown(Event event) {
+    public void onKeyDown(KeyboardEvent event) {
 
-        int key = event.getKeyCode();
-        boolean isShiftPressed = event.getShiftKey();
+        int key = Integer.parseInt(event.code);
+        boolean isShiftPressed = event.shiftKey;
 
         if (presenter.isInvalidKeyCode(key,
                                        isShiftPressed)) {
@@ -98,12 +99,12 @@ public class DecimalBoxViewImpl extends Composite implements DecimalBoxView {
 
     //@SinkNative(Event.ONKEYDOWN | Event.ONCHANGE)
     @EventHandler("input")
-    public void onEvent(@ForEvent({"keydown","change"}) Event event) {
-        switch (event.getKeyCode()) {
-            case Event.ONCHANGE:
+    public void onEvent(@ForEvent({"keydown","change"}) KeyboardEvent event) {
+        switch (event.code) {
+            case "change":
                 updateValue(event);
                 break;
-            case Event.ONKEYDOWN:
+            case "keydown":
                 onKeyDown(event);
                 break;
             default:

@@ -20,11 +20,12 @@ package org.uberfire.ext.widgets.common.client.select;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.Event;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import io.crysknife.ui.templates.client.annotation.Templated;
-import org.gwtproject.event.dom.client.ClickEvent;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLLIElement;
 
@@ -62,7 +63,7 @@ public class SelectOptionView implements SelectOptionComponent.View,
     }
 
     @EventHandler("option")
-    public void onClick(ClickEvent clickEvent) {
+    public void onClick(@ForEvent("click") Event clickEvent) {
         this.presenter.select();
     }
 }

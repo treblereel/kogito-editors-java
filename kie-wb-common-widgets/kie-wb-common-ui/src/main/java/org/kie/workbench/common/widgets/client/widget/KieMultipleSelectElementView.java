@@ -22,11 +22,12 @@ import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.Event;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import jsinterop.base.Js;
 import org.gwtproject.core.client.JsArrayString;
-import org.gwtproject.event.dom.client.ChangeEvent;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLSelectElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
@@ -57,7 +58,7 @@ public class KieMultipleSelectElementView implements KieMultipleSelectElement.Vi
     }
 
     @EventHandler("select")
-    public void onSelectChanged(final ChangeEvent ignore) {
+    public void onSelectChanged(@ForEvent("onchange")final Event ignore) {
         presenter.onChange();
     }
 

@@ -139,6 +139,9 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
 
     @EventHandler("categoryIcon")
     public void onMouseDown(@ForEvent("mousedown") MouseEvent event) {
+        DomGlobal.console.log("categoryIcon onMouseDown " + event.clientX + " " + event.clientY);
+
+
         mouseDown = true;
         startX = event.clientX;
         startY = event.clientY;
@@ -146,6 +149,9 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
 
     @EventHandler("categoryIcon")
     public void onMouseMove(@ForEvent("mousemove") MouseEvent event) {
+        DomGlobal.console.log("categoryIcon onMouseMove " + event.clientX + " " + event.clientY);
+
+
         double currentX = event.clientX;
         double currentY = event.clientY;
         if (mouseDown && isDragged(startX,
@@ -161,7 +167,9 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
     }
 
     @EventHandler("categoryIcon")
-    public void onMouseUp(@ForEvent("mouseup")MouseEvent event) {
+    public void onMouseUp(@ForEvent("mouseup") MouseEvent event) {
+        DomGlobal.console.log("categoryIcon onMouseUp " + mouseDown);
+
         if (mouseDown) {
             if (isDragged(startX,
                           startY,
@@ -181,16 +189,22 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
 
     @EventHandler("categoryIcon")
     public void onMouseOutEvent(@ForEvent("mouseout") MouseEvent event) {
+        DomGlobal.console.log("onMouseOutEvent ");
+
         mouseDown = false;
     }
 
     @EventHandler("closeCategoryButton")
     public void onClose(@ForEvent("click") Event event) {
+        DomGlobal.console.log("onClose ");
+
         presenter.onClose();
     }
 
     @EventHandler("floatingPanel")
     public void onFloatingPanelOutEvent(@ForEvent("mouseout") MouseEvent event) {
+        DomGlobal.console.log("onFloatingPanelOutEvent ");
+
         if (isAutoHidePanel()) {
             presenter.onClose();
         }
@@ -207,6 +221,10 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
                               double startY,
                               double endX,
                               double endY) {
+        DomGlobal.console.log("isDragged startX: " + startX + " startY:  " + startY + " endX: " + endX
+                                      + " endY: " + endY + " distance: " + (distance(startX, endX) >= DRAG_DELTA || distance(startY,
+                                                                                                                             endY) >= DRAG_DELTA));
+
         return distance(startX,
                         endX) >= DRAG_DELTA || distance(startY,
                                                         endY) >= DRAG_DELTA;

@@ -32,6 +32,7 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLTableCellElement;
 import elemental2.dom.HTMLTableSectionElement;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import org.gwtproject.dom.client.Style;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.user.client.ui.Composite;
@@ -159,7 +160,7 @@ public class AssigneeEditorWidgetViewImpl extends Composite implements AssigneeE
     }
 
     @EventHandler("addAnchor")
-    public void onAddAssigneeClick(ClickEvent event) {
+    public void onAddAssigneeClick(@ForEvent("click") elemental2.dom.Event event) {
         presenter.addAssignee();
     }
 }
