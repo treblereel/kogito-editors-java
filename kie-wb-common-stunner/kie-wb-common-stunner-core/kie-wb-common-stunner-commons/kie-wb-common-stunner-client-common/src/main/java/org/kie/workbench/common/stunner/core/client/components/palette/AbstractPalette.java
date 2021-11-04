@@ -18,6 +18,7 @@ package org.kie.workbench.common.stunner.core.client.components.palette;
 
 import java.util.function.Consumer;
 
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.stunner.core.client.api.ShapeManager;
 import org.kie.workbench.common.stunner.core.client.shape.factory.ShapeFactory;
 import org.uberfire.mvp.Command;
@@ -129,6 +130,9 @@ public abstract class AbstractPalette<D extends PaletteDefinition> implements Pa
                     itemX,
                     itemY);
         if (null != itemHoverCallback) {
+            DomGlobal.console.log("AbstractPalette onItemHover " + id + " " + mouseX + " " + mouseY + " " + itemX + " " + itemY);
+
+
             itemHoverCallback.accept(new PaletteItemMouseEvent(getPaletteItemId(index),
                                                                mouseX,
                                                                mouseY,
@@ -174,6 +178,9 @@ public abstract class AbstractPalette<D extends PaletteDefinition> implements Pa
                                    final double itemX,
                                    final double itemY) {
         if (null != itemMouseDownCallback) {
+
+            DomGlobal.console.log("AbstractPalette onItemMouseDown " + id + " " + mouseX + " " + mouseY + " " + itemX + " " + itemY);
+
             itemMouseDownCallback.accept(new PaletteItemMouseEvent(id,
                                                                    mouseX,
                                                                    mouseY,
@@ -190,6 +197,8 @@ public abstract class AbstractPalette<D extends PaletteDefinition> implements Pa
                                final double itemY) {
         if (null != itemClickCallback) {
             final String id = getPaletteItemId(index);
+            DomGlobal.console.log("AbstractPalette onItemClick " + id + " " + mouseX + " " + mouseY + " " + itemX + " " + itemY);
+
             itemClickCallback.accept(new PaletteItemMouseEvent(id,
                                                                mouseX,
                                                                mouseY,
@@ -205,6 +214,8 @@ public abstract class AbstractPalette<D extends PaletteDefinition> implements Pa
                                final double itemX,
                                final double itemY) {
         if (null != itemClickCallback) {
+            DomGlobal.console.log("AbstractPalette onItemClick2 " + id + " " + mouseX + " " + mouseY + " " + itemX + " " + itemY);
+
             itemClickCallback.accept(new PaletteItemMouseEvent(id,
                                                                mouseX,
                                                                mouseY,

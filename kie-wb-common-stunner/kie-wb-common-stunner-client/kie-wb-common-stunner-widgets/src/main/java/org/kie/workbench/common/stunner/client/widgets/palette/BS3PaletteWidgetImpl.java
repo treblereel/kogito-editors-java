@@ -25,6 +25,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import io.crysknife.client.IsElement;
 import io.crysknife.client.ManagedInstance;
@@ -91,6 +92,8 @@ public class BS3PaletteWidgetImpl
         this.categoryWidgetInstances = categoryWidgetInstance;
         this.definitionPaletteItemWidgetInstances = definitionPaletteItemWidgets;
         this.collapsedDefinitionPaletteItemWidgets = collapsedDefinitionPaletteItemWidgets;
+
+        DomGlobal.console.log("BS3PaletteWidgetImpl " + this);
     }
 
     public static int getDefaultWidth() {
@@ -194,13 +197,25 @@ public class BS3PaletteWidgetImpl
     @Override
     @SuppressWarnings("unchecked")
     protected AbstractPalette<DefaultPaletteDefinition> bind() {
+
+        DomGlobal.console.log("bind " + this.toString());
+
         if (null != paletteDefinition) {
             final StunnerPreferences preferences = preferencesRegistries.get(paletteDefinition.getDefinitionSetId(), StunnerPreferences.class);
             final boolean autoHidePanel = preferences.getDiagramEditorPreferences().isAutoHidePalettePanel();
             paletteDefinition.getItems().forEach(item -> {
+                DomGlobal.console.log("           bind : " + item.getId() +" " + item.getDefinitionId() + " " +
+                         this);
+
                 BS3PaletteWidgetPresenter widget;
                 if (item instanceof DefaultPaletteCategory) {
+
+
                     DefinitionPaletteCategoryWidget categoryWidget = newDefinitionPaletteCategoryWidget();
+
+                    DomGlobal.console.log("OK create new " + categoryWidget);
+
+
                     categoryWidget.setOnOpenCallback(category -> onOpenCategory(category.getId()));
                     categoryWidget.setOnCloseCallback(category -> onCloseCategory(category.getId()));
                     categoryWidget.setAutoHidePanel(autoHidePanel);
@@ -215,6 +230,8 @@ public class BS3PaletteWidgetImpl
                 final Consumer<PaletteItemMouseEvent> itemMouseEventHandler =
                         event -> handleMouseDownEvent(item,
                                                       event);
+
+
                 widget.initialize(item,
                                   getShapeFactory(),
                                   itemMouseEventHandler);
@@ -260,8 +277,14 @@ public class BS3PaletteWidgetImpl
 
     private void handleMouseDownEvent(final DefaultPaletteItem item,
                                       final PaletteItemMouseEvent event) {
+
+        DomGlobal.console.log("    handleMouseDownEvent " + item.getId() + " " + getItemDefinitionId(event.getId()) + " " + event.getMouseX() + " " + event.getMouseY());
+
         PortablePreconditions.checkNotNull("event",
                                            event);
+
+        DomGlobal.console.log("              same " + event.getId().equals(item.getId()));
+
         if (event.getId().equals(item.getId())) {
             final String catDefId = item.getDefinitionId();
             BS3PaletteWidgetImpl.this.onPaletteItemMouseDown(catDefId,
@@ -294,11 +317,22 @@ public class BS3PaletteWidgetImpl
     }
 
     private void onOpenCategory(String categoryId) {
+
+        DomGlobal.console.log("onOpenCategory " + categoryId + " " + categoryWidgets.size());
+
         categoryWidgets.entrySet()
                 .stream()
                 .filter(entry -> !Objects.equals(entry.getKey(), categoryId))
+                .map(elm -> {
+                    DomGlobal.console.log("setVisible false " + elm.getKey());
+                    return elm;
+                })
                 .forEach(entry -> entry.getValue().setVisible(false));
         DefinitionPaletteCategoryWidget widget = categoryWidgets.get(categoryId);
+
+        DomGlobal.console.log("setVisible true 1 : " + widget.getCategory().getId() + " " + widget.getCategory().getDefinitionId());
+        DomGlobal.console.log("setVisible true 2 : " + widget);
+
         widget.setVisible(true);
     }
 

@@ -25,7 +25,7 @@ public interface TreeNavigatorResources
         extends
         ClientBundle {
 
-    public static final TreeNavigatorResources INSTANCE = null;
+    public static final TreeNavigatorResources INSTANCE = new TreeNavigatorResources_default_InlineClientBundleGenerator();
 
     @Source("css/TreeNavigator.css")
     NavigatorStyle css();

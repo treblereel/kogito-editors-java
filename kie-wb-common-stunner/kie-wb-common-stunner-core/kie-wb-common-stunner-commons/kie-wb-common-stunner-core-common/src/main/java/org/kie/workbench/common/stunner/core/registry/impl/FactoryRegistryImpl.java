@@ -22,6 +22,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.stunner.core.definition.adapter.AdapterManager;
 import org.kie.workbench.common.stunner.core.definition.adapter.binding.BindableAdapterUtils;
 import org.kie.workbench.common.stunner.core.diagram.Metadata;
@@ -56,6 +57,10 @@ class FactoryRegistryImpl<T extends Factory<?>> implements TypeFactoryRegistry<T
 
     @Override
     public ElementFactory<?, ?, ?> getElementFactory(final Class<? extends ElementFactory> type) {
+
+        DomGlobal.console.log("getElementFactory 1 " + type.getCanonicalName());
+        DomGlobal.console.log("getElementFactory 2 " + graphFactories.containsKey(type));
+
         return graphFactories.get(type);
     }
 
@@ -85,6 +90,9 @@ class FactoryRegistryImpl<T extends Factory<?>> implements TypeFactoryRegistry<T
     @Override
     @SuppressWarnings("unchecked")
     public void register(final T item) {
+        DomGlobal.console.log(getClass().getSimpleName() +".register " + item.getClass().getSimpleName());
+
+
         if (item instanceof DefinitionFactory) {
             definitionFactories.add((DefinitionFactory<?>) item);
         } else if (item instanceof ElementFactory) {
@@ -148,6 +156,9 @@ class FactoryRegistryImpl<T extends Factory<?>> implements TypeFactoryRegistry<T
     }
 
     protected void registerGraphFactory(final ElementFactory item) {
+
+        DomGlobal.console.log("registerGraphFactory " + item.getClass().getCanonicalName());
+
         final Class<? extends ElementFactory> factoryType = item.getFactoryType();
         if (!graphFactories.containsKey(item.getFactoryType()) || item.isDelegateFactory()) {
             graphFactories.put(factoryType, item);

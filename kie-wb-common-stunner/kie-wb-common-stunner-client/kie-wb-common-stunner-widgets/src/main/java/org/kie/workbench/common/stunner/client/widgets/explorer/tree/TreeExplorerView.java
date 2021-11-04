@@ -37,7 +37,7 @@ import org.uberfire.ext.widgets.core.client.tree.TreeItem;
 @Dependent
 public class TreeExplorerView extends Composite implements TreeExplorer.View {
 
-    static ViewBinder uiBinder = null;
+    static ViewBinder uiBinder = new TreeExplorerView_ViewBinderImpl();
 
     @UiField
     Tree<TreeItem> tree;

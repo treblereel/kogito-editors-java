@@ -73,10 +73,10 @@
     </dependency>
 
     <!-- Annot. processing. -->
-<!--    <dependency>
+    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-workbench-processors</artifactId>
-    </dependency>-->
+    </dependency>
 
     <dependency>
       <groupId>org.freemarker</groupId>

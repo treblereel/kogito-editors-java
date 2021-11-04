@@ -33,6 +33,9 @@ public class PaletteItemMouseEvent extends PaletteItemEvent {
         this.mouseY = mouseY;
         this.itemX = itemX;
         this.itemY = itemY;
+
+
+        throw new Error(id);
     }
 
     public double getMouseX() {

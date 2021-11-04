@@ -29,6 +29,7 @@ import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.Widget;
 import io.crysknife.client.IsElement;
@@ -149,6 +150,15 @@ public class TreeExplorer implements IsWidget {
     private Glyph getGlyph(final String shapeSetId,
                            final Element<org.kie.workbench.common.stunner.core.graph.content.view.View> element) {
         final Object definition = element.getContent().getDefinition();
+
+        DomGlobal.console.log("shapeSetId " + shapeSetId);
+        DomGlobal.console.log("getGlyph 1 " + definition.getClass().getCanonicalName());
+        DomGlobal.console.log("getGlyph 2 " + element.getClass().getCanonicalName());
+        DomGlobal.console.log("getGlyph 3 " + element.getContent().getClass().getCanonicalName());
+
+
+        DomGlobal.console.log("defId 1 " + definitionUtils.getDefinitionManager().adapters().forDefinition().getClass().getCanonicalName());
+
         final String defId = definitionUtils.getDefinitionManager().adapters().forDefinition().getId(definition).value();
         final ShapeFactory factory = shapeManager.getShapeSet(shapeSetId).getShapeFactory();
         return factory.getGlyph(defId);
@@ -413,6 +423,12 @@ public class TreeExplorer implements IsWidget {
     }
 
     private String getShapeSetId() {
+
+        DomGlobal.console.log("getShapeSetId 1 : " + canvasHandler.getClass().getCanonicalName());
+        DomGlobal.console.log("getShapeSetId 2 : " + canvasHandler.getDiagram().getClass().getCanonicalName());
+        DomGlobal.console.log("getShapeSetId 3 : " + canvasHandler.getDiagram().getMetadata().getClass().getCanonicalName());
+        DomGlobal.console.log("getShapeSetId 4 : " + canvasHandler.getDiagram().getMetadata().getShapeSetId());
+
         return canvasHandler.getDiagram().getMetadata().getShapeSetId();
     }
 

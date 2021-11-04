@@ -20,6 +20,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.annotation.CircularDependency;
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.core.api.AbstractFactoryManager;
@@ -33,6 +34,7 @@ import org.kie.workbench.common.stunner.core.factory.graph.NodeFactory;
 import org.kie.workbench.common.stunner.core.registry.RegistryFactory;
 
 @ApplicationScoped
+//@CircularDependency
 public class ClientFactoryManager extends AbstractFactoryManager implements FactoryManager {
 
     private final ManagedInstance<DefinitionFactory> definitionFactoryInstances;
@@ -43,7 +45,7 @@ public class ClientFactoryManager extends AbstractFactoryManager implements Fact
 
     protected ClientFactoryManager() {
         this(null,
-             null,
+             //null,
              null,
              null,
              null,
@@ -53,13 +55,17 @@ public class ClientFactoryManager extends AbstractFactoryManager implements Fact
 
     @Inject
     public ClientFactoryManager(final RegistryFactory registryFactory,
-                                final DefinitionManager definitionManager,
+                                //final DefinitionManager definitionManager,
                                 final ManagedInstance<DefinitionFactory> definitionFactoryInstances,
                                 final ManagedInstance<DiagramFactory> diagramFactoryInstances,
                                 final ManagedInstance<GraphFactory> graphFactoryInstances,
                                 final ManagedInstance<NodeFactory> nodeFactoryInstances,
                                 final ManagedInstance<EdgeFactory> edgeFactoryInstances) {
-        super(registryFactory, definitionManager);
+        //super(registryFactory, definitionManager);
+        super(registryFactory);
+
+        DomGlobal.console.log("NEW ClientFactoryManager");
+
         this.definitionFactoryInstances = definitionFactoryInstances;
         this.diagramFactoryInstances = diagramFactoryInstances;
         this.graphFactoryInstances = graphFactoryInstances;

@@ -113,6 +113,10 @@ public class FormDisplayer implements FormDisplayerView.Presenter,
         DomGlobal.console.log("proxy 2 " + proxy.deepUnwrap());
 
         final StaticModelFormRenderingContext generatedCtx = modelGenerator.getContextForModel(proxy.deepUnwrap(), filters.stream().toArray(FormElementFilter[]::new));
+
+        DomGlobal.console.log("FormDisplayer " + generatedCtx.getClass().getCanonicalName());
+
+
         final FormRenderingContext<?> pathAwareCtx = new PathAwareFormContext<>(generatedCtx, diagramPath);
         pathAwareCtx.setRenderMode(renderMode);
 

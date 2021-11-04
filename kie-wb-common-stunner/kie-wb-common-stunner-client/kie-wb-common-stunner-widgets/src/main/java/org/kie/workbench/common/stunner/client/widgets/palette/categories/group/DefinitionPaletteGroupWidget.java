@@ -25,6 +25,7 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.client.widgets.palette.categories.items.DefinitionPaletteItemWidget;
@@ -71,9 +72,14 @@ public class DefinitionPaletteGroupWidget implements DefinitionPaletteGroupWidge
     public void initialize(DefaultPaletteGroup group,
                            ShapeFactory<?, ?> shapeFactory,
                            Consumer<PaletteItemMouseEvent> itemMouseDownCallback) {
+        DomGlobal.console.log("initialize 3 " + group.getId() + " " + group.getDefinitionId());
+
         this.group = group;
         this.itemMouseDownCallback = (event) -> {
             switchState(State.COMPACT);
+            DomGlobal.console.log("DefinitionPaletteGroupWidget onItemClick " + event.getId() + " " + event.getMouseX() + " " + event.getMouseY() + " " + event.getItemX() + " " + event.getItemY());
+
+
             itemMouseDownCallback.accept(new PaletteItemMouseEvent(event.getId(),
                                                                    event.getMouseX(),
                                                                    event.getMouseY(),

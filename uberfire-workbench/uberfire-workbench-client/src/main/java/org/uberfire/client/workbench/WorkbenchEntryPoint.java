@@ -79,7 +79,7 @@ public class WorkbenchEntryPoint {
 
     @PostConstruct
     void postConstruct() {
-        DomGlobal.console.log("JSFunctions.nativeRegisterGwtEditorProvider() SKIPPED");
+        elemental2.dom.DomGlobal.console.log("JSFunctions.nativeRegisterGwtEditorProvider() SKIPPED");
         //JSFunctions.nativeRegisterGwtEditorProvider();
     }
 

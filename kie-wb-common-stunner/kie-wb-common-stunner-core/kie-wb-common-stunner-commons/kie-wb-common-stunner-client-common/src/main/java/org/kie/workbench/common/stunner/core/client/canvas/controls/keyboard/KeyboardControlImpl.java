@@ -20,6 +20,7 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.stunner.core.client.api.SessionManager;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvas;
 import org.kie.workbench.common.stunner.core.client.canvas.controls.AbstractCanvasControl;
@@ -44,6 +45,9 @@ public class KeyboardControlImpl
     @Inject
     public KeyboardControlImpl(final SessionManager clientSessionManager,
                                final KeyEventHandler keyEventHandler) {
+
+        DomGlobal.console.log("KeyboardControlImpl " + keyEventHandler.getClass().getCanonicalName());
+
         this.clientSessionManager = clientSessionManager;
         this.keyEventHandler = keyEventHandler;
     }

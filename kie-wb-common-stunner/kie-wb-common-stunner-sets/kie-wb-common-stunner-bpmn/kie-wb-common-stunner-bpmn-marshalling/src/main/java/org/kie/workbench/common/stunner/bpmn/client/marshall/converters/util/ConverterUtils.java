@@ -21,7 +21,6 @@ import java.util.function.Function;
 
 import org.kie.workbench.common.stunner.bpmn.client.marshall.MarshallingMessage;
 import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.Result;
-import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.fromstunner.properties.PropertyWriter;
 import org.kie.workbench.common.stunner.core.graph.Edge;
 import org.kie.workbench.common.stunner.core.graph.Node;
 import org.kie.workbench.common.stunner.core.graph.content.view.View;
@@ -41,7 +40,7 @@ public class ConverterUtils {
         return null == str || str.length() == 0;
     }
 
-    public static Result<PropertyWriter> resultIgnored(Object o) {
+/*    public static Result<PropertyWriter> resultIgnored(Object o) {
         return Result.ignored("PropertyWriter ignored for [" + o.getClass().getName() + "].");
     }
 
@@ -51,7 +50,7 @@ public class ConverterUtils {
 
     public static PropertyWriter notSupported(Object o) {
         throw new UnsupportedOperationException("No PropertyWriter found for [" + o.getClass().getName() + "].");
-    }
+    }*/
 
     public static <U> Result<U> ignore(String name, Object o) {
         return Result.ignored(name + " [" + o.getClass().getName() + "] not supported.");

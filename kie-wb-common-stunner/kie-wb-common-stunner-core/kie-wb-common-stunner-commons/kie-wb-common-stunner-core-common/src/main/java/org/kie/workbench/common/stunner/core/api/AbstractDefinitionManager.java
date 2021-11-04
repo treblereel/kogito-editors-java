@@ -25,9 +25,11 @@ import org.kie.workbench.common.stunner.core.registry.definition.TypeDefinitionS
 
 public abstract class AbstractDefinitionManager implements DefinitionManager {
 
-    private final TypeDefinitionSetRegistry<?> definitionSetRegistry;
     private final AdapterManager adapterManager;
     private final CloneManager cloneManager;
+
+    protected TypeDefinitionSetRegistry<?> definitionSetRegistry;
+    protected RegistryFactory registryFactory;
 
     protected AbstractDefinitionManager() {
         this.definitionSetRegistry = null;
@@ -38,7 +40,9 @@ public abstract class AbstractDefinitionManager implements DefinitionManager {
     public AbstractDefinitionManager(final RegistryFactory registryFactory,
                                      final AdapterManager adapterManager,
                                      final CloneManager cloneManager) {
-        this.definitionSetRegistry = registryFactory.newDefinitionSetRegistry();
+        //TODO Proxy
+        //this.definitionSetRegistry = registryFactory.newDefinitionSetRegistry();
+        this.registryFactory = registryFactory;
         this.adapterManager = adapterManager;
         this.cloneManager = cloneManager;
     }
@@ -54,12 +58,12 @@ public abstract class AbstractDefinitionManager implements DefinitionManager {
     }
 
     @SuppressWarnings("unchecked")
-    protected void addDefinitionSet(final Object object) {
+    public void addDefinitionSet(final Object object) {
         ((DynamicRegistry) definitionSetRegistry).register(object);
     }
 
     @SuppressWarnings("unchecked")
-    protected void addAdapter(final Adapter adapter) {
+    public void addAdapter(final Adapter adapter) {
         final DynamicRegistry<Adapter> adapterDynamicRegistry = (DynamicRegistry<Adapter>) adapterManager.registry();
         adapterDynamicRegistry.register(adapter);
     }

@@ -19,11 +19,13 @@ package org.kie.workbench.common.stunner.core.client.registry.impl;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import io.crysknife.annotation.CircularDependency;
 import org.kie.workbench.common.stunner.core.client.registry.ClientRegistryFactory;
 import org.kie.workbench.common.stunner.core.definition.adapter.AdapterManager;
 import org.kie.workbench.common.stunner.core.registry.impl.AbstractRegistryFactory;
 
 @ApplicationScoped
+//@CircularDependency
 public class ClientRegistryFactoryImpl extends AbstractRegistryFactory implements ClientRegistryFactory {
 
     protected ClientRegistryFactoryImpl() {

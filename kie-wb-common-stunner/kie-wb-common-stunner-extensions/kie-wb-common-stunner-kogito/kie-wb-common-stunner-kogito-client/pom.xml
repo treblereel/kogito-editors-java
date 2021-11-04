@@ -63,6 +63,7 @@
       <artifactId>kie-wb-common-ui</artifactId>
     </dependency>
 
+
     <!-- UberFire Kogito dependencies -->
     <dependency>
       <groupId>com.google.elemental2</groupId>

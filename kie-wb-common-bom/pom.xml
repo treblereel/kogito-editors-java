@@ -119,6 +119,19 @@
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
+        <artifactId>uberfire-commons-editor-client</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>uberfire-commons-editor-client</artifactId>
+        <version>${project.version}</version>
+        <classifier>sources</classifier>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-dmn-webapp-kogito-marshaller</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -156,6 +169,12 @@
       <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-dynamic-forms-client</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>kie-wb-common-dynamic-forms-client</artifactId>
+        <classifier>sources</classifier>
         <version>${project.version}</version>
       </dependency>
 
@@ -231,11 +250,11 @@
         <version>${project.version}</version>
       </dependency>
 
-<!--      <dependency>
+      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-forms-adf-processors</artifactId>
         <version>${project.version}</version>
-      </dependency>-->
+      </dependency>
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
@@ -426,6 +445,12 @@
         <artifactId>kie-wb-common-stunner-forms-client</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>kie-wb-common-stunner-forms-client</artifactId>
+        <version>${project.version}</version>
+        <scope>sources</scope>
+      </dependency>
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
@@ -471,11 +496,11 @@
         <version>${project.version}</version>
       </dependency>
 
-<!--      <dependency>
+      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-stunner-svg-gen</artifactId>
         <version>${project.version}</version>
-      </dependency>-->
+      </dependency>
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
@@ -513,11 +538,11 @@
         <version>${project.version}</version>
       </dependency>
 
-<!--      <dependency>
+      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-stunner-bpmn-marshalling</artifactId>
         <version>${project.version}</version>
-      </dependency>-->
+      </dependency>
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
@@ -529,6 +554,12 @@
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-ui</artifactId>
         <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>net.sourceforge.cssparser</groupId>
+        <artifactId>cssparser</artifactId>
+        <version>0.9.29</version>
       </dependency>
 
     </dependencies>

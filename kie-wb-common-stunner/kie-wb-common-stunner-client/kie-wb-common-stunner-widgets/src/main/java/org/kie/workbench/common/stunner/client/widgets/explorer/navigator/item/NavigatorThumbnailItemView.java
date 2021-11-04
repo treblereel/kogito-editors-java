@@ -45,7 +45,7 @@ public class NavigatorThumbnailItemView
 
     }
 
-    private static ViewBinder uiBinder = null;
+    private static ViewBinder uiBinder = new NavigatorThumbnailItemView_ViewBinderImpl();
 
     @UiField
     FlowPanel mainPanel;

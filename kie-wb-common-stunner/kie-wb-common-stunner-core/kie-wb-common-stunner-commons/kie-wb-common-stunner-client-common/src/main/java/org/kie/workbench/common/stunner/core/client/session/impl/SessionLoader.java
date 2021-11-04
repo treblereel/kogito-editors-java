@@ -49,6 +49,9 @@ public class SessionLoader {
         this.preferencesRegistryLoader = preferencesRegistryLoader;
         this.initializerInstances = beanInstances;
         this.initializers = new LinkedList<>();
+
+        elemental2.dom.DomGlobal.console.log("SessionLoader CONSTR");
+
     }
 
     public void load(final Metadata metadata,

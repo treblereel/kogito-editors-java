@@ -20,6 +20,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.annotation.CircularDependency;
 import org.kie.workbench.common.stunner.core.definition.adapter.bootstrap.BootstrapAdapterFactory;
 import org.kie.workbench.common.stunner.core.registry.RegistryFactory;
@@ -46,12 +47,13 @@ public class AdapterManagerImpl implements AdapterManager {
         this.propertyAdapter = null;
     }
 
+    //TODO
     @Inject
-    public AdapterManagerImpl(final RegistryFactory registryFactory,
+    public AdapterManagerImpl(//final RegistryFactory registryFactory,
                               final BootstrapAdapterFactory bootstrapAdapterFactory) {
         //this(new AdapterRegistryImpl(),
         //     bootstrapAdapterFactory);
-
+        DomGlobal.console.warn("check this " + getClass());
         this.registry = new AdapterRegistryImpl();
         this.bootstrapAdapterFactory = bootstrapAdapterFactory;
     }

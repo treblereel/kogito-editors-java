@@ -17,6 +17,7 @@ package org.kie.workbench.common.stunner.forms.context;
 
 import java.util.Map;
 
+import elemental2.dom.DomGlobal;
 import org.jboss.errai.common.client.api.annotations.MapsTo;
 import org.jboss.errai.common.client.api.annotations.Portable;
 import org.kie.workbench.common.forms.dynamic.service.shared.FormRenderingContext;
@@ -40,6 +41,10 @@ public class PathAwareFormContext<T> implements FormRenderingContext<T>,
 
     public PathAwareFormContext(@MapsTo("wrapped") final FormRenderingContext<T> wrapped,
                                 @MapsTo("path") final Path path) {
+
+        DomGlobal.console.log("PathAwareFormContext " + wrapped.getClass().getCanonicalName());
+
+
         this.wrapped = wrapped;
         this.path = path;
     }
@@ -71,6 +76,10 @@ public class PathAwareFormContext<T> implements FormRenderingContext<T>,
 
     @Override
     public void setRenderMode(final RenderMode renderMode) {
+
+        DomGlobal.console.log("setRenderMode " + renderMode.name());
+        DomGlobal.console.log("wrapped " + wrapped.getClass().getCanonicalName());
+
         wrapped.setRenderMode(renderMode);
     }
 
@@ -97,6 +106,9 @@ public class PathAwareFormContext<T> implements FormRenderingContext<T>,
     @Override
     public FormRenderingContext getCopyFor(final String namespace, final String formKey, final T model) {
         final FormRenderingContext<?> wrappedCopy = wrapped.getCopyFor(namespace, formKey, model);
+
+        DomGlobal.console.log("PathAwareFormContext getCopyFor " + wrappedCopy.getClass().getCanonicalName());
+
         return new PathAwareFormContext<>(wrappedCopy, path);
     }
 

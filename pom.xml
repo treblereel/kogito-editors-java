@@ -102,6 +102,7 @@
     <module>kie-wb-common-bom</module>
     <module>kie-wb-common-widgets</module>
     <module>kie-wb-common-forms</module>
+    <module>generated</module>
     <module>kie-wb-common-stunner</module>
     <!--
         <module>kie-wb-common-dmn</module>
@@ -117,11 +118,7 @@
 -->
     <!-- LIENZO -->
     <module>lienzo-core</module>
-    <!--
-        <module>lienzo-tests</module>
 
-        <module>lienzo-webapp</module>
-        -->
   </modules>
 
   <pluginRepositories>
@@ -398,11 +395,11 @@
         <artifactId>kie-wb-common-stunner-svg-client</artifactId>
         <version>${project.version}</version>
       </dependency>
-<!--      <dependency>
+      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-stunner-svg-gen</artifactId>
         <version>${project.version}</version>
-      </dependency>-->
+      </dependency>
       <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-stunner-bpmn-api</artifactId>
@@ -458,6 +455,12 @@
         <artifactId>uberfire-commons-editor-client</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>uberfire-commons-editor-client</artifactId>
+        <version>${project.version}</version>
+        <classifier>sources</classifier>
+      </dependency>
 <!--      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>appformer-client-api</artifactId>
@@ -487,6 +490,12 @@
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-dynamic-forms-client</artifactId>
         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>kie-wb-common-dynamic-forms-client</artifactId>
+        <version>${project.version}</version>
+        <scope>sources</scope>
       </dependency>
       <dependency>
         <groupId>org.kie.kogito</groupId>
@@ -565,6 +574,12 @@
       </dependency>
       <dependency>
         <groupId>org.kie.kogito</groupId>
+        <artifactId>kie-wb-common-stunner-forms-client</artifactId>
+        <version>${project.version}</version>
+        <scope>sources</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-stunner-bpmn-emf</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -575,13 +590,31 @@
       </dependency>
       <dependency>
         <groupId>org.kie.kogito</groupId>
+        <artifactId>kie-wb-common-stunner-bpmn-client</artifactId>
+        <version>${project.version}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-forms-adf-engine-api</artifactId>
         <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
+        <artifactId>kie-wb-common-stunner-bpmn-marshalling</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
         <artifactId>uberfire-workbench-processors</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>kie-wb-common-forms-adf-processors</artifactId>
         <version>${project.version}</version>
       </dependency>
 
@@ -623,10 +656,24 @@
       </dependency>
 
       <dependency>
+        <groupId>net.sourceforge.cssparser</groupId>
+        <artifactId>cssparser</artifactId>
+        <version>0.9.29</version>
+      </dependency>
+
+      <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>1.7.15</version>
       </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>1.7.15</version>
+        <scope>test</scope>
+      </dependency>
+
 
       <!-- Lienzo artifacts for kogito stream -->
       <dependency>

@@ -23,7 +23,7 @@ import java.util.Map;
 
 import org.kie.workbench.common.stunner.core.registry.DynamicRegistry;
 
-class MapRegistry<T> implements DynamicRegistry<T> {
+public class MapRegistry<T> implements DynamicRegistry<T> {
 
     private final KeyProvider<T> keyProvider;
     private final java.util.Map<String, T> items;

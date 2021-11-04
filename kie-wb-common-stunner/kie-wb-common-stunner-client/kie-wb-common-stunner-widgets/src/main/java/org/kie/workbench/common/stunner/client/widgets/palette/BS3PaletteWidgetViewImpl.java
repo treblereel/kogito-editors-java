@@ -19,6 +19,7 @@ package org.kie.workbench.common.stunner.client.widgets.palette;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLUListElement;
 import elemental2.dom.Node;
@@ -28,6 +29,7 @@ import org.jboss.errai.common.client.dom.DOMUtil;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.soup.commons.validation.PortablePreconditions;
 import org.kie.workbench.common.stunner.client.lienzo.components.glyph.ShapeGlyphDragHandler;
+import org.kie.workbench.common.stunner.client.widgets.palette.categories.DefinitionPaletteCategoryWidget;
 import org.kie.workbench.common.stunner.core.definition.shape.Glyph;
 
 @Templated
@@ -112,6 +114,9 @@ public class BS3PaletteWidgetViewImpl implements BS3PaletteWidgetView,
 
     @Override
     public void add(BS3PaletteWidgetPresenter widget) {
+
+        DomGlobal.console.log("          add " + widget + " " + ((DefinitionPaletteCategoryWidget)widget).getCategory().getId());
+
         PortablePreconditions.checkNotNull("widget",
                                            widget);
         addElement(widget.getElement());

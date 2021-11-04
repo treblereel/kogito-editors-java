@@ -23,6 +23,7 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import org.kie.workbench.common.stunner.core.client.components.palette.AbstractPalette;
 import org.kie.workbench.common.stunner.core.client.components.palette.CollapsedDefaultPaletteItem;
@@ -58,6 +59,9 @@ public class CollapsedDefinitionPaletteItemWidget implements CollapsedDefinition
     public void initialize(final CollapsedDefaultPaletteItem item,
                            final ShapeFactory<?, ?> shapeFactory,
                            final Consumer<PaletteItemMouseEvent> itemMouseDownCallback) {
+        DomGlobal.console.log("initialize 1 " + item.getId() + " " + item.getDefinitionId());
+
+
         this.item = item;
         final Glyph glyph = shapeFactory.getGlyph(item.getDefinitionId(),
                                                   AbstractPalette.PaletteGlyphConsumer.class);
@@ -78,6 +82,9 @@ public class CollapsedDefinitionPaletteItemWidget implements CollapsedDefinition
                             final double x,
                             final double y) {
         if (itemMouseDownCallback != null) {
+
+            DomGlobal.console.log("CollapsedDefinitionPaletteItemWidget onMouseDown " + item.getId() + " " + clientX + " " + clientY + " " + x + " " + y);
+
             itemMouseDownCallback.accept(new PaletteItemMouseEvent(item.getId(),
                                                                    clientX,
                                                                    clientY,

@@ -22,7 +22,7 @@ import java.util.List;
 
 import org.kie.workbench.common.stunner.core.registry.DynamicRegistry;
 
-class ListRegistry<T> implements DynamicRegistry<T> {
+public class ListRegistry<T> implements DynamicRegistry<T> {
 
     private final KeyProvider<T> keyProvider;
     private final List<T> items;

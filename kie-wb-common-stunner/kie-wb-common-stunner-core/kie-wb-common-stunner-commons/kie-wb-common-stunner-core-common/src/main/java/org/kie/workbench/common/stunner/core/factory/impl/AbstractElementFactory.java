@@ -34,7 +34,7 @@ public abstract class AbstractElementFactory<C, D extends Definition<C>, T exten
 
     protected abstract DefinitionManager getDefinitionManager();
 
-    protected void appendLabels(final Set<String> target,
+    public void appendLabels(final Set<String> target,
                                 final Object definition) {
         String[] labels = computeLabels(getDefinitionManager()
                                                 .adapters()

@@ -31,17 +31,6 @@ import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.bpmn.BPMNDefinitionSet;
 import org.kie.workbench.common.stunner.bpmn.client.emf.Bpmn2Marshalling;
 import org.kie.workbench.common.stunner.bpmn.client.marshall.MarshallingRequest;
-import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.Result;
-import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.TypedFactoryManager;
-import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.fromstunner.ConverterFactory;
-import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.fromstunner.DefinitionsBuildingContext;
-import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.fromstunner.DefinitionsConverter;
-import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.fromstunner.properties.PropertyWriterFactory;
-import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.tostunner.BaseConverterFactory;
-import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.tostunner.BpmnNode;
-import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.tostunner.DefinitionResolver;
-import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.tostunner.GraphBuilder;
-import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.tostunner.processes.DataTypeCache;
 import org.kie.workbench.common.stunner.bpmn.definition.BPMNDiagramImpl;
 import org.kie.workbench.common.stunner.bpmn.workitem.WorkItemDefinition;
 import org.kie.workbench.common.stunner.bpmn.workitem.WorkItemDefinitionRegistry;
@@ -64,11 +53,11 @@ public class BPMNClientMarshalling {
 
     private final DefinitionManager definitionManager;
     private final RuleManager ruleManager;
-    private final TypedFactoryManager typedFactoryManager;
+    //private final TypedFactoryManager typedFactoryManager;
     private final GraphCommandFactory commandFactory;
     private final GraphCommandManager commandManager;
     private final ManagedInstance<WorkItemDefinitionRegistry> widRegistries;
-    private final DataTypeCache dataTypeCache;
+    //private final DataTypeCache dataTypeCache;
 
     @Inject
     public BPMNClientMarshalling(final DefinitionManager definitionManager,
@@ -76,15 +65,16 @@ public class BPMNClientMarshalling {
                                  final FactoryManager factoryManager,
                                  final GraphCommandFactory commandFactory,
                                  final GraphCommandManager commandManager,
-                                 final ManagedInstance<WorkItemDefinitionRegistry> widRegistries,
-                                 final DataTypeCache dataTypeCache) {
+                                 final ManagedInstance<WorkItemDefinitionRegistry> widRegistries
+                                 //final DataTypeCache dataTypeCache
+    ) {
         this.definitionManager = definitionManager;
         this.ruleManager = ruleManager;
-        this.typedFactoryManager = new TypedFactoryManager(factoryManager);
+        //this.typedFactoryManager = new TypedFactoryManager(factoryManager);
         this.commandFactory = commandFactory;
         this.commandManager = commandManager;
         this.widRegistries = widRegistries;
-        this.dataTypeCache = dataTypeCache;
+        //this.dataTypeCache = dataTypeCache;
     }
 
     @PostConstruct
@@ -94,12 +84,13 @@ public class BPMNClientMarshalling {
 
     @SuppressWarnings("unchecked")
     public String marshall(final Diagram<Graph, Metadata> diagram) {
-        final PropertyWriterFactory propertyWriterFactory = new PropertyWriterFactory();
+/*        final PropertyWriterFactory propertyWriterFactory = new PropertyWriterFactory();
         final DefinitionsBuildingContext buildingContext = new DefinitionsBuildingContext(diagram.getGraph(), getDiagramClass());
         final ConverterFactory converterFactory = new ConverterFactory(buildingContext, propertyWriterFactory);
         final DefinitionsConverter definitionsConverter = new DefinitionsConverter(converterFactory, propertyWriterFactory);
         final Definitions definitions = definitionsConverter.toDefinitions();
-        return Bpmn2Marshalling.marshall(definitions);
+        return Bpmn2Marshalling.marshall(definitions);*/
+        return "";
     }
 
     public Graph<DefinitionSet, Node> unmarshall(final Metadata metadata,
@@ -115,7 +106,7 @@ public class BPMNClientMarshalling {
     private Graph<DefinitionSet, Node> unmarshall(final Metadata metadata,
                                                   final MarshallingRequest.Mode mode,
                                                   final String raw) {
-        final DocumentRoot documentRoot = Bpmn2Marshalling.unmarshall(raw);
+/*        final DocumentRoot documentRoot = Bpmn2Marshalling.unmarshall(raw);
         final DefinitionsHandler definitionsHandler = new DefinitionsHandler(documentRoot);
         final DefinitionResolver definitionResolver = new DefinitionResolver(definitionsHandler.getDefinitions(),
                                                                              getWorkItemDefinitions(),
@@ -151,7 +142,8 @@ public class BPMNClientMarshalling {
                         commandManager);
         graphBuilder.render(diagramRoot);
 
-        return graph;
+        return graph;*/
+        return null;
     }
 
     private Collection<WorkItemDefinition> getWorkItemDefinitions() {

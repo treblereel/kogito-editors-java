@@ -16,13 +16,12 @@
 
 package org.kie.workbench.common.stunner.core.client.api;
 
-import java.util.Collection;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
+import io.crysknife.annotation.CircularDependency;
 import io.crysknife.client.BeanManager;
 import io.crysknife.client.SyncBeanDef;
 import org.kie.workbench.common.stunner.core.api.AbstractDefinitionManager;
@@ -37,6 +36,7 @@ import org.kie.workbench.common.stunner.core.definition.clone.CloneManager;
 import org.kie.workbench.common.stunner.core.registry.RegistryFactory;
 
 @ApplicationScoped
+@CircularDependency
 public class ClientDefinitionManager extends AbstractDefinitionManager {
 
     private final BeanManager beanManager;
@@ -60,6 +60,12 @@ public class ClientDefinitionManager extends AbstractDefinitionManager {
     @PostConstruct
     @SuppressWarnings("all")
     public void init() {
+
+        DomGlobal.console.log("ClientDefinitionManager 1 : " + (registryFactory != null));
+
+        this.definitionSetRegistry = registryFactory.newDefinitionSetRegistry();
+        DomGlobal.console.log("ClientDefinitionManager 2 : " + (definitionSetRegistry != null));
+
 
         // DefinitionSet client adapters.
         Iterable<SyncBeanDef<DefinitionSetAdapter>> beanDefSetAdapters = beanManager.lookupBeans(DefinitionSetAdapter.class);

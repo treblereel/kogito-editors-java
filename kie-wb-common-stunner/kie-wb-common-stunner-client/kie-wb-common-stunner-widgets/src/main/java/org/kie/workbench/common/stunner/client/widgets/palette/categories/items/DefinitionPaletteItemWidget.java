@@ -23,6 +23,7 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import org.kie.workbench.common.stunner.core.client.components.palette.AbstractPalette;
 import org.kie.workbench.common.stunner.core.client.components.palette.DefaultPaletteItem;
@@ -58,6 +59,9 @@ public class DefinitionPaletteItemWidget implements DefinitionPaletteItemWidgetV
     public void initialize(DefaultPaletteItem item,
                            ShapeFactory<?, ?> shapeFactory,
                            Consumer<PaletteItemMouseEvent> itemMouseDownCallback) {
+        DomGlobal.console.log("initialize 4 " + item.getId() + " " + item.getDefinitionId());
+
+
         this.item = item;
         final Glyph glyph = shapeFactory.getGlyph(item.getDefinitionId(),
                                                   AbstractPalette.PaletteGlyphConsumer.class);
@@ -65,6 +69,8 @@ public class DefinitionPaletteItemWidget implements DefinitionPaletteItemWidgetV
         view.render(glyph,
                     item.getIconSize(),
                     item.getIconSize());
+
+        DomGlobal.console.log(getClass().getSimpleName() + " initialize " + item.getId() + " " + this);
     }
 
     @Override
@@ -77,6 +83,9 @@ public class DefinitionPaletteItemWidget implements DefinitionPaletteItemWidgetV
                             double clientY,
                             double x,
                             double y) {
+
+        DomGlobal.console.log("DefinitionPaletteItemWidget onMouseDown " + item.getId() + " " + clientX + " " + clientY + " " + x + " " + y);
+
         if (itemMouseDownCallback != null) {
             itemMouseDownCallback.accept(new PaletteItemMouseEvent(item.getId(),
                                                                    clientX,

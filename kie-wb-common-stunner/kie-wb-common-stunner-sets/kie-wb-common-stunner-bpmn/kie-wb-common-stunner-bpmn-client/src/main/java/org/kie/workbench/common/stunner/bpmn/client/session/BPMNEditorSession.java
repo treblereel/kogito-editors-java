@@ -21,6 +21,7 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import elemental2.dom.DomGlobal;
 import org.appformer.client.stateControl.registry.DefaultRegistry;
 import org.appformer.client.stateControl.registry.Registry;
 import org.kie.workbench.common.stunner.bpmn.qualifiers.BPMN;
@@ -78,6 +79,8 @@ public class BPMNEditorSession extends DefaultEditorSession {
     @Override
     public void init(final Metadata metadata,
                      final Command callback) {
+        DomGlobal.console.log(getClass().getCanonicalName() + ".init");
+
 
         init(s -> s.registerCanvasControl(MediatorsControl.class)
                      .registerCanvasHandlerControl(SelectionControl.class,

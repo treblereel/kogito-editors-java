@@ -22,6 +22,8 @@ import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
+import io.crysknife.annotation.CircularDependency;
 import org.kie.workbench.common.stunner.bpmn.definition.BPMNDiagram;
 import org.kie.workbench.common.stunner.bpmn.definition.BPMNDiagramImpl;
 import org.kie.workbench.common.stunner.bpmn.definition.StartNoneEvent;
@@ -56,6 +58,7 @@ import static org.kie.workbench.common.stunner.core.definition.adapter.binding.B
  * these commands.
  */
 @Dependent
+//@CircularDependency
 public class BPMNGraphFactoryImpl
         extends AbstractGraphFactory
         implements BPMNGraphFactory {
@@ -94,6 +97,13 @@ public class BPMNGraphFactoryImpl
         this.graphCommandFactory = graphCommandFactory;
         this.indexBuilder = indexBuilder;
         this.diagramType = BPMNDiagramImpl.class;
+
+/*        DomGlobal.console.log("BPMNGraphFactoryImpl 1 " + definitionManager.getClass().getCanonicalName());
+        DomGlobal.console.log("BPMNGraphFactoryImpl 2 " + factoryManager.getClass().getCanonicalName());
+        DomGlobal.console.log("BPMNGraphFactoryImpl 3 " + ruleManager.getClass().getCanonicalName());
+        DomGlobal.console.log("BPMNGraphFactoryImpl 4 " + graphCommandManager.getClass().getCanonicalName());
+        DomGlobal.console.log("BPMNGraphFactoryImpl 5 " + graphCommandFactory.getClass().getCanonicalName());
+        DomGlobal.console.log("BPMNGraphFactoryImpl 6 " + indexBuilder.getClass().getCanonicalName());*/
     }
 
     public void setDiagramType(final Class<? extends BPMNDiagram> diagramType) {

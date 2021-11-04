@@ -35,6 +35,7 @@ import org.gwtbootstrap3.extras.toggleswitch.client.ToggleSwitchEntryPoint;
 import org.kie.workbench.common.stunner.kogito.client.editor.BPMNDiagramEditor;
 import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 import org.uberfire.client.workbench.WorkbenchEntryPoint;
+import org.uberfire.ext.widgets.core.client.CoreEntryPoint;
 
 @Application
 public class MainEntryPoint {
@@ -62,6 +63,8 @@ public class MainEntryPoint {
         new SliderEntryPoint().onModuleLoad();
         new TagsInputEntryPoint().onModuleLoad();
         new ToggleSwitchEntryPoint().onModuleLoad();
+
+        new CoreEntryPoint().startApp();
 
         workbenchEntryPoint.afterInitialization();
 

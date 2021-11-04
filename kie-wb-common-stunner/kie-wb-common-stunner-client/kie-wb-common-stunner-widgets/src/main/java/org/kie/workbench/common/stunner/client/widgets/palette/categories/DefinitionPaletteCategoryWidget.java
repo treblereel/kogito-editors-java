@@ -24,6 +24,7 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.client.widgets.palette.categories.group.DefinitionPaletteGroupWidget;
@@ -71,14 +72,29 @@ public class DefinitionPaletteCategoryWidget implements DefinitionPaletteCategor
     public void initialize(final DefaultPaletteCategory category,
                            final ShapeFactory<?, ?> shapeFactory,
                            final Consumer<PaletteItemMouseEvent> itemMouseDownCallback) {
+        DomGlobal.console.log("initialize 2 " + category.getId() + " " + category.getDefinitionId() + " " + this + " " + category);
+
+
         this.category = category;
         this.itemMouseDownCallback = itemMouseDownCallback;
+
+        DomGlobal.console.log("DefinitionPaletteCategoryWidget initialize " + category.getId()+ " " + category.getDefinitionId() +" " + this);
+        DomGlobal.console.log("DefinitionPaletteCategoryWidget ShapeFactory " + shapeFactory.getClass().getCanonicalName());
+
         final Glyph categoryGlyph = category.getGlyph();
         view.render(categoryGlyph,
                     category.getIconSize(),
                     category.getIconSize());
         renderItems(category.getItems(),
                     shapeFactory);
+
+        DomGlobal.console.log("GLYPH " + categoryGlyph.getClass().getCanonicalName());
+
+        category.getItems().forEach(item -> {
+            DomGlobal.console.log("item " + item.getId() + " " + item.getDefinitionId() + " " + item.getDescription() + " " +
+                    item.getTitle());
+        });
+
     }
 
     public void setOnOpenCallback(Consumer<DefaultPaletteCategory> onOpenCallback) {
@@ -103,6 +119,8 @@ public class DefinitionPaletteCategoryWidget implements DefinitionPaletteCategor
 
     private void renderItems(final List<DefaultPaletteItem> items,
                              final ShapeFactory<?, ?> shapeFactory) {
+
+        DomGlobal.console.log("       renderItems " + items.size());
         if (items != null && !items.isEmpty()) {
             items.forEach(item -> {
                 if (item instanceof PaletteGroup) {
@@ -111,6 +129,8 @@ public class DefinitionPaletteCategoryWidget implements DefinitionPaletteCategor
                                 shapeFactory);
                 } else {
                     DefinitionPaletteItemWidget categoryItemWidget = definitionPaletteItemWidgetInstance.get();
+
+                    //DomGlobal.console.log("before init " + );
 
                     categoryItemWidget.initialize(item,
                                                   shapeFactory,
@@ -147,7 +167,12 @@ public class DefinitionPaletteCategoryWidget implements DefinitionPaletteCategor
                             double clientY,
                             double x,
                             double y) {
+
+        DomGlobal.console.log("onMouseDown " + category.getId() + " "  + ((itemMouseDownCallback != null)));
+
         if (itemMouseDownCallback != null) {
+            DomGlobal.console.log("DefinitionPaletteCategoryWidget onItemClick " + category.getId() + " " + clientX + " " + clientY + " " + x + " " + y);
+
             itemMouseDownCallback.accept(new PaletteItemMouseEvent(category.getId(),
                                                                    clientX,
                                                                    clientY,
@@ -158,6 +183,9 @@ public class DefinitionPaletteCategoryWidget implements DefinitionPaletteCategor
 
     @Override
     public void onOpen() {
+
+        DomGlobal.console.log(" ONOPEN " + category.getId() + " " + category.getTitle() + " " + ((onOpenCallback != null)));
+
         if (onOpenCallback != null) {
             onOpenCallback.accept(category);
         }

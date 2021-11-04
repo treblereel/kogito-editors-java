@@ -18,6 +18,7 @@ package org.kie.workbench.common.stunner.core.client.service;
 
 import javax.enterprise.event.Event;
 
+import elemental2.dom.DomGlobal;
 import org.jboss.errai.common.client.api.Caller;
 import org.kie.workbench.common.stunner.core.client.api.SessionManager;
 import org.kie.workbench.common.stunner.core.client.api.ShapeManager;
@@ -58,10 +59,14 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
                        final String name,
                        final String defSetId,
                        final ServiceCallback<Path> callback) {
-        diagramServiceCaller.create(path,
-                                    name,
-                                    defSetId);
-
+        try {
+            Path p = diagramServiceCaller.create(path,
+                                                 name,
+                                                 defSetId);
+            callback.onSuccess(p);
+        } catch (Exception e) {
+            callback.onError(new ClientRuntimeError(e));
+        }
 /*        diagramServiceCaller.call(p -> callback.onSuccess(path),
                                   (message, throwable) -> {
                                       callback.onError(new ClientRuntimeError(throwable));
@@ -75,7 +80,19 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     @SuppressWarnings("unchecked")
     public void saveOrUpdate(final D diagram,
                              final ServiceCallback<D> callback) {
-        diagramServiceCaller.saveOrUpdate(diagram);
+        try {
+            Metadata serverMetadata = diagramServiceCaller.saveOrUpdate(diagram);
+            updateClientMetadata(diagram);
+            diagram.getMetadata().setPath(((M) serverMetadata).getPath());
+            callback.onSuccess(diagram);
+            fireSavedEvent(sessionManager.getCurrentSession());
+
+        } catch (Exception e) {
+            callback.onError(new ClientRuntimeError(e));
+        }
+
+
+
 /*        diagramServiceCaller.call(serverMetadata -> {
                                       updateClientMetadata(diagram);
                                       diagram.getMetadata().setPath(((M) serverMetadata).getPath());
@@ -90,6 +107,15 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
 
     @Override
     public void saveOrUpdateSvg(Path diagramPath, String rawSvg, ServiceCallback<Path> callback) {
+        try {
+            Path res = diagramServiceCaller.saveOrUpdateSvg(diagramPath, rawSvg);
+            callback.onSuccess(res);
+        } catch (Exception e) {
+            callback.onError(new ClientRuntimeError(e));
+        }
+
+
+
         diagramServiceCaller.saveOrUpdateSvg(diagramPath, rawSvg);
         //diagramServiceCaller.call(res -> callback.onSuccess((Path) res)).saveOrUpdateSvg(diagramPath, rawSvg);
     }
@@ -101,7 +127,13 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     @Override
     public void add(final D diagram,
                     final ServiceCallback<D> callback) {
-        diagramServiceCaller.saveOrUpdate(diagram);
+        try {
+            diagramServiceCaller.saveOrUpdate(diagram);
+            updateClientMetadata(diagram);
+            callback.onSuccess(diagram);
+        } catch (Exception e) {
+            callback.onError(new ClientRuntimeError(e));
+        }
 
 /*        diagramServiceCaller.call(v -> {
                                       updateClientMetadata(diagram);
@@ -117,7 +149,14 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     @SuppressWarnings("unchecked")
     public void getByPath(final Path path,
                           final ServiceCallback<D> callback) {
-        diagramServiceCaller.getDiagramByPath(path);
+        try {
+            D diagram = diagramServiceCaller.getDiagramByPath(path);
+            updateClientMetadata(diagram);
+            callback.onSuccess(diagram);
+        } catch (Exception e) {
+            callback.onError(new ClientRuntimeError(e));
+        }
+
 
 /*        diagramServiceCaller.call(diagram -> {
                                       updateClientMetadata((D) diagram);
@@ -133,7 +172,13 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     @SuppressWarnings("unchecked")
     public void lookup(final DiagramLookupRequest request,
                        final ServiceCallback<LookupManager.LookupResponse<DiagramRepresentation>> callback) {
-        diagramLookupServiceCaller.lookup(request);
+
+        try {
+            LookupManager.LookupResponse<DiagramRepresentation> response = diagramLookupServiceCaller.lookup(request);
+            callback.onSuccess((LookupManager.LookupResponse<DiagramRepresentation>) response);
+        } catch (Exception e) {
+            callback.onError(new ClientRuntimeError(e));
+        }
 
 /*        diagramLookupServiceCaller.call(response -> callback.onSuccess((LookupManager.LookupResponse<DiagramRepresentation>) response),
                                         (message, throwable) -> {
@@ -145,7 +190,13 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     @Override
     public void getRawContent(final D diagram,
                               final ServiceCallback<String> callback) {
-        diagramServiceCaller.getRawContent(diagram);
+
+        try {
+            String rawContent = diagramServiceCaller.getRawContent(diagram);
+            callback.onSuccess(rawContent);
+        } catch (Exception e) {
+            callback.onError(new ClientRuntimeError(e));
+        }
 
 /*        diagramServiceCaller.call(rawContent -> {
                                       callback.onSuccess((String) rawContent);
@@ -159,6 +210,9 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
 
     protected void updateClientMetadata(final D diagram) {
         if (null != diagram) {
+            DomGlobal.console.log("updateClientMetadata 1");
+
+
             final Metadata metadata = diagram.getMetadata();
             if (null != metadata && isEmpty(metadata.getShapeSetId())) {
                 final String sId = shapeManager.getDefaultShapeSet(metadata.getDefinitionSetId()).getId();

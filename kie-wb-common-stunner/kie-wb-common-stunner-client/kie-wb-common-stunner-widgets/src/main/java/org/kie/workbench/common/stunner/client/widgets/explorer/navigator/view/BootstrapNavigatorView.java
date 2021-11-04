@@ -43,7 +43,7 @@ public class BootstrapNavigatorView
 
     }
 
-    private static ViewBinder uiBinder = null;
+    private static ViewBinder uiBinder = new BootstrapNavigatorView_ViewBinderImpl();
 
     @UiField
     ResizeFlowPanel mainPanel;

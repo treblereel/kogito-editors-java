@@ -176,6 +176,8 @@ public class FormDefinitionGenerator {
 
     private List<FormDefinitionFieldData> extracFormFields(TypeElement type, FieldPolicy policy, I18nSettings i18nSettings, Map<String, String> defaultParams) throws Exception {
 
+        System.out.println("     extracFormFields " + type.getQualifiedName());
+
         final Types typeUtils = context.getProcessingEnvironment().getTypeUtils();
 
         Collection<FieldInfo> fieldInfos = FormGenerationUtils.extractFieldInfos(type, fieldElement -> filter(fieldElement, policy));

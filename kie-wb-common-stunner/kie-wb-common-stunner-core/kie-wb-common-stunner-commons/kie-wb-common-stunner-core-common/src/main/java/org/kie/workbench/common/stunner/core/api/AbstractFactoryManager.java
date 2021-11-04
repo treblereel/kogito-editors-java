@@ -16,6 +16,10 @@
 
 package org.kie.workbench.common.stunner.core.api;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.stunner.core.diagram.Diagram;
 import org.kie.workbench.common.stunner.core.diagram.Metadata;
 import org.kie.workbench.common.stunner.core.factory.definition.DefinitionFactory;
@@ -33,14 +37,33 @@ import org.kie.workbench.common.stunner.core.util.UUID;
 
 public abstract class AbstractFactoryManager {
 
-    private final FactoryRegistry factoryRegistry;
-    private final DefinitionManager definitionManager;
+    private FactoryRegistry factoryRegistry;
 
-    public AbstractFactoryManager(final RegistryFactory registryFactory,
-                                  final DefinitionManager definitionManager) {
+    @Inject
+    protected DefinitionManager definitionManager;
+
+    public AbstractFactoryManager(final RegistryFactory registryFactory
+            //,final DefinitionManager definitionManager
+    ) {
+        //DomGlobal.console.log("AbstractFactoryManager " + (registryFactory != null));
+
+
         this.factoryRegistry = null != registryFactory ? registryFactory.newFactoryRegistry() : null;
-        this.definitionManager = definitionManager;
+        //this.definitionManager = definitionManager;
+        //this.registryFactory = registryFactory;
+
+        //DomGlobal.console.log("factoryRegistry " + (factoryRegistry != null));
+        //DomGlobal.console.log("factoryRegistry clazz" + (factoryRegistry.getClass().getCanonicalName()));
+
     }
+
+/*    @PostConstruct
+    public void init() {
+        DomGlobal.console.log("AbstractFactoryManager.init ");
+        this.factoryRegistry = null != registryFactory ? registryFactory.newFactoryRegistry() : null;
+        DomGlobal.console.log("factoryRegistry.init " + factoryRegistry.getClass().getCanonicalName());
+
+    }*/
 
     protected AbstractFactoryManager(final DefinitionManager definitionManager) {
         this.factoryRegistry = null;
@@ -96,7 +119,7 @@ public abstract class AbstractFactoryManager {
         return factoryRegistry;
     }
 
-    protected DefinitionManager getDefinitionManager() {
+    public DefinitionManager getDefinitionManager() {
         return definitionManager;
     }
 
@@ -116,9 +139,26 @@ public abstract class AbstractFactoryManager {
                                                               final Object defSet,
                                                               final Metadata metadata) {
         final Class<? extends ElementFactory> factoryType = definitionManager.adapters().forDefinitionSet().getGraphFactoryType(defSet);
+
+        DomGlobal.console.log("doBuildGraph -3 : " + (factoryType != null));
+        DomGlobal.console.log("doBuildGraph -3.1 : " + (factoryType.getCanonicalName()));
+
+
         final ElementFactory<String, DefinitionSet, Element<DefinitionSet>> _factory = factoryRegistry.getElementFactory(factoryType);
+
+        if(_factory != null) {
+            DomGlobal.console.log("doBuildGraph -2.0 : " + (_factory != null));
+            DomGlobal.console.log("doBuildGraph -2.1 : " + (_factory.getClass().getCanonicalName()));
+        }
+
+
         final ElementFactory<String, DefinitionSet, Element<DefinitionSet>> factory = null != _factory ? _factory :
                 factoryRegistry.getElementFactory(GraphFactory.class);
+
+        DomGlobal.console.log("doBuildGraph 1 : " + (factory != null));
+        DomGlobal.console.log("doBuildGraph 2 : " + (factory.getClass().getCanonicalName()));
+        DomGlobal.console.log("doBuildGraph 3 : " + (factoryRegistry.getElementFactory(GraphFactory.class).getClass().getCanonicalName()));
+
         return (Element<C>) factory.build(uuid, defSetId, metadata);
     }
 }

@@ -93,6 +93,10 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
                                          width,
                                          height);
         categoryIcon.appendChild(glyphElement.getElement());
+
+        DomGlobal.console.log("render " + category.getId() + " " + category.getDefinitionId());
+
+        listGroupItem.id = category.getId();
     }
 
     @Override
@@ -139,7 +143,14 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
 
     @EventHandler("categoryIcon")
     public void onMouseDown(@ForEvent("mousedown") MouseEvent event) {
-        DomGlobal.console.log("categoryIcon onMouseDown " + event.clientX + " " + event.clientY);
+        DomGlobal.console.log("mousedown 1 : " + this.toString() + " && " + this.hashCode());
+        DomGlobal.console.log("mousedown 2 : " + presenter.toString() + " && " + presenter.hashCode());
+        DomGlobal.console.log("mousedown 3 : " + presenter.getCategory().toString() + " && " + presenter.getCategory().hashCode());
+        DomGlobal.console.log("mousedown 4 : " + presenter.getCategory().getId() + " && " + presenter.getCategory().getDefinitionId());
+
+
+
+        DomGlobal.console.log("categoryIcon onMouseDown " + event.clientX + " " + event.clientY + " " + presenter.getCategory().getId() + " |" + presenter.toString() + " " + presenter.getCategory().toString() + "<");
 
 
         mouseDown = true;
@@ -149,9 +160,6 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
 
     @EventHandler("categoryIcon")
     public void onMouseMove(@ForEvent("mousemove") MouseEvent event) {
-        DomGlobal.console.log("categoryIcon onMouseMove " + event.clientX + " " + event.clientY);
-
-
         double currentX = event.clientX;
         double currentY = event.clientY;
         if (mouseDown && isDragged(startX,
@@ -168,7 +176,7 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
 
     @EventHandler("categoryIcon")
     public void onMouseUp(@ForEvent("mouseup") MouseEvent event) {
-        DomGlobal.console.log("categoryIcon onMouseUp " + mouseDown);
+        DomGlobal.console.log("CATEGORYICON ONMOUSEUP " + mouseDown + " " + presenter.getCategory().getId() + " " + listGroupItem.id);
 
         if (mouseDown) {
             if (isDragged(startX,
@@ -181,6 +189,8 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
                                       event.x,
                                       event.y);
             } else {
+                DomGlobal.console.log("   mouseDown " + mouseDown);
+
                 mouseDown = false;
                 presenter.onOpen();
             }
@@ -203,7 +213,7 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
 
     @EventHandler("floatingPanel")
     public void onFloatingPanelOutEvent(@ForEvent("mouseout") MouseEvent event) {
-        DomGlobal.console.log("onFloatingPanelOutEvent ");
+        DomGlobal.console.log("onFloatingPanelOutEvent " + isAutoHidePanel());
 
         if (isAutoHidePanel()) {
             presenter.onClose();

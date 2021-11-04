@@ -236,6 +236,12 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-commons-editor-client</artifactId>
     </dependency>
+<!--    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>uberfire-commons-editor-client</artifactId>
+      <version>${version}</version>
+      <classifier>sources</classifier>
+    </dependency>-->
 
     <!-- Core UberFire dependencies -->
     <dependency>
@@ -253,6 +259,11 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-simple-docks-client</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>kie-wb-common-stunner-bpmn-marshalling</artifactId>
     </dependency>
 
     <!-- UberFire Kogito dependencies -->
@@ -301,12 +312,25 @@
       <scope>provided</scope>
     </dependency>
 
-    <dependency>
+<!--    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-bpmn-api</artifactId>
       <version>${version}</version>
       <classifier>sources</classifier>
+    </dependency>-->
+
+<!--    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>generated</artifactId>
+      <version>${version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>generated</artifactId>
+      <version>${version}</version>
+      <classifier>sources</classifier>
+    </dependency>-->
 
     <!--  Appformer Kogito -->
 <!--    <dependency>
@@ -380,6 +404,7 @@
     <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
 
     <plugins>
+
       <plugin>
         <groupId>com.vertispan.j2cl</groupId>
         <artifactId>j2cl-maven-plugin</artifactId>
@@ -399,6 +424,7 @@
         </configuration>
       </plugin>
 
+
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
@@ -407,6 +433,29 @@
             <addMavenDescriptor>true</addMavenDescriptor>
           </archive>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-generated-classes</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.outputDirectory}/gwt/launcherDir/kie-wb-common-stunner-bpmn-kogito-runtime/
+              </outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/main/resources/</directory>
+                  <filtering>false</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
 
       <plugin>
