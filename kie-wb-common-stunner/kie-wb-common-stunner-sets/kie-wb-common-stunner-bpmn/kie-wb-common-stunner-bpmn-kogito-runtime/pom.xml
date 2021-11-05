@@ -409,6 +409,7 @@
         </configuration>
       </plugin>
 
+<!--
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
         <configuration>
@@ -432,6 +433,7 @@
           </filesets>
         </configuration>
       </plugin>
+-->
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

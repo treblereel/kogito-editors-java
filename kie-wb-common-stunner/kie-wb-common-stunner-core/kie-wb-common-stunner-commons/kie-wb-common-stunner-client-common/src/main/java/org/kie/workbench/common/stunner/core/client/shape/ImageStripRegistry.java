@@ -77,8 +77,9 @@ public class ImageStripRegistry {
 
     @SuppressWarnings("unchecked")
     public static String getName(final ImageStrip strip) {
+        return strip.getClass().getCanonicalName();
         // Notice use of the super class as the instances consumed are managed instances (proxies)
-        return getName((Class<? extends ImageStrip>) strip.getClass().getSuperclass());
+        //return getName((Class<? extends ImageStrip>) strip.getClass().getSuperclass());
     }
 
     public static String getName(final Class<? extends ImageStrip> stripType) {
