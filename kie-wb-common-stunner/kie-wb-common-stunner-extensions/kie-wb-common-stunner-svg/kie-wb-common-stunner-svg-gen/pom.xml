@@ -73,10 +73,10 @@
     </dependency>
 
     <!-- Annot. processing. -->
-<!--    <dependency>
+    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-workbench-processors</artifactId>
-    </dependency>-->
+    </dependency>
 
     <dependency>
       <groupId>org.freemarker</groupId>
@@ -92,6 +92,7 @@
     <dependency>
       <groupId>net.sourceforge.cssparser</groupId>
       <artifactId>cssparser</artifactId>
+      <version>0.9.29</version>
     </dependency>
 
     <dependency>

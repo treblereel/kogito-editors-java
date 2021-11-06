@@ -45,9 +45,7 @@ public class SubFormFieldRenderer extends FieldRenderer<SubFormFieldDefinition, 
 
     @Override
     protected FormGroup getFormGroup(RenderMode renderMode) {
-        throw new Error(getClass().getCanonicalName() + ".getFormGroup");
-
-/*        String nestedNS = renderingContext.getNamespace() + FormRenderingContext.NAMESPACE_SEPARATOR + field.getName();
+        String nestedNS = renderingContext.getNamespace() + FormRenderingContext.NAMESPACE_SEPARATOR + field.getName();
 
         FormRenderingContext nestedContext = renderingContext.getCopyFor(nestedNS, field.getNestedForm(), null);
 
@@ -67,7 +65,7 @@ public class SubFormFieldRenderer extends FieldRenderer<SubFormFieldDefinition, 
 
         formGroup.render(subFormWidget, field);
 
-        return formGroup;*/
+        return formGroup;
     }
 
     @Override

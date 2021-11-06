@@ -57,7 +57,7 @@ public class TextAreaFieldRenderer extends FieldRenderer<TextAreaFieldDefinition
             textArea.setName(fieldNS);
             textArea.setPlaceholder(field.getPlaceHolder());
             textArea.setVisibleLines(field.getRows());
-            textArea.setEnabled(!field.isReadOnly());
+            textArea.setEnabled(!field.getReadOnly());
 
             formGroup.render(inputId, textArea, field);
 

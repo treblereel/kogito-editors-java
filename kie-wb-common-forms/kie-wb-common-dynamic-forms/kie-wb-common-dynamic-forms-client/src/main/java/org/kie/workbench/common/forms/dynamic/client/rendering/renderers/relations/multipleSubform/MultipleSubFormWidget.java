@@ -329,7 +329,7 @@ public class MultipleSubFormWidget extends Composite implements TakesValue<List<
         this.field = field;
         this.renderingContext = renderingContext;
 
-        isReadOnly = field.isReadOnly() || !renderingContext.getRenderMode().equals(RenderMode.EDIT_MODE);
+        isReadOnly = field.getReadOnly() || !renderingContext.getRenderMode().equals(RenderMode.EDIT_MODE);
 
         bindingHelper = BindingHelpers.getHelper(renderingContext,
                                                  field);

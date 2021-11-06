@@ -71,7 +71,7 @@ public abstract class AbstractListBoxFieldRenderer<FIELD extends ListBoxBaseDefi
             String inputId = generateUniqueId();
             widgetList.setId(inputId);
             widgetList.setName(fieldNS);
-            widgetList.setEnabled(!field.isReadOnly());
+            widgetList.setEnabled(!field.getReadOnly());
             refreshSelectorOptions();
             
             formGroup.render(inputId,

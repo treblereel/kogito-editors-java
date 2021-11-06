@@ -44,7 +44,7 @@ public class PictureFieldRenderer extends FieldRenderer<PictureFieldDefinition, 
 
         pictureInput.init(field.getSize().getWidth(),
                           field.getSize().getHeight());
-        pictureInput.setReadOnly(field.isReadOnly() || renderingContext.getRenderMode().equals(RenderMode.PRETTY_MODE));
+        pictureInput.setReadOnly(field.getReadOnly() || renderingContext.getRenderMode().equals(RenderMode.PRETTY_MODE));
 
         DefaultFormGroup formGroup = formGroupsInstance.get();
 

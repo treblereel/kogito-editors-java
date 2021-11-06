@@ -19,14 +19,17 @@ package org.kie.workbench.common.forms.dynamic.client;
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import io.crysknife.client.BeanManager;
+import io.crysknife.client.SyncBeanDef;
 import org.kie.workbench.common.forms.adf.rendering.FieldRendererTypesProvider;
 import org.kie.workbench.common.forms.dynamic.client.rendering.FieldRendererTypeRegistry;
 
 //@EntryPoint
 //@Bundle("resources/i18n/FormRenderingConstants.properties")
+@ApplicationScoped
 public class DynamicRendererEntryPoint {
 
     private BeanManager beanManager;
@@ -42,9 +45,7 @@ public class DynamicRendererEntryPoint {
     }
 
     private void populateFieldRenderersRegistry() {
-        throw new Error(getClass().getCanonicalName()+".populateFieldRenderersRegistry");
-
-/*        Collection<SyncBeanDef<FieldRendererTypesProvider>> providers = beanManager.lookupBeans(FieldRendererTypesProvider.class);
+        Collection<SyncBeanDef<FieldRendererTypesProvider>> providers = beanManager.lookupBeans(FieldRendererTypesProvider.class);
 
         providers.forEach(providerDef -> {
             FieldRendererTypesProvider provider = providerDef.newInstance();
@@ -52,7 +53,7 @@ public class DynamicRendererEntryPoint {
             FieldRendererTypeRegistry.load(provider);
 
             beanManager.destroyBean(provider);
-        });*/
+        });
 
     }
 }

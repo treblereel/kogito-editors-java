@@ -92,7 +92,7 @@ public class DefinitionPaletteItemWidgetViewImpl implements DefinitionPaletteIte
     }
 
     @EventHandler("itemAnchor")
-    public void onMouseDown(@ForEvent("MouseDown") MouseEvent mouseDownEvent) {
+    public void onMouseDown(@ForEvent("mousedown") MouseEvent mouseDownEvent) {
         presenter.onMouseDown(mouseDownEvent.clientX,
                               mouseDownEvent.clientY,
                               mouseDownEvent.x,

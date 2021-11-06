@@ -23,6 +23,7 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import org.kie.workbench.common.stunner.core.client.components.palette.AbstractPalette;
 import org.kie.workbench.common.stunner.core.client.components.palette.DefaultPaletteItem;
@@ -78,6 +79,9 @@ public class DefinitionPaletteItemWidget implements DefinitionPaletteItemWidgetV
                             double x,
                             double y) {
         if (itemMouseDownCallback != null) {
+
+            DomGlobal.console.log("onMouseDown " + item.getId() + " " + clientX + " " + clientY + " " + x + " " + y);
+
             itemMouseDownCallback.accept(new PaletteItemMouseEvent(item.getId(),
                                                                    clientX,
                                                                    clientY,

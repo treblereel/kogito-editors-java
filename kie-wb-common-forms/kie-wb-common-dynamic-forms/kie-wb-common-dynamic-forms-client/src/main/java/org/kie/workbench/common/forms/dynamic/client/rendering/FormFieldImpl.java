@@ -73,7 +73,7 @@ public abstract class FormFieldImpl<F extends FieldDefinition> implements FormFi
 
     @Override
     public void setReadOnly(boolean readOnly) {
-        if (!field.isReadOnly()) {
+        if (!field.getReadOnly()) {
             doSetReadOnly(readOnly);
         }
     }

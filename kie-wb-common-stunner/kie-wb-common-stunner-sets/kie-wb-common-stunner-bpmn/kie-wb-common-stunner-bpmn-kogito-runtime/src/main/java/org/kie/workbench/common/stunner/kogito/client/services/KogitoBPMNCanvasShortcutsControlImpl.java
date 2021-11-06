@@ -30,7 +30,6 @@ import org.kie.workbench.common.stunner.kogito.client.session.KogitoAbstractCanv
 @BPMN
 @Dependent
 @Alternative
-@Named("KogitoBPMNCanvasShortcutsControlImpl")
 public class KogitoBPMNCanvasShortcutsControlImpl extends KogitoAbstractCanvasShortcutsControlImpl {
 
     @Inject

@@ -88,11 +88,11 @@
       <artifactId>kie-wb-common-stunner-svg-client</artifactId>
     </dependency>
 
-<!--    <dependency>
+    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-svg-gen</artifactId>
       <scope>provided</scope>
-    </dependency>-->
+    </dependency>
 
     <dependency>
       <groupId>org.kie.kogito</groupId>
@@ -114,11 +114,11 @@
       <artifactId>kie-wb-common-forms-adf-engine-api</artifactId>
     </dependency>
 
-<!--    <dependency>
+    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-forms-adf-processors</artifactId>
       <scope>provided</scope>
-    </dependency>-->
+    </dependency>
 
     <dependency>
       <groupId>org.kie.kogito</groupId>

@@ -59,8 +59,8 @@
     </dependency>
 
     <dependency>
-      <groupId>io.crysknife</groupId>
-      <artifactId>databinding-api</artifactId>
+      <groupId>io.crysknife.ui.databinding</groupId>
+      <artifactId>api</artifactId>
     </dependency>
   </dependencies>
 

@@ -49,11 +49,11 @@
       <artifactId>kie-wb-common-forms-adf-base</artifactId>
     </dependency>
 
-<!--    <dependency>
+    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-forms-adf-processors</artifactId>
       <scope>provided</scope>
-    </dependency>-->
+    </dependency>
 
     <!-- test -->
 <!--    <dependency>

@@ -60,36 +60,36 @@
     </dependency>
 
     <dependency>
-      <groupId>io.crysknife</groupId>
-      <artifactId>templates-api</artifactId>
+      <groupId>io.crysknife.ui.templates</groupId>
+      <artifactId>api</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>io.crysknife</groupId>
-      <artifactId>templates-generator</artifactId>
+      <groupId>io.crysknife.ui.templates</groupId>
+      <artifactId>generator</artifactId>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
-      <groupId>io.crysknife</groupId>
+      <groupId>io.crysknife.ui</groupId>
       <artifactId>gwt-dom-generator</artifactId>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
-      <groupId>io.crysknife</groupId>
+      <groupId>io.crysknife.ui</groupId>
       <artifactId>elemental2-generator</artifactId>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
-      <groupId>io.crysknife</groupId>
-      <artifactId>databinding-api</artifactId>
+      <groupId>io.crysknife.ui.databinding</groupId>
+      <artifactId>api</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>io.crysknife</groupId>
-      <artifactId>databinding-generator</artifactId>
+      <groupId>io.crysknife.ui.databinding</groupId>
+      <artifactId>generator</artifactId>
     </dependency>
 
     <dependency>
@@ -380,7 +380,7 @@
     <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
 
     <plugins>
-      <plugin>
+<!--      <plugin>
         <groupId>com.vertispan.j2cl</groupId>
         <artifactId>j2cl-maven-plugin</artifactId>
         <version>0.17-SNAPSHOT</version>
@@ -397,7 +397,7 @@
           <webappDirectory>${project.build.directory}/gwt/launcherDir/</webappDirectory>
           <compilationLevel>BUNDLE</compilationLevel>
         </configuration>
-      </plugin>
+      </plugin>-->
 
       <plugin>
         <artifactId>maven-war-plugin</artifactId>

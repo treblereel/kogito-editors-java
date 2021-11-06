@@ -117,10 +117,11 @@ public abstract class AbstractFieldDefinition implements FieldDefinition {
         this.required = required;
     }
 
-    public Boolean isReadOnly() {
+    public Boolean getReadOnly() {
         return readOnly;
     }
 
+    @Override
     public void setReadOnly(Boolean readOnly) {
         this.readOnly = readOnly;
     }
@@ -180,7 +181,7 @@ public abstract class AbstractFieldDefinition implements FieldDefinition {
         setBinding(other.getBinding());
 
         setRequired(other.isRequired());
-        setReadOnly(other.isReadOnly());
+        setReadOnly(other.getReadOnly());
         setValidateOnChange(other.isValidateOnChange());
         setHelpMessage(other.getHelpMessage());
 

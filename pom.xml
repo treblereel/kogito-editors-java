@@ -398,11 +398,11 @@
         <artifactId>kie-wb-common-stunner-svg-client</artifactId>
         <version>${project.version}</version>
       </dependency>
-<!--      <dependency>
+      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-stunner-svg-gen</artifactId>
         <version>${project.version}</version>
-      </dependency>-->
+      </dependency>
       <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-stunner-bpmn-api</artifactId>
@@ -593,6 +593,12 @@
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
+        <artifactId>kie-wb-common-forms-adf-processors</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
         <artifactId>compat</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -625,6 +631,12 @@
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
+        <version>1.7.15</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
         <version>1.7.15</version>
       </dependency>
 

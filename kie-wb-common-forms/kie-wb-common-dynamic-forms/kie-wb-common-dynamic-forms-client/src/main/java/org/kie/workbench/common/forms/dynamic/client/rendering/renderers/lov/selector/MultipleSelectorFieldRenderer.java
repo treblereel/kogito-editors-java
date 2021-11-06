@@ -105,7 +105,7 @@ public class MultipleSelectorFieldRenderer<TYPE> extends FieldRenderer<AbstractM
         selector.init(searchService,
                       new MultipleLiveSearchSelectionHandler<>(field.getMaxElementsOnTitle()));
         selector.setMaxItems(field.getMaxDropdownElements());
-        selector.setEnabled(!field.isReadOnly() && renderingContext.getRenderMode().equals(RenderMode.EDIT_MODE));
+        selector.setEnabled(!field.getReadOnly() && renderingContext.getRenderMode().equals(RenderMode.EDIT_MODE));
         selector.setFilterEnabled(field.isAllowFilter());
         selector.setClearSelectionEnabled(field.isAllowClearSelection());
 

@@ -32,6 +32,7 @@ import org.gwtbootstrap3.extras.select.client.SelectEntryPoint;
 import org.gwtbootstrap3.extras.slider.client.SliderEntryPoint;
 import org.gwtbootstrap3.extras.tagsinput.client.TagsInputEntryPoint;
 import org.gwtbootstrap3.extras.toggleswitch.client.ToggleSwitchEntryPoint;
+import org.kie.workbench.common.forms.dynamic.client.DynamicRendererEntryPoint;
 import org.kie.workbench.common.stunner.kogito.client.editor.BPMNDiagramEditor;
 import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 import org.uberfire.client.workbench.WorkbenchEntryPoint;
@@ -44,6 +45,9 @@ public class MainEntryPoint {
 
     @Inject
     private WorkbenchEntryPoint workbenchEntryPoint;
+
+    @Inject
+    private DynamicRendererEntryPoint dynamicRendererEntryPoint;
 
     @GWT3EntryPoint
     public void onModuleLoad() {
@@ -62,6 +66,8 @@ public class MainEntryPoint {
         new SliderEntryPoint().onModuleLoad();
         new TagsInputEntryPoint().onModuleLoad();
         new ToggleSwitchEntryPoint().onModuleLoad();
+
+        dynamicRendererEntryPoint.init();
 
         workbenchEntryPoint.afterInitialization();
 

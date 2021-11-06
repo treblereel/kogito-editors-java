@@ -55,7 +55,7 @@ public class DatePickerFieldRenderer extends FieldRenderer<DatePickerFieldDefini
         datePickerWrapper.setId(inputId);
         datePickerWrapper.setName(fieldNS);
         datePickerWrapper.setPlaceholder(field.getPlaceHolder());
-        datePickerWrapper.setEnabled(!field.isReadOnly());
+        datePickerWrapper.setEnabled(!field.getReadOnly());
         handler = readOnly -> datePickerWrapper.setEnabled(!readOnly);
 
         if (renderMode.equals(RenderMode.READ_ONLY_MODE)) {

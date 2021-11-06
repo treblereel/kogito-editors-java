@@ -63,7 +63,7 @@ public class IntegerBoxFieldRenderer extends FieldRenderer<IntegerBoxFieldDefini
             integerBox.setId(inputId);
             integerBox.setPlaceholder(field.getPlaceHolder());
             integerBox.setMaxLength(field.getMaxLength());
-            integerBox.setEnabled(!field.isReadOnly());
+            integerBox.setEnabled(!field.getReadOnly());
             widget = integerBox.asWidget();
         }
 

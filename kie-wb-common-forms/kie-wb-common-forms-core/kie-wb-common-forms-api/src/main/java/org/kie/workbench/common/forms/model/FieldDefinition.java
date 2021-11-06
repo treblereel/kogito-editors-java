@@ -35,7 +35,7 @@ public interface FieldDefinition {
 
     void setRequired(Boolean required);
 
-    Boolean isReadOnly();
+    Boolean getReadOnly();
 
     void setReadOnly(Boolean readOnly);
 

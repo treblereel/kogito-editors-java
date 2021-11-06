@@ -52,7 +52,15 @@
     </dependency>
     <dependency>
       <groupId>io.crysknife</groupId>
-      <artifactId>databinding-api</artifactId>
+      <artifactId>crysknife-annotations</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.crysknife.ui.templates</groupId>
+      <artifactId>api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.crysknife.ui.databinding</groupId>
+      <artifactId>api</artifactId>
     </dependency>
     <dependency>
       <groupId>com.google.elemental2</groupId>

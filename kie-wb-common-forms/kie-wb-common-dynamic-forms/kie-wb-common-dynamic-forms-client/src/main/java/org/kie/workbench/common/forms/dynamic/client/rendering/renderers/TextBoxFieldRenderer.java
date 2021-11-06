@@ -58,7 +58,7 @@ public class TextBoxFieldRenderer extends FieldRenderer<TextBoxBaseDefinition, D
             textBox.setId(inputId);
             textBox.setPlaceholder(field.getPlaceHolder());
             textBox.setMaxLength(field.getMaxLength());
-            textBox.setEnabled(!field.isReadOnly());
+            textBox.setEnabled(!field.getReadOnly());
             
             registerFieldRendererPart(textBox);
 

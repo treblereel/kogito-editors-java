@@ -56,7 +56,7 @@ public abstract class RadioGroupFieldRendererBase<FIELD extends RadioGroupBaseDe
                                   text);
             }
             radio.setFormValue(key.toString());
-            radio.setEnabled(!field.isReadOnly());
+            radio.setEnabled(!field.getReadOnly());
             input.add(radio);
         }
 

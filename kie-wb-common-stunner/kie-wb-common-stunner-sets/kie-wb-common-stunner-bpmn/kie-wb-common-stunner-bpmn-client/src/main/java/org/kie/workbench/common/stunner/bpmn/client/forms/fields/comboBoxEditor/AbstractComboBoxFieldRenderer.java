@@ -75,7 +75,7 @@ public abstract class AbstractComboBoxFieldRenderer<T extends ComboBoxFieldDefin
     protected FormGroup getFormGroup(RenderMode renderMode) {
         DefaultFormGroup formGroup = formGroupsInstance.get();
 
-        view.setReadOnly(field.isReadOnly());
+        view.setReadOnly(field.getReadOnly());
         refreshSelectorOptions();
 
         formGroup.render(view.asWidget(), field);
