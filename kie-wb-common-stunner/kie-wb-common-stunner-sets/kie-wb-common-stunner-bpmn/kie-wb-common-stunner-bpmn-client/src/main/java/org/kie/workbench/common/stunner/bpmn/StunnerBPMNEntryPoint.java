@@ -20,6 +20,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import io.crysknife.client.ManagedInstance;
+import io.crysknife.ui.translation.api.annotations.Bundle;
 import org.kie.workbench.common.stunner.bpmn.client.forms.filters.AssociationFilterProvider;
 import org.kie.workbench.common.stunner.bpmn.client.forms.filters.CatchingIntermediateEventFilterProvider;
 import org.kie.workbench.common.stunner.bpmn.client.forms.filters.StartEventFilterProvider;
@@ -45,7 +46,7 @@ import org.kie.workbench.common.stunner.forms.client.formFilters.StunnerFormElem
 import org.uberfire.client.views.pfly.sys.PatternFlyBootstrapper;
 
 //@EntryPoint
-//@Bundle("resources/i18n/StunnerBPMNConstants.properties")
+@Bundle("resources/i18n/StunnerBPMNConstants.properties")
 public class StunnerBPMNEntryPoint {
 
     private SessionManager sessionManager;

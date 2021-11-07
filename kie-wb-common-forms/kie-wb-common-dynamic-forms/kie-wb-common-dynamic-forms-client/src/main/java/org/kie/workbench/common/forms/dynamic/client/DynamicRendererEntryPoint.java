@@ -24,11 +24,12 @@ import javax.inject.Inject;
 
 import io.crysknife.client.BeanManager;
 import io.crysknife.client.SyncBeanDef;
+import io.crysknife.ui.translation.api.annotations.Bundle;
 import org.kie.workbench.common.forms.adf.rendering.FieldRendererTypesProvider;
 import org.kie.workbench.common.forms.dynamic.client.rendering.FieldRendererTypeRegistry;
 
 //@EntryPoint
-//@Bundle("resources/i18n/FormRenderingConstants.properties")
+@Bundle("resources/i18n/FormRenderingConstants.properties")
 @ApplicationScoped
 public class DynamicRendererEntryPoint {
 

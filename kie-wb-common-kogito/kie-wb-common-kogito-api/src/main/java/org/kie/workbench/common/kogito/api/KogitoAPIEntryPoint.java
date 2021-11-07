@@ -15,8 +15,10 @@
  */
 package org.kie.workbench.common.kogito.api;
 
+import io.crysknife.ui.translation.api.annotations.Bundle;
+
 //@EntryPoint
-//@Bundle("resources/i18n/KogitoAPIConstants.properties")
+@Bundle("resources/i18n/KogitoAPIConstants.properties")
 public class KogitoAPIEntryPoint {
 
 }

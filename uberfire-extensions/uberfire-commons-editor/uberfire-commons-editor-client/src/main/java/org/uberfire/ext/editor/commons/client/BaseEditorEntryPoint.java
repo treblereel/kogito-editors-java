@@ -16,9 +16,11 @@
 
 package org.uberfire.ext.editor.commons.client;
 
+import io.crysknife.ui.translation.api.annotations.Bundle;
+
 import javax.annotation.PostConstruct;
 
-//@Bundle("resources/i18n/Constants.properties")
+@Bundle("resources/i18n/Constants.properties")
 //@EntryPoint
 public class BaseEditorEntryPoint {
 

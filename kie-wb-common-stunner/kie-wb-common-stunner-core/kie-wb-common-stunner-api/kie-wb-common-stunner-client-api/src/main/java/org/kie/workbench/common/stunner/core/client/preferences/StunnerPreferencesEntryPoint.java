@@ -16,8 +16,10 @@
 
 package org.kie.workbench.common.stunner.core.client.preferences;
 
+import io.crysknife.ui.translation.api.annotations.Bundle;
+
 //@EntryPoint
-//@Bundle("resources/i18n/StunnerPreferencesConstants.properties")
+@Bundle("resources/i18n/StunnerPreferencesConstants.properties")
 public class StunnerPreferencesEntryPoint {
 
 }

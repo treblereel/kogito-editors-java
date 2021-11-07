@@ -16,8 +16,10 @@
 
 package org.kie.workbench.common.stunner.forms.client;
 
+import io.crysknife.ui.translation.api.annotations.Bundle;
+
 //@EntryPoint
-//@Bundle("resources/i18n/FormsClientConstants.properties")
+@Bundle("resources/i18n/FormsClientConstants.properties")
 public class FormsClientEntryPoint {
 
 }

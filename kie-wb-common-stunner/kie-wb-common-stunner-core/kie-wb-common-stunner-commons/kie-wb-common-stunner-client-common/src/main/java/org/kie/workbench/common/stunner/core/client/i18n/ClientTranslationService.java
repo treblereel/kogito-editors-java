@@ -24,6 +24,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.crysknife.client.ManagedInstance;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.kie.workbench.common.stunner.core.client.api.SessionManager;
 import org.kie.workbench.common.stunner.core.client.command.CanvasViolation;
 import org.kie.workbench.common.stunner.core.graph.Node;
@@ -37,28 +38,25 @@ import org.kie.workbench.common.stunner.core.validation.DiagramElementNameProvid
 @Singleton
 public class ClientTranslationService extends AbstractTranslationService {
 
-/*
     private final TranslationService erraiTranslationService;
-*/
-    //private final ManagedInstance<DiagramElementNameProvider> elementNameProviders;
+    private final ManagedInstance<DiagramElementNameProvider> elementNameProviders;
     private SessionManager sessionManager;
     private DefinitionUtils definitionUtils;
 
     @Inject
-    public ClientTranslationService(//final TranslationService erraiTranslationService,
-                                    //final ManagedInstance<DiagramElementNameProvider> elementNameProviders,
+    public ClientTranslationService(final TranslationService erraiTranslationService,
+                                    final ManagedInstance<DiagramElementNameProvider> elementNameProviders,
                                     final SessionManager sessionManager,
                                     final DefinitionUtils definitionUtils) {
-        //this.erraiTranslationService = erraiTranslationService;
-        //this.elementNameProviders = elementNameProviders;
+        this.erraiTranslationService = erraiTranslationService;
+        this.elementNameProviders = elementNameProviders;
         this.sessionManager = sessionManager;
         this.definitionUtils = definitionUtils;
     }
 
     @Override
     public String getValue(final String key) {
-        return key;
-        //return erraiTranslationService.getTranslation(key);
+        return erraiTranslationService.getTranslation(key);
     }
 
     public String getNotNullValue(final String key) {
@@ -78,9 +76,8 @@ public class ClientTranslationService extends AbstractTranslationService {
             sb.append(arg);
         }
 
-        return sb.toString();
-/*        return erraiTranslationService.format(key,
-                                              args);*/
+        return erraiTranslationService.format(key,
+                                              args);
     }
 
     /**
@@ -123,13 +120,10 @@ public class ClientTranslationService extends AbstractTranslationService {
     }
 
     private Optional<DiagramElementNameProvider> getNameProvider(final String uuid) {
-        throw new Error(getClass().getCanonicalName() + ".getNameProvider");
-
-
-/*        return StreamSupport
+        return StreamSupport
                 .stream(elementNameProviders.spliterator(), false)
                 .filter(elementNameProvider -> Objects.equals(elementNameProvider.getDefinitionSetId(), getSessionDefinitionSetId()))
-                .findFirst();*/
+                .findFirst();
     }
 
     private String getSessionDefinitionSetId() {

@@ -18,11 +18,12 @@ package org.kie.workbench.common.forms.common.rendering.client;
 
 import javax.annotation.PostConstruct;
 
+import io.crysknife.ui.translation.api.annotations.Bundle;
 import org.gwtproject.core.client.ScriptInjector;
 import org.gwtbootstrap3.extras.typeahead.client.TypeaheadClientBundle;
 
 //@EntryPoint
-//@Bundle("resources/i18n/FormWidgetsConstants.properties")
+@Bundle("resources/i18n/FormWidgetsConstants.properties")
 public class FormWidgetsEntryPoint {
 
     @PostConstruct

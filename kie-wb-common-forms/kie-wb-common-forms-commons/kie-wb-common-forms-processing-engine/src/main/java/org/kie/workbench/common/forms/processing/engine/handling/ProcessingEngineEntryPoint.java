@@ -16,8 +16,10 @@
 
 package org.kie.workbench.common.forms.processing.engine.handling;
 
+import io.crysknife.ui.translation.api.annotations.Bundle;
+
 //@EntryPoint
-//@Bundle("resources/i18n/ProcessingEngineConstants.properties")
+@Bundle("resources/i18n/ProcessingEngineConstants.properties")
 public class ProcessingEngineEntryPoint {
 
 }
