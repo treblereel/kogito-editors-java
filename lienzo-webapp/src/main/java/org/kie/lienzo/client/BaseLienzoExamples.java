@@ -7,7 +7,7 @@ import com.ait.lienzo.client.core.shape.GridLayer;
 import com.ait.lienzo.client.core.shape.Line;
 import com.ait.lienzo.client.widget.panel.IsResizable;
 import com.ait.lienzo.client.widget.panel.LienzoPanel;
-import com.google.gwt.dom.client.Style.Display;
+import org.gwtproject.dom.client.Style.Display;
 import elemental2.dom.Element;
 import elemental2.dom.HTMLDivElement;
 

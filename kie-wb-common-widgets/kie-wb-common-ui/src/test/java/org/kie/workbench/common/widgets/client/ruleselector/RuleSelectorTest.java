@@ -21,9 +21,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.google.gwtmockito.GwtMock;
-import com.google.gwtmockito.GwtMockitoTestRunner;
-import com.google.gwtmockito.WithClassesToStub;
+import org.gwtprojectmockito.GwtMock;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.WithClassesToStub;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.extras.select.client.ui.Option;
 import org.gwtbootstrap3.extras.select.client.ui.Select;

@@ -19,6 +19,7 @@ package org.kie.workbench.common.forms.adf.engine.shared.formGeneration;
 import java.util.HashMap;
 import java.util.Map;
 
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.forms.adf.engine.shared.FormElementFilter;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.layout.LayoutGenerator;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.processing.FormElementProcessor;
@@ -136,7 +137,6 @@ public abstract class AbstractFormGenerator implements FormGenerator {
     protected void processElements(FormGenerationContext context) {
         context.getFormDefinitionSettings().getFormElements().forEach(formElement -> {
             FormElementProcessor processor = processors.get(formElement.getClass());
-
             if (processor != null) {
 
                 FormElementFilter filter  = context.getFilter(formElement.getName());

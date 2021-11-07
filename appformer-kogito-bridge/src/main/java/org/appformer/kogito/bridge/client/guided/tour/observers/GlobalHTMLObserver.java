@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.Attr;
@@ -31,17 +32,18 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.NamedNodeMap;
 import org.appformer.kogito.bridge.client.guided.tour.GuidedTourObserver;
 import org.appformer.kogito.bridge.client.guided.tour.service.api.UserInteraction;
-import org.jboss.errai.ioc.client.api.Disposer;
 
-import static com.google.gwt.dom.client.BrowserEvents.CLICK;
+import static org.gwtproject.dom.client.BrowserEvents.CLICK;
 
+@Dependent
 public class GlobalHTMLObserver extends GuidedTourObserver<GlobalHTMLObserver> {
 
     final EventListener CLICK_LISTENER = this::onHTMLElementEvent;
 
-    @Inject
-    public GlobalHTMLObserver(final Disposer<GlobalHTMLObserver> selfDisposer) {
-        super(selfDisposer);
+    //@Inject
+    //public GlobalHTMLObserver(final GlobalHTMLObserver selfDisposer) {
+    public GlobalHTMLObserver() {
+        super(null);
     }
 
     @PostConstruct

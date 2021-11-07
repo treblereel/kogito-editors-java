@@ -16,7 +16,7 @@
 
 package org.appformer.kogito.bridge.client.guided.tour.service;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import elemental2.dom.Console;
 import elemental2.dom.DomGlobal;
 import org.junit.Before;

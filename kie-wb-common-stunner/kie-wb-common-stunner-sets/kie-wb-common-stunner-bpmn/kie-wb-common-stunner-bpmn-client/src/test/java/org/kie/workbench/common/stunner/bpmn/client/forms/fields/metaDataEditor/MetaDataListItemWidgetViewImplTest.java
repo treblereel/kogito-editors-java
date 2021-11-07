@@ -18,12 +18,12 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.metaDataEditor
 
 import javax.enterprise.event.Event;
 
-import com.google.gwt.event.dom.client.ChangeEvent;
-import com.google.gwt.event.dom.client.ChangeHandler;
-import com.google.gwt.event.dom.client.KeyDownEvent;
-import com.google.gwt.event.dom.client.KeyDownHandler;
-import com.google.gwtmockito.GwtMock;
-import com.google.gwtmockito.GwtMockito;
+import org.gwtproject.event.dom.client.ChangeEvent;
+import org.gwtproject.event.dom.client.ChangeHandler;
+import org.gwtproject.event.dom.client.KeyDownEvent;
+import org.gwtproject.event.dom.client.KeyDownHandler;
+import org.gwtprojectmockito.GwtMock;
+import org.gwtprojectmockito.GwtMockito;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.jboss.errai.databinding.client.api.DataBinder;

@@ -25,6 +25,8 @@ import org.appformer.client.stateControl.registry.DefaultRegistry;
 import org.appformer.client.stateControl.registry.Registry;
 import org.appformer.client.stateControl.registry.RegistryChangeListener;
 
+import javax.enterprise.context.Dependent;
+
 /**
  * The default generic implementation for the {@link Registry} type.
  * It's implemented for achieving an in-memory and lightweight registry approach, don't do an overuse of it.

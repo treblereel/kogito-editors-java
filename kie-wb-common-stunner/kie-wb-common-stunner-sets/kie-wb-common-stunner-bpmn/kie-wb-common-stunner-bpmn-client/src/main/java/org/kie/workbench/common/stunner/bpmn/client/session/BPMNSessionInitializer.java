@@ -22,6 +22,7 @@ import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import elemental2.promise.Promise;
 import org.kie.workbench.common.stunner.bpmn.client.dataproviders.CalledElementFormProvider;
 import org.kie.workbench.common.stunner.bpmn.client.dataproviders.RuleFlowGroupFormProvider;

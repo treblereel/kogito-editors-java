@@ -32,44 +32,6 @@
 
   <dependencies>
     <dependency>
-      <groupId>javax.enterprise</groupId>
-      <artifactId>cdi-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-common</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-ioc</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>org.jboss.spec.javax.annotation</groupId>
-          <artifactId>jboss-annotations-api_1.2_spec</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-ui</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>org.jboss.spec.javax.annotation</groupId>
-          <artifactId>jboss-annotations-api_1.3_spec</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.soup</groupId>
-      <artifactId>kie-soup-commons</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-user</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>com.google.elemental2</groupId>
       <artifactId>elemental2-core</artifactId>
     </dependency>
@@ -84,6 +46,10 @@
     <dependency>
       <groupId>com.google.jsinterop</groupId>
       <artifactId>jsinterop-annotations</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.gwtproject.typedarrays</groupId>
+      <artifactId>gwt-typedarrays</artifactId>
     </dependency>
     <dependency>
       <groupId>org.kie.kogito</groupId>
@@ -111,15 +77,8 @@
     </dependency>
 
     <dependency>
-      <groupId>com.google.gwt.gwtmockito</groupId>
-      <artifactId>gwtmockito</artifactId>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>org.eclipse.jetty</groupId>
-          <artifactId>jetty-annotations</artifactId>
-        </exclusion>
-      </exclusions>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>uberfire-widgets-core-client</artifactId>
     </dependency>
 
     <dependency>
@@ -127,38 +86,38 @@
       <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
-
     <dependency>
-      <groupId>org.kie.soup</groupId>
-      <artifactId>kie-soup-project-datamodel-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>uberfire-widgets-core-client</artifactId>
+      <groupId>io.crysknife.ui.translation</groupId>
+      <artifactId>api</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-api-mockito2</artifactId>
-      <scope>test</scope>
+      <groupId>org.gwtproject.i18n</groupId>
+      <artifactId>gwt-i18n-processor</artifactId>
+      <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-module-junit4</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-
   </dependencies>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.java</include>
+          <include>**/*.js</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
     <plugins>
       <!-- WebJars Dependencies -->
+<!--
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
-          <!-- File Saver -->
+          &lt;!&ndash; File Saver &ndash;&gt;
           <execution>
             <id>unpack-filesaver</id>
             <phase>process-resources</phase>
@@ -180,7 +139,7 @@
               <overWriteSnapshots>true</overWriteSnapshots>
             </configuration>
           </execution>
-          <!-- JsPDF -->
+          &lt;!&ndash; JsPDF &ndash;&gt;
           <execution>
             <id>unpack-jspdf</id>
             <phase>process-resources</phase>
@@ -202,7 +161,7 @@
               <overWriteSnapshots>true</overWriteSnapshots>
             </configuration>
           </execution>
-          <!-- Canvas2svg -->
+          &lt;!&ndash; Canvas2svg &ndash;&gt;
           <execution>
             <id>unpack-canvas2svg</id>
             <phase>process-resources</phase>
@@ -224,7 +183,7 @@
               <overWriteSnapshots>true</overWriteSnapshots>
             </configuration>
           </execution>
-          <!-- MustacheJS -->
+          &lt;!&ndash; MustacheJS &ndash;&gt;
           <execution>
             <id>unpack-mustachejs</id>
             <phase>process-resources</phase>
@@ -248,13 +207,15 @@
           </execution>
         </executions>
       </plugin>
+-->
 
       <!-- Copy JS from WebJars to resources Path, where it should be injected on the application with JsInterop -->
+<!--
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
         <executions>
-          <!-- File Saver -->
+          &lt;!&ndash; File Saver &ndash;&gt;
           <execution>
             <id>copy-filesaver-resources</id>
             <phase>process-resources</phase>
@@ -273,7 +234,7 @@
               </resources>
             </configuration>
           </execution>
-          <!-- JsPDF -->
+          &lt;!&ndash; JsPDF &ndash;&gt;
           <execution>
             <id>copy-jspdf-resources</id>
             <phase>process-resources</phase>
@@ -292,7 +253,7 @@
               </resources>
             </configuration>
           </execution>
-          <!-- Canvas2svg -->
+          &lt;!&ndash; Canvas2svg &ndash;&gt;
           <execution>
             <id>copy-canvas2svg-resources</id>
             <phase>process-resources</phase>
@@ -311,7 +272,7 @@
               </resources>
             </configuration>
           </execution>
-          <!-- MustacheJS -->
+          &lt;!&ndash; MustacheJS &ndash;&gt;
           <execution>
             <id>copy-mustachejs-resources</id>
             <phase>process-resources</phase>
@@ -330,6 +291,31 @@
                   <includes>
                     <include>mustache.js</include>
                   </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-generated-classes</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.outputDirectory}/
+              </outputDirectory>
+              <resources>
+                <resource>
+                  <directory>target/generated-sources/annotations/</directory>
+                  <filtering>false</filtering>
                 </resource>
               </resources>
             </configuration>

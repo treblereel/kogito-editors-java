@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.forms.common.rendering.client.widgets.typeahead;
 
-import com.google.gwt.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtbootstrap3.extras.typeahead.client.base.Dataset;
 import org.kie.workbench.common.forms.common.rendering.client.widgets.FormWidget;
 

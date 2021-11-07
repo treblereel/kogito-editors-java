@@ -19,6 +19,7 @@ package org.kie.workbench.common.forms.adf.engine.shared.formGeneration.processi
 import java.util.ArrayList;
 import java.util.List;
 
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.FormGenerationContext;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.processing.FormElementProcessor;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.util.PropertyValueExtractor;
@@ -56,7 +57,6 @@ public abstract class AbstractFieldElementProcessor implements FormElementProces
                                               FormGenerationContext context) {
 
         FieldDefinition field;
-
         if (element.getPreferredType().equals(FieldType.class)) {
             field = fieldManager.getDefinitionByDataType(element.getTypeInfo());
         } else {
@@ -66,7 +66,6 @@ public abstract class AbstractFieldElementProcessor implements FormElementProces
                 field = fieldManager.getDefinitionByDataType(element.getTypeInfo());
             }
         }
-
         if (field != null) {
             context.getFormDefinition().getFields().add(field);
 

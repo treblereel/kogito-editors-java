@@ -18,9 +18,9 @@ package org.kie.workbench.common.stunner.client.lienzo.components;
 
 import com.ait.lienzo.client.core.image.ImageStrips;
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
-import com.google.gwt.resources.client.CssResource;
-import com.google.gwt.resources.client.ImageResource;
-import com.google.gwt.safehtml.shared.SafeUri;
+import org.gwtproject.resources.client.CssResource;
+import org.gwtproject.resources.client.ImageResource;
+import org.gwtproject.safehtml.shared.SafeUri;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

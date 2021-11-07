@@ -18,6 +18,7 @@ package org.kie.workbench.common.stunner.core.client.session.command.impl;
 
 import javax.enterprise.event.Observes;
 
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.stunner.core.client.canvas.event.registration.CanvasElementsClearEvent;
 import org.kie.workbench.common.stunner.core.client.canvas.event.selection.CanvasClearSelectionEvent;
 import org.kie.workbench.common.stunner.core.client.canvas.event.selection.CanvasSelectionEvent;

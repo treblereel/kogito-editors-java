@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>emf-parent</artifactId>
+    <groupId>org.kie.kogito.emf</groupId>
+    <version>8.5.5-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <packaging>jar</packaging>
+
+
+  <dependencies>
+    <dependency>
+      <groupId>org.gwtproject.i18n</groupId>
+      <artifactId>gwt-i18n</artifactId>
+    </dependency>
+  </dependencies>
+
+  <groupId>org.kie.kogito.emf</groupId>
+  <artifactId>common</artifactId>
+  <version>8.5.5-SNAPSHOT</version>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
+     <!-- <plugin>
+        <groupId>com.vertispan.j2cl</groupId>
+        <artifactId>j2cl-maven-plugin</artifactId>
+        <version>0.17-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <id>build-js</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>build</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <defaultWebappDirectory>${project.build.directory}/gwt/launcherDir</defaultWebappDirectory>
+          <compilationLevel>ADVANCED</compilationLevel>
+        </configuration>
+      </plugin>-->
+    </plugins>
+  </build>
+
+</project>

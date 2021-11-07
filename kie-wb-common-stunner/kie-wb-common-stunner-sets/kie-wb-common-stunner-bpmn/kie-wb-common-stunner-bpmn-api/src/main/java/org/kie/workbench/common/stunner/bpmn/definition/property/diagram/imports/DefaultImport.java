@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.bpmn.definition.property.diagram.import
 
 import org.jboss.errai.common.client.api.annotations.MapsTo;
 import org.jboss.errai.common.client.api.annotations.Portable;
-import org.jboss.errai.databinding.client.api.Bindable;
+import io.crysknife.ui.databinding.client.api.Bindable;
 
 @Portable
 @Bindable

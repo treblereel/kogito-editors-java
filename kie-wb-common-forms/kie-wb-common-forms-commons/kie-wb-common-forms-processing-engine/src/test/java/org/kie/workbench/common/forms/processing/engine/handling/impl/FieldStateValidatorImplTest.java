@@ -21,11 +21,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.ValueLabel;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.Label;
+import org.gwtproject.user.client.ui.TextBox;
+import org.gwtproject.user.client.ui.ValueLabel;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.junit.Before;
 import org.junit.Test;

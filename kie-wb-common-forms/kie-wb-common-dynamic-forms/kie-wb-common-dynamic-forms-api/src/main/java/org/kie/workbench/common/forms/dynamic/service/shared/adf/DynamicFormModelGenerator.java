@@ -26,6 +26,7 @@ import java.util.stream.Stream;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import org.kie.soup.commons.validation.PortablePreconditions;
 import org.kie.workbench.common.forms.adf.engine.shared.FormBuildingService;
 import org.kie.workbench.common.forms.adf.engine.shared.FormElementFilter;
@@ -70,7 +71,6 @@ public class DynamicFormModelGenerator {
         });
 
         FormDefinition formDefinition = formBuildingService.generateFormForModel(model, rootFormElemenFilters.stream().toArray(FormElementFilter[]::new));
-
         if (formDefinition == null) {
             return null;
         }

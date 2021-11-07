@@ -16,8 +16,8 @@
 
 package org.kie.workbench.common.widgets.client.cards.frame;
 
-import com.google.gwt.dom.client.Style;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.dom.client.Style;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import elemental2.dom.HTMLElement;
 import org.junit.Before;
 import org.junit.Test;

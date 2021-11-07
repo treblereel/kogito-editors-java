@@ -16,8 +16,8 @@
 
 package org.uberfire.client.docks.view.items;
 
-import com.google.gwt.resources.client.ImageResource;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.resources.client.ImageResource;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.Button;
 import org.junit.Before;
 import org.junit.Test;

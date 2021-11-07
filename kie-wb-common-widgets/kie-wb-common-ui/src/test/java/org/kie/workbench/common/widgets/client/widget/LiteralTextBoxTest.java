@@ -17,7 +17,7 @@ package org.kie.workbench.common.widgets.client.widget;
 
 import static org.junit.Assert.assertEquals;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.runner.RunWith;

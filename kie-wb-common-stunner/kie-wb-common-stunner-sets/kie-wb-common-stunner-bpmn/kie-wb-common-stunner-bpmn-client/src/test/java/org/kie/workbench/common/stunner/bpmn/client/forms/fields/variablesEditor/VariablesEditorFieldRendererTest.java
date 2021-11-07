@@ -22,8 +22,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
+import io.crysknife.client.ManagedInstance;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

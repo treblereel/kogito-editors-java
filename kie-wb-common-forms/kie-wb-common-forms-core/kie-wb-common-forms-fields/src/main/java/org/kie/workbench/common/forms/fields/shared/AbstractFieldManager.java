@@ -28,6 +28,7 @@ import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+import elemental2.dom.DomGlobal;
 import org.jboss.errai.common.client.api.Assert;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.basic.BasicTypeFieldProvider;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.relations.EntityRelationField;
@@ -44,12 +45,8 @@ import org.kie.workbench.common.forms.model.impl.meta.entries.FieldTypeEntry;
 import org.kie.workbench.common.forms.service.shared.FieldManager;
 import org.kie.workbench.common.forms.service.shared.meta.processing.MetaDataEntryManager;
 import org.kie.workbench.common.forms.service.shared.meta.processing.MetaDataEntryProcessor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public abstract class AbstractFieldManager implements FieldManager {
-
-    private static transient Logger log = LoggerFactory.getLogger(FieldManager.class);
 
     protected Set<BasicTypeFieldProvider> basicProviders = new TreeSet<>((o1, o2) -> o1.getPriority() - o2.getPriority());
 
@@ -132,7 +129,6 @@ public abstract class AbstractFieldManager implements FieldManager {
 
     @Override
     public FieldDefinition getDefinitionByDataType(TypeInfo typeInfo) {
-
         if (!TypeKind.OBJECT.equals(typeInfo.getType())) {
 
             return getFieldDefinitionFromBasicProvider(typeInfo);
@@ -155,15 +151,21 @@ public abstract class AbstractFieldManager implements FieldManager {
     }
 
     protected FieldDefinition getFieldDefinitionFromBasicProvider(TypeInfo typeInfo) {
-
-        Predicate<BasicTypeFieldProvider> filterPredicate = provider -> provider.isSupported(typeInfo);
-
-        Function<BasicTypeFieldProvider, FieldDefinition> mapFunction = provider -> {
-            FieldDefinition field = provider.getFieldByType(typeInfo);
-            field.setStandaloneClassName(typeInfo.getClassName());
-            return field;
+        Predicate<BasicTypeFieldProvider> filterPredicate = new Predicate<BasicTypeFieldProvider>() {
+            @Override
+            public boolean test(BasicTypeFieldProvider provider) {
+                return provider.isSupported(typeInfo);
+            }
         };
 
+        Function<BasicTypeFieldProvider, FieldDefinition> mapFunction = new Function<BasicTypeFieldProvider, FieldDefinition>() {
+            @Override
+            public FieldDefinition apply(BasicTypeFieldProvider provider) {
+                FieldDefinition field = provider.getFieldByType(typeInfo);
+                field.setStandaloneClassName(typeInfo.getClassName());
+                return field;
+            }
+        };
         if(typeInfo.isMultiple()) {
             return basicMultipleProviders.stream().filter(filterPredicate).findFirst().map(mapFunction).orElse(null);
         }

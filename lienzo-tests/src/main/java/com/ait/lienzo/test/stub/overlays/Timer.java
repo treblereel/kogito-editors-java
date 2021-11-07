@@ -29,13 +29,13 @@ import com.ait.lienzo.test.annotation.StubClass;
  *
  * <p>
  * NOTE: If you are using a timer to schedule a UI animation, use
- * {@link com.google.gwt.animation.client.AnimationScheduler} instead. The
+ * {@link org.gwtproject.animation.client.AnimationScheduler} instead. The
  * browser can optimize your animation for maximum performance.
  * </p>
  *
  * <p>
  * <h3>Example</h3>
- * {@example com.google.gwt.examples.TimerExample}
+ * {@example org.gwtproject.examples.TimerExample}
  * </p>
  */
 @StubClass("com.ait.lienzo.tools.client.Timer")

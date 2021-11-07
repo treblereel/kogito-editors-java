@@ -19,7 +19,7 @@ package org.kie.workbench.common.forms.processing.engine.handling.impl;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.junit.Before;
 import org.junit.Test;

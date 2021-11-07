@@ -20,7 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -216,7 +216,7 @@ public class FormsCanvasSessionHandlerTest {
         handler.bind(session);
 
         doAnswer(i -> {
-            ((com.google.gwt.user.client.Command) i.getArguments()[0]).execute();
+            ((org.gwtproject.user.client.Command) i.getArguments()[0]).execute();
             return null;
         }).when(handler).scheduleRender(any());
 
@@ -231,7 +231,7 @@ public class FormsCanvasSessionHandlerTest {
         handler.bind(session);
 
         doAnswer(i -> {
-            ((com.google.gwt.user.client.Command) i.getArguments()[0]).execute();
+            ((org.gwtproject.user.client.Command) i.getArguments()[0]).execute();
             return null;
         }).when(handler).scheduleRender(any());
 

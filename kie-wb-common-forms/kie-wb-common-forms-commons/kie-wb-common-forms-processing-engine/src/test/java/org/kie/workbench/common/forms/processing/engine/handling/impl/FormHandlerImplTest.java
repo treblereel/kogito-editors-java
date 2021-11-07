@@ -19,7 +19,7 @@ package org.kie.workbench.common.forms.processing.engine.handling.impl;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.jboss.errai.databinding.client.PropertyChangeUnsubscribeHandle;
 import org.jboss.errai.databinding.client.api.Converter;
 import org.jboss.errai.databinding.client.api.DataBinder;

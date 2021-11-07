@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.widgets.client.assets.dropdown;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import elemental2.dom.DOMTokenList;
 import elemental2.dom.HTMLOptionElement;
 import elemental2.dom.HTMLSelectElement;

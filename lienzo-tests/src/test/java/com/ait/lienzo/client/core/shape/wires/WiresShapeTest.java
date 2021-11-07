@@ -41,7 +41,7 @@ import com.ait.lienzo.tools.client.event.HandlerManager;
 import com.ait.lienzo.tools.client.event.HandlerRegistration;
 import com.ait.lienzo.tools.client.event.HandlerRegistrationManager;
 import com.ait.lienzo.tools.client.event.INodeEvent;
-import com.google.gwt.event.dom.client.DomEvent;
+import org.gwtproject.event.dom.client.DomEvent;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

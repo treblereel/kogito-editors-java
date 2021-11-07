@@ -10,6 +10,11 @@ import com.ait.lienzo.client.core.shape.wires.WiresContainer;
 import com.ait.lienzo.client.core.shape.wires.WiresManager;
 import com.ait.lienzo.client.core.shape.wires.WiresShape;
 import com.ait.lienzo.client.core.types.Point2D;
+import com.ait.lienzo.client.widget.panel.LienzoPanel;
+import org.gwtproject.dom.client.Style;
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLButtonElement;
+import elemental2.dom.HTMLDivElement;
 
 import static org.kie.lienzo.client.util.WiresUtils.connect;
 

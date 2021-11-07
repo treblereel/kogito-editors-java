@@ -19,7 +19,7 @@ package org.kie.workbench.common.forms.fields.shared.fieldTypes.basic.datePicker
 import java.util.Date;
 
 import org.jboss.errai.common.client.api.annotations.Portable;
-import org.jboss.errai.databinding.client.api.Bindable;
+import io.crysknife.ui.databinding.client.api.Bindable;
 import org.kie.workbench.common.forms.adf.definitions.annotations.FormDefinition;
 import org.kie.workbench.common.forms.adf.definitions.annotations.FormField;
 import org.kie.workbench.common.forms.adf.definitions.annotations.i18n.I18nSettings;
@@ -69,7 +69,7 @@ public class DatePickerFieldDefinition extends AbstractFieldDefinition implement
         this.placeHolder = placeHolder;
     }
 
-    public Boolean getShowTime() {
+    public Boolean isShowTime() {
         return showTime;
     }
 
@@ -82,7 +82,7 @@ public class DatePickerFieldDefinition extends AbstractFieldDefinition implement
         if (other instanceof DatePickerFieldDefinition) {
             DatePickerFieldDefinition otherDate = (DatePickerFieldDefinition) other;
             setPlaceHolder(otherDate.getPlaceHolder());
-            setShowTime(otherDate.getShowTime());
+            setShowTime(otherDate.isShowTime());
         } else if (other instanceof HasPlaceHolder) {
             setPlaceHolder(((HasPlaceHolder) other).getPlaceHolder());
         }

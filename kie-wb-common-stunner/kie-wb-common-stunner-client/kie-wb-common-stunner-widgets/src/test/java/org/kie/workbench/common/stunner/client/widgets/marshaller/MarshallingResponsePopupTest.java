@@ -19,7 +19,7 @@ package org.kie.workbench.common.stunner.client.widgets.marshaller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gwt.view.client.ListDataProvider;
+import org.gwtproject.view.client.ListDataProvider;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

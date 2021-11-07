@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.stunner.client.widgets.palette.collapsed;
 
-import com.google.gwt.event.dom.client.MouseDownEvent;
+import org.gwtproject.event.dom.client.MouseDownEvent;
 import org.jboss.errai.common.client.dom.Button;
 import org.jboss.errai.common.client.dom.HTMLElement;
 import org.junit.Before;

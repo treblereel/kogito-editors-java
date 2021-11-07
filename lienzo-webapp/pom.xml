@@ -93,10 +93,6 @@
 			<artifactId>lienzo-core</artifactId>
 		</dependency>
 		<!-- GWT -->
-		<dependency>
-			<groupId>com.google.gwt</groupId>
-			<artifactId>gwt-user</artifactId>
-		</dependency>
 		<!-- JsInterop & Elemental2 -->
 		<dependency>
 			<groupId>com.google.jsinterop</groupId>
@@ -215,34 +211,6 @@
 			</dependencies>
 			<build>
 				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>gwt-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<goals>
-									<goal>compile</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<runTarget>LienzoShowcase.html</runTarget>
-							<modules>
-								<module>org.kie.lienzo.LienzoShowcase</module>
-							</modules>
-							<logLevel>INFO</logLevel>
-							<noServer>false</noServer>
-							<extraJvmArgs>-Xmx2048m -XX:CompileThreshold=7000 -Djava.io.tmpdir=${project.build.directory}
-							</extraJvmArgs>
-							<disableCastChecking>true</disableCastChecking>
-							<generateJsInteropExports>true</generateJsInteropExports>
-							<soycDetailed>false</soycDetailed>
-							<hostedWebapp>src/main/webapp</hostedWebapp>
-							<strict>true</strict>
-							<compileReport>true</compileReport>
-							<saveSource>true</saveSource>
-						</configuration>
-					</plugin>
 				</plugins>
 			</build>
 		</profile>

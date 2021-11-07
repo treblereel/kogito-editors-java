@@ -1,6 +1,6 @@
 package org.uberfire.ext.widgets.common.client.dropdown.noItems;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;

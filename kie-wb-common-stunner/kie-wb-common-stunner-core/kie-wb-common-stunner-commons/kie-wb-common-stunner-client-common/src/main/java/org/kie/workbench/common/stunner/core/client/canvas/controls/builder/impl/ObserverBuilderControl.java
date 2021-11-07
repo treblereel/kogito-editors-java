@@ -25,6 +25,7 @@ import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.stunner.core.client.api.ClientDefinitionManager;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;
 import org.kie.workbench.common.stunner.core.client.canvas.CanvasHandler;
@@ -100,7 +101,7 @@ public class ObserverBuilderControl extends AbstractElementBuilderControl
     }
 
     @SuppressWarnings("unchecked")
-    void onBuildCanvasShape(final @Observes BuildCanvasShapeEvent event) {
+    public void onBuildCanvasShape(final @Observes BuildCanvasShapeEvent event) {
         checkNotNull("event",
                      event);
         if (null != canvasHandler) {
@@ -147,7 +148,7 @@ public class ObserverBuilderControl extends AbstractElementBuilderControl
                 getCanvasElement().getOwnerDocument().getScrollTop();
     }
 
-    private com.google.gwt.user.client.Element getCanvasElement() {
+    private org.gwtproject.dom.client.Element getCanvasElement() {
         return canvasHandler.getAbstractCanvas().getView().asWidget().getElement();
     }
 }

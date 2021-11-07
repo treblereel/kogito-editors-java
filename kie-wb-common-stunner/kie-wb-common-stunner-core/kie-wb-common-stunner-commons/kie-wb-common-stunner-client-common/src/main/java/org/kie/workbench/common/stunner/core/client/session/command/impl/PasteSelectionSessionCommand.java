@@ -37,7 +37,7 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import org.appformer.client.stateControl.registry.Registry;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.core.client.api.SessionManager;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvas;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;

@@ -20,6 +20,7 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import org.appformer.client.stateControl.registry.DefaultRegistry;
 import org.appformer.client.stateControl.registry.Registry;
 import org.kie.workbench.common.stunner.bpmn.qualifiers.BPMN;
@@ -60,7 +61,7 @@ public class BPMNEditorSession extends DefaultEditorSession {
                              final CanvasCommandManager<AbstractCanvasHandler> canvasCommandManager,
                              final SessionCommandManager<AbstractCanvasHandler> sessionCommandManager,
                              final Registry<org.kie.workbench.common.stunner.core.command.Command<AbstractCanvasHandler, CanvasViolation>> commandRegistry,
-                             final DefaultRegistry<org.kie.workbench.common.stunner.core.command.Command<AbstractCanvasHandler, CanvasViolation>> redoCommandRegistry,
+                             final Registry<org.kie.workbench.common.stunner.core.command.Command<AbstractCanvasHandler, CanvasViolation>> redoCommandRegistry,
                              final Event<RegisterChangedEvent> registerChangedEvent) {
         super(session,
               canvasCommandManager,
@@ -68,6 +69,8 @@ public class BPMNEditorSession extends DefaultEditorSession {
               commandRegistry,
               redoCommandRegistry,
               registerChangedEvent);
+
+        DomGlobal.console.log("BPMNEditorSession created");
     }
 
     @Override

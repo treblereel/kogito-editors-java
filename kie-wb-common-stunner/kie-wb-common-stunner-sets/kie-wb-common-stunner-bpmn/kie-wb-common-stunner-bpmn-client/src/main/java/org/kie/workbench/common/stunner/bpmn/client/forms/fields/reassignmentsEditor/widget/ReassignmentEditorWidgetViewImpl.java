@@ -26,19 +26,20 @@ import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.event.dom.client.KeyDownEvent;
-import com.google.gwt.event.dom.client.KeyDownHandler;
-import com.google.gwt.user.client.ui.Composite;
+import elemental2.dom.DomGlobal;
+import io.crysknife.ui.databinding.client.api.AutoBound;
+import io.crysknife.ui.databinding.client.api.Bound;
+import io.crysknife.ui.databinding.client.api.DataBinder;
+import org.gwtproject.event.dom.client.KeyCodes;
+import org.gwtproject.event.dom.client.KeyDownEvent;
+import org.gwtproject.event.dom.client.KeyDownHandler;
+import org.gwtproject.user.client.ui.Composite;
 import elemental2.dom.HTMLButtonElement;
 import org.gwtbootstrap3.client.ui.ModalSize;
 import org.gwtbootstrap3.extras.select.client.ui.Option;
 import org.gwtbootstrap3.extras.select.client.ui.Select;
-import org.jboss.errai.databinding.client.api.DataBinder;
-import org.jboss.errai.ui.shared.api.annotations.AutoBound;
-import org.jboss.errai.ui.shared.api.annotations.Bound;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.selector.input.MultipleSelectorInput;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.assigneeEditor.AssigneeLiveSearchService;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.ReassignmentRow;
@@ -144,12 +145,17 @@ public class ReassignmentEditorWidgetViewImpl extends Composite implements Reass
 
     @PostConstruct
     public void init() {
+
+        DomGlobal.console.log("ReassignmentEditorWidgetViewImpl.init ");
+
         closeButton.addEventListener("click", event -> close(), false);
         okButton.addEventListener("click", event -> ok(), false);
     }
 
     @Override
     public void init(final ReassignmentEditorWidgetView.Presenter presenter) {
+        DomGlobal.console.log("ReassignmentEditorWidgetViewImpl init " + presenter.getClass().getCanonicalName());
+
         this.presenter = presenter;
         initModel();
     }

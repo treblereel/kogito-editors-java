@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.widgets;
 
 import java.util.List;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.gwtbootstrap3.client.ui.ValueListBox;
 import org.junit.Before;

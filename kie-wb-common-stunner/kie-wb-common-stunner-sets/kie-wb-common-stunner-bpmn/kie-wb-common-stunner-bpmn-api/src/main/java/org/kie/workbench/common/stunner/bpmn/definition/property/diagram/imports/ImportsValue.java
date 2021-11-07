@@ -25,7 +25,7 @@ import java.util.stream.Stream;
 
 import org.jboss.errai.common.client.api.annotations.MapsTo;
 import org.jboss.errai.common.client.api.annotations.Portable;
-import org.jboss.errai.databinding.client.api.Bindable;
+import io.crysknife.ui.databinding.client.api.Bindable;
 import org.kie.workbench.common.stunner.core.util.HashUtil;
 
 @Portable
@@ -56,7 +56,17 @@ public class ImportsValue {
         return wsdlImports;
     }
 
+    //TODO
+    public List<WSDLImport> getWsdlImports() {
+        return wsdlImports;
+    }
+
     public void setWSDLImports(final List<WSDLImport> wsdlImports) {
+        this.wsdlImports = wsdlImports;
+    }
+
+    //TODO
+    public void setWsdlImports(final List<WSDLImport> wsdlImports) {
         this.wsdlImports = wsdlImports;
     }
 

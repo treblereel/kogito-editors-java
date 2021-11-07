@@ -21,6 +21,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import elemental2.dom.DomGlobal;
 import org.jboss.errai.common.client.api.Assert;
 import org.kie.workbench.common.forms.fields.shared.FieldProvider;
 import org.kie.workbench.common.forms.model.FieldDefinition;
@@ -31,7 +32,7 @@ public abstract class BasicTypeFieldProvider<FIELD extends FieldDefinition> impl
     protected List<String> supportedTypes = new ArrayList<>();
 
     @PostConstruct
-    protected void registerFields() {
+    public void registerFields() {
         doRegisterFields();
     }
 

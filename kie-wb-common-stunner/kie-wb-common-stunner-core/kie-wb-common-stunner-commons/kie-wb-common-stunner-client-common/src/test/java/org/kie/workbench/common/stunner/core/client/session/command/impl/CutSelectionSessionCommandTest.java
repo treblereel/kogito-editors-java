@@ -21,7 +21,7 @@ import java.lang.annotation.Annotation;
 import javax.enterprise.event.Event;
 
 import org.appformer.client.stateControl.registry.Registry;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.ManagedInstance;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

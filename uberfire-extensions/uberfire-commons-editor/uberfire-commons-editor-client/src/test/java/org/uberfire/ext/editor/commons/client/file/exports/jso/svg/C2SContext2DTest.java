@@ -19,8 +19,8 @@ package org.uberfire.ext.editor.commons.client.file.exports.jso.svg;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
-import com.google.gwtmockito.WithClassesToStub;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.WithClassesToStub;
 import elemental2.core.JsArray;
 import elemental2.dom.CanvasRenderingContext2D;
 import elemental2.dom.Element;

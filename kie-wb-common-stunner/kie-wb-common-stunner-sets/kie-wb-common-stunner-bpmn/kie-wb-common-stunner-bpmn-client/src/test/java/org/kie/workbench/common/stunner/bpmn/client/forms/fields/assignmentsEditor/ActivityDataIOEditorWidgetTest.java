@@ -21,8 +21,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.google.gwtmockito.GwtMock;
-import com.google.gwtmockito.GwtMockito;
+import org.gwtprojectmockito.GwtMock;
+import org.gwtprojectmockito.GwtMockito;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

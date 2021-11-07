@@ -19,13 +19,13 @@ package org.kie.workbench.common.stunner.client.widgets.presenters.session.impl;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.event.dom.client.ContextMenuEvent;
-import com.google.gwt.event.dom.client.ContextMenuHandler;
-import com.google.gwt.event.dom.client.ScrollEvent;
-import com.google.gwtmockito.GwtMockitoTestRunner;
-import com.google.gwtmockito.WithClassesToStub;
+import org.gwtproject.dom.client.Element;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.event.dom.client.ContextMenuEvent;
+import org.gwtproject.event.dom.client.ContextMenuHandler;
+import org.gwtproject.event.dom.client.ScrollEvent;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.WithClassesToStub;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 import org.gwtbootstrap3.extras.notify.client.ui.NotifySettings;
@@ -88,7 +88,7 @@ public class SessionPresenterViewTest extends AbstractCanvasHandlerViewerTest {
     private SessionContainer sessionContainer;
 
     @Mock
-    private com.google.gwt.user.client.Element sessionContainerElement;
+    private org.gwtproject.user.client.Element sessionContainerElement;
 
     @Mock
     private Style sessionContainerElementStyle;
@@ -96,10 +96,10 @@ public class SessionPresenterViewTest extends AbstractCanvasHandlerViewerTest {
     private ContextMenuHandler handler;
 
     @Mock
-    private com.google.gwt.user.client.Element paletteElement;
+    private org.gwtproject.user.client.Element paletteElement;
 
     @Mock
-    private com.google.gwt.user.client.Element headerElement;
+    private org.gwtproject.user.client.Element headerElement;
 
     @Mock
     private Style paletteStyle;
@@ -224,7 +224,7 @@ public class SessionPresenterViewTest extends AbstractCanvasHandlerViewerTest {
 
         final SessionPresenterView view = spy(new SessionPresenterView());
         final CanvasFocusedShapeEvent event = mock(CanvasFocusedShapeEvent.class);
-        final com.google.gwt.user.client.Element element = mock(com.google.gwt.user.client.Element.class);
+        final org.gwtproject.user.client.Element element = mock(org.gwtproject.user.client.Element.class);
         final int eventX = 101;
         final int eventY = 110;
 

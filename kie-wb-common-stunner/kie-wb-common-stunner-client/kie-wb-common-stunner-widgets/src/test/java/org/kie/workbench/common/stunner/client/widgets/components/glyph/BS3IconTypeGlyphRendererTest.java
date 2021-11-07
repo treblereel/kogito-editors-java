@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.client.widgets.components.glyph;
 
 import java.util.function.Supplier;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.Icon;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.junit.Before;

@@ -25,7 +25,7 @@ import com.ait.lienzo.client.core.shape.IPathClipper;
 import com.ait.lienzo.client.core.shape.Node;
 import com.ait.lienzo.client.core.shape.Text;
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
-import com.google.gwtmockito.GwtMock;
+import org.gwtprojectmockito.GwtMock;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

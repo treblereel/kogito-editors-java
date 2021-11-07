@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.forms.crud.client.component;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kie.workbench.common.forms.crud.client.component.formDisplay.FormDisplayer;

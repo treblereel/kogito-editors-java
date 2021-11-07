@@ -46,13 +46,11 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-client-api</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-stunner-backend-api</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -61,12 +59,6 @@
     </dependency>
 
     <!-- GWT. -->
-
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-user</artifactId>
-      <scope>provided</scope>
-    </dependency>
 
     <!-- Uberfire & Errai. -->
     <dependency>
@@ -79,49 +71,9 @@
       <artifactId>uberfire-client-api</artifactId>
     </dependency>
 
-
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-common</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-ioc</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>org.jboss.spec.javax.annotation</groupId>
-          <artifactId>jboss-annotations-api_1.2_spec</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-data-binding</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-ui</artifactId>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>errai-javax-enterprise</artifactId>
-      <scope>provided</scope>
-    </dependency>
-
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.soup</groupId>
-      <artifactId>kie-soup-commons</artifactId>
     </dependency>
 
     <dependency>
@@ -146,17 +98,17 @@
     </dependency>
 
     <!-- Appformer -->
-    <dependency>
+<!--    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>appformer-client-api</artifactId>
-    </dependency>
+    </dependency>-->
 
     <!-- Test scope. -->
-    <dependency>
+<!--    <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <scope>test</scope>
-    </dependency>
+    </dependency>-->
 
     <dependency>
       <groupId>junit</groupId>
@@ -164,14 +116,14 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
+<!--    <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
 
     <dependency>
-      <groupId>com.google.gwt.gwtmockito</groupId>
+      <groupId>org.gwtproject.gwtmockito</groupId>
       <artifactId>gwtmockito</artifactId>
       <scope>test</scope>
       <exclusions>
@@ -186,24 +138,24 @@
       <groupId>org.jboss.spec.javax.xml.bind</groupId>
       <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
       <scope>test</scope>
-    </dependency>
+    </dependency>-->
 
   </dependencies>
 
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>test-jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.java</include>
+          <include>**/*.html</include>
+          <include>**/*.css</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
   </build>
 
 </project>

@@ -19,6 +19,7 @@ package org.kie.workbench.common.forms.adf.service.definitions;
 import java.util.ArrayList;
 import java.util.List;
 
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.forms.adf.definitions.settings.LabelPosition;
 import org.kie.workbench.common.forms.adf.service.definitions.elements.FormElement;
 import org.kie.workbench.common.forms.adf.service.definitions.layout.LayoutDefinition;

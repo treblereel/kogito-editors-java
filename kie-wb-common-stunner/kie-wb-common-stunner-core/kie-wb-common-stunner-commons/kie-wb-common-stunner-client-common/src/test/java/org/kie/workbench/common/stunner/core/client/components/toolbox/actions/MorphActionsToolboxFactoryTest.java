@@ -20,7 +20,7 @@ import java.util.Collections;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

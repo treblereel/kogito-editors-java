@@ -25,7 +25,7 @@ import com.ait.lienzo.client.widget.panel.LienzoBoundsPanel;
 import com.ait.lienzo.client.widget.panel.mediators.PanelMediators;
 import com.ait.lienzo.client.widget.panel.mediators.PanelPreviewMediator;
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.ManagedInstance;
 import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.junit.Before;
 import org.junit.Test;

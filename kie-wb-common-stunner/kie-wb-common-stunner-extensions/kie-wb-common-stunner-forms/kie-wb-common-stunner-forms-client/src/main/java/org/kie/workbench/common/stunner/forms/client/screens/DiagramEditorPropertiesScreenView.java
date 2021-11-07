@@ -19,26 +19,24 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.IsWidget;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import org.gwtproject.user.client.ui.FlowPanel;
+import org.gwtproject.user.client.ui.IsWidget;
 import org.jboss.errai.common.client.ui.ElementWrapperWidget;
-import org.jboss.errai.ui.client.local.api.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.Templated;
 
 @Dependent
 @Templated
 public class DiagramEditorPropertiesScreenView implements IsElement {
 
+    @Inject
+    @DataField
     private FlowPanel loadingPanel;
-    private FlowPanel widgetPanel;
 
     @Inject
-    public DiagramEditorPropertiesScreenView(final @DataField FlowPanel loadingPanel,
-                                             final @DataField FlowPanel widgetPanel) {
-        this.loadingPanel = loadingPanel;
-        this.widgetPanel = widgetPanel;
-    }
+    @DataField
+    private FlowPanel widgetPanel;
 
     public DiagramEditorPropertiesScreenView setWidget(final IsWidget widget) {
         widgetPanel.clear();

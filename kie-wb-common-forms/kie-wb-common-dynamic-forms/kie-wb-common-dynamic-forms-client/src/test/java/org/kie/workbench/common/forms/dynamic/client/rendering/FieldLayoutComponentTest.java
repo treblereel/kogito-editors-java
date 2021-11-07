@@ -19,10 +19,10 @@ package org.kie.workbench.common.forms.dynamic.client.rendering;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.Widget;
-import com.google.gwtmockito.GwtMock;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.Widget;
+import org.gwtprojectmockito.GwtMock;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.assertj.core.api.Assertions;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 import org.jboss.errai.ui.client.local.spi.TranslationService;

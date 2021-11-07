@@ -19,9 +19,9 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.relati
 import java.util.HashMap;
 import java.util.Map;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.assertj.core.api.Assertions;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import io.crysknife.client.ManagedInstance;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

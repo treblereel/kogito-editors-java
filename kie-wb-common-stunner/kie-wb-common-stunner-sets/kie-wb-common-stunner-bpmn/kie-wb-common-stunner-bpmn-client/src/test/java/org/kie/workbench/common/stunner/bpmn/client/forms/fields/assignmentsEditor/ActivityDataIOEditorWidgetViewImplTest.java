@@ -22,11 +22,11 @@ import java.util.List;
 import javax.enterprise.event.Event;
 
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.TableCellElement;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwtmockito.GwtMock;
-import com.google.gwtmockito.GwtMockito;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.dom.client.TableCellElement;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtprojectmockito.GwtMock;
+import org.gwtprojectmockito.GwtMockito;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.jboss.errai.ui.client.widget.ListWidget;

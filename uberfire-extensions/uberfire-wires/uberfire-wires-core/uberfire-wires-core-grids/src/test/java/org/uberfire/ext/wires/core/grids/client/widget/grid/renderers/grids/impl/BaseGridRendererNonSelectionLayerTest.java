@@ -25,7 +25,7 @@ import com.ait.lienzo.client.core.shape.Line;
 import com.ait.lienzo.client.core.shape.MultiPath;
 import com.ait.lienzo.client.core.shape.Rectangle;
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
-import com.google.gwtmockito.WithClassesToStub;
+import org.gwtprojectmockito.WithClassesToStub;
 import org.gwtbootstrap3.client.ui.html.Text;
 import org.junit.Test;
 import org.junit.runner.RunWith;

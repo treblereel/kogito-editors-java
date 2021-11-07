@@ -16,7 +16,7 @@
 
 package org.uberfire.ext.layout.editor.client.generator;
 
-import com.google.gwt.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.IsWidget;
 import org.jboss.errai.common.client.dom.DOMTokenList;
 import org.jboss.errai.common.client.dom.HTMLElement;
 import org.junit.Before;
