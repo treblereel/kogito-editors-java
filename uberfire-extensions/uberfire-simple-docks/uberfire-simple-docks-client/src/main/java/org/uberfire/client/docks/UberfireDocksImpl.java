@@ -27,6 +27,7 @@ import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import org.uberfire.client.docks.view.DocksBar;
 import org.uberfire.client.docks.view.DocksBars;
 import org.uberfire.client.workbench.docks.UberfireDock;
@@ -53,7 +54,10 @@ public class UberfireDocksImpl implements UberfireDocks {
         this.dockReadyEvent = dockReadyEvent;
     }
 
-    protected void setup(@Observes UberfireDockContainerReadyEvent event) {
+    public void setup(@Observes UberfireDockContainerReadyEvent event) {
+        DomGlobal.console.log(getClass().getCanonicalName()+".setup UberfireDockContainerReadyEvent");
+
+
         docksBars.setup();
 
         updateAllDocks();
@@ -131,6 +135,10 @@ public class UberfireDocksImpl implements UberfireDocks {
         if (docks != null) {
             List<UberfireDockPosition> processedPositions = new ArrayList<>();
             for (UberfireDock dock : docks) {
+
+                DomGlobal.console.log("clearAndCollapseDocks 1 " + dock);
+                DomGlobal.console.log("clearAndCollapseDocks 2 " + dock.getDockPosition());
+
                 if (!processedPositions.contains(dock.getDockPosition())) {
                     processedPositions.add(dock.getDockPosition());
                     if (docksBars.isReady(dock.getDockPosition())) {

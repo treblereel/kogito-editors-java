@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.widgets;
 
 import java.util.List;
 
-import com.google.gwt.event.dom.client.FocusEvent;
+import org.gwtproject.event.dom.client.FocusEvent;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.gwtbootstrap3.client.ui.ValueListBox;
 

@@ -10,7 +10,7 @@ import com.ait.lienzo.shared.core.types.IColor;
 import com.ait.lienzo.shared.core.types.ImageSelectionMode;
 import com.ait.lienzo.shared.core.types.LayerClearMode;
 import com.ait.lienzo.test.annotation.StubClass;
-import com.google.gwt.dom.client.Style;
+import org.gwtproject.dom.client.Style;
 
 @StubClass("com.ait.lienzo.client.core.config.LienzoCore")
 public class LienzoCore {

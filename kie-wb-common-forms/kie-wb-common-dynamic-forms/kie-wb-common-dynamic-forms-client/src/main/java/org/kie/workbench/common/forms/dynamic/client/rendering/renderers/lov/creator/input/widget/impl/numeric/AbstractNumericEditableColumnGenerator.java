@@ -16,10 +16,9 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.impl.numeric;
 
-import com.google.gwt.cell.client.EditTextCell;
-import com.google.gwt.cell.client.TextCell;
-import com.google.gwt.user.cellview.client.Column;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import org.gwtproject.cell.client.EditTextCell;
+import org.gwtproject.cell.client.TextCell;
+import org.gwtproject.user.cellview.client.Column;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.CellEditionHandler;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.ColumnFieldUpdater;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.TableEntry;
@@ -28,8 +27,8 @@ import org.uberfire.ext.widgets.table.client.UberfirePagedTable;
 
 public abstract class AbstractNumericEditableColumnGenerator<NUMBER> extends AbstractEditableColumnGenerator<NUMBER> {
 
-    public AbstractNumericEditableColumnGenerator(TranslationService translationService) {
-        super(translationService);
+    public AbstractNumericEditableColumnGenerator(/*TranslationService translationService*/) {
+        //super(translationService);
     }
 
     @Override

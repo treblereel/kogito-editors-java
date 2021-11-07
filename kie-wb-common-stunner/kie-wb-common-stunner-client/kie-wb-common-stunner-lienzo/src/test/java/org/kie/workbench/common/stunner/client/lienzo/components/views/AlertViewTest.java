@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.stunner.client.lienzo.components.views;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.jboss.errai.common.client.dom.Span;
 import org.junit.Test;
 import org.junit.runner.RunWith;

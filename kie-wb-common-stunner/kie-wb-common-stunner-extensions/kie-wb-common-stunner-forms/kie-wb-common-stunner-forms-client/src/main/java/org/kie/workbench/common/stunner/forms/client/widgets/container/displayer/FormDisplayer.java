@@ -28,10 +28,11 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import org.jboss.errai.common.client.api.IsElement;
-import org.jboss.errai.common.client.dom.HTMLElement;
-import org.jboss.errai.databinding.client.BindableProxy;
-import org.jboss.errai.databinding.client.BindableProxyFactory;
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLElement;
+import io.crysknife.client.IsElement;
+import io.crysknife.ui.databinding.client.BindableProxy;
+import io.crysknife.ui.databinding.client.BindableProxyFactory;
 import org.kie.workbench.common.forms.adf.engine.shared.FormElementFilter;
 import org.kie.workbench.common.forms.dynamic.client.DynamicFormRenderer;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.impl.nestedForm.collapse.CollapsibleFormGroup;
@@ -107,6 +108,10 @@ public class FormDisplayer implements FormDisplayerView.Presenter,
         Collection<FormElementFilter> filters = FormFiltersProviderFactory.getFilterForDefinition(domainObjectUUID, domainObject);
 
         final BindableProxy<?> proxy = (BindableProxy<?>) BindableProxyFactory.getBindableProxy(domainObject);
+
+        DomGlobal.console.log("proxy 1 " + proxy.getClass().getCanonicalName());
+        DomGlobal.console.log("proxy 2 " + proxy.deepUnwrap());
+
         final StaticModelFormRenderingContext generatedCtx = modelGenerator.getContextForModel(proxy.deepUnwrap(), filters.stream().toArray(FormElementFilter[]::new));
         final FormRenderingContext<?> pathAwareCtx = new PathAwareFormContext<>(generatedCtx, diagramPath);
         pathAwareCtx.setRenderMode(renderMode);

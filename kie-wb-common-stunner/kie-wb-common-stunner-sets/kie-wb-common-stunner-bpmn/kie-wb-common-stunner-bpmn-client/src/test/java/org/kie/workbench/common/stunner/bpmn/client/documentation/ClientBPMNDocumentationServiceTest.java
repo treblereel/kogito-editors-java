@@ -24,8 +24,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
-import org.jboss.errai.common.client.api.IsElement;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
+import io.crysknife.client.IsElement;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

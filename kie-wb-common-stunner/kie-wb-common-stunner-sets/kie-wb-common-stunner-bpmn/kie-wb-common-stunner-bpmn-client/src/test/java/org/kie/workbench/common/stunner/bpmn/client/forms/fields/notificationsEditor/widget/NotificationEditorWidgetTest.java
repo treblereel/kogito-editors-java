@@ -24,11 +24,11 @@ import java.util.List;
 import javax.enterprise.event.Event;
 import javax.validation.Validator;
 
-import com.google.gwt.dom.client.ParagraphElement;
-import com.google.gwt.regexp.shared.MatchResult;
-import com.google.gwt.regexp.shared.RegExp;
-import com.google.gwtmockito.GwtMock;
-import com.google.gwtmockito.GwtMockito;
+import org.gwtproject.dom.client.ParagraphElement;
+import org.gwtproject.regexp.shared.MatchResult;
+import org.gwtproject.regexp.shared.RegExp;
+import org.gwtprojectmockito.GwtMock;
+import org.gwtprojectmockito.GwtMockito;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLInputElement;
 import org.gwtbootstrap3.client.ui.TextArea;

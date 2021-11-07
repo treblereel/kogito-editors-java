@@ -25,8 +25,6 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
-import org.jboss.errai.ioc.client.container.IOC;
-import org.jboss.errai.ioc.client.container.SyncBeanDef;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.relations.multipleSubform.columns.ColumnGenerator;
 
 @ApplicationScoped
@@ -43,6 +41,8 @@ public class ColumnGeneratorManager {
 
     @PostConstruct
     protected void init() {
+        throw new Error(getClass().getCanonicalName()+".init");
+/*
         Collection<SyncBeanDef<ColumnGenerator>> generatorDefs = IOC.getBeanManager().lookupBeans(ColumnGenerator.class);
         for (SyncBeanDef<ColumnGenerator> generatorDef : generatorDefs) {
             ColumnGenerator generator = generatorDef.getInstance();
@@ -50,7 +50,7 @@ public class ColumnGeneratorManager {
                 generators.put(generator.getType(),
                                generator);
             }
-        }
+        }*/
     }
 
     public ColumnGenerator getGeneratorByType(String type) {

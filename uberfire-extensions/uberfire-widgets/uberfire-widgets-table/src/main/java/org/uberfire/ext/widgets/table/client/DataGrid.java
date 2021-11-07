@@ -16,8 +16,8 @@
 
 package org.uberfire.ext.widgets.table.client;
 
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.view.client.ProvidesKey;
+import org.gwtproject.dom.client.Element;
+import org.gwtproject.view.client.ProvidesKey;
 
 public class DataGrid<T> extends org.gwtbootstrap3.client.ui.gwt.DataGrid<T> {
 
@@ -38,7 +38,10 @@ public class DataGrid<T> extends org.gwtbootstrap3.client.ui.gwt.DataGrid<T> {
         addRedrawHandler(() -> fixTableStyle(this.getElement()));
     }
 
-    public native void fixTableStyle(final Element e) /*-{
+    public void fixTableStyle(final Element e) {
+        throw new Error(getClass().getCanonicalName()+".fixTableStyle");
+
+    }/*-{
         var table = $wnd.jQuery(e).find("table").first();
         table.addClass("table");
         table.css("margin-bottom", "0px");

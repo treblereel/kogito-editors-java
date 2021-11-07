@@ -20,16 +20,16 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.SimplePanel;
+import elemental2.dom.DomGlobal;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.Templated;
+import org.gwtproject.dom.client.Document;
+import org.gwtproject.dom.client.Element;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.SimplePanel;
 import org.gwtbootstrap3.client.ui.Button;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 import org.kie.workbench.common.forms.crud.client.component.formDisplay.IsFormView;
 import org.kie.workbench.common.forms.crud.client.resources.i18n.CrudComponentConstants;
 
@@ -53,17 +53,22 @@ public class EmbeddedFormDisplayerViewImpl extends Composite implements Embedded
 
     private EmbeddedFormDisplayer presenter;
 
-    private TranslationService translationService;
+    //private TranslationService translationService;
 
     @Inject
-    public EmbeddedFormDisplayerViewImpl(TranslationService translationService) {
-        this.translationService = translationService;
+    public EmbeddedFormDisplayerViewImpl(/*TranslationService translationService*/) {
+        //this.translationService = translationService;
     }
 
     @PostConstruct
     protected void initialize() {
-        accept.setText(translationService.getTranslation(CrudComponentConstants.ModalFormDisplayerViewImplAccept));
-        cancel.setText(translationService.getTranslation(CrudComponentConstants.ModalFormDisplayerViewImplCancel));
+        DomGlobal.console.log(getClass().getCanonicalName()+".initialize check it");
+
+        accept.setText("accept");
+        cancel.setText("cancel");
+
+/*        accept.setText(translationService.getTranslation(CrudComponentConstants.ModalFormDisplayerViewImplAccept));
+        cancel.setText(translationService.getTranslation(CrudComponentConstants.ModalFormDisplayerViewImplCancel));*/
     }
 
     @Override

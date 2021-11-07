@@ -16,9 +16,9 @@
 
 package org.uberfire.ext.editor.commons.client.file.popups;
 
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwtmockito.GwtMockitoTestRunner;
-import com.google.gwtmockito.WithClassesToStub;
+import org.gwtproject.user.client.ui.RootPanel;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.WithClassesToStub;
 import elemental2.dom.HTMLElement;
 import org.gwtbootstrap3.client.ui.Modal;
 import org.gwtbootstrap3.client.ui.ModalBody;

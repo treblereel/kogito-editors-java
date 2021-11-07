@@ -20,23 +20,25 @@ import java.io.IOException;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
-import com.google.gwt.text.shared.Renderer;
-import com.google.gwt.user.client.ui.Composite;
+import elemental2.dom.DomGlobal;
+import io.crysknife.ui.databinding.client.api.AutoBound;
+import io.crysknife.ui.databinding.client.api.Bound;
+import io.crysknife.ui.databinding.client.api.DataBinder;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.event.logical.shared.ValueChangeEvent;
+import org.gwtproject.text.shared.Renderer;
+import org.gwtproject.user.client.ui.Composite;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.gwtbootstrap3.client.ui.ValueListBox;
 import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.jboss.errai.databinding.client.api.DataBinder;
-import org.jboss.errai.ui.shared.api.annotations.AutoBound;
-import org.jboss.errai.ui.shared.api.annotations.Bound;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.bpmn.client.StunnerSpecific;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.AssignmentRow;
@@ -62,6 +64,7 @@ import static org.kie.workbench.common.stunner.bpmn.client.forms.util.StringUtil
  * to hold the values.
  */
 @Templated("ActivityDataIOEditorWidget.html#assignment")
+@Dependent
 public class AssignmentListItemWidgetViewImpl extends Composite implements AssignmentListItemWidgetView,
                                                                            ComboBoxView.ModelPresenter {
 
@@ -187,6 +190,9 @@ public class AssignmentListItemWidgetViewImpl extends Composite implements Assig
 
     @PostConstruct
     public void init() {
+
+        DomGlobal.console.warn(getClass().getCanonicalName() + ": databinding is not finished!!!");
+
         name.setRegExp(ALLOWED_CHARS,
                        StunnerFormsClientFieldsConstants.CONSTANTS.Removed_invalid_characters_from_name(),
                        StunnerFormsClientFieldsConstants.CONSTANTS.Invalid_character_in_name());

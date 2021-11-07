@@ -17,7 +17,7 @@
 package org.kie.workbench.common.stunner.bpmn.client.forms.widgets;
 
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
-import com.google.gwt.core.client.GWT;
+import org.gwtproject.core.client.GWT;
 import org.gwtbootstrap3.extras.select.client.ui.Select;
 import org.junit.Before;
 import org.junit.Test;

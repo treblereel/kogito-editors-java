@@ -29,8 +29,8 @@ import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
-import com.google.gwt.logging.client.LogConfiguration;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import elemental2.dom.DomGlobal;
+import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.core.api.DefinitionManager;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvas;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;
@@ -181,11 +181,13 @@ public class ManagedSession
                                callback.execute();
                            },
                            throwable -> {
-                               if (LogConfiguration.loggingIsEnabled()) {
+
+                               DomGlobal.console.log(throwable);
+/*                               if (LogConfiguration.loggingIsEnabled()) {
                                    LOGGER.log(Level.SEVERE,
                                               "An error was produced during StunnerPreferences initialization.",
                                               throwable);
-                               }
+                               }*/
                                throw new RuntimeException(throwable);
                            });
     }

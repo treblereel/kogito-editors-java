@@ -15,13 +15,13 @@
  */
 package org.kie.workbench.common.widgets.client.workitems;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ChangeEvent;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.event.dom.client.ChangeEvent;
+import org.gwtproject.uibinder.client.UiBinder;
+import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.uibinder.client.UiHandler;
+import org.gwtproject.user.client.ui.HTMLPanel;
+import org.gwtproject.user.client.ui.Widget;
 import org.drools.workbench.models.datamodel.workitems.PortableEnumParameterDefinition;
 import org.gwtbootstrap3.client.ui.FormLabel;
 import org.gwtbootstrap3.client.ui.ListBox;
@@ -54,7 +54,7 @@ public class WorkItemEnumParameterWidget extends WorkItemParameterWidget {
         this.parameterValues.setEnabled(!isReadOnly);
 
         boolean isItemSelected = false;
-        String selectedItem = ppd.getValue();
+        String selectedItem = ppd.isValue();
         if (ppd.getValues() != null) {
             for (int index = 0; index < ppd.getValues().length; index++) {
                 String item = ppd.getValues()[index];

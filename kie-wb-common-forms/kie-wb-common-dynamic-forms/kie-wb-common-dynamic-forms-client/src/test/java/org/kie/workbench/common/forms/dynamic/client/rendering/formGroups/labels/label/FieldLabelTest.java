@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.labels.label;
 
-import com.google.gwt.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.IsWidget;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -53,7 +53,7 @@ public class FieldLabelTest {
     public void init() {
         when(fieldDefinition.getLabel()).thenReturn(FIELD_LABEL);
         when(fieldDefinition.getHelpMessage()).thenReturn(FIELD_HELP);
-        when(fieldDefinition.getRequired()).thenReturn(FIELD_REQUIRED);
+        when(fieldDefinition.isRequired()).thenReturn(FIELD_REQUIRED);
 
         fieldLabel = new FieldLabel(view);
 

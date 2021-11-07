@@ -33,6 +33,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.stunner.core.api.DefinitionManager;
 import org.kie.workbench.common.stunner.core.diagram.Diagram;
 import org.kie.workbench.common.stunner.core.graph.Edge;
@@ -264,6 +265,10 @@ public class GraphUtils {
     @SuppressWarnings("unchecked")
     public static <C> Node<Definition<C>, ?> getFirstNode(final Graph<?, Node> graph,
                                                           final Class<?> type) {
+
+        DomGlobal.console.log(" getFirstNode 1 ");
+
+
         if (null != graph) {
             for (final Node node : graph.nodes()) {
                 final Object content = node.getContent();

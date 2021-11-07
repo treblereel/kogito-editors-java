@@ -20,27 +20,28 @@ import java.util.List;
 
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Named;
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.HeadingElement;
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.dom.client.TableCellElement;
-import com.google.gwt.dom.client.TableElement;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.user.client.ui.Composite;
+import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import org.gwtproject.dom.client.Document;
+import org.gwtproject.dom.client.HeadingElement;
+import org.gwtproject.dom.client.TableCellElement;
+import org.gwtproject.dom.client.TableElement;
+import org.gwtproject.dom.style.shared.Display;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.user.client.ui.Composite;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.jboss.errai.ui.client.widget.ListWidget;
-import org.jboss.errai.ui.client.widget.Table;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.editor.ImportsEditorWidgetView;
 import org.kie.workbench.common.stunner.bpmn.definition.property.diagram.imports.DefaultImport;
 
 @Dependent
 @Templated("DefaultImportsEditorWidget.html#widget")
+@Named("DefaultImportsEditorWidgetView")
 public class DefaultImportsEditorWidgetView extends Composite implements ImportsEditorWidgetView<DefaultImport> {
 
     @DataField
@@ -50,10 +51,10 @@ public class DefaultImportsEditorWidgetView extends Composite implements Imports
     protected Button addImportButton;
     @DataField
     protected TableCellElement classNameTableHeader = Document.get().createTHElement();
-    @Inject
-    @DataField
-    @Table(root = "tbody")
-    protected ListWidget<DefaultImport, DefaultImportListItemWidgetView> defaultImports;
+    //@Inject
+    //@DataField
+    //@Table(root = "tbody")
+    protected ListComponent<DefaultImport, ?> defaultImports;
     @DataField
     private HeadingElement tableTitle = Document.get().createHElement(3);
     private Presenter presenter;
@@ -72,11 +73,13 @@ public class DefaultImportsEditorWidgetView extends Composite implements Imports
 
     @Override
     public int getImportsCount() {
-        return defaultImports.getValue().size();
+
+        throw new Error(getClass().getCanonicalName()+".getImportsCount");
+        //return defaultImports.getValue().size();
     }
 
     @Override
-    public void setDisplayStyle(Style.Display displayStyle) {
+    public void setDisplayStyle(Display displayStyle) {
         table.getStyle().setDisplay(displayStyle);
     }
 
@@ -92,7 +95,8 @@ public class DefaultImportsEditorWidgetView extends Composite implements Imports
 
     @Override
     public DefaultImportListItemWidgetView getImportWidget(final int index) {
-        return defaultImports.getComponent(index);
+        throw new Error(getClass().getCanonicalName()+".getVariableWidget");
+       // return defaultImports.getComponent(index);
     }
 
     @EventHandler("addImportButton")

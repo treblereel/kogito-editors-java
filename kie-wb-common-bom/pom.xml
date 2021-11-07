@@ -358,12 +358,12 @@
         <version>${project.version}</version>
       </dependency>
 
-      <dependency>
+<!--      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kie-wb-common-stunner-core-api</artifactId>
         <version>${project.version}</version>
         <classifier>sources</classifier>
-      </dependency>
+      </dependency>-->
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
@@ -531,12 +531,6 @@
         <version>${project.version}</version>
       </dependency>
 
-      <!-- 3rd-party dependencies -->
-      <dependency>
-        <groupId>org.powermock</groupId>
-        <artifactId>powermock-api-mockito2</artifactId>
-        <version>${version.powermock.api.mockito2}</version>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 

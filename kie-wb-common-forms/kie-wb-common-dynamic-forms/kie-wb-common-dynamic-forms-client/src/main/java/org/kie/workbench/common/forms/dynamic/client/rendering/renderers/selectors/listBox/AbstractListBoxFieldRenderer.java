@@ -21,17 +21,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.google.gwt.user.client.ui.HTML;
+import io.crysknife.ui.databinding.client.api.Converter;
+import org.gwtproject.user.client.ui.HTML;
 import org.gwtbootstrap3.client.ui.ValueListBox;
-import org.jboss.errai.databinding.client.api.Converter;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.forms.common.rendering.client.util.valueConverters.ValueConvertersFactory;
 import org.kie.workbench.common.forms.common.rendering.client.widgets.util.DefaultValueListBoxRenderer;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.FormGroup;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.impl.def.DefaultFormGroup;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.RequiresValueConverter;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.selectors.SelectorFieldRenderer;
-import org.kie.workbench.common.forms.dynamic.client.resources.i18n.FormRenderingConstants;
 import org.kie.workbench.common.forms.dynamic.service.shared.RenderMode;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.basic.selectors.SelectorOption;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.basic.selectors.listBox.definition.ListBoxBaseDefinition;
@@ -45,10 +43,10 @@ public abstract class AbstractListBoxFieldRenderer<FIELD extends ListBoxBaseDefi
 
     protected ValueListBox<TYPE> widgetList;
 
-    private final TranslationService translationService;
+    //private final TranslationService translationService;
 
-    public AbstractListBoxFieldRenderer(TranslationService translationService) {
-        this.translationService = translationService;
+    public AbstractListBoxFieldRenderer(/*TranslationService translationService*/) {
+        //this.translationService = translationService;
 
         widgetList = getListWidget();
     }
@@ -91,12 +89,12 @@ public abstract class AbstractListBoxFieldRenderer<FIELD extends ListBoxBaseDefi
                                 TYPE selectedValue) {
         List<TYPE> values = optionsValues.keySet().stream().collect(Collectors.toList());
 
-        if (field.getAddEmptyOption()) {
+        if (field.isAddEmptyOption()) {
             if (!values.contains(null)) {
                 values.add(0,
                            null);
-                optionsValues.put(null,
-                                  translationService.getTranslation(FormRenderingConstants.ListBoxFieldRendererEmptyOptionText));
+                optionsValues.put(null, "emptyOptionText");
+                                 // translationService.getTranslation(FormRenderingConstants.ListBoxFieldRendererEmptyOptionText));
             } else {
                 Collections.swap(values,
                                  values.indexOf(null),

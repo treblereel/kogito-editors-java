@@ -24,8 +24,9 @@ import java.util.Map;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import com.google.gwt.user.client.ui.IsWidget;
+import elemental2.dom.DomGlobal;
 import elemental2.promise.Promise;
+import org.gwtproject.user.client.ui.IsWidget;
 import org.kie.workbench.common.stunner.client.widgets.editor.EditorSessionCommands;
 import org.kie.workbench.common.stunner.client.widgets.editor.StunnerEditor;
 import org.kie.workbench.common.stunner.client.widgets.presenters.session.SessionPresenter;
@@ -60,26 +61,39 @@ import org.uberfire.workbench.model.bridge.NotificationSeverity;
 public class BPMNDiagramEditor {
 
     public static final String EDITOR_ID = "BPMNDiagramEditor";
-
-    private final Promises promises;
-    private final ReadOnlyProvider readOnlyProvider;
-    private final StunnerEditor stunnerEditor;
-    private final ClientTranslationService translationService;
-    private final AbstractKogitoClientDiagramService diagramServices;
-    private final CanvasFileExport canvasFileExport;
-    private final DiagramEditorPreviewAndExplorerDock diagramPreviewAndExplorerDock;
-    private final DiagramEditorPropertiesDock diagramPropertiesDock;
-    private final FormsFlushManager formsFlushManager;
-    private final EditorSessionCommands commands;
-    private CanvasDiagramValidator<AbstractCanvasHandler> validator;
-
     private static final Map<Violation.Type, String> validationSeverityTable = new HashMap<Violation.Type, String>() {{
         put(Violation.Type.INFO, NotificationSeverity.INFO);
         put(Violation.Type.WARNING, NotificationSeverity.WARNING);
         put(Violation.Type.ERROR, NotificationSeverity.ERROR);
     }};
-
     @Inject
+    private Promises promises;
+    @Inject
+    private ReadOnlyProvider readOnlyProvider;
+    @Inject
+    private StunnerEditor stunnerEditor;
+    @Inject
+    private ClientTranslationService translationService;
+    @Inject
+    private AbstractKogitoClientDiagramService diagramServices;
+    @Inject
+    private CanvasFileExport canvasFileExport;
+    @Inject
+    private DiagramEditorPreviewAndExplorerDock diagramPreviewAndExplorerDock;
+    @Inject
+    private DiagramEditorPropertiesDock diagramPropertiesDock;
+    @Inject
+    private FormsFlushManager formsFlushManager;
+    @Inject
+    private EditorSessionCommands commands;
+    @Inject
+    private CanvasDiagramValidator<AbstractCanvasHandler> validator;
+
+    public BPMNDiagramEditor() {
+        DomGlobal.console.log("start BPMNDiagramEditor");
+    }
+
+/*    @Inject
     public BPMNDiagramEditor(Promises promises,
                              ReadOnlyProvider readOnlyProvider,
                              StunnerEditor stunnerEditor,
@@ -102,13 +116,18 @@ public class BPMNDiagramEditor {
         this.formsFlushManager = formsFlushManager;
         this.commands = commands;
         this.validator = validator;
-    }
+    }*/
 
     public void onStartup(final PlaceRequest place) {
         boolean isReadOnly = place.getParameter("readOnly", null) != null;
         isReadOnly |= readOnlyProvider.isReadOnlyDiagram();
         stunnerEditor.setReadOnly(isReadOnly);
         docksInit();
+    }
+
+    void docksInit() {
+        diagramPropertiesDock.init();
+        diagramPreviewAndExplorerDock.init();
     }
 
     public void onOpen() {
@@ -124,6 +143,11 @@ public class BPMNDiagramEditor {
         stunnerEditor.close();
     }
 
+    void docksClose() {
+        diagramPropertiesDock.close();
+        diagramPreviewAndExplorerDock.close();
+    }
+
     public IsWidget asWidget() {
         return stunnerEditor.getView();
     }
@@ -131,6 +155,10 @@ public class BPMNDiagramEditor {
     public Promise<String> getContent() {
         flush();
         return diagramServices.transform(stunnerEditor.getDiagram());
+    }
+
+    private void flush() {
+        formsFlushManager.flush(stunnerEditor.getSession());
     }
 
     public Promise<String> getPreview() {
@@ -173,10 +201,6 @@ public class BPMNDiagramEditor {
 
     private String translateViolationType(Violation.Type violationType) {
         return this.validationSeverityTable.getOrDefault(violationType, NotificationSeverity.INFO);
-    }
-
-    private void flush() {
-        formsFlushManager.flush(stunnerEditor.getSession());
     }
 
     public Promise<Void> setContent(final String path, final String value) {
@@ -222,18 +246,56 @@ public class BPMNDiagramEditor {
         docksOpen();
     }
 
-    void docksInit() {
-        diagramPropertiesDock.init();
-        diagramPreviewAndExplorerDock.init();
-    }
-
     void docksOpen() {
+        DomGlobal.console.log("                    docksOpen ");
         diagramPropertiesDock.open();
         diagramPreviewAndExplorerDock.open();
     }
 
-    void docksClose() {
-        diagramPropertiesDock.close();
-        diagramPreviewAndExplorerDock.close();
+    public String getXML() {
+        flush();
+        return "<xml/>";
+    }
+
+    public Promise setXML(String xml) {
+        DomGlobal.console.log("setXML " + xml);
+        close();
+
+        return promises.create((success, failure) -> {
+
+            DomGlobal.console.log("1");
+            diagramServices.transform("default",
+                                      xml,
+                                      new ServiceCallback<Diagram>() {
+
+                                          @Override
+                                          public void onSuccess(final Diagram diagram) {
+                                              DomGlobal.console.log("onSuccess 1");
+
+                                              stunnerEditor
+                                                      .close()
+                                                      .open(diagram, new SessionPresenter.SessionPresenterCallback() {
+                                                          @Override
+                                                          public void onSuccess() {
+                                                              onDiagramOpenSuccess();
+                                                              success.onInvoke((Void) null);
+                                                          }
+
+                                                          @Override
+                                                          public void onError(ClientRuntimeError error) {
+                                                              failure.onInvoke(error);
+                                                          }
+                                                      });
+                                          }
+
+                                          @Override
+                                          public void onError(final ClientRuntimeError error) {
+                                              DomGlobal.console.log("onError 1 " + error.getMessage());
+
+                                              stunnerEditor.handleError(error);
+                                              failure.onInvoke(error);
+                                          }
+                                      });
+        });
     }
 }

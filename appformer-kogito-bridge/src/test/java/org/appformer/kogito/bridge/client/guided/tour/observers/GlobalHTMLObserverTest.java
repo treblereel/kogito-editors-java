@@ -18,7 +18,7 @@ package org.appformer.kogito.bridge.client.guided.tour.observers;
 
 import java.util.List;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import elemental2.dom.Attr;
 import elemental2.dom.DOMTokenList;
 import elemental2.dom.Event;
@@ -36,7 +36,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
 
-import static com.google.gwt.dom.client.BrowserEvents.CLICK;
+import static org.gwtproject.dom.client.BrowserEvents.CLICK;
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.doReturn;

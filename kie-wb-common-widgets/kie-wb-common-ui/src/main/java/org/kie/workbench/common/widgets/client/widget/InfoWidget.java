@@ -15,14 +15,14 @@
  */
 package org.kie.workbench.common.widgets.client.widget;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.RequiresResize;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.uibinder.client.UiBinder;
+import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.HTMLPanel;
+import org.gwtproject.user.client.ui.Label;
+import org.gwtproject.user.client.ui.RequiresResize;
+import org.gwtproject.user.client.ui.Widget;
 
 public class InfoWidget extends Composite implements RequiresResize {
 
@@ -32,7 +32,7 @@ public class InfoWidget extends Composite implements RequiresResize {
 
     }
 
-    private static NoSuchFileWidgetBinder uiBinder = GWT.create(NoSuchFileWidgetBinder.class);
+    private static NoSuchFileWidgetBinder uiBinder = null;
 
     @UiField
     HTMLPanel container;

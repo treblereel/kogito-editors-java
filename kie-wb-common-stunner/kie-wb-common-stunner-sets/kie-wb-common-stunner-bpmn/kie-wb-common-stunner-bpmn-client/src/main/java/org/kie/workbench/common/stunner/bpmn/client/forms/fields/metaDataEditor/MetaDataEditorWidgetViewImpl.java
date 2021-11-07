@@ -22,23 +22,23 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.dom.client.TableCellElement;
-import com.google.gwt.dom.client.TableElement;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
-import com.google.gwt.event.logical.shared.ValueChangeHandler;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HasValue;
+import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import org.gwtproject.dom.client.Document;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.dom.client.TableCellElement;
+import org.gwtproject.dom.client.TableElement;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.event.logical.shared.ValueChangeEvent;
+import org.gwtproject.event.logical.shared.ValueChangeHandler;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.HasValue;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.jboss.errai.ui.client.widget.ListWidget;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.jboss.errai.ui.client.widget.Table;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.MetaDataRow;
 import org.uberfire.workbench.events.NotificationEvent;
 
@@ -67,10 +67,10 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     private boolean notInitialized = true;
 
-    @Inject
-    @DataField
-    @Table(root = "tbody")
-    protected ListWidget<MetaDataRow, MetaDataListItemWidgetViewImpl> metaDataRows;
+    //@Inject
+    //@DataField
+    //@Table(root = "tbody")
+    protected ListComponent<MetaDataRow, ?> metaDataRows;
 
     @Inject
     protected Event<NotificationEvent> notification;
@@ -152,7 +152,9 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     @Override
     public int getMetaDataRowsCount() {
-        return metaDataRows.getValue().size();
+        throw new Error(getClass().getCanonicalName()+".getMetaDataRowsCount");
+
+        //return metaDataRows.getValue().size();
     }
 
     @Override
@@ -167,21 +169,27 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     @Override
     public void setMetaDataRows(final List<MetaDataRow> rows) {
+        throw new Error(getClass().getCanonicalName()+".getMetaDataWidget");
+/*
         metaDataRows.setValue(rows);
         for (int i = 0; i < getMetaDataRowsCount(); i++) {
             MetaDataListItemWidgetView widget = getMetaDataWidget(i);
             widget.setParentWidget(presenter);
-        }
+        }*/
     }
 
     @Override
     public List<MetaDataRow> getMetaDataRows() {
-        return metaDataRows.getValue();
+        throw new Error(getClass().getCanonicalName()+".getMetaDataRows");
+
+        //return metaDataRows.getValue();
     }
 
     @Override
     public MetaDataListItemWidgetView getMetaDataWidget(final int index) {
-        return metaDataRows.getComponent(index);
+        throw new Error(getClass().getCanonicalName()+".getMetaDataWidget");
+
+        //return metaDataRows.getComponent(index);
     }
 
     @EventHandler("addButton")

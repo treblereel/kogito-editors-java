@@ -18,10 +18,10 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.serviceEditor;
 
 import java.util.List;
 
-import com.google.gwt.event.logical.shared.ValueChangeHandler;
-import com.google.gwtmockito.GwtMock;
-import com.google.gwtmockito.GwtMockitoTestRunner;
-import com.google.gwtmockito.WithClassesToStub;
+import org.gwtproject.event.logical.shared.ValueChangeHandler;
+import org.gwtprojectmockito.GwtMock;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.WithClassesToStub;
 import org.jboss.errai.common.client.dom.Event;
 import org.jboss.errai.common.client.dom.Option;
 import org.jboss.errai.common.client.dom.OptionsCollection;

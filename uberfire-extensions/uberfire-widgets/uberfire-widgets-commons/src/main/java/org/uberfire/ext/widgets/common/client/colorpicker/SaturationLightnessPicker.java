@@ -15,21 +15,20 @@
  */
 package org.uberfire.ext.widgets.common.client.colorpicker;
 
-import com.google.gwt.core.client.JsArrayInteger;
-import com.google.gwt.event.dom.client.MouseDownEvent;
-import com.google.gwt.event.dom.client.MouseDownHandler;
-import com.google.gwt.event.dom.client.MouseMoveEvent;
-import com.google.gwt.event.dom.client.MouseMoveHandler;
-import com.google.gwt.event.dom.client.MouseOutEvent;
-import com.google.gwt.event.dom.client.MouseOutHandler;
-import com.google.gwt.event.dom.client.MouseUpEvent;
-import com.google.gwt.event.dom.client.MouseUpHandler;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.ui.Composite;
+import elemental2.core.Uint8ClampedArray;
+import elemental2.dom.CanvasRenderingContext2D;
+import jsinterop.base.Js;
+import org.gwtproject.event.dom.client.MouseDownEvent;
+import org.gwtproject.event.dom.client.MouseDownHandler;
+import org.gwtproject.event.dom.client.MouseMoveEvent;
+import org.gwtproject.event.dom.client.MouseMoveHandler;
+import org.gwtproject.event.dom.client.MouseOutEvent;
+import org.gwtproject.event.dom.client.MouseOutHandler;
+import org.gwtproject.event.dom.client.MouseUpEvent;
+import org.gwtproject.event.dom.client.MouseUpHandler;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.user.client.ui.Composite;
 import org.uberfire.ext.widgets.common.client.colorpicker.canvas.Canvas;
-import org.uberfire.ext.widgets.common.client.colorpicker.canvas.Gradient;
-import org.uberfire.ext.widgets.common.client.colorpicker.canvas.ImageData;
-import org.uberfire.ext.widgets.common.client.colorpicker.canvas.RenderingContext;
 
 public class SaturationLightnessPicker extends Composite {
 
@@ -91,14 +90,14 @@ public class SaturationLightnessPicker extends Composite {
     }
 
     private void drawGradient(boolean drawHandle) {
-        RenderingContext ctx = canvas.getContext();
+        CanvasRenderingContext2D ctx = canvas.getContext();
 
         // draw gradient
         for (int x = 0; x <= 179; x++) {
-            Gradient grad = ctx.createLinearGradient(x,
-                                                     0,
+            elemental2.dom.CanvasGradient grad = ctx.createLinearGradient(x,
+                                                     0d,
                                                      x,
-                                                     179);
+                                                     179d);
             int s = Math.round(x * 100 / 179);
             String hex = ColorUtils.hsl2hex(hue,
                                             s,
@@ -110,7 +109,8 @@ public class SaturationLightnessPicker extends Composite {
                                      100);
             grad.addColorStop(1,
                               "#" + hex);
-            ctx.setFillStyle(grad);
+            ctx.fillStyle = Js.uncheckedCast(grad);
+            //ctx.setFillStyle(grad);
             ctx.fillRect(x,
                          0,
                          1,
@@ -127,7 +127,9 @@ public class SaturationLightnessPicker extends Composite {
                     Math.PI * 2,
                     false);
             ctx.closePath();
-            ctx.setFillStyle("#ffffff");
+            ctx.fillStyle = Js.uncheckedCast("#ffffff");
+
+            //ctx.setFillStyle("#ffffff");
             ctx.fill();
 
             ctx.beginPath();
@@ -138,7 +140,9 @@ public class SaturationLightnessPicker extends Composite {
                     Math.PI * 2,
                     false);
             ctx.closePath();
-            ctx.setFillStyle("#000000");
+            ctx.fillStyle = Js.uncheckedCast("#000000");
+
+            //ctx.setFillStyle("#000000");
             ctx.fill();
         }
     }
@@ -160,15 +164,15 @@ public class SaturationLightnessPicker extends Composite {
         y = Math.max(Math.min(y,
                               179),
                      0);
-        RenderingContext ctx = canvas.getContext();
-        ImageData imageData = ctx.getImageData(x,
+        CanvasRenderingContext2D ctx = canvas.getContext();
+        elemental2.dom.ImageData imageData = ctx.getImageData(x,
                                                y,
                                                1,
                                                1);
-        JsArrayInteger data = imageData.getData();
-        return ColorUtils.rgb2hex(data.get(0),
-                                  data.get(1),
-                                  data.get(2));
+        Uint8ClampedArray data = imageData.data;
+        return ColorUtils.rgb2hex(data.getAt(0).intValue(),
+                                  data.getAt(1).intValue(),
+                                  data.getAt(2).intValue());
     }
 
     public void setHue(int hue) {

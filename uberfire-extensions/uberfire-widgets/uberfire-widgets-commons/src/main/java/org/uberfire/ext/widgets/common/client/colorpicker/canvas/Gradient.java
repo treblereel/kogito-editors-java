@@ -15,15 +15,19 @@
  */
 package org.uberfire.ext.widgets.common.client.colorpicker.canvas;
 
-import com.google.gwt.core.client.JavaScriptObject;
+import jsinterop.annotations.JsConstructor;
+import org.gwtproject.core.client.JavaScriptObject;
 
 public class Gradient extends JavaScriptObject {
 
+    @JsConstructor
     protected Gradient() {
     }
 
-    public final native void addColorStop(int offset,
-                                          String color) /*-{
+    public final void addColorStop(int offset,
+                                          String color) {
+        throw new Error(getClass().getCanonicalName() + ".addColorStop");
+    }/*-{
         this.addColorStop(offset, color);
     }-*/;
 }

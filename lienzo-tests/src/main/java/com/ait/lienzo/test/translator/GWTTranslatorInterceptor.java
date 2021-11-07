@@ -16,7 +16,7 @@
 
 package com.ait.lienzo.test.translator;
 
-import com.google.gwt.core.client.GWT;
+import org.gwtproject.core.client.GWT;
 import javassist.CannotCompileException;
 import javassist.ClassPool;
 import javassist.CtClass;
@@ -24,7 +24,7 @@ import javassist.CtMethod;
 import javassist.NotFoundException;
 
 /**
- * Translator interceptor for changing some behaviors on <code>com.google.gwt.core.client.GWT</code>.
+ * Translator interceptor for changing some behaviors on <code>org.gwtproject.core.client.GWT</code>.
  *
  * @author Roger Martinez
  * @since 1.0

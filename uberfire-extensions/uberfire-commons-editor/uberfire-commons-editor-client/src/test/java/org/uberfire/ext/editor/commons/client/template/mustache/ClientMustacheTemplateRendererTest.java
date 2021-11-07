@@ -18,9 +18,9 @@ package org.uberfire.ext.editor.commons.client.template.mustache;
 
 import java.util.function.Function;
 
-import com.google.gwt.core.client.ScriptInjector;
-import com.google.gwt.resources.client.TextResource;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.core.client.ScriptInjector;
+import org.gwtproject.resources.client.TextResource;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

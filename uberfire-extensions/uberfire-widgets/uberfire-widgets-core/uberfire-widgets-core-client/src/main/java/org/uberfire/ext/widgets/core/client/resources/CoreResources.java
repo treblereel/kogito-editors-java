@@ -15,14 +15,13 @@
  */
 package org.uberfire.ext.widgets.core.client.resources;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.resources.client.ClientBundle;
+import org.gwtproject.resources.client.ClientBundle;
 
 public interface CoreResources
         extends
         ClientBundle {
 
-    CoreResources INSTANCE = GWT.create(CoreResources.class);
+    CoreResources INSTANCE = null;
 
     CoreImages images();
 }

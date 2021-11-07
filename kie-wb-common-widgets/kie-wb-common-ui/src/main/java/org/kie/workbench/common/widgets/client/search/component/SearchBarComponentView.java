@@ -20,18 +20,18 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.KeyUpEvent;
+import elemental2.dom.Event;
+import elemental2.dom.KeyboardEvent;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 
-import static com.google.gwt.event.dom.client.KeyCodes.KEY_ENTER;
-import static com.google.gwt.event.dom.client.KeyCodes.KEY_ESCAPE;
+import static org.gwtproject.event.dom.client.KeyCodes.KEY_ENTER;
+import static org.gwtproject.event.dom.client.KeyCodes.KEY_ESCAPE;
 import static org.kie.workbench.common.widgets.client.resources.i18n.KieWorkbenchWidgetsConstants.SearchBarComponentView_Find;
 
 @Templated
@@ -64,7 +64,6 @@ public class SearchBarComponentView implements SearchBarComponent.View {
     @DataField("total-of-results")
     private final HTMLElement totalOfResults;
 
-    private final TranslationService translationService;
 
     private SearchBarComponent<?> presenter;
 
@@ -75,7 +74,7 @@ public class SearchBarComponentView implements SearchBarComponent.View {
                                   final HTMLButtonElement nextElement,
                                   final HTMLButtonElement closeSearch,
                                   final HTMLInputElement inputElement,
-                                  final TranslationService translationService,
+                                  //final TranslationService translationService,
                                   final @Named("span") HTMLElement currentResult,
                                   final @Named("span") HTMLElement totalOfResults) {
         this.searchButton = searchButton;
@@ -84,7 +83,7 @@ public class SearchBarComponentView implements SearchBarComponent.View {
         this.nextElement = nextElement;
         this.closeSearch = closeSearch;
         this.inputElement = inputElement;
-        this.translationService = translationService;
+        //this.translationService = translationService;
         this.currentResult = currentResult;
         this.totalOfResults = totalOfResults;
     }
@@ -93,42 +92,42 @@ public class SearchBarComponentView implements SearchBarComponent.View {
     public void init(final SearchBarComponent searchBarComponent) {
 
         presenter = searchBarComponent;
-        inputElement.placeholder = translationService.format(SearchBarComponentView_Find);
+        inputElement.placeholder = SearchBarComponentView_Find;
 
         disableSearch();
     }
 
     @EventHandler("search-button")
-    public void onSearchButtonClick(final ClickEvent clickEvent) {
+    public void onSearchButtonClick(@ForEvent("click") final Event clickEvent) {
         toggle();
         clickEvent.preventDefault();
         clickEvent.stopPropagation();
     }
 
     @EventHandler("next-element")
-    public void onNextElementClick(final ClickEvent clickEvent) {
+    public void onNextElementClick(@ForEvent("click") final Event clickEvent) {
         presenter.nextResult();
         clickEvent.preventDefault();
         clickEvent.stopPropagation();
     }
 
     @EventHandler("prev-element")
-    public void onPrevElementClick(final ClickEvent clickEvent) {
+    public void onPrevElementClick(@ForEvent("click") final Event clickEvent) {
         presenter.previousResult();
         clickEvent.preventDefault();
         clickEvent.stopPropagation();
     }
 
     @EventHandler("close-search")
-    public void onCloseSearchClick(final ClickEvent clickEvent) {
+    public void onCloseSearchClick(@ForEvent("click") final Event clickEvent) {
         disableSearch();
         clickEvent.preventDefault();
         clickEvent.stopPropagation();
     }
 
     @EventHandler("search-input")
-    public void onSearchInputKeyPress(final KeyUpEvent keyEvent) {
-        final int keyCode = keyEvent.getNativeKeyCode();
+    public void onSearchInputKeyPress(@ForEvent("keyup") final KeyboardEvent keyEvent) {
+        final int keyCode = Integer.parseInt(keyEvent.code);
         switch (keyCode) {
             case KEY_ENTER:
                 search(inputElement.value);

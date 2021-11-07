@@ -16,9 +16,8 @@
 
 package org.uberfire.ext.widgets.table.client.resources;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.resources.client.ClientBundle;
-import com.google.gwt.resources.client.ImageResource;
+import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.ImageResource;
 import org.uberfire.ext.widgets.table.client.UberfireSimplePager;
 
 /**
@@ -28,7 +27,7 @@ public interface UberfireSimplePagerResources
         extends
         ClientBundle {
 
-    UberfireSimplePagerResources INSTANCE = GWT.create(UberfireSimplePagerResources.class);
+    UberfireSimplePagerResources INSTANCE = new UberfireSimplePagerResources_default_InlineClientBundleGenerator();
 
     /**
      * The image used to skip ahead multiple pages.

@@ -16,13 +16,13 @@
 
 package org.kie.workbench.common.stunner.client.widgets.marshaller;
 
-import com.google.gwt.cell.client.Cell;
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
-import com.google.gwt.user.cellview.client.Column;
-import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.gwt.view.client.ListDataProvider;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.cell.client.Cell;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.safehtml.shared.SafeHtmlBuilder;
+import org.gwtproject.user.cellview.client.Column;
+import org.gwtproject.user.client.ui.HasWidgets;
+import org.gwtproject.view.client.ListDataProvider;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLTextAreaElement;
 import org.jboss.errai.common.client.ui.ElementWrapperWidget;

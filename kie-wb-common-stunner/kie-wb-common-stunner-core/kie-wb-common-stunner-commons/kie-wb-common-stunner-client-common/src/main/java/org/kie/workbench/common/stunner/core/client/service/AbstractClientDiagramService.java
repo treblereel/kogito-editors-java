@@ -37,14 +37,14 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
 
     private final ShapeManager shapeManager;
     protected final SessionManager sessionManager;
-    protected final Caller<S> diagramServiceCaller;
-    protected final Caller<DiagramLookupService> diagramLookupServiceCaller;
+    protected final S diagramServiceCaller;
+    protected final DiagramLookupService diagramLookupServiceCaller;
     private final Event<SessionDiagramSavedEvent> saveEvent;
 
     public AbstractClientDiagramService(final ShapeManager shapeManager,
                                         final SessionManager sessionManager,
-                                        final Caller<S> diagramServiceCaller,
-                                        final Caller<DiagramLookupService> diagramLookupServiceCaller,
+                                        final S diagramServiceCaller,
+                                        final DiagramLookupService diagramLookupServiceCaller,
                                         final Event<SessionDiagramSavedEvent> saveEvent) {
         this.shapeManager = shapeManager;
         this.sessionManager = sessionManager;
@@ -58,20 +58,25 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
                        final String name,
                        final String defSetId,
                        final ServiceCallback<Path> callback) {
-        diagramServiceCaller.call(p -> callback.onSuccess(path),
+        diagramServiceCaller.create(path,
+                                    name,
+                                    defSetId);
+
+/*        diagramServiceCaller.call(p -> callback.onSuccess(path),
                                   (message, throwable) -> {
                                       callback.onError(new ClientRuntimeError(throwable));
                                       return false;
                                   }).create(path,
                                             name,
-                                            defSetId);
+                                            defSetId);*/
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public void saveOrUpdate(final D diagram,
                              final ServiceCallback<D> callback) {
-        diagramServiceCaller.call(serverMetadata -> {
+        diagramServiceCaller.saveOrUpdate(diagram);
+/*        diagramServiceCaller.call(serverMetadata -> {
                                       updateClientMetadata(diagram);
                                       diagram.getMetadata().setPath(((M) serverMetadata).getPath());
                                       callback.onSuccess(diagram);
@@ -80,12 +85,13 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
                                   (message, throwable) -> {
                                       callback.onError(new ClientRuntimeError(throwable));
                                       return false;
-                                  }).saveOrUpdate(diagram);
+                                  }).saveOrUpdate(diagram);*/
     }
 
     @Override
     public void saveOrUpdateSvg(Path diagramPath, String rawSvg, ServiceCallback<Path> callback) {
-        diagramServiceCaller.call(res -> callback.onSuccess((Path) res)).saveOrUpdateSvg(diagramPath, rawSvg);
+        diagramServiceCaller.saveOrUpdateSvg(diagramPath, rawSvg);
+        //diagramServiceCaller.call(res -> callback.onSuccess((Path) res)).saveOrUpdateSvg(diagramPath, rawSvg);
     }
 
     protected void fireSavedEvent(final ClientSession session) {
@@ -95,52 +101,60 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     @Override
     public void add(final D diagram,
                     final ServiceCallback<D> callback) {
-        diagramServiceCaller.call(v -> {
+        diagramServiceCaller.saveOrUpdate(diagram);
+
+/*        diagramServiceCaller.call(v -> {
                                       updateClientMetadata(diagram);
                                       callback.onSuccess(diagram);
                                   },
                                   (message, throwable) -> {
                                       callback.onError(new ClientRuntimeError(throwable));
                                       return false;
-                                  }).saveOrUpdate(diagram);
+                                  }).saveOrUpdate(diagram);*/
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public void getByPath(final Path path,
                           final ServiceCallback<D> callback) {
-        diagramServiceCaller.call(diagram -> {
+        diagramServiceCaller.getDiagramByPath(path);
+
+/*        diagramServiceCaller.call(diagram -> {
                                       updateClientMetadata((D) diagram);
                                       callback.onSuccess((D) diagram);
                                   },
                                   (message, throwable) -> {
                                       callback.onError(new ClientRuntimeError(throwable));
                                       return false;
-                                  }).getDiagramByPath(path);
+                                  }).getDiagramByPath(path);*/
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public void lookup(final DiagramLookupRequest request,
                        final ServiceCallback<LookupManager.LookupResponse<DiagramRepresentation>> callback) {
-        diagramLookupServiceCaller.call(response -> callback.onSuccess((LookupManager.LookupResponse<DiagramRepresentation>) response),
+        diagramLookupServiceCaller.lookup(request);
+
+/*        diagramLookupServiceCaller.call(response -> callback.onSuccess((LookupManager.LookupResponse<DiagramRepresentation>) response),
                                         (message, throwable) -> {
                                             callback.onError(new ClientRuntimeError(throwable));
                                             return false;
-                                        }).lookup(request);
+                                        }).lookup(request);*/
     }
 
     @Override
     public void getRawContent(final D diagram,
                               final ServiceCallback<String> callback) {
-        diagramServiceCaller.call(rawContent -> {
+        diagramServiceCaller.getRawContent(diagram);
+
+/*        diagramServiceCaller.call(rawContent -> {
                                       callback.onSuccess((String) rawContent);
                                   },
                                   (message, throwable) -> {
                                       callback.onError(new ClientRuntimeError(throwable));
                                       return false;
                                   }
-        ).getRawContent(diagram);
+        ).getRawContent(diagram);*/
     }
 
     protected void updateClientMetadata(final D diagram) {

@@ -443,6 +443,8 @@ public class MainProcessor extends AbstractErrorAbsorbingProcessor {
             processingContext.getDefinitionAnnotations().getGraphFactory().put(defintionClassName,
                                                                                fqcn);
 
+            System.out.println(getClass().getCanonicalName() + "step 1");
+
             // Properties fields.
             Map<String, VariableElement> propertyFields = visitVariables("",
                                                                          classElement,
@@ -468,6 +470,9 @@ public class MainProcessor extends AbstractErrorAbsorbingProcessor {
                     defMetaTypes.setIndex(propertyMetaType, index);
                 }
             });
+
+            System.out.println(getClass().getCanonicalName() + "step 2");
+
             processingContext.getDefinitionAnnotations().getPropertyFieldNames().put(defintionClassName, propertyFieldNames);
             processingContext.getDefinitionAnnotations().getTypedPropertyFields().put(defintionClassName, typedPropertyFields);
             processingContext.getMetaPropertyTypesFields().put(defintionClassName, defMetaTypes);
@@ -523,6 +528,8 @@ public class MainProcessor extends AbstractErrorAbsorbingProcessor {
                 if (null == morphBaseTypeMirror) {
                     throw new RuntimeException("No base type class declared for the @MorphBase.");
                 }
+                System.out.println(getClass().getCanonicalName() + "step 3");
+
                 String morphBaseTypeClassName = morphBaseTypeMirror.toString();
                 Set<String> currentTargets = processingContext.getMorphingAnnotations().getBaseTargets().computeIfAbsent(morphBaseTypeClassName, k -> new LinkedHashSet<>());
                 currentTargets.add(defintionClassName);

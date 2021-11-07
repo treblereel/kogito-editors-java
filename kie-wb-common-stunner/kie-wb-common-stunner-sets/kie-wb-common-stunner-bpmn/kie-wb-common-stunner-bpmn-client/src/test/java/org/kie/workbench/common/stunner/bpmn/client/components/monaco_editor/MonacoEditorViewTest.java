@@ -16,8 +16,8 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.components.monaco_editor;
 
-import com.google.gwt.dom.client.NativeEvent;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.dom.client.NativeEvent;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.jboss.errai.common.client.dom.CSSStyleDeclaration;
 import org.jboss.errai.common.client.dom.DOMClientRect;
 import org.jboss.errai.common.client.dom.Div;

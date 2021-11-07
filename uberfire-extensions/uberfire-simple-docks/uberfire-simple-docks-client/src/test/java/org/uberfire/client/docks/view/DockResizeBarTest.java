@@ -16,8 +16,8 @@
 
 package org.uberfire.client.docks.view;
 
-import com.google.gwt.user.client.Element;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.user.client.Element;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

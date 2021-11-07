@@ -16,10 +16,10 @@
 
 package org.kie.workbench.common.stunner.client.widgets.inlineeditor;
 
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.user.client.Event;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.core.client.Scheduler;
+import org.gwtproject.event.dom.client.KeyCodes;
+import org.gwtproject.user.client.Event;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.jboss.errai.common.client.dom.CSSStyleDeclaration;
 import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.ui.client.local.spi.TranslationService;

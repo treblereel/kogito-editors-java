@@ -15,11 +15,8 @@
  */
 package org.kie.workbench.common.kogito.api;
 
-import org.jboss.errai.ioc.client.api.EntryPoint;
-import org.jboss.errai.ui.shared.api.annotations.Bundle;
-
-@EntryPoint
-@Bundle("resources/i18n/KogitoAPIConstants.properties")
+//@EntryPoint
+//@Bundle("resources/i18n/KogitoAPIConstants.properties")
 public class KogitoAPIEntryPoint {
 
 }

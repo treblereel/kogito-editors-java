@@ -40,15 +40,15 @@ public class StaticFormHandlerGenerator implements FormHandlerGenerator<FormRend
     protected FieldStateValidator fieldStateValidator;
 
     @Inject
-    public StaticFormHandlerGenerator(Validator validator,
+    public StaticFormHandlerGenerator(//Validator validator,
                                       FieldStateValidator fieldStateValidator) {
-        this.validator = validator;
+        //this.validator = validator;
         this.fieldStateValidator = fieldStateValidator;
     }
 
     @Override
     public FormHandler generateFormHandler(FormRenderingContext context) {
-        FormValidator formValidator = new FormValidatorImpl(new DefaultModelValidator(validator),
+        FormValidator formValidator = new FormValidatorImpl(new DefaultModelValidator(),
                                                             fieldStateValidator);
 
         FormHandler handler = new FormHandlerImpl(formValidator,

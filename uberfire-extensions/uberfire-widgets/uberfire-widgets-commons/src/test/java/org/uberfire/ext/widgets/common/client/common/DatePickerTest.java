@@ -18,8 +18,8 @@ package org.uberfire.ext.widgets.common.client.common;
 
 import java.util.Date;
 
-import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.i18n.client.DateTimeFormat;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.gwtbootstrap3.extras.datepicker.client.ui.base.constants.DatePickerLanguage;
 import org.junit.Before;

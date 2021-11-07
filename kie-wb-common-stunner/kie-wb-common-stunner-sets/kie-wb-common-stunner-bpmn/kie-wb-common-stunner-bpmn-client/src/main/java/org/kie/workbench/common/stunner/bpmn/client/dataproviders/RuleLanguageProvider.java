@@ -25,7 +25,6 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.forms.dynamic.model.config.SelectorData;
 import org.kie.workbench.common.forms.dynamic.model.config.SelectorDataProvider;
 import org.kie.workbench.common.forms.dynamic.service.shared.FormRenderingContext;
@@ -61,13 +60,6 @@ public class RuleLanguageProvider implements SelectorDataProvider {
 
     private static Map<Object, Integer> valuePosition;
 
-    private final TranslationService translationService;
-
-    @Inject
-    public RuleLanguageProvider(final TranslationService translationService) {
-        this.translationService = translationService;
-    }
-
     @PostConstruct
     protected void init() {
         valuePosition = new HashMap<>();
@@ -91,7 +83,7 @@ public class RuleLanguageProvider implements SelectorDataProvider {
         Arrays.stream(LANGUAGE.values())
                 .forEach(ruleLanguage ->
                                  values.put(ruleLanguage.value(),
-                                            translationService.getTranslation(ruleLanguage.i18nKey())));
+                                            ruleLanguage.i18nKey()));
 
         return new SelectorData(values, LANGUAGE.DRL.value());
     }

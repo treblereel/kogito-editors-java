@@ -35,16 +35,8 @@ import org.kie.workbench.common.stunner.core.util.DefinitionUtils;
 public class NodeFactoryImpl extends AbstractElementFactory<Object, Definition<Object>, Node<Definition<Object>, Edge>>
         implements NodeFactory<Object> {
 
-    private final DefinitionUtils definitionUtils;
-
-    protected NodeFactoryImpl() {
-        this(null);
-    }
-
     @Inject
-    public NodeFactoryImpl(final DefinitionUtils definitionUtils) {
-        this.definitionUtils = definitionUtils;
-    }
+    private DefinitionUtils definitionUtils;
 
     @Override
     public Class<? extends ElementFactory> getFactoryType() {

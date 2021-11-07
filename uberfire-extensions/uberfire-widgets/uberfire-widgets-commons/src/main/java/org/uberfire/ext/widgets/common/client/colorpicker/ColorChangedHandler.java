@@ -15,7 +15,7 @@
  */
 package org.uberfire.ext.widgets.common.client.colorpicker;
 
-import com.google.gwt.event.shared.EventHandler;
+import org.gwtproject.event.legacy.shared.EventHandler;
 
 public interface ColorChangedHandler extends EventHandler {
 

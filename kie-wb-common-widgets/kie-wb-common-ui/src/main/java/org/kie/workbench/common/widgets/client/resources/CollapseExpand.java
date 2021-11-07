@@ -15,15 +15,15 @@
  */
 package org.kie.workbench.common.widgets.client.resources;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.resources.client.ClientBundle;
-import com.google.gwt.resources.client.ImageResource;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.ImageResource;
 
 public interface CollapseExpand
         extends
         ClientBundle {
 
-    public static final CollapseExpand INSTANCE = GWT.create( CollapseExpand.class );
+    public static final CollapseExpand INSTANCE = null;
 
     @Source("images/collapse_expand/collapse.gif")
     ImageResource collapse();

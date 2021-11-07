@@ -20,7 +20,7 @@ import java.util.Collections;
 
 import com.ait.lienzo.client.core.shape.IPathClipper;
 import com.ait.lienzo.client.core.types.BoundingBox;
-import com.google.gwtmockito.WithClassesToStub;
+import org.gwtprojectmockito.WithClassesToStub;
 import org.gwtbootstrap3.client.ui.html.Text;
 import org.uberfire.ext.wires.core.grids.client.model.GridColumn;
 import org.uberfire.ext.wires.core.grids.client.widget.grid.columns.RowNumberColumn;

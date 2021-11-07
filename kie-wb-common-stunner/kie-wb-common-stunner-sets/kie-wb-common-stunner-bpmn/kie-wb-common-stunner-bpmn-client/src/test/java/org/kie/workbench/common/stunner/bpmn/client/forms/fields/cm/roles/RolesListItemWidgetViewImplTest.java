@@ -17,7 +17,7 @@
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.cm.roles;
 
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
-import com.google.gwt.event.dom.client.ChangeHandler;
+import org.gwtproject.event.dom.client.ChangeHandler;
 import elemental2.dom.HTMLTableRowElement;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;

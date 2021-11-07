@@ -16,28 +16,51 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.comboBoxEditor;
 
-import javax.annotation.PostConstruct;
+import java.io.IOException;
 
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
+
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
+import org.gwtbootstrap3.client.ui.TextBox;
+import org.gwtbootstrap3.client.ui.ValueListBox;
+import org.gwtproject.event.logical.shared.ValueChangeEvent;
+import org.gwtproject.event.logical.shared.ValueChangeHandler;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.text.shared.Renderer;
+import org.gwtproject.user.client.ui.Composite;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.comboBoxEditor.annotation.FixedValues;
 import org.kie.workbench.common.stunner.bpmn.client.forms.util.ListBoxValues;
+import org.kie.workbench.common.stunner.bpmn.client.forms.widgets.ComboBox;
 
 /**
  * Combobox with fixed list of values, it doesn't allow custom values to be inserted.
  */
 @FixedValues
-@Templated("ComboBoxWidget.html")
-public class ComboBoxFixedValuesWidgetViewImpl extends ComboBoxWidgetViewImpl implements ComboBoxFixedValuesWidgetView {
+//@Templated("ComboBoxWidget.html")
+@Dependent
+public class ComboBoxFixedValuesWidgetViewImpl extends Composite implements ComboBoxFixedValuesWidgetView {
 
-    @PostConstruct
-    public void init() {
-        super.init();
-        //Do not allow custom values to be inserted on the combobox
-        valueComboBox.setShowCustomValues(false);
+    @Override
+    public void setComboBoxValues(ListBoxValues valueListBoxValues) {
+        throw new Error(getClass().getCanonicalName()+".setComboBoxValues see ComboBoxWidgetViewImpl");
     }
 
     @Override
-    public void setComboBoxValues(final ListBoxValues valueListBoxValues) {
-        valueComboBox.setListBoxValues(valueListBoxValues);
+    public void setValue(String value) {
+        throw new Error(getClass().getCanonicalName()+".setValue see ComboBoxWidgetViewImpl");
+
+    }
+
+    @Override
+    public String getValue() {
+        throw new Error(getClass().getCanonicalName()+".getValue see ComboBoxWidgetViewImpl");
+    }
+
+    @Override
+    public void setReadOnly(boolean readOnly) {
+
     }
 }

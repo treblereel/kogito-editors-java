@@ -20,7 +20,9 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
+import javax.inject.Named;
 
+import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.bpmn.qualifiers.BPMN;
 import org.kie.workbench.common.stunner.core.client.canvas.controls.keyboard.shortcut.KeyboardShortcut;
 import org.kie.workbench.common.stunner.kogito.client.session.KogitoAbstractCanvasShortcutsControlImpl;
@@ -31,7 +33,7 @@ import org.kie.workbench.common.stunner.kogito.client.session.KogitoAbstractCanv
 public class KogitoBPMNCanvasShortcutsControlImpl extends KogitoAbstractCanvasShortcutsControlImpl {
 
     @Inject
-    public KogitoBPMNCanvasShortcutsControlImpl(final @BPMN Instance<KeyboardShortcut> implementedActions) {
+    public KogitoBPMNCanvasShortcutsControlImpl(final @BPMN ManagedInstance<KeyboardShortcut> implementedActions) {
         super(implementedActions);
     }
 }

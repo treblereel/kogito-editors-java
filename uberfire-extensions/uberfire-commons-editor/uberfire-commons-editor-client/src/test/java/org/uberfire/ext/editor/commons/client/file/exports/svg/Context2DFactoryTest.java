@@ -16,7 +16,7 @@
 
 package org.uberfire.ext.editor.commons.client.file.exports.svg;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import elemental2.dom.CanvasRenderingContext2D;
 import org.junit.Before;
 import org.junit.Test;

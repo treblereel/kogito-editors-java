@@ -19,7 +19,6 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.cr
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.CellEditionHandler;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.TableEntry;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.impl.numeric.AbstractNumericEditableColumnGenerator;
@@ -29,8 +28,8 @@ import org.kie.workbench.common.forms.dynamic.client.resources.i18n.FormRenderin
 public class ByteEditableColumnGenerator extends AbstractNumericEditableColumnGenerator<Byte> {
 
     @Inject
-    public ByteEditableColumnGenerator(TranslationService translationService) {
-        super(translationService);
+    public ByteEditableColumnGenerator(/*TranslationService translationService*/) {
+        //super(translationService);
     }
 
     @Override
@@ -46,9 +45,11 @@ public class ByteEditableColumnGenerator extends AbstractNumericEditableColumnGe
             try {
                 doConvert(flatValue);
             } catch (Exception ex) {
-                cellEditionHandler.showValidationError(translationService.format(FormRenderingConstants.InvalidIntegerWithRange,
+                cellEditionHandler.showValidationError("InvalidIntegerWithRange");
+
+/*                cellEditionHandler.showValidationError(translationService.format(FormRenderingConstants.InvalidIntegerWithRange,
                                                                                  Byte.MIN_VALUE,
-                                                                                 Byte.MAX_VALUE));
+                                                                                 Byte.MAX_VALUE));*/
                 return false;
             }
         }

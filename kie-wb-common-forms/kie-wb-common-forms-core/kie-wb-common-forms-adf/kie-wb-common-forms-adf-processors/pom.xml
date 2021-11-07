@@ -57,21 +57,30 @@
     </dependency>
 
     <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.15</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-forms-adf-base</artifactId>
     </dependency>
-
     <!-- Uberfire -->
 
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-workbench-processors</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.google.auto</groupId>
+      <artifactId>auto-common</artifactId>
+      <version>1.2</version>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>

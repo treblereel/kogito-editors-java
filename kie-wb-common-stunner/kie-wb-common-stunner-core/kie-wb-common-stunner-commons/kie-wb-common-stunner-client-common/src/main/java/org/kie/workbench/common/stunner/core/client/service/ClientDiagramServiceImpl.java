@@ -43,8 +43,8 @@ public class ClientDiagramServiceImpl<M extends Metadata, D extends Diagram<Grap
 
     public ClientDiagramServiceImpl(final ShapeManager shapeManager,
                                     final SessionManager sessionManager,
-                                    final Caller<S> diagramServiceCaller,
-                                    final Caller<DiagramLookupService> diagramLookupServiceCaller,
+                                    final S diagramServiceCaller,
+                                    final DiagramLookupService diagramLookupServiceCaller,
                                     final Event<SessionDiagramSavedEvent> saveEvent) {
         super(shapeManager,
               sessionManager,
@@ -56,12 +56,12 @@ public class ClientDiagramServiceImpl<M extends Metadata, D extends Diagram<Grap
     @Inject
     public ClientDiagramServiceImpl(final ShapeManager shapeManager,
                                     final SessionManager sessionManager,
-                                    final Caller<DiagramLookupService> diagramLookupServiceCaller,
+                                    final DiagramLookupService diagramLookupServiceCaller,
                                     final Event<SessionDiagramSavedEvent> saveEvent,
-                                    final Caller<DiagramService> diagramServiceCaller) {
+                                    final DiagramService diagramServiceCaller) {
         super(shapeManager,
               sessionManager,
-              (Caller<S>) diagramServiceCaller,
+              (S) diagramServiceCaller,
               diagramLookupServiceCaller,
               saveEvent);
     }

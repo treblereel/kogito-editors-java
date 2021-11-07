@@ -23,7 +23,6 @@ import java.util.TreeMap;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.kie.workbench.common.forms.dynamic.model.config.SelectorData;
 import org.kie.workbench.common.forms.dynamic.model.config.SelectorDataProvider;
 import org.kie.workbench.common.forms.dynamic.service.shared.FormRenderingContext;
@@ -63,13 +62,6 @@ public class SignalScopeProvider
 
     private static Map<Object, Integer> valuePosition;
 
-    private final TranslationService translationService;
-
-    @Inject
-    public SignalScopeProvider(final TranslationService translationService) {
-        this.translationService = translationService;
-    }
-
     @PostConstruct
     protected void init() {
         valuePosition = new HashMap<>();
@@ -95,8 +87,7 @@ public class SignalScopeProvider
     public SelectorData getSelectorData(final FormRenderingContext context) {
         Map<Object, String> values = new TreeMap<>((o1, o2) -> valuePosition.get(o1).compareTo(valuePosition.get(o2)));
         Arrays.stream(SCOPE.values())
-                .forEach(scope -> values.put(scope.value(),
-                                             translationService.getTranslation(scope.i18nKey())));
+                .forEach(scope -> values.put(scope.value(), scope.i18nKey()));
 
         return new SelectorData(values,
                                 SCOPE.DEFAULT.value());

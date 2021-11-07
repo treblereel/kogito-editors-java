@@ -15,8 +15,8 @@
  */
 package org.kie.workbench.common.stunner.core.client.canvas.controls.inlineeditor;
 
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.user.client.ui.IsWidget;
+import org.gwtproject.core.client.Scheduler;
+import org.gwtproject.user.client.ui.IsWidget;
 import org.jboss.errai.common.client.dom.HTMLElement;
 import org.junit.Before;
 import org.junit.Test;

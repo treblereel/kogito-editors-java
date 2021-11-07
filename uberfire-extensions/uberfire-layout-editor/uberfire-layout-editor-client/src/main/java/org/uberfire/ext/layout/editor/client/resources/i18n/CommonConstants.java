@@ -16,8 +16,8 @@
 
 package org.uberfire.ext.layout.editor.client.resources.i18n;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.i18n.client.Messages;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.i18n.client.Messages;
 
 public interface CommonConstants
         extends

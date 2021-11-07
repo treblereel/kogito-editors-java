@@ -16,11 +16,8 @@
 
 package org.kie.workbench.common.stunner.core.client.preferences;
 
-import org.jboss.errai.ioc.client.api.EntryPoint;
-import org.jboss.errai.ui.shared.api.annotations.Bundle;
-
-@EntryPoint
-@Bundle("resources/i18n/StunnerPreferencesConstants.properties")
+//@EntryPoint
+//@Bundle("resources/i18n/StunnerPreferencesConstants.properties")
 public class StunnerPreferencesEntryPoint {
 
 }

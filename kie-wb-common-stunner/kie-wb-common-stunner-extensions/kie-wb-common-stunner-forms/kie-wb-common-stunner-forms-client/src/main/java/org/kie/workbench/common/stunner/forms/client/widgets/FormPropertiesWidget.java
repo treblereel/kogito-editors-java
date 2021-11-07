@@ -26,10 +26,9 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
-import com.google.gwt.logging.client.LogConfiguration;
-import org.jboss.errai.common.client.api.IsElement;
-import org.jboss.errai.common.client.dom.HTMLElement;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLElement;
+import io.crysknife.client.IsElement;
 import org.kie.workbench.common.forms.dynamic.service.shared.RenderMode;
 import org.kie.workbench.common.stunner.core.client.session.ClientSession;
 import org.kie.workbench.common.stunner.core.client.session.impl.EditorSession;
@@ -60,7 +59,6 @@ public class FormPropertiesWidget implements IsElement,
     private final Event<FormPropertiesOpened> propertiesOpenedEvent;
     private final FormsCanvasSessionHandler formSessionHandler;
     private final FormsContainer formsContainer;
-    private final TranslationService translationService;
     private final FormsFlushManager formsFlushManager;
 
     @Inject
@@ -69,14 +67,15 @@ public class FormPropertiesWidget implements IsElement,
                                 final FormsCanvasSessionHandler formSessionHandler,
                                 final Event<FormPropertiesOpened> propertiesOpenedEvent,
                                 final FormsContainer formsContainer,
-                                final FormsFlushManager formsFlushManager,
-                                final TranslationService translationService) {
+                                final FormsFlushManager formsFlushManager
+                                //final TranslationService translationService
+    ) {
         this.view = view;
         this.definitionUtils = definitionUtils;
         this.formSessionHandler = formSessionHandler;
         this.propertiesOpenedEvent = propertiesOpenedEvent;
         this.formsContainer = formsContainer;
-        this.translationService = translationService;
+        //this.translationService = translationService;
         this.formsFlushManager = formsFlushManager;
     }
 
@@ -261,7 +260,8 @@ public class FormPropertiesWidget implements IsElement,
                       final DomainObject domainObject,
                       final Command callback) {
         final String domainObjectUUID = domainObject.getDomainObjectUUID();
-        final String domainObjectName = translationService.getTranslation(domainObject.getDomainObjectNameTranslationKey());
+        //final String domainObjectName = translationService.getTranslation(domainObject.getDomainObjectNameTranslationKey());
+        final String domainObjectName = domainObject.getDomainObjectNameTranslationKey();
         final Diagram<?, ?> diagram = formSessionHandler.getDiagram();
         if (Objects.isNull(diagram)) {
             return;
@@ -303,8 +303,10 @@ public class FormPropertiesWidget implements IsElement,
     }
 
     protected void log(final Level level, final String message) {
-        if (LogConfiguration.loggingIsEnabled()) {
+        DomGlobal.console.log(message);
+
+/*        if (LogConfiguration.loggingIsEnabled()) {
             LOGGER.log(level, message);
-        }
+        }*/
     }
 }

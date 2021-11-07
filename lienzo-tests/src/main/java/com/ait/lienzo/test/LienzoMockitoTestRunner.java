@@ -18,8 +18,8 @@ package com.ait.lienzo.test;
 
 import java.util.Collection;
 
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.user.client.ui.RootPanel;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.junit.runner.Description;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;

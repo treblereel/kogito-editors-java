@@ -23,15 +23,20 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.event.dom.client.ContextMenuEvent;
-import com.google.gwt.event.dom.client.ScrollEvent;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
-import com.google.gwt.user.client.Timer;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.Panel;
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLDivElement;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.event.dom.client.ContextMenuEvent;
+import org.gwtproject.event.dom.client.ScrollEvent;
+import org.gwtproject.event.dom.client.ScrollHandler;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.safehtml.shared.SafeHtmlBuilder;
+import org.gwtproject.timer.client.Timer;
+import org.gwtproject.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.IsWidget;
+import org.gwtproject.user.client.ui.Panel;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 import org.gwtbootstrap3.extras.animate.client.ui.constants.Animation;
@@ -39,26 +44,23 @@ import org.gwtbootstrap3.extras.notify.client.constants.NotifyType;
 import org.gwtbootstrap3.extras.notify.client.ui.Notify;
 import org.gwtbootstrap3.extras.notify.client.ui.NotifySettings;
 import org.jboss.errai.common.client.ui.ElementWrapperWidget;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.ForEvent;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.client.widgets.palette.PaletteWidget;
 import org.kie.workbench.common.stunner.client.widgets.presenters.session.SessionPresenter;
 import org.kie.workbench.common.stunner.core.client.canvas.event.selection.CanvasFocusedShapeEvent;
 import org.kie.workbench.common.stunner.core.client.components.palette.PaletteDefinition;
 import org.uberfire.client.workbench.widgets.ResizeFlowPanel;
 
-import static com.google.gwt.dom.client.Style.Display.BLOCK;
-import static com.google.gwt.dom.client.Style.Display.NONE;
+import static org.gwtproject.dom.client.Style.Display.BLOCK;
+import static org.gwtproject.dom.client.Style.Display.NONE;
 import static org.kie.workbench.common.stunner.client.widgets.resources.i18n.StunnerWidgetsConstants.SessionPresenterView_Error;
 import static org.kie.workbench.common.stunner.client.widgets.resources.i18n.StunnerWidgetsConstants.SessionPresenterView_Info;
 import static org.kie.workbench.common.stunner.client.widgets.resources.i18n.StunnerWidgetsConstants.SessionPresenterView_Warning;
 
 // TODO: i18n.
 @Dependent
-@Templated
+@Templated(stylesheet = "SessionPresenterView.less") //TODO
 public class SessionPresenterView extends Composite
         implements SessionPresenter.View {
 
@@ -75,6 +77,10 @@ public class SessionPresenterView extends Composite
 
     @Inject
     @DataField
+    HTMLDivElement diagramContainer;
+
+    @Inject
+    @DataField
     private ResizeFlowPanel canvasPanel;
 
     @Inject
@@ -85,8 +91,8 @@ public class SessionPresenterView extends Composite
     @DataField
     private SessionContainer sessionContainer;
 
-    @Inject
-    private TranslationService translationService;
+    //@Inject
+    //private TranslationService translationService;
 
     private final NotifySettings settings = NotifySettings.newSettings();
 
@@ -127,10 +133,16 @@ public class SessionPresenterView extends Composite
         //getting initial session header section position
         headerInitialTop = sessionHeaderContainer.getAbsoluteTop();
         headerInitialLeft = sessionHeaderContainer.getAbsoluteLeft();
+
+
+        sessionContainer.addDomHandler(scrollEvent -> SessionPresenterView.this.onScroll(scrollEvent),
+                                       ScrollEvent.getType());
+
     }
 
-    @EventHandler("sessionContainer")
-    protected void onScroll(@ForEvent("scroll") ScrollEvent e) {
+    //TODO
+    //@EventHandler("sessionContainer")
+    protected void onScroll(ScrollEvent e) {
         // on the editor scroll recalculate palette and header positions to be fixed on the screen
         palettePanel.getElement().getStyle().setTop(paletteInitialTop + e.getRelativeElement().getScrollTop() + sessionHeaderHeight,
                                                     Style.Unit.PX);
@@ -326,12 +338,13 @@ public class SessionPresenterView extends Composite
         return settings;
     }
 
-    TranslationService getTranslationService() {
+/*    TranslationService getTranslationService() {
         return translationService;
-    }
+    }*/
 
     private String translate(final String translationKey) {
-        return getTranslationService().getTranslation(translationKey);
+        return translationKey;
+        //return getTranslationService().getTranslation(translationKey);
     }
 
     private static String buildHtmlEscapedText(final String message) {

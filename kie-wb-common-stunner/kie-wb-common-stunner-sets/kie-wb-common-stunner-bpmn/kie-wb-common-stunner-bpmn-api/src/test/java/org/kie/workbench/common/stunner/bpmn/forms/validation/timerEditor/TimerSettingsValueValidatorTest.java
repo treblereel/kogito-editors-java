@@ -22,7 +22,7 @@ import java.util.List;
 
 import javax.validation.ConstraintValidatorContext;
 
-import com.google.gwt.junit.client.GWTTestCase;
+import org.gwtproject.junit.client.GWTTestCase;
 import org.junit.Test;
 import org.kie.workbench.common.stunner.bpmn.definition.property.event.timer.TimerSettingsValue;
 

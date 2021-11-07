@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.stunner.core.client.api;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.appformer.client.context.EditorContextProvider;
 import org.junit.Before;
 import org.junit.Test;

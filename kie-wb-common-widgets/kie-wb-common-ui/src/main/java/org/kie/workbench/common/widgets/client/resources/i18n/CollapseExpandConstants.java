@@ -16,8 +16,8 @@
 
 package org.kie.workbench.common.widgets.client.resources.i18n;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.i18n.client.Messages;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.i18n.client.Messages;
 
 /**
  * EnumEditor I18N constants
@@ -26,7 +26,7 @@ public interface CollapseExpandConstants
         extends
         Messages {
 
-    public static final CollapseExpandConstants INSTANCE = GWT.create( CollapseExpandConstants.class );
+    public static final CollapseExpandConstants INSTANCE = null;
 
     String CollapseAll();
 

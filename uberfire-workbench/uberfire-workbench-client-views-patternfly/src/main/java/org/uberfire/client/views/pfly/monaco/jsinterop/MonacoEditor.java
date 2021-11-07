@@ -16,22 +16,33 @@
 
 package org.uberfire.client.views.pfly.monaco.jsinterop;
 
-import com.google.gwt.core.client.JavaScriptObject;
+import org.gwtproject.core.client.JavaScriptObject;
 import elemental2.dom.Element;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@JsType(isNative = true, namespace = "window", name = "monaco")
+//@JsType(isNative = true, namespace = "window", name = "monaco")
 public class MonacoEditor {
 
-    public native void defineTheme(final String themeId,
-                                   final JavaScriptObject themeData);
+    public void defineTheme(final String themeId,
+                                   final JavaScriptObject themeData) {
+        throw new Error(MonacoEditor.class.getCanonicalName()+".defineTheme");
 
-    public native MonacoStandaloneCodeEditor create(final Element themeId,
-                                                    final JavaScriptObject options);
+    };
 
-    public native void setTheme(final String feelThemeId);
+    public MonacoStandaloneCodeEditor create(final Element themeId,
+                                                    final JavaScriptObject options) {
+        throw new Error(MonacoEditor.class.getCanonicalName()+".create");
 
-    @JsProperty(name = "editor")
-    public static native MonacoEditor get();
+    };
+
+    public void setTheme(final String feelThemeId) {
+        throw new Error(MonacoEditor.class.getCanonicalName()+".setTheme");
+
+    };
+
+    //@JsProperty(name = "editor")
+    public static MonacoEditor get() {
+        throw new Error(MonacoEditor.class.getCanonicalName()+".get");
+    }
 }

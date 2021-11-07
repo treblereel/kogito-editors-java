@@ -15,40 +15,45 @@
  */
 package org.uberfire.ext.widgets.common.client.colorpicker.canvas;
 
-import com.google.gwt.event.dom.client.HasAllMouseHandlers;
-import com.google.gwt.event.dom.client.MouseDownHandler;
-import com.google.gwt.event.dom.client.MouseMoveHandler;
-import com.google.gwt.event.dom.client.MouseOutHandler;
-import com.google.gwt.event.dom.client.MouseOverHandler;
-import com.google.gwt.event.dom.client.MouseUpHandler;
-import com.google.gwt.event.dom.client.MouseWheelHandler;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Element;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HTML;
+import elemental2.dom.CanvasRenderingContext2D;
+import elemental2.dom.Element;
+import elemental2.dom.HTMLCanvasElement;
+import jsinterop.base.Js;
+import org.gwtproject.event.dom.client.HasAllMouseHandlers;
+import org.gwtproject.event.dom.client.MouseDownHandler;
+import org.gwtproject.event.dom.client.MouseMoveHandler;
+import org.gwtproject.event.dom.client.MouseOutHandler;
+import org.gwtproject.event.dom.client.MouseOverHandler;
+import org.gwtproject.event.dom.client.MouseUpHandler;
+import org.gwtproject.event.dom.client.MouseWheelHandler;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.user.client.DOM;
+import org.gwtproject.user.client.ui.Composite;
+import org.gwtproject.user.client.ui.HTML;
 
 public class Canvas extends Composite implements HasAllMouseHandlers {
 
     private HTML html;
-    private Element canvas;
+    private HTMLCanvasElement canvas;
 
     public Canvas() {
         html = new HTML("<canvas></canvas>");
         initWidget(html);
-        canvas = (Element) html.getElement().getFirstChild();
+        canvas = Js.uncheckedCast(html.getElement().getFirstChild());
     }
 
-    public native RenderingContext getContext() /*-{
+    public CanvasRenderingContext2D getContext() {
+        return Js.uncheckedCast(canvas.getContext("2d"));
+    }/*-{
         return this.@org.uberfire.ext.widgets.common.client.colorpicker.canvas.Canvas::canvas.getContext("2d");
     }-*/;
 
     public void setCanvasSize(int width,
                               int height) {
-        DOM.setElementPropertyInt(canvas,
+        DOM.setElementPropertyInt(Js.uncheckedCast(canvas),
                                   "width",
                                   width);
-        DOM.setElementPropertyInt(canvas,
+        DOM.setElementPropertyInt(Js.uncheckedCast(canvas),
                                   "height",
                                   height);
     }

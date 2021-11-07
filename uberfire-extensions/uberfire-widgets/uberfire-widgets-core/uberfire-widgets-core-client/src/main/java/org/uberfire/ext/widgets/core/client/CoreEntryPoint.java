@@ -17,13 +17,12 @@ package org.uberfire.ext.widgets.core.client;
 
 import javax.annotation.PostConstruct;
 
-import org.jboss.errai.ioc.client.api.EntryPoint;
 import org.uberfire.ext.widgets.core.client.resources.TreeNavigatorResources;
 
 /**
  * Bootstrap widgets-core
  */
-@EntryPoint
+//@EntryPoint
 public class CoreEntryPoint {
 
     @PostConstruct

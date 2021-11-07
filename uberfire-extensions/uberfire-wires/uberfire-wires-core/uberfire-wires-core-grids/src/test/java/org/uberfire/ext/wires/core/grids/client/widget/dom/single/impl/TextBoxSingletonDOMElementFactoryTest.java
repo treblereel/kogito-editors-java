@@ -16,8 +16,8 @@
 
 package org.uberfire.ext.wires.core.grids.client.widget.dom.single.impl;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
-import com.google.gwtmockito.WithClassesToStub;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.WithClassesToStub;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;

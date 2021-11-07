@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.editor;
 
-import org.jboss.errai.ui.client.widget.HasModel;
+import io.crysknife.ui.databinding.client.api.HasModel;
 
 public interface ImportListItemWidgetView<T> extends HasModel<T> {
 

@@ -19,23 +19,23 @@ package org.kie.workbench.common.forms.dynamic.client;
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import org.jboss.errai.ioc.client.api.EntryPoint;
-import org.jboss.errai.ioc.client.container.SyncBeanDef;
-import org.jboss.errai.ioc.client.container.SyncBeanManager;
-import org.jboss.errai.ui.shared.api.annotations.Bundle;
+import io.crysknife.client.BeanManager;
+import io.crysknife.client.SyncBeanDef;
 import org.kie.workbench.common.forms.adf.rendering.FieldRendererTypesProvider;
 import org.kie.workbench.common.forms.dynamic.client.rendering.FieldRendererTypeRegistry;
 
-@EntryPoint
-@Bundle("resources/i18n/FormRenderingConstants.properties")
+//@EntryPoint
+//@Bundle("resources/i18n/FormRenderingConstants.properties")
+@ApplicationScoped
 public class DynamicRendererEntryPoint {
 
-    private SyncBeanManager beanManager;
+    private BeanManager beanManager;
 
     @Inject
-    public DynamicRendererEntryPoint(SyncBeanManager beanManager) {
+    public DynamicRendererEntryPoint(BeanManager beanManager) {
         this.beanManager = beanManager;
     }
 
@@ -45,7 +45,6 @@ public class DynamicRendererEntryPoint {
     }
 
     private void populateFieldRenderersRegistry() {
-
         Collection<SyncBeanDef<FieldRendererTypesProvider>> providers = beanManager.lookupBeans(FieldRendererTypesProvider.class);
 
         providers.forEach(providerDef -> {

@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.metaDataEditor;
 
-import org.jboss.errai.ui.client.widget.HasModel;
+import io.crysknife.ui.databinding.client.api.HasModel;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.MetaDataRow;
 
 public interface MetaDataListItemWidgetView extends HasModel<MetaDataRow> {

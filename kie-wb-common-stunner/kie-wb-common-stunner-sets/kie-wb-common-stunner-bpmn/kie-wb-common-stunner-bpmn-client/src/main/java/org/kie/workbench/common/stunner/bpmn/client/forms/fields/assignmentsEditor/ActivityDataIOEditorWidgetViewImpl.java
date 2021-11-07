@@ -22,22 +22,22 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.HeadingElement;
-import com.google.gwt.dom.client.ParagraphElement;
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.dom.client.TableCellElement;
-import com.google.gwt.dom.client.TableElement;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.user.client.ui.Composite;
+import elemental2.dom.HTMLAnchorElement;
+import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import org.gwtproject.dom.client.Document;
+import org.gwtproject.dom.client.HeadingElement;
+import org.gwtproject.dom.client.ParagraphElement;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.dom.client.TableCellElement;
+import org.gwtproject.dom.client.TableElement;
+import org.gwtproject.event.dom.client.ClickEvent;
+import org.gwtproject.user.client.ui.Composite;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.jboss.errai.common.client.dom.Anchor;
-import org.jboss.errai.ui.client.widget.ListWidget;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.jboss.errai.ui.client.widget.Table;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.EventHandler;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.AssignmentRow;
 import org.uberfire.client.views.pfly.widgets.JQueryProducer;
@@ -79,15 +79,15 @@ public class ActivityDataIOEditorWidgetViewImpl extends Composite implements Act
 
     @Inject
     @DataField("source-target")
-    private Anchor sourceTargetHelp;
+    private HTMLAnchorElement sourceTargetHelp;
 
     /**
      * The list of assignments that currently exist.
      */
-    @Inject
-    @DataField
-    @Table(root = "tbody")
-    protected ListWidget<AssignmentRow, AssignmentListItemWidgetViewImpl> assignments;
+    //@Inject
+    //@DataField
+    //@Table(root = "tbody")
+    protected ListComponent<AssignmentRow, ?> assignments;
 
     @Inject
     protected Event<NotificationEvent> notification;
@@ -111,7 +111,9 @@ public class ActivityDataIOEditorWidgetViewImpl extends Composite implements Act
 
     @Override
     public int getAssignmentsCount() {
-        return assignments.getValue().size();
+        throw new Error(getClass().getCanonicalName()+".getAssignmentsCount");
+
+        //return assignments.getValue().size();
     }
 
     @Override
@@ -173,7 +175,8 @@ public class ActivityDataIOEditorWidgetViewImpl extends Composite implements Act
 
     @Override
     public AssignmentListItemWidgetView getAssignmentWidget(final int index) {
-        return assignments.getComponent(index);
+        throw new Error(getClass().getCanonicalName()+".getVariableWidget");
+        //return assignments.getComponent(index);
     }
 
     @Override

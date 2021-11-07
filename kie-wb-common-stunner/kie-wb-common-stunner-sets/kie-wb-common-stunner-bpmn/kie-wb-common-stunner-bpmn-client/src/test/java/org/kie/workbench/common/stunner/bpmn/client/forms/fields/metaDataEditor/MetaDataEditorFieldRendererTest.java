@@ -19,8 +19,8 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.metaDataEditor
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
-import org.jboss.errai.ioc.client.api.ManagedInstance;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
+import io.crysknife.client.ManagedInstance;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

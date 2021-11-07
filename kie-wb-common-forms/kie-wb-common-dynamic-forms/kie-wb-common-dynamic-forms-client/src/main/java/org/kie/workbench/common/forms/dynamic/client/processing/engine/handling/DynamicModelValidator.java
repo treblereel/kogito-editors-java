@@ -22,36 +22,34 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.enterprise.context.Dependent;
-import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
 
-import org.jboss.errai.validation.client.dynamic.DynamicValidator;
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.forms.dynamic.service.shared.impl.validation.DynamicModelConstraints;
 import org.kie.workbench.common.forms.dynamic.service.shared.impl.validation.FieldConstraint;
 import org.kie.workbench.common.forms.processing.engine.handling.FormField;
 import org.kie.workbench.common.forms.processing.engine.handling.ModelValidator;
 
 @Dependent
-@Alternative
 public class DynamicModelValidator implements ModelValidator<Map<String, Object>> {
 
-    protected DynamicValidator validator;
+    //protected DynamicValidator validator;
 
     protected DynamicModelConstraints modelConstraints;
 
     @Inject
-    public DynamicModelValidator(DynamicValidator validator) {
-        this.validator = validator;
+    public DynamicModelValidator(/*DynamicValidator validator*/) {
+        //this.validator = validator;
     }
 
     @Override
     public boolean validate(Collection<FormField> fields,
                             Map<String, Object> model) {
-
-        if (validator == null) {
+        DomGlobal.console.log(getClass().getCanonicalName()+".validate true");
+/*        if (validator == null) {
             return true;
-        }
+        }*/
 
         boolean isValid = true;
 
@@ -69,11 +67,13 @@ public class DynamicModelValidator implements ModelValidator<Map<String, Object>
     @Override
     public boolean validate(FormField formField,
                             Map<String, Object> model) {
+        DomGlobal.console.log(getClass().getCanonicalName()+".validate true");
 
-        if (validator == null) {
+
+/*        if (validator == null) {
             return true;
-        }
-
+        }*/
+/*
         if (modelConstraints != null) {
             List<FieldConstraint> fieldConstraints = modelConstraints.getFieldConstraints().get(formField.getFieldBinding());
 
@@ -93,7 +93,7 @@ public class DynamicModelValidator implements ModelValidator<Map<String, Object>
                     }
                 }
             }
-        }
+        }*/
         return true;
     }
 

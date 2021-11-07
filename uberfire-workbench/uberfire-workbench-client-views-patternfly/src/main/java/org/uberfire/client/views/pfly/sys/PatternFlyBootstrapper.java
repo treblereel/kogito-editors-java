@@ -16,7 +16,7 @@
 
 package org.uberfire.client.views.pfly.sys;
 
-import com.google.gwt.core.client.ScriptInjector;
+import org.gwtproject.core.client.ScriptInjector;
 import org.gwtbootstrap3.client.GwtBootstrap3ClientBundle;
 
 import static org.uberfire.client.views.pfly.sys.MomentUtils.setMomentLocale;
@@ -101,7 +101,10 @@ public class PatternFlyBootstrapper {
      *
      * @return true is jQuery is loaded, false otherwise.
      */
-    private static native boolean isjQueryLoaded() /*-{
+    private static boolean isjQueryLoaded() {
+        throw new Error(PatternFlyBootstrapper.class.getClass().getCanonicalName()+".isjQueryLoaded");
+
+    }/*-{
         return (typeof $wnd['jQuery'] !== 'undefined');
     }-*/;
 }

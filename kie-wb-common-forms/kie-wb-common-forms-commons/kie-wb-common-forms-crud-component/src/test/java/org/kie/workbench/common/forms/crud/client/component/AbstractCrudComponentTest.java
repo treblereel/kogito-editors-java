@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.forms.crud.client.component;
 
-import com.google.gwtmockito.GwtMock;
+import org.gwtprojectmockito.GwtMock;
 import junit.framework.TestCase;
 import org.jboss.errai.ui.client.local.spi.TranslationService;
 import org.junit.Before;

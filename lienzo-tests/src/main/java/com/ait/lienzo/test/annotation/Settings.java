@@ -60,7 +60,7 @@ public @interface Settings {
      * The overlay types to be stubbed.
      * <p>
      * Provide here the FQ class names for lienzo classes that are GWT overlay types,
-     * so inherit from <code>com.google.gwt.core.client.JavaScriptObject</code> and causes your tests to fail
+     * so inherit from <code>org.gwtproject.core.client.JavaScriptObject</code> and causes your tests to fail
      * due to linkage errors with native interfaces.
      * <p>
      * The class names provided here will be processed
@@ -80,7 +80,7 @@ public @interface Settings {
      * The overlay types to be mocked.
      * <p>
      * Provide here the FQ class names for lienzo classes that are GWT overlay types,
-     * so inherit from <code>com.google.gwt.core.client.JavaScriptObject</code> and causes your tests to fail
+     * so inherit from <code>org.gwtproject.core.client.JavaScriptObject</code> and causes your tests to fail
      * due to linkage errors with native interfaces.
      * <p>
      * The class names provided here will be processed

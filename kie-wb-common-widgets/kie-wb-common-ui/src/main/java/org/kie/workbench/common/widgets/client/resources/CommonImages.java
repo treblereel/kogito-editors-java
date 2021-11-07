@@ -16,15 +16,15 @@
 
 package org.kie.workbench.common.widgets.client.resources;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.resources.client.ClientBundle;
-import com.google.gwt.resources.client.ImageResource;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.ImageResource;
 
 public interface CommonImages
         extends
         ClientBundle {
 
-    public static final CommonImages INSTANCE = GWT.create( CommonImages.class );
+    public static final CommonImages INSTANCE = null;
 
     @Source("images/edit.gif")
     ImageResource edit();

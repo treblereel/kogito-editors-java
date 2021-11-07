@@ -15,18 +15,20 @@
  */
 package org.uberfire.ext.widgets.common.client.colorpicker;
 
-import com.google.gwt.event.dom.client.MouseDownEvent;
-import com.google.gwt.event.dom.client.MouseDownHandler;
-import com.google.gwt.event.dom.client.MouseMoveEvent;
-import com.google.gwt.event.dom.client.MouseMoveHandler;
-import com.google.gwt.event.dom.client.MouseOutEvent;
-import com.google.gwt.event.dom.client.MouseOutHandler;
-import com.google.gwt.event.dom.client.MouseUpEvent;
-import com.google.gwt.event.dom.client.MouseUpHandler;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.ui.Composite;
+import elemental2.dom.BaseRenderingContext2D;
+import elemental2.dom.CanvasRenderingContext2D;
+import jsinterop.base.Js;
+import org.gwtproject.event.dom.client.MouseDownEvent;
+import org.gwtproject.event.dom.client.MouseDownHandler;
+import org.gwtproject.event.dom.client.MouseMoveEvent;
+import org.gwtproject.event.dom.client.MouseMoveHandler;
+import org.gwtproject.event.dom.client.MouseOutEvent;
+import org.gwtproject.event.dom.client.MouseOutHandler;
+import org.gwtproject.event.dom.client.MouseUpEvent;
+import org.gwtproject.event.dom.client.MouseUpHandler;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.user.client.ui.Composite;
 import org.uberfire.ext.widgets.common.client.colorpicker.canvas.Canvas;
-import org.uberfire.ext.widgets.common.client.colorpicker.canvas.RenderingContext;
 
 public class HuePicker extends Composite {
 
@@ -79,10 +81,11 @@ public class HuePicker extends Composite {
     }
 
     private void drawGradient() {
-        RenderingContext ctx = canvas.getContext();
+        CanvasRenderingContext2D ctx = canvas.getContext();
 
         // draw gradient
-        ctx.setFillStyle("#ffffff");
+        ctx.fillStyle = Js.uncheckedCast("ffffff");
+        //ctx.setFillStyle("#ffffff");
         ctx.fillRect(0,
                      0,
                      26,
@@ -91,7 +94,9 @@ public class HuePicker extends Composite {
             String hex = ColorUtils.hsl2hex(y * 2,
                                             100,
                                             100);
-            ctx.setFillStyle("#" + hex);
+            ctx.fillStyle = Js.uncheckedCast("#" + hex);
+
+            //ctx.setFillStyle("#" + hex);
             ctx.fillRect(3,
                          y,
                          20,
@@ -100,7 +105,9 @@ public class HuePicker extends Composite {
 
         // draw handle
         if (handleY >= 0) {
-            ctx.setFillStyle("#000000");
+            ctx.fillStyle = Js.uncheckedCast("#000000");
+
+            //ctx.setFillStyle("#000000");
 
             ctx.beginPath();
             ctx.moveTo(3,

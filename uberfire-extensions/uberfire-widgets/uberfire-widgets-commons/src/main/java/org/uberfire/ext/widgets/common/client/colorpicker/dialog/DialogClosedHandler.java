@@ -15,7 +15,7 @@
  */
 package org.uberfire.ext.widgets.common.client.colorpicker.dialog;
 
-import com.google.gwt.event.shared.EventHandler;
+import org.gwtproject.event.legacy.shared.EventHandler;
 
 public interface DialogClosedHandler extends EventHandler {
 

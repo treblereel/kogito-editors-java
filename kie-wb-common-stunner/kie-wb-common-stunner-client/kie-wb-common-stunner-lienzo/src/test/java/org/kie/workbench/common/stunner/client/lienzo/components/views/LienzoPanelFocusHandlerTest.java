@@ -17,7 +17,7 @@
 package org.kie.workbench.common.stunner.client.lienzo.components.views;
 
 import com.ait.lienzo.client.widget.panel.LienzoBoundsPanel;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;

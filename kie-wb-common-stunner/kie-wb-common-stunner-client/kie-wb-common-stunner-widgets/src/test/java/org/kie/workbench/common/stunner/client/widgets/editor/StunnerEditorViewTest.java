@@ -15,11 +15,11 @@
  */
 package org.kie.workbench.common.stunner.client.widgets.editor;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.user.client.Element;
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.gwtproject.core.client.GWT;
+import org.gwtproject.dom.client.Style;
+import org.gwtproject.user.client.Element;
+import org.gwtproject.user.client.ui.IsWidget;
+import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
