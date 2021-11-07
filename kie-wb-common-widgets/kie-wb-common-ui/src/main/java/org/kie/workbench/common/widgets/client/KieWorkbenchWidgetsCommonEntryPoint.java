@@ -16,14 +16,22 @@
 package org.kie.workbench.common.widgets.client;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 
 import io.crysknife.ui.translation.api.annotations.Bundle;
+import org.gwtproject.resources.client.GWT3ResourcesConfiguration;
 import org.kie.workbench.common.widgets.client.resources.CommonsResources;
 import org.kie.workbench.common.widgets.client.resources.RoundedCornersResource;
 import org.uberfire.client.views.pfly.sys.PatternFlyBootstrapper;
 
 //@EntryPoint
 @Bundle("resources/i18n/KieWorkbenchWidgetsConstants.properties")
+@ApplicationScoped
+@GWT3ResourcesConfiguration(
+        cssResource = @GWT3ResourcesConfiguration.CssResource(
+                conversionMode = "strict"
+        )
+)
 public class KieWorkbenchWidgetsCommonEntryPoint {
 
     @PostConstruct

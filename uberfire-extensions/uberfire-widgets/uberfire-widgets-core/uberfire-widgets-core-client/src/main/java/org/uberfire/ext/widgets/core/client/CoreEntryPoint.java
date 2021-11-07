@@ -16,16 +16,23 @@
 package org.uberfire.ext.widgets.core.client;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 
+import org.gwtproject.resources.client.GWT3ResourcesConfiguration;
 import org.uberfire.ext.widgets.core.client.resources.TreeNavigatorResources;
 
 /**
  * Bootstrap widgets-core
  */
 //@EntryPoint
+@ApplicationScoped
+@GWT3ResourcesConfiguration(
+        cssResource = @GWT3ResourcesConfiguration.CssResource(
+                conversionMode = "strict"
+        )
+)
 public class CoreEntryPoint {
 
-    @PostConstruct
     public void startApp() {
         //Ensure CSS has been loaded
         TreeNavigatorResources.INSTANCE.css().ensureInjected();

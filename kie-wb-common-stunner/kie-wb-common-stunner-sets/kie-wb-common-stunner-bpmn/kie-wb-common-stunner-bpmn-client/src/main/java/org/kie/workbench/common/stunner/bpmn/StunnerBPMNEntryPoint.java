@@ -17,8 +17,10 @@
 package org.kie.workbench.common.stunner.bpmn;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.client.ManagedInstance;
 import io.crysknife.ui.translation.api.annotations.Bundle;
 import org.kie.workbench.common.stunner.bpmn.client.forms.filters.AssociationFilterProvider;
@@ -47,6 +49,7 @@ import org.uberfire.client.views.pfly.sys.PatternFlyBootstrapper;
 
 //@EntryPoint
 @Bundle("resources/i18n/StunnerBPMNConstants.properties")
+@ApplicationScoped
 public class StunnerBPMNEntryPoint {
 
     private SessionManager sessionManager;
@@ -59,9 +62,11 @@ public class StunnerBPMNEntryPoint {
         this.managedFilters = managedFilters;
     }
 
-    @PostConstruct
+    //@PostConstruct
     public void init() {
-        PatternFlyBootstrapper.ensureMonacoEditorLoaderIsAvailable();
+
+        DomGlobal.console.log("ensureMonacoEditorLoaderIsAvailable is DISABLED");
+        //PatternFlyBootstrapper.ensureMonacoEditorLoaderIsAvailable();
 
         FormFiltersProviderFactory.registerProvider(new StartEventFilterProvider(sessionManager, StartNoneEvent.class));
         FormFiltersProviderFactory.registerProvider(new StartEventFilterProvider(sessionManager, StartCompensationEvent.class));

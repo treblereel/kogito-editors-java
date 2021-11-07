@@ -16,12 +16,14 @@
 package org.uberfire.ext.widgets.core.client.resources;
 
 import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.Resource;
 
+@Resource
 public interface CoreResources
         extends
         ClientBundle {
 
-    CoreResources INSTANCE = null;
+    CoreResources INSTANCE = new CoreResourcesImpl();
 
     CoreImages images();
 }

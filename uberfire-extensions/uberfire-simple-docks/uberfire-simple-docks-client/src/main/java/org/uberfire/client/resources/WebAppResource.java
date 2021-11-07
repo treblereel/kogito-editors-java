@@ -17,7 +17,9 @@
 package org.uberfire.client.resources;
 
 import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.Resource;
 
+@Resource
 public interface WebAppResource
         extends
         ClientBundle {

@@ -17,15 +17,17 @@ package org.uberfire.ext.widgets.core.client.resources;
 
 import org.gwtproject.resources.client.ClientBundle;
 import org.gwtproject.resources.client.CssResource;
+import org.gwtproject.resources.client.Resource;
 
 /**
  * Wizard resources
  */
+@Resource
 public interface TreeNavigatorResources
         extends
         ClientBundle {
 
-    public static final TreeNavigatorResources INSTANCE = null;
+    public static final TreeNavigatorResources INSTANCE = new TreeNavigatorResourcesImpl();
 
     @Source("css/TreeNavigator.css")
     NavigatorStyle css();

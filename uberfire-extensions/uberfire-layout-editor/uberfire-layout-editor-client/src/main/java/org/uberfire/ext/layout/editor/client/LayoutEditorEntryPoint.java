@@ -17,13 +17,20 @@
 package org.uberfire.ext.layout.editor.client;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 
+import org.gwtproject.resources.client.GWT3ResourcesConfiguration;
 import org.uberfire.ext.layout.editor.client.resources.WebAppResource;
 
 //@EntryPoint
+@ApplicationScoped
+@GWT3ResourcesConfiguration(
+        cssResource = @GWT3ResourcesConfiguration.CssResource(
+                conversionMode = "strict"
+        )
+)
 public class LayoutEditorEntryPoint {
 
-    @PostConstruct
     public void init() {
         WebAppResource.INSTANCE.CSS().ensureInjected();
     }

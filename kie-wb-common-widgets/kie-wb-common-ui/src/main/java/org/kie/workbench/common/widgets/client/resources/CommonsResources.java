@@ -17,12 +17,14 @@ package org.kie.workbench.common.widgets.client.resources;
 
 import org.gwtproject.core.client.GWT;
 import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.Resource;
 
+@Resource
 public interface CommonsResources
         extends
         ClientBundle {
 
-    CommonsResources INSTANCE = null;
+    CommonsResources INSTANCE = new CommonsResourcesImpl();
 
     @Source("css/CommonsCss.css")
     CommonsCss css();

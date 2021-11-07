@@ -18,12 +18,14 @@ package org.uberfire.ext.layout.editor.client.resources;
 
 import org.gwtproject.core.client.GWT;
 import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.Resource;
 
+@Resource
 public interface WebAppResource
         extends
         ClientBundle {
 
-    WebAppResource INSTANCE = GWT.create(WebAppResource.class);
+    WebAppResource INSTANCE = new WebAppResourceImpl();
 
     @Source("css/layout-editor.css")
     LayoutEditorCss CSS();

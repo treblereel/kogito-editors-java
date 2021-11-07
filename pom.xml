@@ -90,9 +90,7 @@
     <module>appformer-client-api</module>
     <module>appformer-kogito-bridge</module>
 
-    <!--
-        <module>appformer-js-monaco</module>
-    -->
+    <module>appformer-js-monaco</module>
     <module>uberfire-api</module>
     <module>uberfire-client-api</module>
     <module>uberfire-workbench</module>

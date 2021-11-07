@@ -32,12 +32,23 @@ import org.gwtbootstrap3.extras.select.client.SelectEntryPoint;
 import org.gwtbootstrap3.extras.slider.client.SliderEntryPoint;
 import org.gwtbootstrap3.extras.tagsinput.client.TagsInputEntryPoint;
 import org.gwtbootstrap3.extras.toggleswitch.client.ToggleSwitchEntryPoint;
+import org.gwtproject.resources.client.GWT3ResourcesConfiguration;
 import org.kie.workbench.common.forms.dynamic.client.DynamicRendererEntryPoint;
+import org.kie.workbench.common.stunner.bpmn.StunnerBPMNEntryPoint;
+import org.kie.workbench.common.stunner.client.lienzo.StunnerLienzoCore;
 import org.kie.workbench.common.stunner.kogito.client.editor.BPMNDiagramEditor;
+import org.kie.workbench.common.widgets.client.KieWorkbenchWidgetsCommonEntryPoint;
 import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 import org.uberfire.client.workbench.WorkbenchEntryPoint;
+import org.uberfire.ext.layout.editor.client.LayoutEditorEntryPoint;
+import org.uberfire.ext.widgets.core.client.CoreEntryPoint;
 
 @Application
+@GWT3ResourcesConfiguration(
+        cssResource = @GWT3ResourcesConfiguration.CssResource(
+                conversionMode = "strict"
+        )
+)
 public class MainEntryPoint {
 
     @Inject
@@ -48,6 +59,21 @@ public class MainEntryPoint {
 
     @Inject
     private DynamicRendererEntryPoint dynamicRendererEntryPoint;
+
+    @Inject
+    private StunnerBPMNEntryPoint stunnerBPMNEntryPoint;
+
+    @Inject
+    private StunnerLienzoCore stunnerLienzoCore;
+
+    @Inject
+    private KieWorkbenchWidgetsCommonEntryPoint kieWorkbenchWidgetsCommonEntryPoint;
+
+    @Inject
+    private LayoutEditorEntryPoint layoutEditorEntryPoint;
+
+    @Inject
+    private CoreEntryPoint coreEntryPoint;
 
     @GWT3EntryPoint
     public void onModuleLoad() {
@@ -67,7 +93,13 @@ public class MainEntryPoint {
         new TagsInputEntryPoint().onModuleLoad();
         new ToggleSwitchEntryPoint().onModuleLoad();
 
+        stunnerBPMNEntryPoint.init();
         dynamicRendererEntryPoint.init();
+        stunnerLienzoCore.init();
+        kieWorkbenchWidgetsCommonEntryPoint.startApp();
+        layoutEditorEntryPoint.init();
+        coreEntryPoint.startApp();
+
 
         workbenchEntryPoint.afterInitialization();
 

@@ -17,10 +17,18 @@
 package org.uberfire.client;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 
+import org.gwtproject.resources.client.GWT3ResourcesConfiguration;
 import org.uberfire.client.resources.WebAppResource;
 
 //@EntryPoint
+@ApplicationScoped
+@GWT3ResourcesConfiguration(
+        cssResource = @GWT3ResourcesConfiguration.CssResource(
+                conversionMode = "strict"
+        )
+)
 public class DocksEntryPoint {
 
     @PostConstruct

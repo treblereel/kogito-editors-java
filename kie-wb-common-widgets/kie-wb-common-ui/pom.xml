@@ -31,6 +31,11 @@
       <artifactId>gwtbootstrap3</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.gwtproject.resources</groupId>
+      <artifactId>gwt-resources-processor</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>org.gwtbootstrap3</groupId>
       <artifactId>gwtbootstrap3-extras</artifactId>
     </dependency>
@@ -114,6 +119,30 @@
     </resources>
 
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-generated-classes</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.outputDirectory}/
+              </outputDirectory>
+              <resources>
+                <resource>
+                  <directory>target/generated-sources/annotations/</directory>
+                  <filtering>false</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>

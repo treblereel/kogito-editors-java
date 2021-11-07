@@ -66,6 +66,11 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-widgets-commons</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.gwtproject.resources</groupId>
+      <artifactId>gwt-resources-processor</artifactId>
+      <scope>provided</scope>
+    </dependency>
 
     <!-- test -->
   </dependencies>
@@ -82,5 +87,31 @@
         <directory>src/main/resources</directory>
       </resource>
     </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-generated-classes</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.outputDirectory}/
+              </outputDirectory>
+              <resources>
+                <resource>
+                  <directory>target/generated-sources/annotations/</directory>
+                  <filtering>false</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 </project>

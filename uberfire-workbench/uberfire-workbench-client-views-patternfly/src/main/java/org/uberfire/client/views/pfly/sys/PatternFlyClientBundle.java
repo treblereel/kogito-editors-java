@@ -17,11 +17,13 @@
 package org.uberfire.client.views.pfly.sys;
 
 import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.Resource;
 import org.gwtproject.resources.client.TextResource;
 
+@Resource
 public interface PatternFlyClientBundle extends ClientBundle {
 
-    PatternFlyClientBundle INSTANCE = null;
+    PatternFlyClientBundle INSTANCE = new PatternFlyClientBundleImpl();
 
     @Source("org/uberfire/client/views/static/bootstrap-select/js/bootstrap-select.min.js")
     TextResource bootstrapSelect();
