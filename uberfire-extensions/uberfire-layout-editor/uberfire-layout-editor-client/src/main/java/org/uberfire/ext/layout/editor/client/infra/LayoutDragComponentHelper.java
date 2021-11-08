@@ -16,18 +16,18 @@
 
 package org.uberfire.ext.layout.editor.client.infra;
 
+import io.crysknife.client.BeanManager;
+import io.crysknife.client.SyncBeanDef;
+import org.uberfire.ext.layout.editor.client.api.LayoutDragComponent;
+
+import javax.annotation.PreDestroy;
+import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
-
-import javax.annotation.PreDestroy;
-import javax.enterprise.context.Dependent;
-import javax.inject.Inject;
-
-import io.crysknife.client.BeanManager;
-import org.uberfire.ext.layout.editor.client.api.LayoutDragComponent;
 
 @Dependent
 public class LayoutDragComponentHelper {
@@ -53,10 +53,7 @@ public class LayoutDragComponentHelper {
     }
 
     private LayoutDragComponent lookupBean(String dragTypeClassName) {
-        throw new Error(getClass().getCanonicalName()+".lookupBean: " + dragTypeClassName);
-
-
-/*        Collection<SyncBeanDef<LayoutDragComponent>> iocBeanDefs = beanManager.lookupBeans(LayoutDragComponent.class);
+        Collection<SyncBeanDef<LayoutDragComponent>> iocBeanDefs = beanManager.lookupBeans(LayoutDragComponent.class);
 
         Optional<SyncBeanDef<LayoutDragComponent>> optional = iocBeanDefs.stream()
                 .filter(syncBeanDefBeanClassNamePredicate(dragTypeClassName))
@@ -71,16 +68,14 @@ public class LayoutDragComponentHelper {
             return instance;
         }
 
-        return null;*/
+        return null;
     }
 
-/*    Predicate<SyncBeanDef<LayoutDragComponent>> syncBeanDefBeanClassNamePredicate(String dragTypeClassName) {
+    Predicate<SyncBeanDef<LayoutDragComponent>> syncBeanDefBeanClassNamePredicate(String dragTypeClassName) {
         return beanDef -> beanDef.getBeanClass().getName().equals(dragTypeClassName);
-    }*/
+    }
 
     protected void destroy(Object o) {
-        throw new Error(getClass().getCanonicalName()+".destroy: " + o.getClass().getCanonicalName());
-
-        //IOC.getBeanManager().destroyBean(o);
+        beanManager.destroyBean(o);
     }
 }

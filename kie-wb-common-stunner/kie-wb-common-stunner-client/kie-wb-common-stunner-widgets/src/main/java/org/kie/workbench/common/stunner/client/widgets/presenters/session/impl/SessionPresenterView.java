@@ -27,6 +27,7 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import io.crysknife.ui.templates.client.annotation.ForEvent;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.dom.client.Style;
 import org.gwtproject.event.dom.client.ContextMenuEvent;
 import org.gwtproject.event.dom.client.ScrollEvent;
@@ -91,8 +92,8 @@ public class SessionPresenterView extends Composite
     @DataField
     private SessionContainer sessionContainer;
 
-    //@Inject
-    //private TranslationService translationService;
+    @Inject
+    private TranslationService translationService;
 
     private final NotifySettings settings = NotifySettings.newSettings();
 
@@ -338,13 +339,12 @@ public class SessionPresenterView extends Composite
         return settings;
     }
 
-/*    TranslationService getTranslationService() {
+    TranslationService getTranslationService() {
         return translationService;
-    }*/
+    }
 
     private String translate(final String translationKey) {
-        return translationKey;
-        //return getTranslationService().getTranslation(translationKey);
+        return getTranslationService().getTranslation(translationKey);
     }
 
     private static String buildHtmlEscapedText(final String message) {

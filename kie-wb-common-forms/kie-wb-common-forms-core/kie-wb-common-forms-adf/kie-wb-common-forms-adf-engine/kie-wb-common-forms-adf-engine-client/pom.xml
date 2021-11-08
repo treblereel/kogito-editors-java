@@ -49,6 +49,10 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>kie-wb-common-forms-adf-engine-api</artifactId>
     </dependency>
+      <dependency>
+          <groupId>io.crysknife.ui.translation</groupId>
+          <artifactId>api</artifactId>
+      </dependency>
   </dependencies>
 
   <build>

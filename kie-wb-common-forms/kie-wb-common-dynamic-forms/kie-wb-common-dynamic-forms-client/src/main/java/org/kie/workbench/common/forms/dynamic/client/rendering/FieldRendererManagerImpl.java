@@ -20,7 +20,6 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import elemental2.dom.DomGlobal;
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.forms.model.FieldDefinition;
 
@@ -36,13 +35,12 @@ public class FieldRendererManagerImpl implements FieldRendererManager {
 
     @Override
     public FieldRenderer getRendererForField(FieldDefinition fieldDefinition) {
-        throw new Error(getClass().getCanonicalName()+".getRendererForField " + fieldDefinition.getClass().getCanonicalName());
-/*        Class<? extends FieldRenderer> rendererClass = FieldRendererTypeRegistry.getFieldRenderer(fieldDefinition);
+        Class<? extends FieldRenderer> rendererClass = FieldRendererTypeRegistry.getFieldRenderer(fieldDefinition);
 
         if (rendererClass != null) {
             return renderers.select(rendererClass).get();
         }
-        return null;*/
+        return null;
     }
 
     @PreDestroy

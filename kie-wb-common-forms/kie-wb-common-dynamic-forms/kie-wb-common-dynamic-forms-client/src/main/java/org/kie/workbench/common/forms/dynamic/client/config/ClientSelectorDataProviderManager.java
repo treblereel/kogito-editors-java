@@ -20,7 +20,10 @@ import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 
+import io.crysknife.client.BeanManager;
+import io.crysknife.client.SyncBeanDef;
 import org.kie.workbench.common.forms.dynamic.model.config.SelectorDataProvider;
 import org.kie.workbench.common.forms.dynamic.service.shared.AbstractSelectorDataProviderManager;
 
@@ -29,14 +32,16 @@ public class ClientSelectorDataProviderManager extends AbstractSelectorDataProvi
 
     public static final String PREFFIX = "local";
 
+    @Inject
+    private BeanManager beanManager;
+
     @PostConstruct
     public void init() {
-        throw new Error(getClass().getCanonicalName()+".init");
-/*        Collection<SyncBeanDef<SelectorDataProvider>> providers = IOC.getBeanManager().lookupBeans(SelectorDataProvider.class);
+        Collection<SyncBeanDef<SelectorDataProvider>> providers = beanManager.lookupBeans(SelectorDataProvider.class);
 
         for (SyncBeanDef<SelectorDataProvider> provider : providers) {
             registerProvider(provider.newInstance());
-        }*/
+        }
     }
 
     @Override

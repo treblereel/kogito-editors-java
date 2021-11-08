@@ -19,6 +19,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.relati
 import java.util.HashMap;
 import java.util.Map;
 
+import io.crysknife.client.BeanManager;
 import org.kie.workbench.common.forms.dynamic.service.shared.FormRenderingContext;
 import org.kie.workbench.common.forms.dynamic.service.shared.impl.MapModelRenderingContext;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.relations.multipleSubform.definition.MultipleSubFormFieldDefinition;
@@ -27,11 +28,9 @@ public class BindingHelpers {
 
     private static Map<Class<? extends FormRenderingContext>, Class<? extends BindingHelper>> helpers = new HashMap<>();
 
-    public static BindingHelper getHelper(FormRenderingContext context,
+    public static BindingHelper getHelper(BeanManager beanManager,
+                                            FormRenderingContext context,
                                           MultipleSubFormFieldDefinition field) {
-        throw new Error(BindingHelpers.class.getCanonicalName()+".getHelper");
-/*
-
         Class<? extends BindingHelper> helperClazz = null;
 
         if (context instanceof MapModelRenderingContext) {
@@ -40,11 +39,11 @@ public class BindingHelpers {
             helperClazz = StaticBindingHelper.class;
         }
 
-        BindingHelper helper = IOC.getBeanManager().lookupBean(helperClazz).newInstance();
+        BindingHelper helper = beanManager.lookupBean(helperClazz).newInstance();
 
         helper.setUp(field,
                      context);
 
-        return helper;*/
+        return helper;
     }
 }

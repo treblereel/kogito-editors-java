@@ -25,6 +25,7 @@ import javax.inject.Inject;
 import elemental2.dom.DomGlobal;
 import io.crysknife.client.BeanManager;
 import io.crysknife.client.SyncBeanDef;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.AbstractFormGenerator;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.I18nHelper;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.layout.LayoutGenerator;
@@ -35,22 +36,22 @@ import org.kie.workbench.common.forms.adf.service.definitions.I18nSettings;
 @ApplicationScoped
 public class ClientFormGenerator extends AbstractFormGenerator {
 
-    //protected TranslationService translationService;
+    protected TranslationService translationService;
 
     @Inject
     private BeanManager beanManager;
 
     @Inject
-    public ClientFormGenerator(LayoutGenerator layoutGenerator
-                               //TranslationService translationService
+    public ClientFormGenerator(LayoutGenerator layoutGenerator,
+                               TranslationService translationService
     ) {
         super(layoutGenerator);
-        //this.translationService = translationService;
+        this.translationService = translationService;
     }
 
     @PostConstruct
     public void initialize() {
-        DomGlobal.console.log(getClass().getCanonicalName()+".initialize");
+        DomGlobal.console.log(getClass().getCanonicalName() + ".initialize");
 
         Collection<SyncBeanDef<FormElementProcessor>> processors = beanManager.lookupBeans(FormElementProcessor.class);
 
@@ -73,9 +74,7 @@ public class ClientFormGenerator extends AbstractFormGenerator {
 
     @Override
     protected I18nHelper getI18nHelper(I18nSettings settings) {
-        throw new Error(getClass().getCanonicalName()+".getI18nHelper");
-/*
         return new ClientI18nHelper(settings,
-                                    translationService);*/
+                                    translationService);
     }
 }

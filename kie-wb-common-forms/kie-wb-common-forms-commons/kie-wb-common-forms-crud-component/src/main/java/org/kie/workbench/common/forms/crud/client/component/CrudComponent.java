@@ -20,6 +20,7 @@ import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.Widget;
 import org.gwtproject.view.client.AsyncDataProvider;
@@ -68,18 +69,18 @@ public class CrudComponent<MODEL, FORM_MODEL> implements IsWidget {
 
     protected CrudActionsHelper<MODEL> helper;
 
-    //private final TranslationService translationService;
+    private final TranslationService translationService;
 
     @Inject
     public CrudComponent(final CrudComponentView<MODEL, FORM_MODEL> view,
                          final EmbeddedFormDisplayer embeddedFormDisplayer,
-                         final ModalFormDisplayer modalFormDisplayer
-            //,final TranslationService translationService
+                         final ModalFormDisplayer modalFormDisplayer,
+                         final TranslationService translationService
     ) {
         this.view = view;
         this.embeddedFormDisplayer = embeddedFormDisplayer;
         this.modalFormDisplayer = modalFormDisplayer;
-        //this.translationService = translationService;
+        this.translationService = translationService;
         view.setPresenter(this);
     }
 
@@ -172,10 +173,9 @@ public class CrudComponent<MODEL, FORM_MODEL> implements IsWidget {
 
     public void displayForm(IsFormView<FORM_MODEL> formView,
                             FormDisplayerCallback callback) {
-        throw new Error(getClass().getCanonicalName()+".displayForm");
-/*        displayForm(translationService.getTranslation(CrudComponentViewImplNewInstanceTitle),
+        displayForm(translationService.getTranslation(CrudComponentViewImplNewInstanceTitle),
                     formView,
-                    callback);*/
+                    callback);
     }
 
     public void restoreTable() {

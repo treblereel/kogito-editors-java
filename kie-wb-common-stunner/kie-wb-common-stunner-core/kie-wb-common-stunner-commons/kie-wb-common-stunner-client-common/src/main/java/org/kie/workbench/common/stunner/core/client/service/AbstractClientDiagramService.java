@@ -18,6 +18,7 @@ package org.kie.workbench.common.stunner.core.client.service;
 
 import javax.enterprise.event.Event;
 
+import elemental2.dom.DomGlobal;
 import org.jboss.errai.common.client.api.Caller;
 import org.kie.workbench.common.stunner.core.client.api.SessionManager;
 import org.kie.workbench.common.stunner.core.client.api.ShapeManager;
@@ -58,9 +59,17 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
                        final String name,
                        final String defSetId,
                        final ServiceCallback<Path> callback) {
-        diagramServiceCaller.create(path,
-                                    name,
-                                    defSetId);
+        DomGlobal.console.log("***** create " + path + " " + name + " " + defSetId);
+
+        try {
+            diagramServiceCaller.create(path,
+                    name,
+                    defSetId);
+            callback.onSuccess(path);
+        } catch (Exception e) {
+            callback.onError(new ClientRuntimeError(e));
+        }
+
 
 /*        diagramServiceCaller.call(p -> callback.onSuccess(path),
                                   (message, throwable) -> {
@@ -75,7 +84,17 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     @SuppressWarnings("unchecked")
     public void saveOrUpdate(final D diagram,
                              final ServiceCallback<D> callback) {
-        diagramServiceCaller.saveOrUpdate(diagram);
+        DomGlobal.console.log("***** saveOrUpdate " + diagram );
+
+        try {
+            M serverMetadata = diagramServiceCaller.saveOrUpdate(diagram);
+            updateClientMetadata(diagram);
+            diagram.getMetadata().setPath(((M) serverMetadata).getPath());
+            callback.onSuccess(diagram);
+            fireSavedEvent(sessionManager.getCurrentSession());
+        } catch (Exception throwable) {
+            callback.onError(new ClientRuntimeError(throwable));
+        }
 /*        diagramServiceCaller.call(serverMetadata -> {
                                       updateClientMetadata(diagram);
                                       diagram.getMetadata().setPath(((M) serverMetadata).getPath());
@@ -90,7 +109,14 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
 
     @Override
     public void saveOrUpdateSvg(Path diagramPath, String rawSvg, ServiceCallback<Path> callback) {
-        diagramServiceCaller.saveOrUpdateSvg(diagramPath, rawSvg);
+        DomGlobal.console.log("***** saveOrUpdateSvg " + diagramPath );
+        try {
+            Path res = diagramServiceCaller.saveOrUpdateSvg(diagramPath, rawSvg);
+            callback.onSuccess(res);
+        } catch (Exception e ) {
+        }
+
+        //diagramServiceCaller.saveOrUpdateSvg(diagramPath, rawSvg);
         //diagramServiceCaller.call(res -> callback.onSuccess((Path) res)).saveOrUpdateSvg(diagramPath, rawSvg);
     }
 
@@ -101,8 +127,15 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     @Override
     public void add(final D diagram,
                     final ServiceCallback<D> callback) {
-        diagramServiceCaller.saveOrUpdate(diagram);
+        DomGlobal.console.log("***** create " + diagram);
 
+        try {
+            diagramServiceCaller.saveOrUpdate(diagram);
+            updateClientMetadata(diagram);
+            callback.onSuccess(diagram);
+        } catch (Exception throwable) {
+            callback.onError(new ClientRuntimeError(throwable));
+        }
 /*        diagramServiceCaller.call(v -> {
                                       updateClientMetadata(diagram);
                                       callback.onSuccess(diagram);
@@ -117,8 +150,15 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     @SuppressWarnings("unchecked")
     public void getByPath(final Path path,
                           final ServiceCallback<D> callback) {
-        diagramServiceCaller.getDiagramByPath(path);
+        DomGlobal.console.log("***** getByPath " + path);
 
+        try {
+            D diagram = diagramServiceCaller.getDiagramByPath(path);
+            updateClientMetadata(diagram);
+            callback.onSuccess(diagram);
+        } catch (Exception throwable) {
+            callback.onError(new ClientRuntimeError(throwable));
+        }
 /*        diagramServiceCaller.call(diagram -> {
                                       updateClientMetadata((D) diagram);
                                       callback.onSuccess((D) diagram);
@@ -133,8 +173,13 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     @SuppressWarnings("unchecked")
     public void lookup(final DiagramLookupRequest request,
                        final ServiceCallback<LookupManager.LookupResponse<DiagramRepresentation>> callback) {
-        diagramLookupServiceCaller.lookup(request);
-
+        DomGlobal.console.log("***** lookup " + request);
+        try {
+            LookupManager.LookupResponse response = diagramLookupServiceCaller.lookup(request);
+            callback.onSuccess((LookupManager.LookupResponse<DiagramRepresentation>) response);
+        } catch (Exception throwable) {
+            callback.onError(new ClientRuntimeError(throwable));
+        }
 /*        diagramLookupServiceCaller.call(response -> callback.onSuccess((LookupManager.LookupResponse<DiagramRepresentation>) response),
                                         (message, throwable) -> {
                                             callback.onError(new ClientRuntimeError(throwable));
@@ -145,8 +190,14 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     @Override
     public void getRawContent(final D diagram,
                               final ServiceCallback<String> callback) {
-        diagramServiceCaller.getRawContent(diagram);
+        DomGlobal.console.log("***** getRawContent " + diagram);
 
+        try {
+            String rawContent = diagramServiceCaller.getRawContent(diagram);
+            callback.onSuccess(rawContent);
+        } catch (Exception throwable) {
+            callback.onError(new ClientRuntimeError(throwable));
+        }
 /*        diagramServiceCaller.call(rawContent -> {
                                       callback.onSuccess((String) rawContent);
                                   },
@@ -158,6 +209,9 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     }
 
     protected void updateClientMetadata(final D diagram) {
+        DomGlobal.console.log("***** updateClientMetadata " + diagram);
+
+
         if (null != diagram) {
             final Metadata metadata = diagram.getMetadata();
             if (null != metadata && isEmpty(metadata.getShapeSetId())) {

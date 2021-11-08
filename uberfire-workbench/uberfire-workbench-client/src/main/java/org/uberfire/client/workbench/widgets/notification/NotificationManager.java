@@ -24,6 +24,7 @@ import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
 import io.crysknife.client.BeanManager;
+import io.crysknife.client.SyncBeanDef;
 import org.gwtproject.user.client.Command;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.RootPanel;
@@ -64,9 +65,7 @@ public class NotificationManager {
         //Lookup, or create, a View specific to the container
         View notificationsContainerView = notificationsContainerViewMap.get(rootPlaceRequest);
         if (notificationsContainerView == null) {
-            throw new Error(getClass().getCanonicalName()+".addNotification");
-
-            /*           final SyncBeanDef<View> containerViewBeanDef = iocManager.lookupBean(View.class);
+           final SyncBeanDef<View> containerViewBeanDef = iocManager.lookupBean(View.class);
            if (containerViewBeanDef != null) {
                 notificationsContainerView = containerViewBeanDef.getInstance();
                 notificationsContainerView.setContainer(notificationsContainer);
@@ -79,7 +78,7 @@ public class NotificationManager {
 
                 notificationsContainerViewMap.put(rootPlaceRequest,
                                                   notificationsContainerView);
-            }*/
+            }
         }
         if (notificationsContainerView == null) {
             return;

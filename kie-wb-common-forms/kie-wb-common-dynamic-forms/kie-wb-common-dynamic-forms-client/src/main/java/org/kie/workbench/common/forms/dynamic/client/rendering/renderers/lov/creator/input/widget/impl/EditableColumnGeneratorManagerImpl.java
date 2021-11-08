@@ -16,27 +16,32 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.impl;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import io.crysknife.client.BeanManager;
+import io.crysknife.client.SyncBeanDef;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.EditableColumnGenerator;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.EditableColumnGeneratorManager;
 
 @Singleton
 public class EditableColumnGeneratorManagerImpl implements EditableColumnGeneratorManager {
 
+    @Inject
+    private BeanManager beanManager;
+
     private Map<String, EditableColumnGenerator> generators = new HashMap<>();
 
     @PostConstruct
     public void init() {
-        throw new Error(getClass().getCanonicalName() +".init");
+        Collection<SyncBeanDef<EditableColumnGenerator>> beanDefs = beanManager.lookupBeans(EditableColumnGenerator.class);
 
-/*        Collection<SyncBeanDef<EditableColumnGenerator>> beanDefs = IOC.getBeanManager().lookupBeans(EditableColumnGenerator.class);
-
-        beanDefs.stream().map(beanDef -> beanDef.newInstance()).forEach(this::registerGenerator);*/
+        beanDefs.stream().map(beanDef -> beanDef.newInstance()).forEach(this::registerGenerator);
     }
 
     public void registerGenerator(EditableColumnGenerator generator) {

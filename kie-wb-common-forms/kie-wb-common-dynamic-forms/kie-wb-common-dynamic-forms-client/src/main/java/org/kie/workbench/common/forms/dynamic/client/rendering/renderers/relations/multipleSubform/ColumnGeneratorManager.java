@@ -25,12 +25,17 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import io.crysknife.client.BeanManager;
+import io.crysknife.client.SyncBeanDef;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.relations.multipleSubform.columns.ColumnGenerator;
 
 @ApplicationScoped
 public class ColumnGeneratorManager {
 
     protected ColumnGenerator defaultColumnGenerator;
+
+    @Inject
+    private BeanManager beanManager;
 
     protected Map<String, ColumnGenerator> generators = new HashMap<String, ColumnGenerator>();
 
@@ -41,16 +46,14 @@ public class ColumnGeneratorManager {
 
     @PostConstruct
     protected void init() {
-        throw new Error(getClass().getCanonicalName()+".init");
-/*
-        Collection<SyncBeanDef<ColumnGenerator>> generatorDefs = IOC.getBeanManager().lookupBeans(ColumnGenerator.class);
+        Collection<SyncBeanDef<ColumnGenerator>> generatorDefs = beanManager.lookupBeans(ColumnGenerator.class);
         for (SyncBeanDef<ColumnGenerator> generatorDef : generatorDefs) {
             ColumnGenerator generator = generatorDef.getInstance();
             if (!defaultColumnGenerator.equals(generator)) {
                 generators.put(generator.getType(),
                                generator);
             }
-        }*/
+        }
     }
 
     public ColumnGenerator getGeneratorByType(String type) {

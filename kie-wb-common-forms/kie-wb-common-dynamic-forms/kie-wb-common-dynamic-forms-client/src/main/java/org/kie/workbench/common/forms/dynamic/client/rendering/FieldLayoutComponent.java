@@ -23,6 +23,7 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 import org.kie.workbench.common.forms.dynamic.service.shared.FormRenderingContext;
@@ -40,7 +41,7 @@ public class FieldLayoutComponent implements FormLayoutComponent,
 
     protected FieldRendererManager fieldRendererManager;
 
-    //protected TranslationService translationService;
+    protected TranslationService translationService;
 
     protected FieldDefinition field;
 
@@ -49,9 +50,10 @@ public class FieldLayoutComponent implements FormLayoutComponent,
     protected FormRenderingContext renderingContext;
 
     @Inject
-    public FieldLayoutComponent(FieldRendererManager fieldRendererManager /*TranslationService translationService*/) {
+    public FieldLayoutComponent(FieldRendererManager fieldRendererManager,
+            TranslationService translationService) {
         this.fieldRendererManager = fieldRendererManager;
-        //this.translationService = translationService;
+        this.translationService = translationService;
     }
 
     public void init(FormRenderingContext renderingContext,

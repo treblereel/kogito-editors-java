@@ -26,6 +26,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.user.client.TakesValue;
 import org.gwtproject.user.client.ui.HasText;
 import org.gwtproject.user.client.ui.HasValue;
@@ -38,13 +39,13 @@ import org.kie.workbench.common.forms.processing.engine.handling.resources.i18n.
 @Dependent
 public class FieldStateValidatorImpl implements FieldStateValidator {
 
-    //protected TranslationService translationService;
+    protected TranslationService translationService;
 
     protected Map<Class<?>, Predicate<?>> validators = new HashMap<>();
 
     @Inject
-    public FieldStateValidatorImpl(/*TranslationService translationService*/) {
-        //this.translationService = translationService;
+    public FieldStateValidatorImpl(TranslationService translationService) {
+        this.translationService = translationService;
     }
 
     @PostConstruct
@@ -107,9 +108,7 @@ public class FieldStateValidatorImpl implements FieldStateValidator {
 
     protected boolean validateFieldValueRequired(FormField field,
                                                  Object value) {
-        throw new Error(getClass().getCanonicalName() + " " + value);
-
-/*        String message = translationService.getTranslation(ProcessingEngineConstants.FieldStateValidatorImplFieldIsRequired);
+        String message = translationService.getTranslation(ProcessingEngineConstants.FieldStateValidatorImplFieldIsRequired);
         if (value == null) {
             field.showError(message);
             return false;
@@ -121,6 +120,6 @@ public class FieldStateValidatorImpl implements FieldStateValidator {
                 return false;
             }
         }
-        return true;*/
+        return true;
     }
 }

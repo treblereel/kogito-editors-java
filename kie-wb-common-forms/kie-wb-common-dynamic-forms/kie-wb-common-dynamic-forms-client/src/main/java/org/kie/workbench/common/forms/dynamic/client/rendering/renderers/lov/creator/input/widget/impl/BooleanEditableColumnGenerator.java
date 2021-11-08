@@ -22,6 +22,7 @@ import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.cell.client.SelectionCell;
 import org.gwtproject.user.cellview.client.Column;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.CellEditionHandler;
@@ -35,8 +36,8 @@ import org.uberfire.ext.widgets.table.client.UberfirePagedTable;
 public class BooleanEditableColumnGenerator extends AbstractEditableColumnGenerator<Boolean> {
 
     @Inject
-    public BooleanEditableColumnGenerator(/*TranslationService translationService*/) {
-        //super(translationService);
+    public BooleanEditableColumnGenerator(TranslationService translationService) {
+        super(translationService);
     }
 
     @Override

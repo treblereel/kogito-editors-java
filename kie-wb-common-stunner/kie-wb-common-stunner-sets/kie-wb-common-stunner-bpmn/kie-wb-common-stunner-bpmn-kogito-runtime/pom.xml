@@ -318,6 +318,12 @@
       <classifier>sources</classifier>
     </dependency>
 
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>kie-wb-common-stunner-bpmn-marshalling</artifactId>
+      <version>${version}</version>
+    </dependency>
+
     <!--  Appformer Kogito -->
 <!--    <dependency>
       <groupId>org.kie.kogito</groupId>

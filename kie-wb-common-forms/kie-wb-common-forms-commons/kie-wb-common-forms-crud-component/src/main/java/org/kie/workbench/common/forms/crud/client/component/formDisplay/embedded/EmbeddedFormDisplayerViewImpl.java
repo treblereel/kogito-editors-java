@@ -24,6 +24,7 @@ import elemental2.dom.DomGlobal;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.Element;
 import org.gwtproject.event.dom.client.ClickEvent;
@@ -53,22 +54,17 @@ public class EmbeddedFormDisplayerViewImpl extends Composite implements Embedded
 
     private EmbeddedFormDisplayer presenter;
 
-    //private TranslationService translationService;
+    private TranslationService translationService;
 
     @Inject
-    public EmbeddedFormDisplayerViewImpl(/*TranslationService translationService*/) {
-        //this.translationService = translationService;
+    public EmbeddedFormDisplayerViewImpl(TranslationService translationService) {
+        this.translationService = translationService;
     }
 
     @PostConstruct
     protected void initialize() {
-        DomGlobal.console.log(getClass().getCanonicalName()+".initialize check it");
-
-        accept.setText("accept");
-        cancel.setText("cancel");
-
-/*        accept.setText(translationService.getTranslation(CrudComponentConstants.ModalFormDisplayerViewImplAccept));
-        cancel.setText(translationService.getTranslation(CrudComponentConstants.ModalFormDisplayerViewImplCancel));*/
+        accept.setText(translationService.getTranslation(CrudComponentConstants.ModalFormDisplayerViewImplAccept));
+        cancel.setText(translationService.getTranslation(CrudComponentConstants.ModalFormDisplayerViewImplCancel));
     }
 
     @Override

@@ -22,10 +22,12 @@ import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.client.BeanManager;
 import io.crysknife.ui.databinding.client.BindableProxy;
 import io.crysknife.ui.databinding.client.HasProperties;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.core.client.GWT;
 import org.gwtproject.user.client.TakesValue;
 import org.gwtproject.user.client.ui.Composite;
@@ -63,13 +65,16 @@ public class MultipleSubFormWidget extends Composite implements TakesValue<List<
     @DataField
     private FlowPanel content;
 
+    @Inject
+    private BeanManager beanManager;
+
     protected ColumnGeneratorManager columnGeneratorManager;
 
     protected DynamicFormRenderer formRenderer;
 
     protected CrudComponent crudComponent;
 
-    //protected TranslationService translationService;
+    protected TranslationService translationService;
 
     private MultipleSubFormFieldDefinition field;
 
@@ -89,13 +94,12 @@ public class MultipleSubFormWidget extends Composite implements TakesValue<List<
     @Inject
     public MultipleSubFormWidget(ColumnGeneratorManager columnGeneratorManager,
                                  DynamicFormRenderer formRenderer,
-                                 CrudComponent crudComponent
-            //,TranslationService translationService
-    ) {
+                                 CrudComponent crudComponent,
+                                 TranslationService translationService) {
         this.columnGeneratorManager = columnGeneratorManager;
         this.formRenderer = formRenderer;
         this.crudComponent = crudComponent;
-        //this.translationService = translationService;
+        this.translationService = translationService;
     }
 
     protected void init() {
@@ -331,7 +335,7 @@ public class MultipleSubFormWidget extends Composite implements TakesValue<List<
 
         isReadOnly = field.getReadOnly() || !renderingContext.getRenderMode().equals(RenderMode.EDIT_MODE);
 
-        bindingHelper = BindingHelpers.getHelper(renderingContext,
+        bindingHelper = BindingHelpers.getHelper(beanManager, renderingContext,
                                                  field);
 
         initCrud();

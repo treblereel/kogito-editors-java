@@ -19,12 +19,15 @@ package org.jboss.errai.common.client.ui;
 import java.util.HashMap;
 import java.util.Map;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 import io.crysknife.ui.databinding.client.NativeHasValueAccessors;
 import io.crysknife.ui.databinding.client.NativeHasValueAccessors.Accessor;
 import io.crysknife.ui.databinding.client.ValueChangeManager;
 import jsinterop.base.Js;
+import org.gwtproject.dom.client.BodyElement;
+import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.InputElement;
 import org.gwtproject.dom.client.TextAreaElement;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
@@ -67,7 +70,20 @@ public abstract class ElementWrapperWidget<T> extends Widget {
       widget = createElementWrapperWidget(element, valueType);
       // Always call onAttach so that events propogatge even if this has no widget parent.
       widget.onAttach();
-      RootPanel.detachOnWindowClose(widget);
+
+      DomGlobal.console.log("getWidget " + obj.getClass().getCanonicalName() + " "  + obj + " " + isElementChildOfWidget(widget.getElement()));
+
+      if(valueType != null) {
+        DomGlobal.console.log("valueType " + valueType + " " + valueType.getCanonicalName());
+      }
+
+/*      if(widget.getParent() != null) {
+        widget.removeFromParent();
+      }*/
+      if(!isElementChildOfWidget(widget.getElement()))
+        RootPanel.detachOnWindowClose(widget);
+
+
       widgetMap.put(element, widget);
     }
     else if (valueType != null && !valueType.equals(widget.getValueType())) {
@@ -77,6 +93,22 @@ public abstract class ElementWrapperWidget<T> extends Widget {
     }
 
     return widget;
+  }
+
+  private static boolean isElementChildOfWidget(org.gwtproject.dom.client.Element element) {
+    // Walk up the DOM hierarchy, looking for any widget with an event listener
+    // set. Though it is not dependable in the general case that a widget will
+    // have set its element's event listener at all times, it *is* dependable
+    // if the widget is attached. Which it will be in this case.
+    element = element.getParentElement();
+    BodyElement body = Document.get().getBody();
+    while ((element != null) && (body != element)) {
+      if (Event.getEventListener(element) != null) {
+        return true;
+      }
+      element = element.getParentElement().cast();
+    }
+    return false;
   }
 
   private static Element asElement(Object obj) {

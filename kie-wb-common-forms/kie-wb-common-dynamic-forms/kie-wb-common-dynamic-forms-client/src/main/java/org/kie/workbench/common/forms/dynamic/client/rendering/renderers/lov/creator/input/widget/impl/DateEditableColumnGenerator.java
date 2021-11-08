@@ -23,6 +23,7 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import io.crysknife.client.ManagedInstance;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.cell.client.TextCell;
 import org.gwtproject.i18n.client.DateTimeFormat;
 import org.gwtproject.user.cellview.client.Column;
@@ -39,8 +40,9 @@ public class DateEditableColumnGenerator extends AbstractEditableColumnGenerator
     private ManagedInstance<DateTimePickerCell> dateTimePickerCells;
 
     @Inject
-    public DateEditableColumnGenerator(/*TranslationService translationService, */ManagedInstance<DateTimePickerCell> dateTimePickerCells) {
-        //super(translationService);
+    public DateEditableColumnGenerator(TranslationService translationService,
+                                       ManagedInstance<DateTimePickerCell> dateTimePickerCells) {
+        super(translationService);
         this.dateTimePickerCells = dateTimePickerCells;
     }
 

@@ -16,6 +16,7 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.impl.numeric;
 
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.cell.client.EditTextCell;
 import org.gwtproject.cell.client.TextCell;
 import org.gwtproject.user.cellview.client.Column;
@@ -27,8 +28,8 @@ import org.uberfire.ext.widgets.table.client.UberfirePagedTable;
 
 public abstract class AbstractNumericEditableColumnGenerator<NUMBER> extends AbstractEditableColumnGenerator<NUMBER> {
 
-    public AbstractNumericEditableColumnGenerator(/*TranslationService translationService*/) {
-        //super(translationService);
+    public AbstractNumericEditableColumnGenerator(TranslationService translationService) {
+        super(translationService);
     }
 
     @Override

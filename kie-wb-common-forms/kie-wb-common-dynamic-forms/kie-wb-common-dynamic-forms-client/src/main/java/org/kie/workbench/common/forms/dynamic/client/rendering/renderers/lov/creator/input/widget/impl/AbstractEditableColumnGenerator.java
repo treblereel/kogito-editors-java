@@ -16,10 +16,8 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.impl;
 
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.user.cellview.client.Column;
-/*
-import org.jboss.errai.ui.client.local.spi.TranslationService;
-*/
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.CellEditionHandler;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.EditableColumnGenerator;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.TableEntry;
@@ -28,11 +26,11 @@ import org.uberfire.ext.widgets.table.client.UberfirePagedTable;
 
 public abstract class AbstractEditableColumnGenerator<TYPE> implements EditableColumnGenerator<TYPE> {
 
-    //protected TranslationService translationService;
+    protected TranslationService translationService;
 
-/*    public AbstractEditableColumnGenerator(TranslationService translationService) {
+    public AbstractEditableColumnGenerator(TranslationService translationService) {
         this.translationService = translationService;
-    }*/
+    }
 
     @Override
     public void registerColumn(UberfirePagedTable<TableEntry<TYPE>> table,
@@ -45,11 +43,11 @@ public abstract class AbstractEditableColumnGenerator<TYPE> implements EditableC
             column = getReadOnlyColumn();
         } else {
             column = getEditableColumn(table,
-                                       cellEditionHandler);
+                    cellEditionHandler);
         }
 
-        table.addColumn(column, "valueHeader");
-                        //translationService.getTranslation(FormRenderingConstants.EditableColumnGeneratorValueHeader));
+        table.addColumn(column,
+                translationService.getTranslation(FormRenderingConstants.EditableColumnGeneratorValueHeader));
     }
 
     protected abstract Column<TableEntry<TYPE>, ?> getEditableColumn(UberfirePagedTable<TableEntry<TYPE>> table,

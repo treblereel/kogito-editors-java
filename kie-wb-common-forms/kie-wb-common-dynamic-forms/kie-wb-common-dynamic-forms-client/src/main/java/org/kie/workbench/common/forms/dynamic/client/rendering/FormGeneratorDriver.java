@@ -28,6 +28,7 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import io.crysknife.client.BeanManager;
 import io.crysknife.client.ManagedInstance;
+import io.crysknife.client.SyncBeanDef;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.constants.ColumnSize;
@@ -105,14 +106,8 @@ public class FormGeneratorDriver implements LayoutGeneratorDriver {
     }
 
     private LayoutDragComponent lookupComponent(LayoutComponent layoutComponent) {
-        throw new Error(getClass().getCanonicalName() +".lookupComponent");
-/*
-
         Class<? extends LayoutDragComponent> clazz = componentsCache.get(layoutComponent.getDragTypeName());
         if (clazz == null) {
-
-            throw new Error(getClass().getCanonicalName() +".lookupComponent");
-
             SyncBeanDef dragTypeDef = beanManager.lookupBeans(layoutComponent.getDragTypeName()).iterator().next();
 
             componentsCache.put(layoutComponent.getDragTypeName(), dragTypeDef.getBeanClass());
@@ -132,7 +127,7 @@ public class FormGeneratorDriver implements LayoutGeneratorDriver {
             layoutComponents.add(fieldComponent);
         }
 
-        return dragComponent;*/
+        return dragComponent;
     }
 
     public List<FieldLayoutComponent> getLayoutFields() {

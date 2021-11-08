@@ -16,24 +16,22 @@
 
 package org.kie.workbench.common.forms.adf.engine.client.formGeneration;
 
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.AbstractI18nHelper;
 import org.kie.workbench.common.forms.adf.service.definitions.I18nSettings;
 
 public class ClientI18nHelper extends AbstractI18nHelper {
 
-    //private TranslationService translationService;
+    private TranslationService translationService;
 
-    public ClientI18nHelper(I18nSettings settings
-                            //TranslationService translationService
-    ) {
+    public ClientI18nHelper(I18nSettings settings,
+                            TranslationService translationService) {
         super(settings);
-        //this.translationService = translationService;
+        this.translationService = translationService;
     }
 
     @Override
     public String getTranslation(String key) {
-        throw new Error(getClass().getCanonicalName()+".getTranslation " + key);
-
-       // return translationService.getTranslation(key);
+        return translationService.getTranslation(key);
     }
 }
