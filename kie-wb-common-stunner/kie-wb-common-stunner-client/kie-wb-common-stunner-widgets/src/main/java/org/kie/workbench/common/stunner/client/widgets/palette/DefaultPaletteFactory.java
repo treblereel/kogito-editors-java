@@ -24,6 +24,7 @@ import javax.enterprise.event.Event;
 import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.core.api.DefinitionManager;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;
@@ -63,6 +64,9 @@ public class DefaultPaletteFactory<H extends AbstractCanvasHandler>
 
     @Override
     public DefaultPaletteWidget newPalette(final H canvasHandler) {
+        DomGlobal.console.log("newPalette");
+
+
         final DefaultPaletteWidget palette = getPaletteWidget(canvasHandler);
         getPaletteDefinitionBuilder(canvasHandler)
                 .build(canvasHandler,
@@ -89,11 +93,20 @@ public class DefaultPaletteFactory<H extends AbstractCanvasHandler>
 
     private DefaultPaletteWidget getPaletteWidget(final H canvasHandler) {
         final DefaultPaletteWidget palette = palettes.get();
-        palette.onItemDrop(event -> buildCanvasShapeEvent.fire(new BuildCanvasShapeEvent(canvasHandler,
+
+        DomGlobal.console.log("getPaletteWidget FIRE BuildCanvasShapeEvent");
+        DomGlobal.console.log("buildCanvasShapeEvent " + buildCanvasShapeEvent.getClass().getCanonicalName());
+
+        palette.onItemDrop(event -> {
+
+            DomGlobal.console.log(getClass().getCanonicalName() + ".onItemDrop " + event);
+
+
+            buildCanvasShapeEvent.fire(new BuildCanvasShapeEvent(canvasHandler,
                                                                                          event.getDefinition(),
                                                                                          event.getFactory(),
                                                                                          event.getX(),
-                                                                                         event.getY())));
+                                                                                         event.getY()));});
         palette.onItemDragStart(event -> canvasShapeDragStartEvent.fire(new CanvasShapeDragStartEvent(canvasHandler,
                                                                                                       event.getDefinition(),
                                                                                                       event.getFactory(),

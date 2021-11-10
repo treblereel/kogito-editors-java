@@ -24,11 +24,7 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import elemental2.dom.Event;
-import elemental2.dom.HTMLAnchorElement;
-import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLElement;
-import elemental2.dom.HTMLInputElement;
+import elemental2.dom.*;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
@@ -96,6 +92,9 @@ public class CollapsibleFormGroupViewImpl implements IsElement,
     @Override
     public void render(Widget widget,
                        FieldDefinition field) {
+
+        DomGlobal.console.log(" 1 > " + widget.getClass().getCanonicalName());
+        DomGlobal.console.log(" 2 > " + field.getClass().getCanonicalName());
 
         String id = Document.get().createUniqueId();
         anchor.setAttribute("data-target", "#" + id);

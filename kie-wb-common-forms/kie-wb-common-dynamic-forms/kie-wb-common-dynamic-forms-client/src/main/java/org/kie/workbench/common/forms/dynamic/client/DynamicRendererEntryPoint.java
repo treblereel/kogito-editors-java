@@ -40,7 +40,7 @@ public class DynamicRendererEntryPoint {
         this.beanManager = beanManager;
     }
 
-    @PostConstruct
+    //@PostConstruct
     public void init() {
         populateFieldRenderersRegistry();
     }

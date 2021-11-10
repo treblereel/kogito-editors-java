@@ -25,6 +25,7 @@ import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.stunner.core.client.api.ClientDefinitionManager;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;
 import org.kie.workbench.common.stunner.core.client.canvas.CanvasHandler;
@@ -71,6 +72,9 @@ public class ObserverBuilderControl extends AbstractElementBuilderControl
               canvasCommandFactory,
               translationMessages,
               graphBoundsIndexer);
+
+        DomGlobal.console.log("ObserverBuilderControl started !!!");
+
         this.canvasSelectionEvent = canvasSelectionEvent;
         this.inlineTextEditEventEvent = inlineTextEditEventEvent;
     }
@@ -100,7 +104,10 @@ public class ObserverBuilderControl extends AbstractElementBuilderControl
     }
 
     @SuppressWarnings("unchecked")
-    void onBuildCanvasShape(final @Observes BuildCanvasShapeEvent event) {
+    public void onBuildCanvasShape(final @Observes BuildCanvasShapeEvent event) {
+        DomGlobal.console.log("ObserverBuilderControl.onBuildCanvasShape !!! " + event.toString());
+
+
         checkNotNull("event",
                      event);
         if (null != canvasHandler) {

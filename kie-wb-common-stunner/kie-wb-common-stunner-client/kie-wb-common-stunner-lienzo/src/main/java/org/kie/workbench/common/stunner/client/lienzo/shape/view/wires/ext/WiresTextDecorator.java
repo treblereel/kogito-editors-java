@@ -376,28 +376,33 @@ public class WiresTextDecorator implements HasTitle<WiresTextDecorator> {
                                                                                       Type.PERCENTAGE);
     }
 
-    private <T extends Enum<T>> T convertEnum(Enum<?> input, Class<T> outputType) {
-        return Exceptions.swallow(() -> Enum.valueOf(outputType, input.name()), null);
+    private <T extends Enum<T>> T convertEnum(Enum<?> input, Enum<?>[] values) {
+        for (Enum<?> value : values) {
+            if(value.name().equals(input.name())) {
+                return (T) value;
+            }
+        }
+        return null;
     }
 
     public WiresTextDecorator setTitlePosition(final HasTitle.VerticalAlignment verticalAlignment, final HasTitle.HorizontalAlignment horizontalAlignment,
                                                final HasTitle.ReferencePosition referencePosition, final HasTitle.Orientation orientation) {
         labelLayout = new LabelLayout.Builder()
-                .horizontalAlignment(convertEnum(horizontalAlignment, DirectionLayout.HorizontalAlignment.class))
-                .verticalAlignment(convertEnum(verticalAlignment, DirectionLayout.VerticalAlignment.class))
-                .orientation(convertEnum(orientation, DirectionLayout.Orientation.class))
-                .referencePosition(convertEnum(referencePosition, DirectionLayout.ReferencePosition.class))
+                .horizontalAlignment(convertEnum(horizontalAlignment, DirectionLayout.HorizontalAlignment.values()))
+                .verticalAlignment(convertEnum(verticalAlignment, DirectionLayout.VerticalAlignment.values()))
+                .orientation(convertEnum(orientation, DirectionLayout.Orientation.values()))
+                .referencePosition(convertEnum(referencePosition, DirectionLayout.ReferencePosition.values()))
                 .margins(margins.entrySet()
                                  .stream()
                                  .map(e -> new SimpleEntry<>(
-                                         Optional.<Direction>ofNullable(convertEnum(e.getKey(), DirectionLayout.VerticalAlignment.class))
+                                         Optional.<Direction>ofNullable(convertEnum(e.getKey(), DirectionLayout.VerticalAlignment.values()))
                                                  .orElse(convertEnum(e.getKey(),
-                                                                     DirectionLayout.HorizontalAlignment.class)),
+                                                                     DirectionLayout.HorizontalAlignment.values())),
                                          e.getValue()))
                                  .collect(Collectors.toMap(Entry::getKey, Entry::getValue)))
                 .sizeConstraints(sizeConstraints
                                          .map(s -> new SizeConstraints(s.getWidth(), s.getHeight(),
-                                                                       convertEnum(s.getType(), Type.class)))
+                                                                       convertEnum(s.getType(), Type.values())))
                                          .orElse(getDefaultSizeConstraints()))
                 .build();
         return this;

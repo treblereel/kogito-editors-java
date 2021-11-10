@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 
 import javax.enterprise.event.Event;
 
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.stunner.client.widgets.event.SessionFocusedEvent;
 import org.kie.workbench.common.stunner.client.widgets.event.SessionLostFocusEvent;
 import org.kie.workbench.common.stunner.client.widgets.notification.CommandNotification;
@@ -232,6 +233,10 @@ public abstract class AbstractSessionPresenter<D extends Diagram, H extends Abst
 
     @SuppressWarnings("unchecked")
     protected void onSessionOpened(final S session) {
+
+        DomGlobal.console.log(getClass().getCanonicalName()+"onSessionOpened");
+
+
         destroyToolbar();
         destroyPalette();
         initToolbar(session);
