@@ -96,7 +96,9 @@
                     <include>**/*.java</include>
                     <include>**/*.html</include>
                     <include>**/*.css</include>
+<!--
                     <include>**/*.js</include>
+-->
                 </includes>
             </resource>
             <resource>
@@ -404,7 +406,16 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*.js</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
 
 <!--            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

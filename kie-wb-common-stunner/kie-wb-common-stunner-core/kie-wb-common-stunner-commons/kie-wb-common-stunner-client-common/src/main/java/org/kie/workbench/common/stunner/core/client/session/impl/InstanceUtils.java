@@ -20,7 +20,9 @@ import java.lang.annotation.Annotation;
 import java.util.List;
 import java.util.function.Consumer;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.client.ManagedInstance;
+import io.crysknife.client.internal.QualifierUtil;
 import org.kie.workbench.common.stunner.core.api.DefinitionManager;
 
 public class InstanceUtils {
@@ -29,7 +31,18 @@ public class InstanceUtils {
     public static <T> T lookup(final ManagedInstance instance,
                                final Class<T> type,
                                final Annotation... qualifier) {
+
+        DomGlobal.console.log("lookup " + type + " " + QualifierUtil.print(qualifier));
+
         final ManagedInstance<T> i = instance.select(type, qualifier);
+
+        for (T t : i) {
+            DomGlobal.console.log("t ?  " + t.getClass().getCanonicalName());
+
+        }
+
+
+
         return i.isUnsatisfied() ?
                 (T) instance.select(type, DefinitionManager.DEFAULT_QUALIFIER).get() :
                 i.get();

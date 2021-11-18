@@ -28,6 +28,7 @@ import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+import elemental2.dom.DomGlobal;
 import org.jboss.errai.common.client.api.Assert;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.basic.BasicTypeFieldProvider;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.relations.EntityRelationField;
@@ -117,6 +118,8 @@ public abstract class AbstractFieldManager implements FieldManager {
 
     @Override
     public FieldDefinition getDefinitionByFieldTypeName(String fieldTypeCode) {
+        DomGlobal.console.log("getDefinitionByFieldTypeName " + fieldTypeCode);
+
         FieldProvider provider = providersByFieldCode.get(fieldTypeCode);
 
         if (provider != null) {

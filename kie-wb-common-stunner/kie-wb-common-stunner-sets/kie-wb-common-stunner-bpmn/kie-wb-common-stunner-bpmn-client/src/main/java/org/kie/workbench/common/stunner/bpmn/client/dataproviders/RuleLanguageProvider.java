@@ -25,6 +25,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.kie.workbench.common.forms.dynamic.model.config.SelectorData;
 import org.kie.workbench.common.forms.dynamic.model.config.SelectorDataProvider;
 import org.kie.workbench.common.forms.dynamic.service.shared.FormRenderingContext;
@@ -60,6 +61,13 @@ public class RuleLanguageProvider implements SelectorDataProvider {
 
     private static Map<Object, Integer> valuePosition;
 
+    private final TranslationService translationService;
+
+    @Inject
+    public RuleLanguageProvider(final TranslationService translationService) {
+        this.translationService = translationService;
+    }
+
     @PostConstruct
     protected void init() {
         valuePosition = new HashMap<>();
@@ -82,8 +90,8 @@ public class RuleLanguageProvider implements SelectorDataProvider {
         Map<Object, String> values = new TreeMap<>(SafeComparator.of(this::getComparator));
         Arrays.stream(LANGUAGE.values())
                 .forEach(ruleLanguage ->
-                                 values.put(ruleLanguage.value(),
-                                            ruleLanguage.i18nKey()));
+                        values.put(ruleLanguage.value(),
+                                translationService.getTranslation(ruleLanguage.i18nKey())));
 
         return new SelectorData(values, LANGUAGE.DRL.value());
     }

@@ -20,6 +20,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.ui.databinding.client.api.Converter;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.Widget;
@@ -106,6 +107,10 @@ public class DynamicFormRenderer implements IsWidget,
         PortablePreconditions.checkNotNull("model",
                                            model);
         FormRenderingContext context = dynamicFormModelGenerator.getContextForModel(model);
+
+        DomGlobal.console.log("context " + context.getClass().getCanonicalName());
+
+
         if (context != null) {
             doRenderDefaultForm(context,
                                 model,
@@ -118,10 +123,18 @@ public class DynamicFormRenderer implements IsWidget,
                                        final Object model,
                                        final RenderMode renderMode,
                                        final Command callback) {
+
+        DomGlobal.console.log("doRenderDefaultForm " + model.getClass().getCanonicalName());
+
+
         if (renderMode != null) {
+            DomGlobal.console.log("doRenderDefaultForm.renderMode " + renderMode.getClass().getCanonicalName());
+
             context.setRenderMode(renderMode);
         }
         if (context.getModel() == null) {
+            DomGlobal.console.log("doRenderDefaultForm.context.getModel " + context.getModel().getClass().getCanonicalName());
+
             context.setModel(model);
         }
         render(context);
@@ -147,7 +160,14 @@ public class DynamicFormRenderer implements IsWidget,
     }
 
     public void bind(Object model) {
+
+        DomGlobal.console.log("bind " + model.getClass().getCanonicalName());
+
         if (context != null && model != null) {
+
+            DomGlobal.console.log("bind.context " + model.getClass().getCanonicalName());
+
+
             formHandler.setUp(model);
             context.setModel(model);
             view.bind();
@@ -159,12 +179,21 @@ public class DynamicFormRenderer implements IsWidget,
     }
 
     protected void doBind(FieldRenderer renderer) {
+
+        DomGlobal.console.log(getClass().getCanonicalName() +".doBind");
+
         if (isInitialized() && renderer.getFormField() != null) {
             if (renderer instanceof RequiresValueConverter) {
+
+                DomGlobal.console.log("              registerInput 1");
+
                 Converter valueConverter = ((RequiresValueConverter) renderer).getConverter();
                 formHandler.registerInput(renderer.getFormField(),
                                           valueConverter);
             } else {
+
+                DomGlobal.console.log("              registerInput 2");
+
                 formHandler.registerInput(renderer.getFormField());
             }
         }

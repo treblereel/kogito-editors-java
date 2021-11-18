@@ -43,8 +43,7 @@ public class ClientFormGenerator extends AbstractFormGenerator {
 
     @Inject
     public ClientFormGenerator(LayoutGenerator layoutGenerator,
-                               TranslationService translationService
-    ) {
+                               TranslationService translationService) {
         super(layoutGenerator);
         this.translationService = translationService;
     }

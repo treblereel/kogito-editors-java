@@ -32,7 +32,7 @@ import jsinterop.annotations.JsType;
  *
  * @author Max Barkley <mbarkley@redhat.com>
  */
-@JsType(isNative = true)
+@JsType//(isNative = true)
 public interface HasValue<T> {
 
   T getValue();

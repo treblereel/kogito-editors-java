@@ -40,15 +40,15 @@ public class DoubleEditableColumnGenerator extends AbstractNumericEditableColumn
 
     @Override
     public boolean doValidate(String flatValue,
-                                 TableEntry<Double> model,
-                                 CellEditionHandler<Double> cellEditionHandler) {
+                              TableEntry<Double> model,
+                              CellEditionHandler<Double> cellEditionHandler) {
         if (flatValue != null && !flatValue.isEmpty()) {
             try {
                 doConvert(flatValue);
             } catch (Exception ex) {
-                cellEditionHandler.showValidationError("InvalidDecimalWithRange"/*translationService.format(FormRenderingConstants.InvalidDecimalWithRange,
-                                                                                 Double.MIN_VALUE,
-                                                                                 Double.MAX_VALUE)*/);
+                cellEditionHandler.showValidationError(translationService.format(FormRenderingConstants.InvalidDecimalWithRange,
+                        Double.MIN_VALUE,
+                        Double.MAX_VALUE));
                 return false;
             }
         }

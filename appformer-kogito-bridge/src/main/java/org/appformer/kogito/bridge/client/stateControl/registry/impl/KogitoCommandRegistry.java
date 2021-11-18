@@ -28,6 +28,8 @@ import org.appformer.kogito.bridge.client.interop.WindowRef;
 import org.appformer.kogito.bridge.client.stateControl.interop.StateControl;
 import org.appformer.kogito.bridge.client.stateControl.registry.interop.KogitoJSCommandRegistry;
 
+import javax.enterprise.context.Dependent;
+
 /**
  * Implementation of {@link Registry} to register commands on the State Control engine.
  *

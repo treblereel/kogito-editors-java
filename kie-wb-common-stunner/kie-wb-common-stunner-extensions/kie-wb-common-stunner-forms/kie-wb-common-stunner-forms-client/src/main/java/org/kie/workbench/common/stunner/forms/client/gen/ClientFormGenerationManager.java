@@ -40,7 +40,7 @@ public class ClientFormGenerationManager {
 
     private final ClientTranslationService translationService;
     private final FormGenerationNotifier formGenerationNotifier;
-    private FormGenerationService formGenerationService;
+    //private FormGenerationService formGenerationService;
 
     protected ClientFormGenerationManager() {
         this(null, null);
@@ -48,8 +48,7 @@ public class ClientFormGenerationManager {
 
     @Inject
     public ClientFormGenerationManager(final ClientTranslationService translationService,
-                                       final FormGenerationNotifier formGenerationNotifier/*,
-                                       final Caller<FormGenerationService> formGenerationService*/) {
+                                       final FormGenerationNotifier formGenerationNotifier) {
 
         this.translationService = translationService;
         this.formGenerationNotifier = formGenerationNotifier;

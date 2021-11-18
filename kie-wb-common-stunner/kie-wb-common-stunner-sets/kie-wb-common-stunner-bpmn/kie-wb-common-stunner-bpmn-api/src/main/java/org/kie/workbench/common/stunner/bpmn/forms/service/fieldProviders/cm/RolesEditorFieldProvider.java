@@ -17,13 +17,15 @@
 package org.kie.workbench.common.stunner.bpmn.forms.service.fieldProviders.cm;
 
 import javax.enterprise.inject.Model;
+import javax.inject.Singleton;
 
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.basic.BasicTypeFieldProvider;
 import org.kie.workbench.common.forms.model.TypeInfo;
 import org.kie.workbench.common.stunner.bpmn.forms.model.cm.RolesEditorFieldDefinition;
 import org.kie.workbench.common.stunner.bpmn.forms.model.cm.RolesEditorFieldType;
 
-//@Model
+@Model
+@Singleton
 public class RolesEditorFieldProvider extends BasicTypeFieldProvider<RolesEditorFieldDefinition> {
 
     @Override

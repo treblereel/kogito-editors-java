@@ -25,13 +25,13 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
-import org.gwtproject.event.legacy.shared.GwtEvent;
+import io.crysknife.client.ManagedInstance;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.Widget;
-import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerBPMNConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.Assignee;
 import org.kie.workbench.common.stunner.bpmn.client.forms.util.StringUtils;
@@ -40,11 +40,13 @@ import org.uberfire.workbench.events.NotificationEvent;
 
 @Dependent
 public class AssigneeEditorWidget implements IsWidget,
-                                             AssigneeEditorWidgetView.Presenter {
+        AssigneeEditorWidgetView.Presenter {
 
     private AssigneeEditorWidgetView view;
 
     private ManagedInstance<AssigneeListItem> listItems;
+
+    private TranslationService translationService;
 
     private Event<NotificationEvent> notification;
 
@@ -61,9 +63,11 @@ public class AssigneeEditorWidget implements IsWidget,
     @Inject
     public AssigneeEditorWidget(AssigneeEditorWidgetView view,
                                 ManagedInstance<AssigneeListItem> listItems,
+                                TranslationService translationService,
                                 Event<NotificationEvent> notification) {
         this.view = view;
         this.listItems = listItems;
+        this.translationService = translationService;
         this.notification = notification;
 
         this.view.init(this);
@@ -106,8 +110,8 @@ public class AssigneeEditorWidget implements IsWidget,
         String oldValue = value;
 
         value = serializeAssignees(assigneeRows.stream()
-                                           .map(AssigneeListItem::getAssignee)
-                                           .collect(Collectors.toList()));
+                .map(AssigneeListItem::getAssignee)
+                .collect(Collectors.toList()));
 
         ValueChangeEvent.fireIfNotEqual(this, oldValue, value);
     }
@@ -168,7 +172,7 @@ public class AssigneeEditorWidget implements IsWidget,
         view.enableAddButton();
     }
 
-    public void fireEvent(GwtEvent<?> gwtEvent) {
+    public void fireEvent(org.gwtproject.event.shared.Event<?> gwtEvent) {
         view.asWidget().fireEvent(gwtEvent);
     }
 
@@ -179,12 +183,12 @@ public class AssigneeEditorWidget implements IsWidget,
 
     @Override
     public String getNameHeader() {
-        return "label";
+        return translationService.getTranslation(StunnerBPMNConstants.ASSIGNEE_LABEL);
     }
 
     @Override
     public String getAddLabel() {
-        return "newLabel";
+        return translationService.getTranslation(StunnerBPMNConstants.ASSIGNEE_NEW);
     }
 
     @PreDestroy
@@ -199,13 +203,8 @@ public class AssigneeEditorWidget implements IsWidget,
 
     private void onError(Throwable e) {
         if (errorNotificationsEnabled) {
-            notification.fire(new NotificationEvent("searchError" +  (e.getMessage() != null ? e.getMessage() : "")));
+            notification.fire(new NotificationEvent(translationService.format(StunnerBPMNConstants.ASSIGNEE_SEARCH_ERROR, e.getMessage() != null ? e.getMessage() : "")));
             errorNotificationsEnabled = false;
         }
-    }
-
-    @Override
-    public void fireEvent(org.gwtproject.event.shared.Event<?> event) {
-        view.asWidget().fireEvent(event);
     }
 }

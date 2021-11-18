@@ -18,6 +18,7 @@ package org.kie.workbench.common.stunner.kogito.client.docks;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.kie.workbench.common.stunner.client.widgets.resources.i18n.StunnerWidgetsConstants;
 import org.kie.workbench.common.stunner.client.widgets.screens.DiagramEditorExplorerScreen;
@@ -28,14 +29,13 @@ public class DiagramEditorPreviewAndExplorerDock extends BaseDiagramEditorDock {
 
     protected DiagramEditorPreviewAndExplorerDock() {
         // CDI proxy
-        this(null);
+        this(null, null);
     }
 
     @Inject
-    public DiagramEditorPreviewAndExplorerDock(final UberfireDocks uberfireDocks/*,
-                                               final TranslationService translationService*/) {
-        super(uberfireDocks);
-        //super(uberfireDocks, translationService);
+    public DiagramEditorPreviewAndExplorerDock(final UberfireDocks uberfireDocks,
+                                               final TranslationService translationService) {
+        super(uberfireDocks, translationService);
     }
 
     @Override

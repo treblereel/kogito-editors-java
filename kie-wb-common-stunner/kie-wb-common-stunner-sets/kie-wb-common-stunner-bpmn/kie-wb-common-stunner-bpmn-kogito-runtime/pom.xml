@@ -411,7 +411,7 @@
         </executions>
         <configuration>
           <webappDirectory>${project.build.directory}/gwt/launcherDir/</webappDirectory>
-          <compilationLevel>BUNDLE</compilationLevel>
+          <compilationLevel>ADVANCED</compilationLevel>
         </configuration>
       </plugin>
 

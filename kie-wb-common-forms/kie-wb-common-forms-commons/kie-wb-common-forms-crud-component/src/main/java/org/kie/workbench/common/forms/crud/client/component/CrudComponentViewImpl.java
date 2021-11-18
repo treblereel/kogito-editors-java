@@ -24,6 +24,12 @@ import javax.inject.Inject;
 
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import io.crysknife.ui.translation.api.spi.TranslationService;
+import org.gwtbootstrap3.client.ui.Button;
+import org.gwtbootstrap3.client.ui.constants.ButtonSize;
+import org.gwtbootstrap3.client.ui.constants.ButtonType;
+import org.gwtbootstrap3.client.ui.constants.IconType;
+import org.gwtbootstrap3.client.ui.gwt.ButtonCell;
 import org.gwtproject.cell.client.FieldUpdater;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.event.dom.client.ClickHandler;
@@ -32,11 +38,6 @@ import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.FlowPanel;
 import org.gwtproject.user.window.client.Window;
 import org.gwtproject.view.client.AsyncDataProvider;
-import org.gwtbootstrap3.client.ui.Button;
-import org.gwtbootstrap3.client.ui.constants.ButtonSize;
-import org.gwtbootstrap3.client.ui.constants.ButtonType;
-import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.gwtbootstrap3.client.ui.gwt.ButtonCell;
 import org.kie.workbench.common.forms.crud.client.component.formDisplay.FormDisplayer;
 import org.kie.workbench.common.forms.crud.client.resources.i18n.CrudComponentConstants;
 import org.uberfire.ext.widgets.table.client.ColumnMeta;
@@ -52,15 +53,15 @@ public class CrudComponentViewImpl<MODEL, FORM_MODEL> extends Composite implemen
 
     protected FormDisplayer displayer;
 
-    @Inject
+    //@Inject
     @DataField
     protected FlowPanel content = new FlowPanel();
 
-    //private final TranslationService translationService;
+    private final TranslationService translationService;
 
     @Inject
-    public CrudComponentViewImpl(/*final TranslationService translationService*/) {
-        //this.translationService = translationService;
+    public CrudComponentViewImpl(final TranslationService translationService) {
+        this.translationService = translationService;
     }
 
     @Override
@@ -76,14 +77,11 @@ public class CrudComponentViewImpl<MODEL, FORM_MODEL> extends Composite implemen
     @Override
     public void showDeleteButtons() {
         final Column<MODEL, String> column = new Column<MODEL, String>(new ButtonCell(IconType.TRASH,
-                                                                                      ButtonType.DANGER,
-                                                                                      ButtonSize.SMALL)) {
+                ButtonType.DANGER,
+                ButtonSize.SMALL)) {
             @Override
             public String getValue(final MODEL model) {
-                return "deleteInstance";
-/*
                 return translationService.getTranslation(CrudComponentConstants.CrudComponentViewImplDeleteInstance);
-*/
             }
         };
         column.setFieldUpdater(new FieldUpdater<MODEL, String>() {
@@ -91,24 +89,23 @@ public class CrudComponentViewImpl<MODEL, FORM_MODEL> extends Composite implemen
             public void update(final int index,
                                final Object model,
                                final String s) {
-                if (Window.confirm("deleteBody")) {
+                if (Window.confirm(translationService.getTranslation(CrudComponentConstants.CrudComponentViewImplDeleteBody))) {
                     presenter.deleteInstance(index);
                 }
             }
         });
         table.addColumn(column,
-                        "");
+                "");
     }
 
     @Override
     public void showEditButtons() {
         final Column<MODEL, String> column = new Column<MODEL, String>(new ButtonCell(IconType.EDIT,
-                                                                                      ButtonType.PRIMARY,
-                                                                                      ButtonSize.SMALL)) {
+                ButtonType.PRIMARY,
+                ButtonSize.SMALL)) {
             @Override
             public String getValue(final Object model) {
-                return "editInstanceButton";
-                //return translationService.getTranslation(CrudComponentConstants.CrudComponentViewImplEditInstanceButton);
+                return translationService.getTranslation(CrudComponentConstants.CrudComponentViewImplEditInstanceButton);
             }
         };
         column.setFieldUpdater(new FieldUpdater<MODEL, String>() {
@@ -120,7 +117,7 @@ public class CrudComponentViewImpl<MODEL, FORM_MODEL> extends Composite implemen
             }
         });
         table.addColumn(column,
-                        "");
+                "");
     }
 
     @Override
@@ -136,7 +133,7 @@ public class CrudComponentViewImpl<MODEL, FORM_MODEL> extends Composite implemen
 
     @Override
     public void showCreateButton() {
-        final Button createButton = new Button("newInstanceButton");
+        final Button createButton = new Button(translationService.getTranslation(CrudComponentConstants.CrudComponentViewImplNewInstanceButton));
         createButton.setType(ButtonType.PRIMARY);
         createButton.setIcon(IconType.PLUS);
         table.getLeftToolbar().add(createButton);

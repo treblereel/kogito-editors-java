@@ -23,6 +23,7 @@ import java.util.TreeSet;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.kie.workbench.common.forms.adf.rendering.Renderer;
 import org.kie.workbench.common.forms.dynamic.client.rendering.FieldRenderer;
 import org.kie.workbench.common.forms.dynamic.client.rendering.FormFieldImpl;
@@ -42,9 +43,12 @@ public class AssigneeEditorFieldRenderer extends FieldRenderer<AssigneeEditorFie
 
     private AssigneeEditorWidget widget;
 
+    private TranslationService translationService;
+
     @Inject
-    public AssigneeEditorFieldRenderer(final AssigneeEditorWidget assigneeEditor) {
+    public AssigneeEditorFieldRenderer(final AssigneeEditorWidget assigneeEditor, TranslationService translationService) {
         this.widget = assigneeEditor;
+        this.translationService = translationService;
     }
 
     @Override
@@ -76,7 +80,7 @@ public class AssigneeEditorFieldRenderer extends FieldRenderer<AssigneeEditorFie
             Set<String> assigneeSet = new TreeSet<>(Arrays.asList(assignees));
 
             if (assigneeSet.size() != assignees.length) {
-                return ValidationResult.error(StunnerBPMNConstants.ASSIGNEE_WITH_DUPLICATES);
+                return ValidationResult.error(translationService.getTranslation(StunnerBPMNConstants.ASSIGNEE_WITH_DUPLICATES));
             }
 
             return ValidationResult.valid();

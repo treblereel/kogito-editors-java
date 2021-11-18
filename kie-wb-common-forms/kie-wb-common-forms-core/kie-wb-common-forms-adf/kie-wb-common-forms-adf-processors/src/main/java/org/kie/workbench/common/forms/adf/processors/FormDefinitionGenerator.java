@@ -31,12 +31,10 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.MirroredTypeException;
-import javax.lang.model.type.TypeKind;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
 
-import com.google.auto.common.MoreTypes;
 import org.apache.commons.lang3.StringUtils;
 import org.kie.workbench.common.forms.adf.definitions.annotations.FieldParam;
 import org.kie.workbench.common.forms.adf.definitions.annotations.FormDefinition;
@@ -178,8 +176,6 @@ public class FormDefinitionGenerator {
 
     private List<FormDefinitionFieldData> extracFormFields(TypeElement type, FieldPolicy policy, I18nSettings i18nSettings, Map<String, String> defaultParams) throws Exception {
 
-        System.out.println("extracFormFields " + type);
-
         final Types typeUtils = context.getProcessingEnvironment().getTypeUtils();
 
         Collection<FieldInfo> fieldInfos = FormGenerationUtils.extractFieldInfos(type, fieldElement -> filter(fieldElement, policy));
@@ -205,37 +201,7 @@ public class FormDefinitionGenerator {
                 boolean overrideI18n = false;
 
                 TypeMirror finalType = fieldInfo.getFieldElement().asType();
-
-                TypeElement finalTypeElement;
-
-                System.out.println("pre 1 " + finalType + " " + finalType.getKind());
-                if(finalType.getKind().equals(TypeKind.TYPEVAR)) {
-
-                    DeclaredType asDeclaredType = MoreTypes.asDeclared(fieldInfo.getFieldElement().getEnclosingElement().asType());
-
-
-
-                    System.out.println("asDeclaredType 2 " + asDeclaredType);
-                    System.out.println("asDeclaredType 3 " + typeUtils.asMemberOf(asDeclaredType, MoreTypes.asElement(finalType)));
-
-
-
-
-                    System.out.println("pre 2 " + fieldInfo.getFieldElement().getEnclosingElement());
-                    //System.out.println("pre 3 " + MoreTypes.asTypeElement(finalType));
-
-
-                    finalTypeElement = context.getProcessingEnvironment().getElementUtils().getTypeElement(Object.class.getCanonicalName());
-
-
-
-                } else {
-                    finalTypeElement = (TypeElement) typeUtils.asElement(finalType);
-
-                }
-
-
-
+                TypeElement finalTypeElement = (TypeElement) typeUtils.asElement(finalType);
 
                 String fieldModifier = "";
 

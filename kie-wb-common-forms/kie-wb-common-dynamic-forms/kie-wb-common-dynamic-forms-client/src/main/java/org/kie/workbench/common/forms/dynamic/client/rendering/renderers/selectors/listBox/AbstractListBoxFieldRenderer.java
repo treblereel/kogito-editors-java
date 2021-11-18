@@ -22,14 +22,16 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import io.crysknife.ui.databinding.client.api.Converter;
-import org.gwtproject.user.client.ui.HTML;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtbootstrap3.client.ui.ValueListBox;
+import org.gwtproject.user.client.ui.HTML;
 import org.kie.workbench.common.forms.common.rendering.client.util.valueConverters.ValueConvertersFactory;
 import org.kie.workbench.common.forms.common.rendering.client.widgets.util.DefaultValueListBoxRenderer;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.FormGroup;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.impl.def.DefaultFormGroup;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.RequiresValueConverter;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.selectors.SelectorFieldRenderer;
+import org.kie.workbench.common.forms.dynamic.client.resources.i18n.FormRenderingConstants;
 import org.kie.workbench.common.forms.dynamic.service.shared.RenderMode;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.basic.selectors.SelectorOption;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.basic.selectors.listBox.definition.ListBoxBaseDefinition;
@@ -43,10 +45,10 @@ public abstract class AbstractListBoxFieldRenderer<FIELD extends ListBoxBaseDefi
 
     protected ValueListBox<TYPE> widgetList;
 
-    //private final TranslationService translationService;
+    private final TranslationService translationService;
 
-    public AbstractListBoxFieldRenderer(/*TranslationService translationService*/) {
-        //this.translationService = translationService;
+    public AbstractListBoxFieldRenderer(TranslationService translationService) {
+        this.translationService = translationService;
 
         widgetList = getListWidget();
     }
@@ -66,17 +68,17 @@ public abstract class AbstractListBoxFieldRenderer<FIELD extends ListBoxBaseDefi
 
         if (renderMode.equals(RenderMode.PRETTY_MODE)) {
             formGroup.render(new HTML(),
-                             field);
+                    field);
         } else {
             String inputId = generateUniqueId();
             widgetList.setId(inputId);
             widgetList.setName(fieldNS);
             widgetList.setEnabled(!field.getReadOnly());
             refreshSelectorOptions();
-            
+
             formGroup.render(inputId,
-                             widgetList,
-                             field);
+                    widgetList,
+                    field);
 
             registerFieldRendererPart(widgetList);
         }
@@ -92,13 +94,13 @@ public abstract class AbstractListBoxFieldRenderer<FIELD extends ListBoxBaseDefi
         if (field.isAddEmptyOption()) {
             if (!values.contains(null)) {
                 values.add(0,
-                           null);
-                optionsValues.put(null, "emptyOptionText");
-                                 // translationService.getTranslation(FormRenderingConstants.ListBoxFieldRendererEmptyOptionText));
+                        null);
+                optionsValues.put(null,
+                        translationService.getTranslation(FormRenderingConstants.ListBoxFieldRendererEmptyOptionText));
             } else {
                 Collections.swap(values,
-                                 values.indexOf(null),
-                                 0);
+                        values.indexOf(null),
+                        0);
             }
         }
 

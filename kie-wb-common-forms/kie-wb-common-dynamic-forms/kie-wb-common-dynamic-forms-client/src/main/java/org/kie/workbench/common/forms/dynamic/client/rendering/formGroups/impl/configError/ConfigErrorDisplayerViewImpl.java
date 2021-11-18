@@ -23,6 +23,7 @@ import javax.inject.Inject;
 
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.LIElement;
 import org.gwtproject.dom.client.UListElement;
@@ -36,11 +37,11 @@ public class ConfigErrorDisplayerViewImpl extends Composite implements ConfigErr
     @DataField
     protected UListElement list = Document.get().createULElement();
 
-    //protected TranslationService translationService;
+    protected TranslationService translationService;
 
     @Inject
-    public ConfigErrorDisplayerViewImpl(/*TranslationService translationService*/) {
-        //this.translationService = translationService;
+    public ConfigErrorDisplayerViewImpl(TranslationService translationService) {
+        this.translationService = translationService;
     }
 
     @Override
@@ -52,8 +53,7 @@ public class ConfigErrorDisplayerViewImpl extends Composite implements ConfigErr
 
         errorMessages.forEach(message -> {
             LIElement listElement = Document.get().createLIElement();
-            listElement.setInnerHTML(message);
-            //listElement.setInnerHTML(translationService.getTranslation(message));
+            listElement.setInnerHTML(translationService.getTranslation(message));
             list.appendChild(listElement);
         });
     }

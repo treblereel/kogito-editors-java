@@ -25,6 +25,7 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import elemental2.dom.DomGlobal;
 import org.appformer.client.stateControl.registry.Registry;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvas;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;
@@ -81,10 +82,16 @@ public class DefaultEditorSession
         this.canvasCommandManager = canvasCommandManager;
         this.registerChangedEvent = registerChangedEvent;
         this.redoCommandRegistry = redoCommandRegistry;
+
+        DomGlobal.console.log("DefaultEditorSession created");
+
     }
 
     @PostConstruct
     public void constructInstance() {
+
+        DomGlobal.console.log("PING ME HERE!!!");
+
         session.onCanvasControlRegistered(this::onControlRegistered)
                 .onCanvasHandlerControlRegistered(this::onCanvasHandlerControlRegistered)
                 .onCanvasControlDestroyed(AbstractSession::onControlDestroyed)

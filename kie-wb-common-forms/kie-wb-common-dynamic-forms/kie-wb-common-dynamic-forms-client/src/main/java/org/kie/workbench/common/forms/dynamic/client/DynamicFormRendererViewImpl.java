@@ -19,6 +19,7 @@ package org.kie.workbench.common.forms.dynamic.client;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
@@ -65,7 +66,15 @@ public class DynamicFormRendererViewImpl extends Composite implements DynamicFor
 
     @Override
     public void bind() {
+
+        DomGlobal.console.log("DO bind ");
+
+
         for (FieldLayoutComponent fieldComponent : layoutGenerator.getLayoutFields()) {
+
+            DomGlobal.console.log("DO bind.fieldComponent " + fieldComponent.getClass().getCanonicalName());
+
+
             presenter.bind(fieldComponent.getFieldRenderer());
         }
     }

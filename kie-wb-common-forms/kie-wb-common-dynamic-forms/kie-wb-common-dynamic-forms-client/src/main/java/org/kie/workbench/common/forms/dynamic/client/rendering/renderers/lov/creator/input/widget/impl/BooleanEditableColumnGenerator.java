@@ -47,10 +47,10 @@ public class BooleanEditableColumnGenerator extends AbstractEditableColumnGenera
 
     @Override
     protected Column<TableEntry<Boolean>, String> getEditableColumn(UberfirePagedTable<TableEntry<Boolean>> table,
-                                                                     CellEditionHandler<Boolean> cellEditionHandler) {
+                                                                    CellEditionHandler<Boolean> cellEditionHandler) {
 
-        final String yesLiteral = "yes";// translationService.getTranslation(FormRenderingConstants.BooleanEditableColumnGeneratorYes);
-        final String noLiteral =  "no"; //translationService.getTranslation(FormRenderingConstants.BooleanEditableColumnGeneratorNo);
+        final String yesLiteral = translationService.getTranslation(FormRenderingConstants.BooleanEditableColumnGeneratorYes);
+        final String noLiteral = translationService.getTranslation(FormRenderingConstants.BooleanEditableColumnGeneratorNo);
 
         final List<String> values = new ArrayList<>();
         values.add(yesLiteral);

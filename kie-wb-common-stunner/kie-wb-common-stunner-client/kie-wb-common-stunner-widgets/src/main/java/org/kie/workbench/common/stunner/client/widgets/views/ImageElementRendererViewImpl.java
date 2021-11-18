@@ -19,7 +19,6 @@ package org.kie.workbench.common.stunner.client.widgets.views;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
 import io.crysknife.client.IsElement;
@@ -71,8 +70,6 @@ public class ImageElementRendererViewImpl implements ImageElementRendererView,
                                widthPx + Style.Unit.PX.name());
         icon.style.setProperty("height",
                                heightPx + Style.Unit.PX.name());
-
-        DomGlobal.console.warn("icon " + icon);
 
         HTMLElement svgElement = Js.uncheckedCast(icon.firstElementChild);
 

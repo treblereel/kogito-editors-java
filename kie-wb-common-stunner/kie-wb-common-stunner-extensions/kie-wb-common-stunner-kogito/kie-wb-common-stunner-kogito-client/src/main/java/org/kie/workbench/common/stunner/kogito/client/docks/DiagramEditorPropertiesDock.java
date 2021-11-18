@@ -18,6 +18,7 @@ package org.kie.workbench.common.stunner.kogito.client.docks;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.kie.workbench.common.stunner.forms.client.resources.i18n.FormsClientConstants;
 import org.kie.workbench.common.stunner.forms.client.screens.DiagramEditorPropertiesScreen;
@@ -28,14 +29,13 @@ public class DiagramEditorPropertiesDock extends BaseDiagramEditorDock {
 
     protected DiagramEditorPropertiesDock() {
         // CDI proxy
-        this(null);
+        this(null, null);
     }
 
     @Inject
-    public DiagramEditorPropertiesDock(final UberfireDocks uberfireDocks/*,
-                                       final TranslationService translationService*/) {
-        super(uberfireDocks);
-        //super(uberfireDocks, translationService);
+    public DiagramEditorPropertiesDock(final UberfireDocks uberfireDocks,
+                                       final TranslationService translationService) {
+        super(uberfireDocks, translationService);
     }
 
     @Override

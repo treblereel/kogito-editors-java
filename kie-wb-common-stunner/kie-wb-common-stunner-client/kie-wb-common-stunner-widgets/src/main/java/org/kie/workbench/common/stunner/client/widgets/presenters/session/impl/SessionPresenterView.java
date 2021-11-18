@@ -142,8 +142,13 @@ public class SessionPresenterView extends Composite
     }
 
     //TODO
-    //@EventHandler("sessionContainer")
+    @EventHandler("sessionContainer")
     protected void onScroll(ScrollEvent e) {
+
+        sessionContainer.addDomHandler(scrollEvent -> {
+
+        }, ScrollEvent.getType());
+
         // on the editor scroll recalculate palette and header positions to be fixed on the screen
         palettePanel.getElement().getStyle().setTop(paletteInitialTop + e.getRelativeElement().getScrollTop() + sessionHeaderHeight,
                                                     Style.Unit.PX);

@@ -26,6 +26,7 @@ import java.util.stream.Stream;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import org.kie.soup.commons.validation.PortablePreconditions;
 import org.kie.workbench.common.forms.adf.engine.shared.FormBuildingService;
 import org.kie.workbench.common.forms.adf.engine.shared.FormElementFilter;
@@ -52,6 +53,9 @@ public class DynamicFormModelGenerator {
     }
 
     public StaticModelFormRenderingContext getContextForModel(Object model, FormElementFilter... filters) {
+
+        DomGlobal.console.log("getContextForModel " + model.getClass().getCanonicalName());
+
         PortablePreconditions.checkNotNull("model",
                                            model);
 
@@ -70,6 +74,7 @@ public class DynamicFormModelGenerator {
         });
 
         FormDefinition formDefinition = formBuildingService.generateFormForModel(model, rootFormElemenFilters.stream().toArray(FormElementFilter[]::new));
+        DomGlobal.console.log("formDefinition " + formDefinition.getClass().getCanonicalName());
 
         if (formDefinition == null) {
             return null;

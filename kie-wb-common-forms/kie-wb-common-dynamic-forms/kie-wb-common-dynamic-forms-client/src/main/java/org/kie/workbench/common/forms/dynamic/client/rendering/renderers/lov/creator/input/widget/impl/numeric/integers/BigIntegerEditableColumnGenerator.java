@@ -42,14 +42,13 @@ public class BigIntegerEditableColumnGenerator extends AbstractNumericEditableCo
 
     @Override
     public boolean doValidate(String flatValue,
-                                 TableEntry<BigInteger> model,
-                                 CellEditionHandler<BigInteger> cellEditionHandler) {
+                              TableEntry<BigInteger> model,
+                              CellEditionHandler<BigInteger> cellEditionHandler) {
         if (flatValue != null && !flatValue.isEmpty()) {
             try {
                 doConvert(flatValue);
             } catch (Exception ex) {
-                cellEditionHandler.showValidationError("InvalidInteger");
-                //cellEditionHandler.showValidationError(translationService.getTranslation(FormRenderingConstants.InvalidInteger));
+                cellEditionHandler.showValidationError(translationService.getTranslation(FormRenderingConstants.InvalidInteger));
                 return false;
             }
         }

@@ -26,9 +26,9 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
-import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import io.crysknife.client.IsElement;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.kie.workbench.common.forms.dynamic.service.shared.RenderMode;
 import org.kie.workbench.common.stunner.core.client.session.ClientSession;
 import org.kie.workbench.common.stunner.core.client.session.impl.EditorSession;
@@ -50,7 +50,7 @@ import org.uberfire.mvp.Command;
 
 @Dependent
 public class FormPropertiesWidget implements IsElement,
-                                             FormPropertiesWidgetView.Presenter {
+        FormPropertiesWidgetView.Presenter {
 
     private static Logger LOGGER = Logger.getLogger(FormPropertiesWidget.class.getName());
 
@@ -59,6 +59,7 @@ public class FormPropertiesWidget implements IsElement,
     private final Event<FormPropertiesOpened> propertiesOpenedEvent;
     private final FormsCanvasSessionHandler formSessionHandler;
     private final FormsContainer formsContainer;
+    private final TranslationService translationService;
     private final FormsFlushManager formsFlushManager;
 
     @Inject
@@ -67,15 +68,14 @@ public class FormPropertiesWidget implements IsElement,
                                 final FormsCanvasSessionHandler formSessionHandler,
                                 final Event<FormPropertiesOpened> propertiesOpenedEvent,
                                 final FormsContainer formsContainer,
-                                final FormsFlushManager formsFlushManager
-                                //final TranslationService translationService
-    ) {
+                                final FormsFlushManager formsFlushManager,
+                                final TranslationService translationService) {
         this.view = view;
         this.definitionUtils = definitionUtils;
         this.formSessionHandler = formSessionHandler;
         this.propertiesOpenedEvent = propertiesOpenedEvent;
         this.formsContainer = formsContainer;
-        //this.translationService = translationService;
+        this.translationService = translationService;
         this.formsFlushManager = formsFlushManager;
     }
 
@@ -230,23 +230,23 @@ public class FormPropertiesWidget implements IsElement,
             final RenderMode renderMode = formSessionHandler.getSession() instanceof EditorSession ? RenderMode.EDIT_MODE : RenderMode.READ_ONLY_MODE;
 
             formsContainer.render(graphUuid,
-                                  elementUUID,
-                                  definition,
-                                  diagramPath,
-                                  (fieldName, newValue) -> {
-                                      try {
-                                          formSessionHandler.executeUpdateProperty(element, fieldName, newValue);
-                                      } catch (final Exception ex) {
-                                          log(Level.SEVERE,
-                                              "Something wrong happened refreshing the canvas for " +
-                                                      "field '" + fieldName + "': " + ex.getCause());
-                                      } finally {
-                                          if (null != callback) {
-                                              callback.execute();
-                                          }
-                                      }
-                                  },
-                                  renderMode);
+                    elementUUID,
+                    definition,
+                    diagramPath,
+                    (fieldName, newValue) -> {
+                        try {
+                            formSessionHandler.executeUpdateProperty(element, fieldName, newValue);
+                        } catch (final Exception ex) {
+                            log(Level.SEVERE,
+                                    "Something wrong happened refreshing the canvas for " +
+                                            "field '" + fieldName + "': " + ex.getCause());
+                        } finally {
+                            if (null != callback) {
+                                callback.execute();
+                            }
+                        }
+                    },
+                    renderMode);
             final String elementName = definitionUtils.getName(definition);
             fireFormsPropertiesOpenedEvent(elementUUID, elementName);
             lastElement = element;
@@ -260,8 +260,7 @@ public class FormPropertiesWidget implements IsElement,
                       final DomainObject domainObject,
                       final Command callback) {
         final String domainObjectUUID = domainObject.getDomainObjectUUID();
-        //final String domainObjectName = translationService.getTranslation(domainObject.getDomainObjectNameTranslationKey());
-        final String domainObjectName = domainObject.getDomainObjectNameTranslationKey();
+        final String domainObjectName = translationService.getTranslation(domainObject.getDomainObjectNameTranslationKey());
         final Diagram<?, ?> diagram = formSessionHandler.getDiagram();
         if (Objects.isNull(diagram)) {
             return;
@@ -274,26 +273,26 @@ public class FormPropertiesWidget implements IsElement,
         final RenderMode renderMode = formSessionHandler.getSession() instanceof EditorSession ? RenderMode.EDIT_MODE : RenderMode.READ_ONLY_MODE;
 
         formsContainer.render(graphUuid,
-                              domainObjectUUID,
-                              domainObject,
-                              diagramPath,
-                              (fieldName, newValue) -> {
-                                  try {
-                                      formSessionHandler.executeUpdateDomainObjectProperty(domainObject,
-                                                                                           fieldName,
-                                                                                           newValue);
-                                  } catch (final Exception ex) {
-                                      log(Level.SEVERE,
-                                          "Something wrong happened refreshing the DomainObject '"
-                                                  + domainObject + "' for field '"
-                                                  + fieldName + "': " + ex.getCause());
-                                  } finally {
-                                      if (null != callback) {
-                                          callback.execute();
-                                      }
-                                  }
-                              },
-                              renderMode);
+                domainObjectUUID,
+                domainObject,
+                diagramPath,
+                (fieldName, newValue) -> {
+                    try {
+                        formSessionHandler.executeUpdateDomainObjectProperty(domainObject,
+                                fieldName,
+                                newValue);
+                    } catch (final Exception ex) {
+                        log(Level.SEVERE,
+                                "Something wrong happened refreshing the DomainObject '"
+                                        + domainObject + "' for field '"
+                                        + fieldName + "': " + ex.getCause());
+                    } finally {
+                        if (null != callback) {
+                            callback.execute();
+                        }
+                    }
+                },
+                renderMode);
         fireFormsPropertiesOpenedEvent(domainObjectUUID, domainObjectName);
         resetLastElementRenderedCache();
     }
@@ -303,10 +302,9 @@ public class FormPropertiesWidget implements IsElement,
     }
 
     protected void log(final Level level, final String message) {
-        DomGlobal.console.log(message);
-
-/*        if (LogConfiguration.loggingIsEnabled()) {
-            LOGGER.log(level, message);
-        }*/
+//        if (LogConfiguration.loggingIsEnabled()) {
+//            LOGGER.log(level, message);
+//        }
+        LOGGER.log(level, message);
     }
 }

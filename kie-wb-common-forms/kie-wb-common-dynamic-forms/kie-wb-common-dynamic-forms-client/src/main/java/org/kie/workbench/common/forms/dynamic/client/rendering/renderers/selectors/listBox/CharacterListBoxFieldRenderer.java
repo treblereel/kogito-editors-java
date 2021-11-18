@@ -20,6 +20,7 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import io.crysknife.ui.databinding.client.api.Converter;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.kie.workbench.common.forms.adf.rendering.Renderer;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.basic.selectors.CharacterSelectorOption;
 import org.kie.workbench.common.forms.fields.shared.fieldTypes.basic.selectors.listBox.definition.CharacterListBoxFieldDefinition;
@@ -30,8 +31,8 @@ public class CharacterListBoxFieldRenderer
         extends AbstractListBoxFieldRenderer<CharacterListBoxFieldDefinition, CharacterSelectorOption, Character> {
 
     @Inject
-    public CharacterListBoxFieldRenderer(/*TranslationService translationService*/) {
-        //super(translationService);
+    public CharacterListBoxFieldRenderer(TranslationService translationService) {
+        super(translationService);
     }
 
     @Override

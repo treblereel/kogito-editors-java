@@ -26,6 +26,7 @@ import org.gwtproject.user.cellview.client.Column;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.CellEditionHandler;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.ColumnFieldUpdater;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.TableEntry;
+import org.kie.workbench.common.forms.dynamic.client.resources.i18n.FormRenderingConstants;
 import org.uberfire.ext.widgets.table.client.UberfirePagedTable;
 
 @Dependent
@@ -55,15 +56,14 @@ public class CharacterEditableColumnGenerator extends AbstractEditableColumnGene
         };
 
         ColumnFieldUpdater<String, String> updater = new ColumnFieldUpdater<String, String>(table,
-                                                                                            column) {
+                column) {
 
             @Override
             protected boolean validate(String value,
                                        TableEntry<String> model) {
                 if (value != null && !value.isEmpty()) {
                     if (value.length() != 1) {
-                        cellEditionHandler.showValidationError("validationError");
-                        //cellEditionHandler.showValidationError(translationService.getTranslation(FormRenderingConstants.CharacterEditableColumnGeneratorValidationError));
+                        cellEditionHandler.showValidationError(translationService.getTranslation(FormRenderingConstants.CharacterEditableColumnGeneratorValidationError));
                         return false;
                     }
                 }

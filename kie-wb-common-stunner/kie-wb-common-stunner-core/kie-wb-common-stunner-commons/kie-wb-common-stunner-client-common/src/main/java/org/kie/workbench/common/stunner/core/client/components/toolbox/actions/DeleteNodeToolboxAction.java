@@ -26,6 +26,7 @@ import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.client.ManagedInstance;
 import org.kie.workbench.common.stunner.core.client.canvas.AbstractCanvasHandler;
 import org.kie.workbench.common.stunner.core.client.canvas.command.DefaultCanvasCommandFactory;
@@ -109,6 +110,9 @@ public class DeleteNodeToolboxAction implements ToolboxAction<AbstractCanvasHand
             final Metadata metadata = canvasHandler.getDiagram().getMetadata();
             final Annotation qualifier = definitionUtils.getQualifier(metadata.getDefinitionSetId());
             final CanvasCommandFactory<AbstractCanvasHandler> commandFactory = lookup(commandFactories, qualifier);
+
+
+            DomGlobal.console.log("           " + getClass().getCanonicalName() +".onMouseClick " + canvasHandler.getUuid() + " " + uuid);
 
             final Node<?, Edge> node = CanvasLayoutUtils.getElement(canvasHandler, uuid).asNode();
 

@@ -80,9 +80,13 @@ public class HandlerManager {
         JsSet<Throwable> causes = null;
         try {
             firingDepth++;
+            //TODO check it
             for (int i = 0, length = handlers.length; i < length; i++) {
                 try {
-                    event.dispatch(handlers.getAt(i));
+                    EventHandler eventHandler = handlers.getAt(i);
+                    if(eventHandler != null) {
+                        event.dispatch(eventHandler);
+                    }
                 } catch (Throwable var11) {
                     if (causes == null) {
                         causes = new JsSet<>();

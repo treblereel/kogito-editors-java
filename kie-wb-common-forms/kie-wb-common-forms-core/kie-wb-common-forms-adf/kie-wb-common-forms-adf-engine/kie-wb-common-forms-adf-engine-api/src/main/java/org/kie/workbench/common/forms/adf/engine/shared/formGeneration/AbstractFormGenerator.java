@@ -19,6 +19,7 @@ package org.kie.workbench.common.forms.adf.engine.shared.formGeneration;
 import java.util.HashMap;
 import java.util.Map;
 
+import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.forms.adf.engine.shared.FormElementFilter;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.layout.LayoutGenerator;
 import org.kie.workbench.common.forms.adf.engine.shared.formGeneration.processing.FormElementProcessor;
@@ -56,7 +57,23 @@ public abstract class AbstractFormGenerator implements FormGenerator {
     }
 
     protected void registerResources(FormGenerationResourcesProvider provider) {
+        DomGlobal.console.log(" registerResources " + provider.getClass().getCanonicalName());
+        provider.getDefinitionSettings().forEach((k,v) -> {
+            DomGlobal.console.log(" getDefinitionSettings " + k + " " + v.getClass().getCanonicalName());
+        });
+
+        provider.getFieldModifiers().forEach((k,v) -> {
+            DomGlobal.console.log(" getFieldModifiers " + k + " " + v.getClass().getCanonicalName());
+        });
+
+        provider.getFieldModifierReferences().forEach((k,v) -> {
+            DomGlobal.console.log(" getFieldModifierReferences " + k + " " + v.getClass().getCanonicalName());
+        });
+
         if (provider != null) {
+
+
+
             if (isValid(provider.getDefinitionSettings())) {
                 formDefinitionSettings.putAll(provider.getDefinitionSettings());
             }

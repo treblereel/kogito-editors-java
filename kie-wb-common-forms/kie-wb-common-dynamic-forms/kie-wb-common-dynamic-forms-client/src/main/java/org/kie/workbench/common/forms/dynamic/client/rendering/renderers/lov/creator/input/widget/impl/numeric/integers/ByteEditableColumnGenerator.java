@@ -40,15 +40,15 @@ public class ByteEditableColumnGenerator extends AbstractNumericEditableColumnGe
 
     @Override
     public boolean doValidate(String flatValue,
-                                 TableEntry<Byte> model,
-                                 CellEditionHandler<Byte> cellEditionHandler) {
+                              TableEntry<Byte> model,
+                              CellEditionHandler<Byte> cellEditionHandler) {
         if (flatValue != null && !flatValue.isEmpty()) {
             try {
                 doConvert(flatValue);
             } catch (Exception ex) {
                 cellEditionHandler.showValidationError(translationService.format(FormRenderingConstants.InvalidIntegerWithRange,
-                                                                                 Byte.MIN_VALUE,
-                                                                                 Byte.MAX_VALUE));
+                        Byte.MIN_VALUE,
+                        Byte.MAX_VALUE));
                 return false;
             }
         }

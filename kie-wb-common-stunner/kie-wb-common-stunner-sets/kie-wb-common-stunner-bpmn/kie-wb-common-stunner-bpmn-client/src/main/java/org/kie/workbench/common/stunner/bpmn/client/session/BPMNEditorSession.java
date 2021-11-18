@@ -19,8 +19,8 @@ package org.kie.workbench.common.stunner.bpmn.client.session;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
-import javax.inject.Named;
 
+import elemental2.dom.DomGlobal;
 import org.appformer.client.stateControl.registry.DefaultRegistry;
 import org.appformer.client.stateControl.registry.Registry;
 import org.kie.workbench.common.stunner.bpmn.qualifiers.BPMN;
@@ -68,6 +68,8 @@ public class BPMNEditorSession extends DefaultEditorSession {
               commandRegistry,
               redoCommandRegistry,
               registerChangedEvent);
+
+        DomGlobal.console.log("BPMNEditorSession created");
     }
 
     @Override

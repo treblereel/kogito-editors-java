@@ -24,7 +24,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import elemental2.dom.EventListener;
+import elemental2.dom.Event;
 import elemental2.dom.HTMLInputElement;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import io.crysknife.ui.templates.client.annotation.ForEvent;
@@ -35,7 +35,6 @@ import org.gwtbootstrap3.client.ui.ValueListBox;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
-import org.gwtproject.user.client.Event;
 import org.kie.workbench.common.stunner.bpmn.client.forms.DataTypeNamesService;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.Variable;
@@ -92,11 +91,6 @@ public class MultipleInstanceVariableEditorView
     });
 
     private MultipleInstanceVariableEditorPresenter presenter;
-
-    @PostConstruct
-    public void beforeLoad() {
-        this.getElement().addEventListener("change", evt -> onVariableChange(Js.uncheckedCast(evt)));
-    }
 
     @Override
     public void init(MultipleInstanceVariableEditorPresenter presenter) {
@@ -168,9 +162,8 @@ public class MultipleInstanceVariableEditorView
         dataType.setEnabled(!readOnly);
     }
 
-    //@EventHandler
-    //private void onVariableChange(@ForEvent("change") final Event event) {
-    private void onVariableChange(final Event event) {
+    @EventHandler
+    public void onVariableChange(@ForEvent("change") final Event event) {
         presenter.onVariableChange();
     }
 

@@ -42,13 +42,13 @@ public class BigDecimalEditableColumnGenerator extends AbstractNumericEditableCo
 
     @Override
     public boolean doValidate(String flatValue,
-                                 TableEntry<BigDecimal> model,
-                                 CellEditionHandler<BigDecimal> cellEditionHandler) {
+                              TableEntry<BigDecimal> model,
+                              CellEditionHandler<BigDecimal> cellEditionHandler) {
         if (flatValue != null && !flatValue.isEmpty()) {
             try {
                 doConvert(flatValue);
             } catch (Exception ex) {
-                cellEditionHandler.showValidationError("InvalidDecimal"/*translationService.getTranslation(FormRenderingConstants.InvalidDecimal)*/);
+                cellEditionHandler.showValidationError(translationService.getTranslation(FormRenderingConstants.InvalidDecimal));
                 return false;
             }
         }

@@ -31,6 +31,7 @@ import org.kie.workbench.common.stunner.core.diagram.Diagram;
  * {@link @BPMN} or {@link @DMNEditor} etc.
  */
 @Dependent
+//@Templated
 public class DefaultDiagramDocumentationView extends Composite implements DocumentationView<Diagram> {
 
     private Optional<Diagram> diagram;

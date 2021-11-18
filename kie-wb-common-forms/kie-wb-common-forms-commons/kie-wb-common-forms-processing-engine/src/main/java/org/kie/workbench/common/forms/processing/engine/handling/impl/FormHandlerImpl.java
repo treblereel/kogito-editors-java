@@ -22,6 +22,7 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.ui.databinding.client.BindableProxy;
 import io.crysknife.ui.databinding.client.BindableProxyFactory;
 import io.crysknife.ui.databinding.client.PropertyChangeUnsubscribeHandle;
@@ -93,6 +94,10 @@ public class FormHandlerImpl<T> implements FormHandler<T> {
         Assert.notNull("FormField cannot be null!", formField);
 
         IsWidget widget = formField.getWidget();
+
+
+        DomGlobal.console.log("IsWidget " + widget.asWidget().getElement().getInnerHTML());
+        DomGlobal.console.log("isBindable " + formField.isBindable());
 
         form.addField(formField);
 

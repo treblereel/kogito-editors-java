@@ -21,6 +21,7 @@ import javax.inject.Inject;
 import elemental2.dom.HTMLDivElement;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.core.client.Scheduler;
 import org.uberfire.mvp.Command;
 
@@ -31,7 +32,7 @@ public abstract class AbstractInlineTextEditorBoxView<T extends InlineEditorBoxV
 
     protected T presenter;
 
-    //protected TranslationService translationService;
+    protected TranslationService translationService;
 
     private static final String DISPLAY = "display";
     private static final String DISPLAY_NONE = "none";
@@ -48,9 +49,9 @@ public abstract class AbstractInlineTextEditorBoxView<T extends InlineEditorBoxV
 
     protected AbstractInlineTextEditorBoxView() {
         showCommand = () -> this.getElement().style.setProperty(DISPLAY,
-                                                                     DISPLAY_BLOCK);
+                DISPLAY_BLOCK);
         hideCommand = () -> this.getElement().style.setProperty(DISPLAY,
-                                                                     DISPLAY_NONE);
+                DISPLAY_NONE);
     }
 
     abstract void initialize();

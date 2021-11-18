@@ -80,8 +80,6 @@ public class DefinitionPaletteItemWidget implements DefinitionPaletteItemWidgetV
                             double y) {
         if (itemMouseDownCallback != null) {
 
-            DomGlobal.console.log("onMouseDown " + item.getId() + " " + clientX + " " + clientY + " " + x + " " + y);
-
             itemMouseDownCallback.accept(new PaletteItemMouseEvent(item.getId(),
                                                                    clientX,
                                                                    clientY,
