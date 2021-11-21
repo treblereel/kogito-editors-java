@@ -35,7 +35,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target( {METHOD, PARAMETER, FIELD })
 @Retention(RUNTIME)
 @Documented
-@Qualifier
+//@Qualifier
 public @interface Table {
   
   /*

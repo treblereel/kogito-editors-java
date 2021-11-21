@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import io.crysknife.ui.translation.api.spi.TranslationService;
@@ -28,6 +29,7 @@ import org.kie.workbench.common.forms.dynamic.model.config.SelectorData;
 import org.kie.workbench.common.forms.dynamic.model.config.SelectorDataProvider;
 import org.kie.workbench.common.forms.dynamic.service.shared.FormRenderingContext;
 
+@Dependent
 public class SignalScopeProvider
         implements SelectorDataProvider {
 

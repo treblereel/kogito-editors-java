@@ -107,15 +107,30 @@ public class FormGeneratorDriver implements LayoutGeneratorDriver {
 
     private LayoutDragComponent lookupComponent(LayoutComponent layoutComponent) {
         Class<? extends LayoutDragComponent> clazz = componentsCache.get(layoutComponent.getDragTypeName());
+
+        DomGlobal.console.log("lookupComponent " + clazz);
+
+
         if (clazz == null) {
             SyncBeanDef dragTypeDef = beanManager.lookupBeans(layoutComponent.getDragTypeName()).iterator().next();
+
+            DomGlobal.console.log("dragTypeDef 1 " + dragTypeDef.getName());
+            DomGlobal.console.log("dragTypeDef 2 " + dragTypeDef.getBeanClass().getCanonicalName());
+
 
             componentsCache.put(layoutComponent.getDragTypeName(), dragTypeDef.getBeanClass());
 
             clazz = dragTypeDef.getBeanClass();
         }
 
+        DomGlobal.console.log("clazz " + clazz.getCanonicalName());
+
+
         LayoutDragComponent dragComponent = instance.select(clazz).get();
+
+
+        DomGlobal.console.log("dragComponent " + dragComponent.getClass().getCanonicalName());
+
 
         if (dragComponent instanceof FieldLayoutComponent) {
             FieldLayoutComponent fieldComponent = (FieldLayoutComponent) dragComponent;

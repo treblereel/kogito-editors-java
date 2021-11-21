@@ -16,11 +16,9 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.util;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
+import elemental2.dom.DomGlobal;
 import org.gwtproject.regexp.shared.RegExp;
 import org.kie.workbench.common.stunner.core.util.Patterns;
 
@@ -168,7 +166,18 @@ public class StringUtils {
      * @param value
      * @return
      */
+    //TODO
     public static Set<String> getSetDataTypes(String value) {
+        DomGlobal.console.warn("FIX IT");
+        DomGlobal.console.log("getSetDataTypes 1 " + (value == null));
+        DomGlobal.console.log("getSetDataTypes 2 " + value);
+
+        //TODO
+        if(value == null || value.isEmpty()) {
+            return Collections.EMPTY_SET;
+        }
+
+
         Set<String> types = new HashSet<>();
         if (value == null) {
             return types;

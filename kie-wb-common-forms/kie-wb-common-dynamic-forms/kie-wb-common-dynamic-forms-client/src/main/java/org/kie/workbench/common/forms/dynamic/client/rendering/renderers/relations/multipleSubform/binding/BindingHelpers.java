@@ -39,7 +39,7 @@ public class BindingHelpers {
             helperClazz = StaticBindingHelper.class;
         }
 
-        BindingHelper helper = beanManager.lookupBean(helperClazz).newInstance();
+        BindingHelper helper = beanManager.lookupBean(helperClazz).getInstance();
 
         helper.setUp(field,
                      context);

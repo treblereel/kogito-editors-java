@@ -21,6 +21,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.client.BeanManager;
 import io.crysknife.client.SyncBeanDef;
 import org.kie.workbench.common.forms.fields.shared.AbstractFieldManager;
@@ -44,7 +45,10 @@ public class ClientFieldManagerImpl extends AbstractFieldManager {
         Collection<SyncBeanDef<FieldProvider>> providers = beanManager.lookupBeans(FieldProvider.class);
 
         for (SyncBeanDef<FieldProvider> provider : providers) {
-            registerFieldProvider(provider.newInstance());
+
+            DomGlobal.console.log("ClientFieldManagerImpl.init " + provider.getBeanClass());
+
+            registerFieldProvider(provider.getInstance());
         }
     }
 }

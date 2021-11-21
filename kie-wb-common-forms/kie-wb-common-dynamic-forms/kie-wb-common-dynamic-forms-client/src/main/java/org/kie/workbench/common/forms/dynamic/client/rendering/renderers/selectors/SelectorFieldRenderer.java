@@ -24,6 +24,7 @@ import java.util.Optional;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.ui.databinding.client.BindableListWrapper;
 import org.jboss.errai.common.client.api.Caller;
 import org.jboss.errai.common.client.api.RemoteCallback;
@@ -58,8 +59,15 @@ public abstract class SelectorFieldRenderer<FIELD extends SelectorFieldBaseDefin
     }
 
     public void refreshSelectorOptions() {
+
+        DomGlobal.console.log("refreshSelectorOptions");
+
         if (field.getDataProvider() != null && !field.getDataProvider().isEmpty()) {
             if (field.getDataProvider().startsWith(ClientSelectorDataProviderManager.PREFFIX)) {
+
+                DomGlobal.console.log("refreshSelectorOptions" + field.getDataProvider());
+
+
                 refreshSelectorOptions(clientProviderManager.getDataFromProvider(
                         renderingContext,
                         field.getDataProvider()));

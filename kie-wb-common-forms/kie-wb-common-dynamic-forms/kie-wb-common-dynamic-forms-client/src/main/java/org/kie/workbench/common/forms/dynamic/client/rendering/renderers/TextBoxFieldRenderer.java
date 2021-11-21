@@ -19,6 +19,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.ui.databinding.client.api.Converter;
 import org.gwtproject.user.client.ui.HTML;
 import org.gwtbootstrap3.client.ui.TextBox;
@@ -45,6 +46,9 @@ public class TextBoxFieldRenderer extends FieldRenderer<TextBoxBaseDefinition, D
 
     @Override
     protected FormGroup getFormGroup(RenderMode renderMode) {
+
+        DomGlobal.console.log("getFormGroup 1 " + (formGroupsInstance != null));
+        DomGlobal.console.log("getFormGroup 2 " + (formGroupsInstance.get().getClass().getCanonicalName()));
 
         DefaultFormGroup formGroup = formGroupsInstance.get();
 

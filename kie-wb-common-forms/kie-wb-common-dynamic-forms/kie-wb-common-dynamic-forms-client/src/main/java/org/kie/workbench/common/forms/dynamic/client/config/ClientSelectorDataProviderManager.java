@@ -40,7 +40,7 @@ public class ClientSelectorDataProviderManager extends AbstractSelectorDataProvi
         Collection<SyncBeanDef<SelectorDataProvider>> providers = beanManager.lookupBeans(SelectorDataProvider.class);
 
         for (SyncBeanDef<SelectorDataProvider> provider : providers) {
-            registerProvider(provider.newInstance());
+            registerProvider(provider.getInstance());
         }
     }
 

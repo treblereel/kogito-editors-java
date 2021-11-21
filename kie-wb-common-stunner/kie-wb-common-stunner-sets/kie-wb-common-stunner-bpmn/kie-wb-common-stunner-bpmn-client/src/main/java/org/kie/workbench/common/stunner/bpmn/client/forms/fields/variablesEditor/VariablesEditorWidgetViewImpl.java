@@ -16,19 +16,15 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.variablesEditor;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
+import javax.inject.Named;
 
-import elemental2.dom.HTMLBodyElement;
+import elemental2.dom.HTMLElement;
 import io.crysknife.ui.databinding.client.components.ListComponent;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
@@ -109,7 +105,8 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
     @Inject
     @DataField
     @Table(root = "tbody")
-    protected HTMLBodyElement variableRows;
+    @Named("tbody")
+    protected HTMLElement variableRows;
 
     @Inject
     protected Event<NotificationEvent> notification;
@@ -302,8 +299,9 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
 
     @Override
     public int getVariableRowsCount() {
-        throw new Error(getClass().getCanonicalName()+".getVariableRowsCount");
+        //throw new Error(getClass().getCanonicalName()+".getVariableRowsCount");
         //return variableRows.getValue().size();
+        return 0;
     }
 
     @Override
@@ -318,7 +316,7 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
 
     @Override
     public void setVariableRows(final List<VariableRow> rows) {
-        throw new Error(getClass().getCanonicalName()+".setVariableRows");
+        //throw new Error(getClass().getCanonicalName()+".setVariableRows");
 
 /*        variableRows.setValue(rows);
         for (int i = 0; i < getVariableRowsCount(); i++) {
@@ -331,8 +329,9 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
 
     @Override
     public List<VariableRow> getVariableRows() {
-        throw new Error(getClass().getCanonicalName()+".getVariableRows");
+        //throw new Error(getClass().getCanonicalName()+".getVariableRows");
         //return variableRows.getValue();
+        return Collections.EMPTY_LIST;
     }
 
     @Override

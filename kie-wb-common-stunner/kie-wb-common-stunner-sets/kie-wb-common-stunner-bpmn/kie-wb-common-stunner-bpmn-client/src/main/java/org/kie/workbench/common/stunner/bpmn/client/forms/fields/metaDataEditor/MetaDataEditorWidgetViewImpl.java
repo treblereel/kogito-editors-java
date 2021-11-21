@@ -16,12 +16,14 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.metaDataEditor;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.ui.databinding.client.components.ListComponent;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
@@ -152,8 +154,10 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     @Override
     public int getMetaDataRowsCount() {
-        throw new Error(getClass().getCanonicalName()+".getMetaDataRowsCount");
+        DomGlobal.console.warn("FIX ITTTgetMetaDataRowsCount ");
 
+        //throw new Error(getClass().getCanonicalName()+".getMetaDataRowsCount");
+        return 0;
         //return metaDataRows.getValue().size();
     }
 
@@ -169,7 +173,9 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     @Override
     public void setMetaDataRows(final List<MetaDataRow> rows) {
-        throw new Error(getClass().getCanonicalName()+".getMetaDataWidget");
+        DomGlobal.console.warn("FIX getMetaDataWidget ");
+
+        //throw new Error(getClass().getCanonicalName()+".getMetaDataWidget");
 /*
         metaDataRows.setValue(rows);
         for (int i = 0; i < getMetaDataRowsCount(); i++) {
@@ -180,8 +186,12 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     @Override
     public List<MetaDataRow> getMetaDataRows() {
-        throw new Error(getClass().getCanonicalName()+".getMetaDataRows");
+        DomGlobal.console.warn("FIX getMetaDataRows ");
 
+        //throw new Error(getClass().getCanonicalName()+".getMetaDataRows");
+
+
+        return Collections.EMPTY_LIST;
         //return metaDataRows.getValue();
     }
 

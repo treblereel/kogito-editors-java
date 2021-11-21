@@ -49,7 +49,7 @@ public class DynamicRendererEntryPoint {
         Collection<SyncBeanDef<FieldRendererTypesProvider>> providers = beanManager.lookupBeans(FieldRendererTypesProvider.class);
 
         providers.forEach(providerDef -> {
-            FieldRendererTypesProvider provider = providerDef.newInstance();
+            FieldRendererTypesProvider provider = providerDef.getInstance();
 
             FieldRendererTypeRegistry.load(provider);
 

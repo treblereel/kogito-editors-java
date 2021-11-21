@@ -41,7 +41,7 @@ public class EditableColumnGeneratorManagerImpl implements EditableColumnGenerat
     public void init() {
         Collection<SyncBeanDef<EditableColumnGenerator>> beanDefs = beanManager.lookupBeans(EditableColumnGenerator.class);
 
-        beanDefs.stream().map(beanDef -> beanDef.newInstance()).forEach(this::registerGenerator);
+        beanDefs.stream().map(beanDef -> beanDef.getInstance()).forEach(this::registerGenerator);
     }
 
     public void registerGenerator(EditableColumnGenerator generator) {

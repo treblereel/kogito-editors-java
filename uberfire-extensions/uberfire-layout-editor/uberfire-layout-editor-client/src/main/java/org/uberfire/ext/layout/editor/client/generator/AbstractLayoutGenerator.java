@@ -17,6 +17,7 @@ package org.uberfire.ext.layout.editor.client.generator;
 
 import java.util.List;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.jboss.errai.common.client.dom.DOMUtil;
@@ -93,7 +94,16 @@ public abstract class AbstractLayoutGenerator implements LayoutGenerator {
                                     final LayoutGeneratorDriver driver,
                                     final LayoutColumn layoutColumn,
                                     final HTMLElement column) {
+
+        DomGlobal.console.warn("generateComponents > " + layoutColumn.getLayoutComponents().size());
+
+
         for (final LayoutComponent layoutComponent : layoutColumn.getLayoutComponents()) {
+
+            DomGlobal.console.warn("generateComponents >> " + layoutColumn);
+            //DomGlobal.console.warn("generateComponents > " + layoutColumn + " " + layoutComponent.getDragTypeName());
+
+
             final IsWidget componentWidget = driver.createComponent(column, layoutComponent);
             if (componentWidget != null) {
                 if (layoutTemplate.isPageStyle() && layoutColumn.getHeight().isEmpty()) {
@@ -102,6 +112,8 @@ public abstract class AbstractLayoutGenerator implements LayoutGenerator {
                 else if (!layoutColumn.getHeight().isEmpty()) {
                     column.classList.add("uf-perspective-row-" + layoutColumn.getHeight());
                 }
+
+                column.id = "OLOLO_ZZZ";
                 DOMUtil.appendWidgetToElement(column, componentWidget);
             }
         }

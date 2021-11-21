@@ -27,6 +27,7 @@ import javax.inject.Inject;
 
 import elemental2.promise.Promise;
 import org.kie.workbench.common.stunner.bpmn.client.forms.DataTypeNamesService;
+import org.kie.workbench.common.stunner.bpmn.client.marshall.converters.tostunner.processes.DataTypeCache;
 import org.uberfire.backend.vfs.Path;
 
 @ApplicationScoped
@@ -35,8 +36,8 @@ public class DataTypeNamesStandaloneService implements DataTypeNamesService {
     Set<String> dataTypesSet = new HashSet<>();
 
     boolean cacheRead = false;
-    //@Inject
-    //DataTypeCache cache;
+    @Inject
+    DataTypeCache cache;
 
     private static Set<String> simpleDataTypes = new HashSet<>(Arrays.asList("Boolean",
                                                                       "Float",
@@ -46,15 +47,13 @@ public class DataTypeNamesStandaloneService implements DataTypeNamesService {
 
     @Override
     public Promise<List<String>> call(final Path path) {
-/*        if (!cacheRead && cache != null) {
+        if (!cacheRead && cache != null) {
             cache.getCachedDataTypes().removeAll(simpleDataTypes);
             dataTypesSet.addAll(cache.getCachedDataTypes());
             cacheRead = true;
         }
 
-        return Promise.resolve(new ArrayList<>(dataTypesSet));*/
-
-        throw new Error(getClass().getCanonicalName()+" call");
+        return Promise.resolve(new ArrayList<>(dataTypesSet));
     }
 
     @Override
