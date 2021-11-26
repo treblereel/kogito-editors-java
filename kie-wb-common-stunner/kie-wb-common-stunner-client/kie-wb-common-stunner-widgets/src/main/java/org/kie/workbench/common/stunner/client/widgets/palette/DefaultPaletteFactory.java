@@ -64,9 +64,6 @@ public class DefaultPaletteFactory<H extends AbstractCanvasHandler>
 
     @Override
     public DefaultPaletteWidget newPalette(final H canvasHandler) {
-        DomGlobal.console.log("newPalette");
-
-
         final DefaultPaletteWidget palette = getPaletteWidget(canvasHandler);
         getPaletteDefinitionBuilder(canvasHandler)
                 .build(canvasHandler,
@@ -93,15 +90,7 @@ public class DefaultPaletteFactory<H extends AbstractCanvasHandler>
 
     private DefaultPaletteWidget getPaletteWidget(final H canvasHandler) {
         final DefaultPaletteWidget palette = palettes.get();
-
-        DomGlobal.console.log("getPaletteWidget FIRE BuildCanvasShapeEvent");
-        DomGlobal.console.log("buildCanvasShapeEvent " + buildCanvasShapeEvent.getClass().getCanonicalName());
-
         palette.onItemDrop(event -> {
-
-            DomGlobal.console.log(getClass().getCanonicalName() + ".onItemDrop " + event);
-
-
             buildCanvasShapeEvent.fire(new BuildCanvasShapeEvent(canvasHandler,
                                                                                          event.getDefinition(),
                                                                                          event.getFactory(),

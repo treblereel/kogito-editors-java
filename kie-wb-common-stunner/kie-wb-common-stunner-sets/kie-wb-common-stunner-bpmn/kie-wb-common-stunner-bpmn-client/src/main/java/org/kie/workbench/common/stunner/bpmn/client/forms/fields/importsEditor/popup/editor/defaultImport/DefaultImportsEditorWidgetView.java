@@ -22,7 +22,8 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.databinding.client.widgets.ListWidget;
+import io.crysknife.ui.databinding.client.widgets.Table;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.HeadingElement;
@@ -51,10 +52,10 @@ public class DefaultImportsEditorWidgetView extends Composite implements Imports
     protected Button addImportButton;
     @DataField
     protected TableCellElement classNameTableHeader = Document.get().createTHElement();
-    //@Inject
-    //@DataField
-    //@Table(root = "tbody")
-    protected ListComponent<DefaultImport, ?> defaultImports;
+    @Inject
+    @DataField
+    @Table(root = "tbody")
+    protected ListWidget<DefaultImport, DefaultImportListItemWidgetView> defaultImports;
     @DataField
     private HeadingElement tableTitle = Document.get().createHElement(3);
     private Presenter presenter;
@@ -73,9 +74,7 @@ public class DefaultImportsEditorWidgetView extends Composite implements Imports
 
     @Override
     public int getImportsCount() {
-
-        throw new Error(getClass().getCanonicalName()+".getImportsCount");
-        //return defaultImports.getValue().size();
+        return defaultImports.getValue().size();
     }
 
     @Override
@@ -95,8 +94,7 @@ public class DefaultImportsEditorWidgetView extends Composite implements Imports
 
     @Override
     public DefaultImportListItemWidgetView getImportWidget(final int index) {
-        throw new Error(getClass().getCanonicalName()+".getVariableWidget");
-       // return defaultImports.getComponent(index);
+       return defaultImports.getComponent(index);
     }
 
     @EventHandler("addImportButton")

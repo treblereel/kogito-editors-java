@@ -19,6 +19,7 @@ package org.kie.workbench.common.stunner.core.client.api;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.appformer.client.context.EditorContextProvider;
 import org.kie.workbench.common.stunner.core.client.ReadOnlyProvider;

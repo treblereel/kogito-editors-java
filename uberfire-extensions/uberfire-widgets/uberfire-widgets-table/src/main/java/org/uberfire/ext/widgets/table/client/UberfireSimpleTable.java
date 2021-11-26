@@ -17,8 +17,9 @@ package org.uberfire.ext.widgets.table.client;
 
 import java.util.List;
 
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsType;
 import org.gwtproject.core.client.JavaScriptObject;
-import org.gwtproject.dom.client.Style;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
@@ -36,6 +37,8 @@ import org.gwtproject.view.client.*;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.Label;
 import org.uberfire.ext.widgets.table.client.resources.UFTableResources;
+
+import static jsinterop.annotations.JsPackage.GLOBAL;
 
 /**
  * A composite Widget that shows rows of data (not-paged) and a "column picker"
@@ -76,9 +79,10 @@ public class UberfireSimpleTable<T>
     protected static void addDataGridStyles(final JavaScriptObject grid,
                                                    final String header,
                                                    final String content) {
-        throw new Error(UberfireSimpleTable.class.getClass().getCanonicalName()+".addDataGridStyles");
-
-    }/*-{
+        JQuery.$(grid).find("table:first").addClass(header);
+        JQuery.$(grid).find("table:last").addClass(content);
+    }
+    /*-{
         $wnd.jQuery(grid).find('table:first').addClass(header);
         $wnd.jQuery(grid).find('table:last').addClass(content);
     }-*/;
@@ -419,5 +423,18 @@ public class UberfireSimpleTable<T>
             extends
             UiBinder<Widget, UberfireSimpleTable> {
 
+    }
+
+    @JsType(isNative = true, namespace = GLOBAL, name = "jQuery")
+    public static abstract class JQuery {
+
+        @JsMethod(namespace = GLOBAL, name = "jQuery")
+        public native static JQuery $(final JavaScriptObject selector);
+
+        @JsMethod(namespace = GLOBAL, name = "jQuery")
+        public native static JQuery find(String s);
+
+        @JsMethod(namespace = GLOBAL, name = "jQuery")
+        public native static void addClass(String clazz);
     }
 }

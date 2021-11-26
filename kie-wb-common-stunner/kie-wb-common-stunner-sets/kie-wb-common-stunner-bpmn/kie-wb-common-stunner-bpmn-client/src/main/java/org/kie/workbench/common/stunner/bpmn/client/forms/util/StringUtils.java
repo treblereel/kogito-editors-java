@@ -168,10 +168,6 @@ public class StringUtils {
      */
     //TODO
     public static Set<String> getSetDataTypes(String value) {
-        DomGlobal.console.warn("FIX IT");
-        DomGlobal.console.log("getSetDataTypes 1 " + (value == null));
-        DomGlobal.console.log("getSetDataTypes 2 " + value);
-
         //TODO
         if(value == null || value.isEmpty()) {
             return Collections.EMPTY_SET;

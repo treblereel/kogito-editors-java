@@ -106,7 +106,9 @@ public class DefaultModelValidator<MODEL> implements ModelValidator<MODEL> {
                             MODEL model) {
         boolean isValid = true;
 
-        if (model instanceof BindableProxy) {
+        DomGlobal.console.warn("validation disabled");
+
+/*        if (model instanceof BindableProxy) {
             model = ((BindableProxy<MODEL>)model).deepUnwrap();
         }
 
@@ -127,7 +129,7 @@ public class DefaultModelValidator<MODEL> implements ModelValidator<MODEL> {
             }
         } catch (IllegalArgumentException ex) {
             GWT.log("Error trying to validate model: model does not any validation constraint. ");
-        }
+        }*/
 
         return isValid;
     }

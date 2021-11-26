@@ -23,7 +23,8 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLAnchorElement;
-import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.databinding.client.widgets.ListWidget;
+import io.crysknife.ui.databinding.client.widgets.Table;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.HeadingElement;
@@ -37,7 +38,6 @@ import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
-import org.jboss.errai.ui.client.widget.Table;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.AssignmentRow;
 import org.uberfire.client.views.pfly.widgets.JQueryProducer;
@@ -84,10 +84,10 @@ public class ActivityDataIOEditorWidgetViewImpl extends Composite implements Act
     /**
      * The list of assignments that currently exist.
      */
-    //@Inject
-    //@DataField
-    //@Table(root = "tbody")
-    protected ListComponent<AssignmentRow, ?> assignments;
+    @Inject
+    @DataField
+    @Table(root = "tbody")
+    protected ListWidget<AssignmentRow, AssignmentListItemWidgetViewImpl> assignments;
 
     @Inject
     protected Event<NotificationEvent> notification;
@@ -111,9 +111,7 @@ public class ActivityDataIOEditorWidgetViewImpl extends Composite implements Act
 
     @Override
     public int getAssignmentsCount() {
-        throw new Error(getClass().getCanonicalName()+".getAssignmentsCount");
-
-        //return assignments.getValue().size();
+        return assignments.getValue().size();
     }
 
     @Override
@@ -175,8 +173,7 @@ public class ActivityDataIOEditorWidgetViewImpl extends Composite implements Act
 
     @Override
     public AssignmentListItemWidgetView getAssignmentWidget(final int index) {
-        throw new Error(getClass().getCanonicalName()+".getVariableWidget");
-        //return assignments.getComponent(index);
+        return assignments.getComponent(index);
     }
 
     @Override

@@ -45,14 +45,10 @@ public abstract class BasicTypeFieldProvider<FIELD extends FieldDefinition> impl
     }
 
     protected void registerPropertyType(Class type) {
-        DomGlobal.console.log("Class registerPropertyType " + type.getCanonicalName() + " " + type.getName());
-
         registerPropertyType(type.getName());
     }
 
     protected void registerPropertyType(String type) {
-        DomGlobal.console.log("String registerPropertyType " + type);
-
         Assert.notNull("Type cannot be null",
                        type);
 

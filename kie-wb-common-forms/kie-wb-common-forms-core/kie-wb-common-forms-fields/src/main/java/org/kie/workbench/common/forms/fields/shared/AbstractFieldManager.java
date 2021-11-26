@@ -118,8 +118,6 @@ public abstract class AbstractFieldManager implements FieldManager {
 
     @Override
     public FieldDefinition getDefinitionByFieldTypeName(String fieldTypeCode) {
-        DomGlobal.console.log("getDefinitionByFieldTypeName " + fieldTypeCode);
-
         FieldProvider provider = providersByFieldCode.get(fieldTypeCode);
 
         if (provider != null) {
@@ -131,11 +129,6 @@ public abstract class AbstractFieldManager implements FieldManager {
 
     @Override
     public FieldDefinition getDefinitionByDataType(TypeInfo typeInfo) {
-
-        DomGlobal.console.log("getDefinitionByDataType " + typeInfo);
-
-        DomGlobal.console.log(" !TypeKind.OBJECT.equals(typeInfo.getType()) " + !TypeKind.OBJECT.equals(typeInfo.getType()));
-
         if (!TypeKind.OBJECT.equals(typeInfo.getType())) {
 
             return getFieldDefinitionFromBasicProvider(typeInfo);
@@ -158,17 +151,9 @@ public abstract class AbstractFieldManager implements FieldManager {
     }
 
     protected FieldDefinition getFieldDefinitionFromBasicProvider(TypeInfo typeInfo) {
-
-        DomGlobal.console.log("in da getDefinitionByDataType " + typeInfo.getClassName() + " " + typeInfo.isMultiple());
-
-
-
         Predicate<BasicTypeFieldProvider> filterPredicate = new Predicate<BasicTypeFieldProvider>() {
             @Override
             public boolean test(BasicTypeFieldProvider provider) {
-
-                DomGlobal.console.log("test " + typeInfo + " " + provider + " " + provider.isSupported(typeInfo));
-
                 return provider.isSupported(typeInfo);
             }
         };
@@ -176,34 +161,14 @@ public abstract class AbstractFieldManager implements FieldManager {
         Function<BasicTypeFieldProvider, FieldDefinition> mapFunction = new Function<BasicTypeFieldProvider, FieldDefinition>() {
             @Override
             public FieldDefinition apply(BasicTypeFieldProvider provider) {
-                DomGlobal.console.log("provider " + provider.getFieldTypeName());
-
                 FieldDefinition field = provider.getFieldByType(typeInfo);
-                DomGlobal.console.log("field 1: " + field.getName());
-                DomGlobal.console.log("field 2: " + field.getId());
-
-
                 field.setStandaloneClassName(typeInfo.getClassName());
                 return field;
             }
         };
-
-
-        DomGlobal.console.log("           isMultiple 1 " + typeInfo.isMultiple());
-        DomGlobal.console.log("           isMultiple 2 " + basicMultipleProviders.size());
-
         if(typeInfo.isMultiple()) {
             return basicMultipleProviders.stream().filter(filterPredicate).findFirst().map(mapFunction).orElse(null);
         }
-
-        DomGlobal.console.log("           Z1 " + basicProviders.size());
-
-        basicProviders.stream().forEach(s -> {
-            DomGlobal.console.log("           s ->  " + s + " " + s.getFieldTypeName());
-
-        });
-
-
         return basicProviders.stream().filter(filterPredicate).findFirst().map(mapFunction).orElse(null);
     }
 

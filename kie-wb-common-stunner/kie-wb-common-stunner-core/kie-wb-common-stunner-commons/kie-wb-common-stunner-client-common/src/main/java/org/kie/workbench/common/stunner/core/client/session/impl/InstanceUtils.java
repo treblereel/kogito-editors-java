@@ -31,18 +31,7 @@ public class InstanceUtils {
     public static <T> T lookup(final ManagedInstance instance,
                                final Class<T> type,
                                final Annotation... qualifier) {
-
-        DomGlobal.console.log("lookup " + type + " " + QualifierUtil.print(qualifier));
-
         final ManagedInstance<T> i = instance.select(type, qualifier);
-
-        for (T t : i) {
-            DomGlobal.console.log("t ?  " + t.getClass().getCanonicalName());
-
-        }
-
-
-
         return i.isUnsatisfied() ?
                 (T) instance.select(type, DefinitionManager.DEFAULT_QUALIFIER).get() :
                 i.get();

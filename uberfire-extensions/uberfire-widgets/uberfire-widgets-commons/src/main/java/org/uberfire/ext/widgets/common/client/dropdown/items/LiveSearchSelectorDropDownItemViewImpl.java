@@ -20,11 +20,7 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import elemental2.dom.Event;
-import elemental2.dom.HTMLAnchorElement;
-import elemental2.dom.HTMLDListElement;
-import elemental2.dom.HTMLElement;
-import elemental2.dom.KeyboardEvent;
+import elemental2.dom.*;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
@@ -43,7 +39,7 @@ public class LiveSearchSelectorDropDownItemViewImpl<TYPE> implements LiveSearchS
 
     @Inject
     @DataField
-    private HTMLDListElement item;
+    private HTMLLIElement item;
 
     @Inject
     @DataField

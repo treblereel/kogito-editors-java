@@ -21,11 +21,11 @@ import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.databinding.client.widgets.ListWidget;
+import io.crysknife.ui.databinding.client.widgets.Table;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.HeadingElement;
-import org.gwtproject.dom.client.Style;
 import org.gwtproject.dom.client.TableCellElement;
 import org.gwtproject.dom.client.TableElement;
 import org.gwtproject.dom.style.shared.Display;
@@ -35,7 +35,6 @@ import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
-import org.jboss.errai.ui.client.widget.Table;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.editor.ImportsEditorWidgetView;
 import org.kie.workbench.common.stunner.bpmn.definition.property.diagram.imports.WSDLImport;
@@ -54,10 +53,10 @@ public class WSDLImportsEditorWidgetView extends Composite implements ImportsEdi
     @DataField
     protected TableCellElement namespaceTableHeader = Document.get().createTHElement();
 
-    //@Inject
-    //@DataField
-    //@Table(root = "tbody")
-    //protected ListComponent<WSDLImport, ?> wsdlImports;
+    @Inject
+    @DataField
+    @Table(root = "tbody")
+    protected ListWidget<WSDLImport, WSDLImportListItemWidgetView> wsdlImports;
 
     @DataField
     private HeadingElement tableTitle = Document.get().createHElement(3);
@@ -78,8 +77,7 @@ public class WSDLImportsEditorWidgetView extends Composite implements ImportsEdi
 
     @Override
     public int getImportsCount() {
-        throw new Error(getClass().getCanonicalName()+".getImportsCount");
-        //return wsdlImports.getValue().size();
+        return wsdlImports.getValue().size();
     }
 
     @Override
@@ -89,22 +87,17 @@ public class WSDLImportsEditorWidgetView extends Composite implements ImportsEdi
 
     @Override
     public List<WSDLImport> getImports() {
-        throw new Error(getClass().getCanonicalName()+".getImports");
-
-        //return wsdlImports.getValue();
+        return wsdlImports.getValue();
     }
 
     @Override
     public void setImports(List<WSDLImport> imports) {
-        throw new Error(getClass().getCanonicalName()+".setImports");
-
-        //wsdlImports.setValue(imports);
+        wsdlImports.setValue(imports);
     }
 
     @Override
     public WSDLImportListItemWidgetView getImportWidget(final int index) {
-        throw new Error(getClass().getCanonicalName()+".getImportWidget");
-        //return wsdlImports.getComponent(index);
+        return wsdlImports.getComponent(index);
     }
 
     @EventHandler("addImportButton")

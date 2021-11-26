@@ -21,7 +21,6 @@ import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import org.kie.workbench.common.forms.dynamic.service.shared.FormRenderingContext;
 import org.kie.workbench.common.forms.model.FieldDefinition;
@@ -57,8 +56,6 @@ public class FormLayoutGenerator extends AbstractLayoutGenerator {
     }
 
     public List<FieldLayoutComponent> getLayoutFields() {
-        DomGlobal.console.log("getLayoutFields 1 " + driver.getClass().getCanonicalName());
-        DomGlobal.console.log("getLayoutFields 2 " + driver.getLayoutFields().size());
         return driver.getLayoutFields();
     }
 

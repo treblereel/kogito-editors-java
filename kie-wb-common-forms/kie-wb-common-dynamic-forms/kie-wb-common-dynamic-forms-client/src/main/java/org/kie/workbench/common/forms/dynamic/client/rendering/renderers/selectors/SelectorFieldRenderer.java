@@ -59,15 +59,8 @@ public abstract class SelectorFieldRenderer<FIELD extends SelectorFieldBaseDefin
     }
 
     public void refreshSelectorOptions() {
-
-        DomGlobal.console.log("refreshSelectorOptions");
-
         if (field.getDataProvider() != null && !field.getDataProvider().isEmpty()) {
             if (field.getDataProvider().startsWith(ClientSelectorDataProviderManager.PREFFIX)) {
-
-                DomGlobal.console.log("refreshSelectorOptions" + field.getDataProvider());
-
-
                 refreshSelectorOptions(clientProviderManager.getDataFromProvider(
                         renderingContext,
                         field.getDataProvider()));

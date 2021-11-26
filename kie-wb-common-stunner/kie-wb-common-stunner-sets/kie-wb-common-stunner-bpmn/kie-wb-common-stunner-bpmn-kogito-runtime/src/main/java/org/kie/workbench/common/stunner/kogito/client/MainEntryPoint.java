@@ -23,6 +23,7 @@ import elemental2.core.Reflect;
 import elemental2.dom.DomGlobal;
 import io.crysknife.annotation.Application;
 import jsinterop.annotations.JsFunction;
+import jsinterop.base.Js;
 import org.gwtbootstrap3.client.GwtBootstrap3EntryPoint;
 import org.gwtbootstrap3.extras.card.client.CardEntryPoint;
 import org.gwtbootstrap3.extras.datepicker.client.DatePickerEntryPoint;
@@ -32,6 +33,7 @@ import org.gwtbootstrap3.extras.select.client.SelectEntryPoint;
 import org.gwtbootstrap3.extras.slider.client.SliderEntryPoint;
 import org.gwtbootstrap3.extras.tagsinput.client.TagsInputEntryPoint;
 import org.gwtbootstrap3.extras.toggleswitch.client.ToggleSwitchEntryPoint;
+import org.gwtproject.core.client.ScriptInjector;
 import org.gwtproject.resources.client.GWT3ResourcesConfiguration;
 import org.kie.workbench.common.forms.dynamic.client.DynamicRendererEntryPoint;
 import org.kie.workbench.common.stunner.bpmn.StunnerBPMNEntryPoint;
@@ -39,6 +41,7 @@ import org.kie.workbench.common.stunner.client.lienzo.StunnerLienzoCore;
 import org.kie.workbench.common.stunner.kogito.client.editor.BPMNDiagramEditor;
 import org.kie.workbench.common.widgets.client.KieWorkbenchWidgetsCommonEntryPoint;
 import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
+import org.uberfire.client.views.pfly.PatternFlyEntryPoint;
 import org.uberfire.client.workbench.WorkbenchEntryPoint;
 import org.uberfire.ext.layout.editor.client.LayoutEditorEntryPoint;
 import org.uberfire.ext.widgets.core.client.CoreEntryPoint;
@@ -84,6 +87,7 @@ public class MainEntryPoint {
     @PostConstruct
     public void initialize() {
         new GwtBootstrap3EntryPoint().onModuleLoad();
+        new PatternFlyEntryPoint().init();
         new CardEntryPoint().onModuleLoad();
         new DatePickerEntryPoint().onModuleLoad();
         new DateTimePickerEntryPoint().onModuleLoad();

@@ -21,28 +21,19 @@ import elemental2.dom.Element;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-//@JsType(isNative = true, namespace = "window", name = "monaco")
+import static jsinterop.annotations.JsPackage.GLOBAL;
+
+@JsType(isNative = true, namespace = GLOBAL, name = "monaco")
 public class MonacoEditor {
 
-    public void defineTheme(final String themeId,
-                                   final JavaScriptObject themeData) {
-        throw new Error(MonacoEditor.class.getCanonicalName()+".defineTheme");
+    public native void defineTheme(final String themeId,
+                                   final JavaScriptObject themeData);
 
-    };
+    public native MonacoStandaloneCodeEditor create(final Element themeId,
+                                                    final JavaScriptObject options);
 
-    public MonacoStandaloneCodeEditor create(final Element themeId,
-                                                    final JavaScriptObject options) {
-        throw new Error(MonacoEditor.class.getCanonicalName()+".create");
+    public native void setTheme(final String feelThemeId);
 
-    };
-
-    public void setTheme(final String feelThemeId) {
-        throw new Error(MonacoEditor.class.getCanonicalName()+".setTheme");
-
-    };
-
-    //@JsProperty(name = "editor")
-    public static MonacoEditor get() {
-        throw new Error(MonacoEditor.class.getCanonicalName()+".get");
-    }
+    @JsProperty(name = "editor")
+    public static native MonacoEditor get();
 }

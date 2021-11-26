@@ -89,9 +89,6 @@ public class DefaultEditorSession
 
     @PostConstruct
     public void constructInstance() {
-
-        DomGlobal.console.log("PING ME HERE!!!");
-
         session.onCanvasControlRegistered(this::onControlRegistered)
                 .onCanvasHandlerControlRegistered(this::onCanvasHandlerControlRegistered)
                 .onCanvasControlDestroyed(AbstractSession::onControlDestroyed)

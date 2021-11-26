@@ -51,19 +51,12 @@ public class DynamicFormRendererViewImpl extends Composite implements DynamicFor
 
     @Override
     public void setPresenter(DynamicFormRenderer presenter) {
-        DomGlobal.console.log("DO setPresenter " + presenter.getClass().getCanonicalName());
-
         this.presenter = presenter;
     }
 
     @Override
     public void render(FormRenderingContext context) {
-
-        DomGlobal.console.log("DO render " + context.getClass().getCanonicalName());
-
-
         clear();
-
         if (context != null) {
             layoutContent = layoutGenerator.buildLayout(context);
             formContent.add(wrapperWidgetUtil.getWidget(this, layoutContent));
@@ -72,15 +65,7 @@ public class DynamicFormRendererViewImpl extends Composite implements DynamicFor
 
     @Override
     public void bind() {
-
-        DomGlobal.console.log("DO bind ");
-
-
         for (FieldLayoutComponent fieldComponent : layoutGenerator.getLayoutFields()) {
-
-            DomGlobal.console.log("DO bind.fieldComponent " + fieldComponent.getClass().getCanonicalName());
-
-
             presenter.bind(fieldComponent.getFieldRenderer());
         }
     }

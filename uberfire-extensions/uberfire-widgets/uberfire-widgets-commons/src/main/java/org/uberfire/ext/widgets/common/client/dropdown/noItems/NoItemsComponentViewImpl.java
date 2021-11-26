@@ -46,15 +46,11 @@ public class NoItemsComponentViewImpl implements NoItemsComponentView,
 
     @Override
     public void hide() {
-        throw new Error(getClass().getCanonicalName()+".hide");
-
-        //container.setHidden(true);
+        container.style.display = "none";
     }
 
     @Override
     public void show() {
-        throw new Error(getClass().getCanonicalName()+".show");
-
-        //container.setHidden(false);
+        container.style.display = "inline";
     }
 }

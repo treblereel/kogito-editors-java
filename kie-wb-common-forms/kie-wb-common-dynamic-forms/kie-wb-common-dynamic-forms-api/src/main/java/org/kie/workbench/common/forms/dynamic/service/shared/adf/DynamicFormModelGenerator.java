@@ -53,9 +53,6 @@ public class DynamicFormModelGenerator {
     }
 
     public StaticModelFormRenderingContext getContextForModel(Object model, FormElementFilter... filters) {
-
-        DomGlobal.console.log("getContextForModel " + model.getClass().getCanonicalName());
-
         PortablePreconditions.checkNotNull("model",
                                            model);
 
@@ -74,8 +71,6 @@ public class DynamicFormModelGenerator {
         });
 
         FormDefinition formDefinition = formBuildingService.generateFormForModel(model, rootFormElemenFilters.stream().toArray(FormElementFilter[]::new));
-        DomGlobal.console.log("formDefinition " + formDefinition.getClass().getCanonicalName());
-
         if (formDefinition == null) {
             return null;
         }

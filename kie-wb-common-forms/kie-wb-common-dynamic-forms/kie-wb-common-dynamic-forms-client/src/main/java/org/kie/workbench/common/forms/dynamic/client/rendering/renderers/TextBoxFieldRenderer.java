@@ -46,10 +46,6 @@ public class TextBoxFieldRenderer extends FieldRenderer<TextBoxBaseDefinition, D
 
     @Override
     protected FormGroup getFormGroup(RenderMode renderMode) {
-
-        DomGlobal.console.log("getFormGroup 1 " + (formGroupsInstance != null));
-        DomGlobal.console.log("getFormGroup 2 " + (formGroupsInstance.get().getClass().getCanonicalName()));
-
         DefaultFormGroup formGroup = formGroupsInstance.get();
 
         if (renderMode.equals(RenderMode.PRETTY_MODE)) {

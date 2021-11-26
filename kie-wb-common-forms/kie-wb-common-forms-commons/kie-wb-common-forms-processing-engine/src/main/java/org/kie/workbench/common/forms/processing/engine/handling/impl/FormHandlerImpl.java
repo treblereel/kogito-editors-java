@@ -94,11 +94,6 @@ public class FormHandlerImpl<T> implements FormHandler<T> {
         Assert.notNull("FormField cannot be null!", formField);
 
         IsWidget widget = formField.getWidget();
-
-
-        DomGlobal.console.log("IsWidget " + widget.asWidget().getElement().getInnerHTML());
-        DomGlobal.console.log("isBindable " + formField.isBindable());
-
         form.addField(formField);
 
         if (formField.isBindable()) {

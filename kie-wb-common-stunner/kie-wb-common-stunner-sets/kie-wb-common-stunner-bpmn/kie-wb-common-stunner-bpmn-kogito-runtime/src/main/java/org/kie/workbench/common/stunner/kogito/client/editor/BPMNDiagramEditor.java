@@ -247,7 +247,6 @@ public class BPMNDiagramEditor {
     }
 
     void docksOpen() {
-        DomGlobal.console.log("                    docksOpen ");
         diagramPropertiesDock.open();
         diagramPreviewAndExplorerDock.open();
     }
@@ -262,16 +261,12 @@ public class BPMNDiagramEditor {
         close();
 
         return promises.create((success, failure) -> {
-
-            DomGlobal.console.log("1");
             diagramServices.transform("default",
                                       xml,
                                       new ServiceCallback<Diagram>() {
 
                                           @Override
                                           public void onSuccess(final Diagram diagram) {
-                                              DomGlobal.console.log("onSuccess 1");
-
                                               stunnerEditor
                                                       .close()
                                                       .open(diagram, new SessionPresenter.SessionPresenterCallback() {
@@ -290,8 +285,6 @@ public class BPMNDiagramEditor {
 
                                           @Override
                                           public void onError(final ClientRuntimeError error) {
-                                              DomGlobal.console.log("onError 1 " + error.getMessage());
-
                                               stunnerEditor.handleError(error);
                                               failure.onInvoke(error);
                                           }

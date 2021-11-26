@@ -52,15 +52,9 @@ public class ClientFormGenerator extends AbstractFormGenerator {
     public void initialize() {
 
         Collection<SyncBeanDef<FormElementProcessor>> processors = beanManager.lookupBeans(FormElementProcessor.class);
-
-        DomGlobal.console.warn(getClass().getCanonicalName() + ".initialize size " + processors.size());
-
-
         processors.stream()
                 .map(SyncBeanDef::getInstance)
                 .forEach(processor -> {
-
-                    DomGlobal.console.log("processor " + processor.getSupportedElementType().getSimpleName());
                     registerProcessor(processor);
                     beanManager.destroyBean(processor);
                 });
@@ -70,10 +64,6 @@ public class ClientFormGenerator extends AbstractFormGenerator {
         builderDefs.stream()
                 .map(SyncBeanDef::getInstance)
                 .forEach(provider -> {
-
-                    DomGlobal.console.warn( "provider " + provider.getClass().getSimpleName());
-
-
                     registerResources(provider);
                     beanManager.destroyBean(provider);
                 });

@@ -108,10 +108,6 @@ public class FormDisplayer implements FormDisplayerView.Presenter,
         Collection<FormElementFilter> filters = FormFiltersProviderFactory.getFilterForDefinition(domainObjectUUID, domainObject);
 
         final BindableProxy<?> proxy = (BindableProxy<?>) BindableProxyFactory.getBindableProxy(domainObject);
-
-        DomGlobal.console.log("proxy 1 " + proxy.getClass().getCanonicalName());
-        DomGlobal.console.log("proxy 2 " + proxy.deepUnwrap());
-
         final StaticModelFormRenderingContext generatedCtx = modelGenerator.getContextForModel(proxy.deepUnwrap(), filters.stream().toArray(FormElementFilter[]::new));
         final FormRenderingContext<?> pathAwareCtx = new PathAwareFormContext<>(generatedCtx, diagramPath);
         pathAwareCtx.setRenderMode(renderMode);

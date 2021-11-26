@@ -57,27 +57,15 @@ public abstract class AbstractFieldElementProcessor implements FormElementProces
                                               FormGenerationContext context) {
 
         FieldDefinition field;
-
-        DomGlobal.console.log("processFormElement " + (element.getName()) + " " + element.getPreferredType().equals(FieldType.class));
-
         if (element.getPreferredType().equals(FieldType.class)) {
-            DomGlobal.console.log("processFormElement 2 " + element.getTypeInfo());
-
             field = fieldManager.getDefinitionByDataType(element.getTypeInfo());
         } else {
-            DomGlobal.console.log("processFormElement 3");
-
             field = fieldManager.getDefinitionByFieldType(element.getPreferredType(),
                                                           element.getTypeInfo());
             if (field == null) {
-                DomGlobal.console.log("processFormElement 4");
-
                 field = fieldManager.getDefinitionByDataType(element.getTypeInfo());
             }
         }
-
-        DomGlobal.console.log("field : " + (field != null));
-
         if (field != null) {
             context.getFormDefinition().getFields().add(field);
 

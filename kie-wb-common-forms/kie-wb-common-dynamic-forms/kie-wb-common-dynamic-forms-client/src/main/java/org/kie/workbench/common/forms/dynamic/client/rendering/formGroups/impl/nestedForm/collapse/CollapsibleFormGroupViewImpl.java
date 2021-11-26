@@ -92,10 +92,6 @@ public class CollapsibleFormGroupViewImpl implements IsElement,
     @Override
     public void render(Widget widget,
                        FieldDefinition field) {
-
-        DomGlobal.console.log(" 1 > " + widget.getClass().getCanonicalName());
-        DomGlobal.console.log(" 2 > " + field.getClass().getCanonicalName());
-
         String id = Document.get().createUniqueId();
         anchor.setAttribute("data-target", "#" + id);
         panel.id = (id);

@@ -29,7 +29,6 @@ import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 
-import elemental2.dom.DomGlobal;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.Widget;
 import io.crysknife.client.IsElement;
@@ -414,9 +413,6 @@ public class TreeExplorer implements IsWidget {
     }
 
     private String getShapeSetId() {
-
-        DomGlobal.console.log("getShapeSetId " + canvasHandler.getDiagram().getMetadata().getShapeSetId());
-
         return canvasHandler.getDiagram().getMetadata().getShapeSetId();
     }
 

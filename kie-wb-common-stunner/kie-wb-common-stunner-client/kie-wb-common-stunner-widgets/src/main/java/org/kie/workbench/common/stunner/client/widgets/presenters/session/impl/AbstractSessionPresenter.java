@@ -233,10 +233,6 @@ public abstract class AbstractSessionPresenter<D extends Diagram, H extends Abst
 
     @SuppressWarnings("unchecked")
     protected void onSessionOpened(final S session) {
-
-        DomGlobal.console.log(getClass().getCanonicalName()+"onSessionOpened");
-
-
         destroyToolbar();
         destroyPalette();
         initToolbar(session);

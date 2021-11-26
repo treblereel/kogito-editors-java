@@ -19,7 +19,6 @@ package org.kie.workbench.common.forms.dynamic.service.shared;
 import java.util.HashMap;
 import java.util.Map;
 
-import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.forms.dynamic.model.config.SelectorData;
 import org.kie.workbench.common.forms.dynamic.model.config.SelectorDataProvider;
 import org.kie.workbench.common.forms.dynamic.model.config.SystemSelectorDataProvider;
@@ -50,17 +49,7 @@ public abstract class AbstractSelectorDataProviderManager implements SelectorDat
     @Override
     public SelectorData getDataFromProvider(FormRenderingContext context,
                                             String provider) {
-
-        DomGlobal.console.log("getDataFromProvider " + provider + " " + providers.size());
-
         SelectorDataProvider dataProvider = providers.get(provider);
-
-        providers.forEach((k,v) -> {
-            DomGlobal.console.log("   K " + k + " " + v.getProviderName());
-        });
-
-        DomGlobal.console.log("getDataFromProvider dataProvider " + dataProvider.getProviderName());
-
         if (dataProvider == null) {
             return null;
         }

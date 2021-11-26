@@ -82,15 +82,20 @@ public class LiveSearchFooterViewImpl implements LiveSearchFooterView,
 
     @Override
     public void showReset(boolean show) {
-        throw new Error(getClass().getCanonicalName()+".showReset");
-        //resetAnchor.style.display =  .setHidden(!show);
+        if (show) {
+            resetAnchor.style.display = "inline";
+        } else {
+            resetAnchor.style.display = "none";
+        }
     }
 
     @Override
     public void showAddNewEntry(boolean show) {
-        throw new Error(getClass().getCanonicalName()+".showAddNewEntry");
-
-        //newEntryAnchor.setHidden(!show);
+        if (show) {
+            resetAnchor.style.display = "inline";
+        } else {
+            resetAnchor.style.display = "none";
+        }
     }
 
     @Override

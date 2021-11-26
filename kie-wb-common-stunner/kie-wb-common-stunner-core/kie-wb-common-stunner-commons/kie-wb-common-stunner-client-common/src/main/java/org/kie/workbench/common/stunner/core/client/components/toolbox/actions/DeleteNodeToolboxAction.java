@@ -106,13 +106,9 @@ public class DeleteNodeToolboxAction implements ToolboxAction<AbstractCanvasHand
                                                              final String uuid,
                                                              final MouseClickEvent event) {
         if (confirmDelete.test(this)) {
-
             final Metadata metadata = canvasHandler.getDiagram().getMetadata();
             final Annotation qualifier = definitionUtils.getQualifier(metadata.getDefinitionSetId());
             final CanvasCommandFactory<AbstractCanvasHandler> commandFactory = lookup(commandFactories, qualifier);
-
-
-            DomGlobal.console.log("           " + getClass().getCanonicalName() +".onMouseClick " + canvasHandler.getUuid() + " " + uuid);
 
             final Node<?, Edge> node = CanvasLayoutUtils.getElement(canvasHandler, uuid).asNode();
 

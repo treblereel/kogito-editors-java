@@ -16,9 +16,11 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.assigneeEditor.widget;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerBPMNConstants;

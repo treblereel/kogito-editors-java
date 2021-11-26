@@ -43,11 +43,7 @@ public class ClientFieldManagerImpl extends AbstractFieldManager {
     @PostConstruct
     protected void init() {
         Collection<SyncBeanDef<FieldProvider>> providers = beanManager.lookupBeans(FieldProvider.class);
-
         for (SyncBeanDef<FieldProvider> provider : providers) {
-
-            DomGlobal.console.log("ClientFieldManagerImpl.init " + provider.getBeanClass());
-
             registerFieldProvider(provider.getInstance());
         }
     }

@@ -64,8 +64,6 @@ public class StunnerBPMNEntryPoint {
 
     //@PostConstruct
     public void init() {
-
-        DomGlobal.console.log("ensureMonacoEditorLoaderIsAvailable is DISABLED");
         //PatternFlyBootstrapper.ensureMonacoEditorLoaderIsAvailable();
 
         FormFiltersProviderFactory.registerProvider(new StartEventFilterProvider(sessionManager, StartNoneEvent.class));

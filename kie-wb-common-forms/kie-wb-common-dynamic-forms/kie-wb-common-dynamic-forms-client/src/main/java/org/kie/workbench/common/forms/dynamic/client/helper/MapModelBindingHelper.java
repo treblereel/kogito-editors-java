@@ -109,20 +109,11 @@ public class MapModelBindingHelper {
     }
 
     protected void lookupPropertyGenerators() {
-        DomGlobal.console.log(getClass().getCanonicalName()+".lookupPropertyGenerators Check it");
         beanManager.<PropertyGenerator>lookupBeans(PropertyGenerator.class).forEach(beanDef -> {
             PropertyGenerator generator = beanDef.getInstance();
             propertiesGenerator.put(generator.getType(),
                                     generator);
         });
-
-        //throw new Error(getClass().getCanonicalName()+".lookupPropertyGenerators");
-/*
-        IOC.getBeanManager().lookupBeans(PropertyGenerator.class).forEach(beanDef -> {
-            PropertyGenerator generator = beanDef.getInstance();
-            propertiesGenerator.put(generator.getType(),
-                                    generator);
-        });*/
     }
 
     public void initContext(MapModelRenderingContext context) {

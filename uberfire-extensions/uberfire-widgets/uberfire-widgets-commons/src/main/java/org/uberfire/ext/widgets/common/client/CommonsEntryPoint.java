@@ -32,5 +32,6 @@ public class CommonsEntryPoint {
         CommonResources.INSTANCE.CSS().ensureInjected();
         PatternFlyBootstrapper.ensurejQueryIsAvailable();
         PatternFlyBootstrapper.ensureBootstrapSelectIsAvailable();
+        PatternFlyBootstrapper.ensurePatternFlyIsAvailable();
     }
 }

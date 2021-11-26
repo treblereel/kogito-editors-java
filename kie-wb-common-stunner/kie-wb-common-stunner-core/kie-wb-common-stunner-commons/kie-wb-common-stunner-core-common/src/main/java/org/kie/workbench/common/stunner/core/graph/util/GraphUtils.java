@@ -265,10 +265,6 @@ public class GraphUtils {
     @SuppressWarnings("unchecked")
     public static <C> Node<Definition<C>, ?> getFirstNode(final Graph<?, Node> graph,
                                                           final Class<?> type) {
-
-        DomGlobal.console.log(" getFirstNode 1 ");
-
-
         if (null != graph) {
             for (final Node node : graph.nodes()) {
                 final Object content = node.getContent();

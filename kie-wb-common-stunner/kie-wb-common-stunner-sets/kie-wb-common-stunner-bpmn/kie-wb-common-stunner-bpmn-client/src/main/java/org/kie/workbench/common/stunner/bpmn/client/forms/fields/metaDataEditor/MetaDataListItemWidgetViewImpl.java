@@ -20,6 +20,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.databinding.client.api.AutoBound;
 import io.crysknife.ui.databinding.client.api.Bound;
@@ -128,6 +129,7 @@ public class MetaDataListItemWidgetViewImpl implements MetaDataListItemWidgetVie
 
     @EventHandler("deleteButton")
     public void handleDeleteButton(final ClickEvent e) {
+        DomGlobal.console.log("handleDeleteButton");
         parentWidget.removeMetaData(getModel());
     }
 

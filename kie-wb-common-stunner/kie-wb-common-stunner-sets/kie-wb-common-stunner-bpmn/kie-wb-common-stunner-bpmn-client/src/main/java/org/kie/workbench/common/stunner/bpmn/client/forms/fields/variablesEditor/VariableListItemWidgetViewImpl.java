@@ -29,6 +29,7 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
+import elemental2.dom.*;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.databinding.client.api.AutoBound;
 import io.crysknife.ui.databinding.client.api.Bound;
@@ -40,13 +41,9 @@ import org.gwtproject.dom.client.TableCellElement;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.event.dom.client.KeyDownEvent;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
+import org.gwtproject.event.logical.shared.ValueChangeHandler;
+import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.text.shared.Renderer;
-import elemental2.dom.CSSProperties;
-import elemental2.dom.Element;
-import elemental2.dom.HTMLAnchorElement;
-import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLLabelElement;
-import elemental2.dom.MouseEvent;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
 import org.gwtbootstrap3.client.ui.Button;
@@ -55,6 +52,7 @@ import org.gwtbootstrap3.client.ui.ValueListBox;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import org.gwtproject.user.client.ui.HasValue;
 import org.kie.workbench.common.stunner.bpmn.client.StunnerSpecific;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.Variable.VariableType;
@@ -82,7 +80,8 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 @Templated(value = "VariablesEditorWidget.html#variableRow", stylesheet = "VariablesEditorWidget.css")
 public class VariableListItemWidgetViewImpl implements VariableListItemWidgetView,
                                                        IsElement,
-                                                       ComboBoxView.ModelPresenter {
+                                                       ComboBoxView.ModelPresenter,
+        HasValue<VariableRow> {
 
     /**
      * Errai's data binding module will automatically bind the provided instance
@@ -416,6 +415,9 @@ public class VariableListItemWidgetViewImpl implements VariableListItemWidgetVie
 
     @Override
     public String getDataTypeDisplayName() {
+
+        DomGlobal.console.log("getDataTypeDisplayName " + getModel().getDataTypeDisplayName());
+
         return getModel().getDataTypeDisplayName();
     }
 
@@ -607,6 +609,31 @@ public class VariableListItemWidgetViewImpl implements VariableListItemWidgetVie
     @Override
     public void setTagsNotEnabled() {
         this.tagsTD.removeFromParent();
+    }
+
+    @Override
+    public VariableRow getValue() {
+        return variableRow.getModel();
+    }
+
+    @Override
+    public void setValue(VariableRow value) {
+        variableRow.setModel(value);
+    }
+
+    @Override
+    public void setValue(VariableRow value, boolean fireEvents) {
+        variableRow.setModel(value);
+    }
+
+    @Override
+    public HandlerRegistration addValueChangeHandler(ValueChangeHandler<VariableRow> valueChangeHandler) {
+        return null;
+    }
+
+    @Override
+    public void fireEvent(org.gwtproject.event.shared.Event<?> event) {
+
     }
 
     @JsType(isNative = true)

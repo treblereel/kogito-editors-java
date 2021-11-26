@@ -16,15 +16,15 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.metaDataEditor;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
-import elemental2.dom.DomGlobal;
 import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.databinding.client.widgets.ListWidget;
+import io.crysknife.ui.databinding.client.widgets.Table;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.Style;
@@ -40,7 +40,6 @@ import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
-import org.jboss.errai.ui.client.widget.Table;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.MetaDataRow;
 import org.uberfire.workbench.events.NotificationEvent;
 
@@ -69,10 +68,10 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     private boolean notInitialized = true;
 
-    //@Inject
-    //@DataField
-    //@Table(root = "tbody")
-    protected ListComponent<MetaDataRow, ?> metaDataRows;
+    @Inject
+    @DataField
+    @Table(root = "tbody")
+    protected ListWidget<MetaDataRow, MetaDataListItemWidgetViewImpl> metaDataRows;
 
     @Inject
     protected Event<NotificationEvent> notification;
@@ -154,11 +153,7 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     @Override
     public int getMetaDataRowsCount() {
-        DomGlobal.console.warn("FIX ITTTgetMetaDataRowsCount ");
-
-        //throw new Error(getClass().getCanonicalName()+".getMetaDataRowsCount");
-        return 0;
-        //return metaDataRows.getValue().size();
+        return metaDataRows.getValue().size();
     }
 
     @Override
@@ -173,33 +168,21 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     @Override
     public void setMetaDataRows(final List<MetaDataRow> rows) {
-        DomGlobal.console.warn("FIX getMetaDataWidget ");
-
-        //throw new Error(getClass().getCanonicalName()+".getMetaDataWidget");
-/*
         metaDataRows.setValue(rows);
         for (int i = 0; i < getMetaDataRowsCount(); i++) {
             MetaDataListItemWidgetView widget = getMetaDataWidget(i);
             widget.setParentWidget(presenter);
-        }*/
+        }
     }
 
     @Override
     public List<MetaDataRow> getMetaDataRows() {
-        DomGlobal.console.warn("FIX getMetaDataRows ");
-
-        //throw new Error(getClass().getCanonicalName()+".getMetaDataRows");
-
-
-        return Collections.EMPTY_LIST;
-        //return metaDataRows.getValue();
+        return metaDataRows.getValue();
     }
 
     @Override
     public MetaDataListItemWidgetView getMetaDataWidget(final int index) {
-        throw new Error(getClass().getCanonicalName()+".getMetaDataWidget");
-
-        //return metaDataRows.getComponent(index);
+        return metaDataRows.getComponent(index);
     }
 
     @EventHandler("addButton")

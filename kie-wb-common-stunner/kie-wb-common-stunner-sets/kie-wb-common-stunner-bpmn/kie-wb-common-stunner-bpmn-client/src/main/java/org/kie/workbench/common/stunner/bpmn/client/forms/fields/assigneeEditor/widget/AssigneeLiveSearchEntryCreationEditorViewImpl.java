@@ -20,12 +20,7 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import elemental2.dom.Event;
-import elemental2.dom.HTMLAnchorElement;
-import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLElement;
-import elemental2.dom.HTMLInputElement;
-import elemental2.dom.HTMLLabelElement;
+import elemental2.dom.*;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import io.crysknife.ui.templates.client.annotation.ForEvent;
 import org.jboss.errai.common.client.dom.DOMUtil;
@@ -68,7 +63,7 @@ public class AssigneeLiveSearchEntryCreationEditorViewImpl implements AssigneeLi
 
     @Override
     public void init(Presenter presenter) {
-
+        assigneeInput.id = "AssigneeLiveSearchEntryCreationEditorViewImpl";
         assigneeInput.type = "text";
         this.presenter = presenter;
 

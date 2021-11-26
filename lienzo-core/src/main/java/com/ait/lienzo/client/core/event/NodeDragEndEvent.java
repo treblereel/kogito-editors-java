@@ -39,8 +39,6 @@ public class NodeDragEndEvent extends AbstractNodeHumanInputEvent<NodeDragEndHan
 
     @Override
     public void dispatch(final NodeDragEndHandler handler) {
-
-        DomGlobal.console.log("NodeDragEndEvent.dispatch " + handler.getClass().getCanonicalName());
         handler.onNodeDragEnd(this);
     }
 }

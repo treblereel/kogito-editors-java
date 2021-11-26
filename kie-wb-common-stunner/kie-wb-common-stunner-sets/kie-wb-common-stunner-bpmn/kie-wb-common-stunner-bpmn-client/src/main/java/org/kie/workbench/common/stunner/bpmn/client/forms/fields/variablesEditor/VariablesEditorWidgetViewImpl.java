@@ -22,10 +22,9 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
-import javax.inject.Named;
 
-import elemental2.dom.HTMLElement;
-import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.databinding.client.widgets.ListWidget;
+import io.crysknife.ui.databinding.client.widgets.Table;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.Style;
@@ -41,7 +40,6 @@ import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
-import org.jboss.errai.ui.client.widget.Table;
 import org.kie.workbench.common.stunner.bpmn.client.forms.DataTypeNamesService;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.VariableRow;
@@ -105,8 +103,7 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
     @Inject
     @DataField
     @Table(root = "tbody")
-    @Named("tbody")
-    protected HTMLElement variableRows;
+    protected ListWidget<VariableRow, VariableListItemWidgetViewImpl> variableRows;
 
     @Inject
     protected Event<NotificationEvent> notification;
@@ -299,9 +296,7 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
 
     @Override
     public int getVariableRowsCount() {
-        //throw new Error(getClass().getCanonicalName()+".getVariableRowsCount");
-        //return variableRows.getValue().size();
-        return 0;
+        return variableRows.getValue().size();
     }
 
     @Override
@@ -316,28 +311,23 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
 
     @Override
     public void setVariableRows(final List<VariableRow> rows) {
-        //throw new Error(getClass().getCanonicalName()+".setVariableRows");
-
-/*        variableRows.setValue(rows);
+        variableRows.setValue(rows);
         for (int i = 0; i < getVariableRowsCount(); i++) {
             VariableListItemWidgetView widget = getVariableWidget(i);
             widget.setDataTypes(dataTypeListBoxValues);
             widget.setTagTypes(rows.get(i).getTags());
             widget.setParentWidget(presenter);
-        }*/
+        }
     }
 
     @Override
     public List<VariableRow> getVariableRows() {
-        //throw new Error(getClass().getCanonicalName()+".getVariableRows");
-        //return variableRows.getValue();
-        return Collections.EMPTY_LIST;
+        return variableRows.getValue();
     }
 
     @Override
     public VariableListItemWidgetView getVariableWidget(final int index) {
-        throw new Error(getClass().getCanonicalName()+".getVariableWidget");
-        //return variableRows.getComponent(index);
+        return variableRows.getComponent(index);
     }
 
     @Override

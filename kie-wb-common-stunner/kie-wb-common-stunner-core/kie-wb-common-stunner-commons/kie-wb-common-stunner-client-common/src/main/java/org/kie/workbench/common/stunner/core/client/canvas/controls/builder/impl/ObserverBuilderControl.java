@@ -72,9 +72,6 @@ public class ObserverBuilderControl extends AbstractElementBuilderControl
               canvasCommandFactory,
               translationMessages,
               graphBoundsIndexer);
-
-        DomGlobal.console.log("ObserverBuilderControl started !!!");
-
         this.canvasSelectionEvent = canvasSelectionEvent;
         this.inlineTextEditEventEvent = inlineTextEditEventEvent;
     }
@@ -105,9 +102,6 @@ public class ObserverBuilderControl extends AbstractElementBuilderControl
 
     @SuppressWarnings("unchecked")
     public void onBuildCanvasShape(final @Observes BuildCanvasShapeEvent event) {
-        DomGlobal.console.log("ObserverBuilderControl.onBuildCanvasShape !!! " + event.toString());
-
-
         checkNotNull("event",
                      event);
         if (null != canvasHandler) {

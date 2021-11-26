@@ -57,28 +57,7 @@ public abstract class AbstractFormGenerator implements FormGenerator {
     }
 
     protected void registerResources(FormGenerationResourcesProvider provider) {
-        DomGlobal.console.log(" registerResources " + provider.getClass().getCanonicalName());
-
-
-
-        provider.getDefinitionSettings().forEach((k,v) -> {
-            DomGlobal.console.log(" getDefinitionSettings " + k + " " + v.getClass().getCanonicalName());
-        });
-
-        provider.getFieldModifiers().forEach((k,v) -> {
-            DomGlobal.console.log(" getFieldModifiers " + k + " " + v.getClass().getCanonicalName());
-        });
-
-        provider.getFieldModifierReferences().forEach((k,v) -> {
-            DomGlobal.console.log(" getFieldModifierReferences " + k + " " + v.getClass().getCanonicalName());
-        });
-
         if (provider != null) {
-
-
-            DomGlobal.console.log("provider != null " + (isValid(provider.getDefinitionSettings())));
-
-
             if (isValid(provider.getDefinitionSettings())) {
                 formDefinitionSettings.putAll(provider.getDefinitionSettings());
             }
@@ -156,19 +135,8 @@ public abstract class AbstractFormGenerator implements FormGenerator {
     protected abstract I18nHelper getI18nHelper(I18nSettings settings);
 
     protected void processElements(FormGenerationContext context) {
-
-        DomGlobal.console.warn("processElements size : " + context.getFormDefinitionSettings().getFormElements().size());
-        DomGlobal.console.warn("ZZ1 : " + context.getFormDefinition().getName());
-
         context.getFormDefinitionSettings().getFormElements().forEach(formElement -> {
-
-            DomGlobal.console.warn("processElements name : " + formElement.getName() + " " + formElement.getClass().getSimpleName());
-
             FormElementProcessor processor = processors.get(formElement.getClass());
-
-            DomGlobal.console.warn("processElements processor " + processor.getClass().getSimpleName());
-
-
             if (processor != null) {
 
                 FormElementFilter filter  = context.getFilter(formElement.getName());
@@ -176,11 +144,6 @@ public abstract class AbstractFormGenerator implements FormGenerator {
                 if(filter == null || filter.getPredicate().test(context.getModel())) {
                     LayoutComponent layoutComponent = processor.processFormElement(formElement,
                                                                                    context);
-
-                    DomGlobal.console.log("            layoutComponent isNull " + (layoutComponent == null));
-                    DomGlobal.console.log("            addd getName " + formElement.getName());
-                    DomGlobal.console.log("            addd getDragTypeName "  + layoutComponent.getDragTypeName());
-
                     if (layoutComponent != null) {
                         layoutGenerator.addComponent(layoutComponent,
                                                      formElement.getLayoutSettings());

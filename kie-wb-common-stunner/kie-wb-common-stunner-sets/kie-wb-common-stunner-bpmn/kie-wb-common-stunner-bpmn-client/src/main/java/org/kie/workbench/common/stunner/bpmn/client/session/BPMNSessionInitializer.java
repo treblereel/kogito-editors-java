@@ -58,9 +58,6 @@ public class BPMNSessionInitializer implements SessionInitializer {
     @Override
     public void init(final Metadata metadata,
                      final Command completeCallback) {
-        DomGlobal.console.log(getClass().getSimpleName() + ".init");
-
-
         diagramTypeService.loadDiagramType(metadata);
         CalledElementFormProvider.initServerData();
         RuleFlowGroupFormProvider.initServerData();
