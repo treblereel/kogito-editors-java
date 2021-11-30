@@ -20,7 +20,6 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import elemental2.dom.DomGlobal;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.databinding.client.api.AutoBound;
 import io.crysknife.ui.databinding.client.api.Bound;
@@ -39,8 +38,10 @@ import org.kie.workbench.common.stunner.bpmn.client.forms.util.StringUtils;
 import org.kie.workbench.common.stunner.bpmn.client.forms.widgets.AttributeValueTextBox;
 import org.kie.workbench.common.stunner.bpmn.client.forms.widgets.VariableNameTextBox;
 
+import java.util.Objects;
+
 @Dependent
-@Templated("MetaDataEditorWidget.html#metaDataRow")
+@Templated("MetaDataListItemWidgetViewImpl.html#metaDataRow")
 public class MetaDataListItemWidgetViewImpl implements MetaDataListItemWidgetView,
                                                        IsElement {
 
@@ -100,15 +101,23 @@ public class MetaDataListItemWidgetViewImpl implements MetaDataListItemWidgetVie
 
     @Override
     public void setModel(final MetaDataRow model) {
-        metaDataRow.setModel(model);
+        if (Objects.isNull(currentName)) {
+            currentValue = model.getValue();
+            currentName = model.getAttribute();
+        }
         initVariableControls();
-        currentValue = getModel().toString();
-        currentName = getModel().getAttribute();
+        metaDataRow.setModel(model);
+
     }
 
     @Override
-    public String getValue() {
-        return getModel().getValue();
+    public void setValue(MetaDataRow value) {
+        setModel(value);
+    }
+
+    @Override
+    public MetaDataRow getValue() {
+        return getModel();
     }
 
     @Override
@@ -129,7 +138,6 @@ public class MetaDataListItemWidgetViewImpl implements MetaDataListItemWidgetVie
 
     @EventHandler("deleteButton")
     public void handleDeleteButton(final ClickEvent e) {
-        DomGlobal.console.log("handleDeleteButton");
         parentWidget.removeMetaData(getModel());
     }
 

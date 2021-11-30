@@ -17,14 +17,14 @@
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.metaDataEditor;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
 import io.crysknife.ui.databinding.client.components.ListComponent;
-import io.crysknife.ui.databinding.client.widgets.ListWidget;
-import io.crysknife.ui.databinding.client.widgets.Table;
+import io.crysknife.ui.databinding.client.components.ListContainer;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.Style;
@@ -41,12 +41,13 @@ import org.gwtbootstrap3.client.ui.constants.IconType;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.MetaDataRow;
+import org.kie.workbench.common.stunner.bpmn.client.forms.util.StringUtils;
 import org.uberfire.workbench.events.NotificationEvent;
 
 @Dependent
 @Templated("MetaDataEditorWidget.html#widget")
 public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataEditorWidgetView,
-                                                                       HasValue<String> {
+        HasValue<String> {
 
     private String sAttributes;
     private Presenter presenter;
@@ -70,8 +71,8 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     @Inject
     @DataField
-    @Table(root = "tbody")
-    protected ListWidget<MetaDataRow, MetaDataListItemWidgetViewImpl> metaDataRows;
+    @ListContainer("tbody")
+    protected ListComponent<MetaDataRow, MetaDataListItemWidgetViewImpl> metaDataRows;
 
     @Inject
     protected Event<NotificationEvent> notification;
@@ -83,39 +84,42 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     @Override
     public void setValue(final String value) {
-        setValue(value,
-                 false);
+        doSetValue(value, false, true);
     }
 
     @Override
     public void setValue(final String value,
                          final boolean fireEvents) {
         doSetValue(value,
-                   fireEvents,
-                   notInitialized);
+                fireEvents,
+                notInitialized);
     }
 
     protected void doSetValue(final String value,
                               final boolean fireEvents,
                               final boolean initializeView) {
-        String oldValue = sAttributes;
+        final String oldValue = sAttributes;
         sAttributes = value;
         if (initializeView) {
             initView();
         }
         if (fireEvents) {
             ValueChangeEvent.fireIfNotEqual(this,
-                                            oldValue,
-                                            sAttributes);
+                    oldValue,
+                    sAttributes);
         }
         setReadOnly(readOnly);
     }
 
     @Override
     public void doSave() {
-        String newValue = presenter.serializeMetaDataAttributes(getMetaDataRows());
+        String newValue = presenter.serializeMetaDataAttributes(removeEmptyRoles(getMetaDataRows()));
         setValue(newValue,
-                 true);
+                true);
+    }
+
+    private List<MetaDataRow> removeEmptyRoles(List<MetaDataRow> roles) {
+        return roles.stream().filter(row -> !StringUtils.isEmpty(row.getAttribute())).collect(Collectors.toList());
     }
 
     protected void initView() {
@@ -127,7 +131,7 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
     @Override
     public HandlerRegistration addValueChangeHandler(final ValueChangeHandler<String> handler) {
         return addHandler(handler,
-                          ValueChangeEvent.getType());
+                ValueChangeEvent.getType());
     }
 
     public boolean isDuplicateAttribute(final String attribute) {
@@ -153,6 +157,9 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
 
     @Override
     public int getMetaDataRowsCount() {
+        if (metaDataRows.getValue() == null) {
+            return 0;
+        }
         return metaDataRows.getValue().size();
     }
 
@@ -169,10 +176,10 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
     @Override
     public void setMetaDataRows(final List<MetaDataRow> rows) {
         metaDataRows.setValue(rows);
-        for (int i = 0; i < getMetaDataRowsCount(); i++) {
-            MetaDataListItemWidgetView widget = getMetaDataWidget(i);
-            widget.setParentWidget(presenter);
-        }
+        metaDataRows.getValue().forEach(row -> {
+            metaDataRows.getComponent(row)
+                    .ifPresent(view -> view.setParentWidget(presenter));
+        });
     }
 
     @Override
