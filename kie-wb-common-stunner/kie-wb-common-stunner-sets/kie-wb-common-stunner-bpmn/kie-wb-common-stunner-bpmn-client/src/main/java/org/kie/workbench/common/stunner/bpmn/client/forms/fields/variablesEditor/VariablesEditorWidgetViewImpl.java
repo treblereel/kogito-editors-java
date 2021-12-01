@@ -17,14 +17,15 @@
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.variablesEditor;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
-import io.crysknife.ui.databinding.client.widgets.ListWidget;
-import io.crysknife.ui.databinding.client.widgets.Table;
+import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.databinding.client.components.ListContainer;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.Style;
@@ -102,8 +103,8 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
      */
     @Inject
     @DataField
-    @Table(root = "tbody")
-    protected ListWidget<VariableRow, VariableListItemWidgetViewImpl> variableRows;
+    @ListContainer("tbody")
+    protected ListComponent<VariableRow, VariableListItemWidgetViewImpl> variableRows;
 
     @Inject
     protected Event<NotificationEvent> notification;
@@ -140,7 +141,7 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
         }
     }
 
-    void onRefreshFormPropertiesEvent(@Observes RefreshFormPropertiesEvent event) {
+    public void onRefreshFormPropertiesEvent(@Observes RefreshFormPropertiesEvent event) {
         if (!event.equals(refreshFormPropertiesEvent)) {
             String value = getValue();
             getDataTypes(value,
@@ -253,9 +254,13 @@ public class VariablesEditorWidgetViewImpl extends Composite implements Variable
 
     @Override
     public void doSave() {
-        String newValue = presenter.serializeVariables(getVariableRows());
+        String newValue = presenter.serializeVariables(removeEmptyVars(getVariableRows()));
         setValue(newValue,
                  true);
+    }
+
+    private List<VariableRow> removeEmptyVars(List<VariableRow> roles) {
+        return roles.stream().filter(row -> !StringUtils.isEmpty(row.getName())).collect(Collectors.toList());
     }
 
     protected void initView() {

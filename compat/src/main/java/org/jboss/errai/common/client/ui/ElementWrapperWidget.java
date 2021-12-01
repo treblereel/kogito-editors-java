@@ -70,16 +70,6 @@ public abstract class ElementWrapperWidget<T> extends Widget {
       widget = createElementWrapperWidget(element, valueType);
       // Always call onAttach so that events propogatge even if this has no widget parent.
       widget.onAttach();
-
-      DomGlobal.console.log("getWidget " + obj.getClass().getCanonicalName() + " "  + obj + " " + isElementChildOfWidget(widget.getElement()));
-
-      if(valueType != null) {
-        DomGlobal.console.log("valueType " + valueType + " " + valueType.getCanonicalName());
-      }
-
-/*      if(widget.getParent() != null) {
-        widget.removeFromParent();
-      }*/
       if(!isElementChildOfWidget(widget.getElement()))
         RootPanel.detachOnWindowClose(widget);
 

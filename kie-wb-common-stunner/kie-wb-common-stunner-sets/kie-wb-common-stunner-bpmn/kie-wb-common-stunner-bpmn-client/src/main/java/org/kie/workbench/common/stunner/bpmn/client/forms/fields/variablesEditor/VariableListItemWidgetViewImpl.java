@@ -77,7 +77,7 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
  */
 
 @Dependent
-@Templated(value = "VariablesEditorWidget.html#variableRow", stylesheet = "VariablesEditorWidget.css")
+@Templated(value = "VariableListItemWidgetViewImpl.html#variableRow", stylesheet = "VariablesEditorWidget.css")
 public class VariableListItemWidgetViewImpl implements VariableListItemWidgetView,
                                                        IsElement,
                                                        ComboBoxView.ModelPresenter,
@@ -306,6 +306,7 @@ public class VariableListItemWidgetViewImpl implements VariableListItemWidgetVie
         customTagName.addFocusHandler(focusEvent -> setPreviousCustomValue(customTagName.getValue()));
         customTagName.addKeyDownHandler(this::preventSpaces);
 
+        initVariableControls();
         loadDefaultTagNames();
         setTagsListItems();
     }
@@ -415,9 +416,6 @@ public class VariableListItemWidgetViewImpl implements VariableListItemWidgetVie
 
     @Override
     public String getDataTypeDisplayName() {
-
-        DomGlobal.console.log("getDataTypeDisplayName " + getModel().getDataTypeDisplayName());
-
         return getModel().getDataTypeDisplayName();
     }
 
@@ -582,6 +580,9 @@ public class VariableListItemWidgetViewImpl implements VariableListItemWidgetVie
      * corresponding {@link VariableRow}.
      */
     private void initVariableControls() {
+        DomGlobal.console.log("initVariableControls");
+
+
         deleteButton.setIcon(IconType.TRASH);
         String cdt = getCustomDataType();
         if (cdt != null && !cdt.isEmpty()) {

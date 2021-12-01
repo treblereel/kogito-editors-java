@@ -17,8 +17,9 @@
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.editor;
 
 import io.crysknife.ui.databinding.client.api.HasModel;
+import org.gwtproject.user.client.TakesValue;
 
-public interface ImportListItemWidgetView<T> extends HasModel<T> {
+public interface ImportListItemWidgetView<T> extends HasModel<T>, TakesValue<T> {
 
     void setParentWidget(final ImportsEditorWidgetView.Presenter<T> parentWidget);
 }

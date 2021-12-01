@@ -23,6 +23,7 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.ui.databinding.client.components.ListComponent;
 import io.crysknife.ui.databinding.client.components.ListContainer;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
@@ -176,10 +177,11 @@ public class MetaDataEditorWidgetViewImpl extends Composite implements MetaDataE
     @Override
     public void setMetaDataRows(final List<MetaDataRow> rows) {
         metaDataRows.setValue(rows);
-        metaDataRows.getValue().forEach(row -> {
-            metaDataRows.getComponent(row)
-                    .ifPresent(view -> view.setParentWidget(presenter));
-        });
+        for (int i = 0; i < rows.size(); i++) {
+            MetaDataListItemWidgetView view = metaDataRows.getComponent(i);
+            view.setParentWidget(presenter);
+            view.setModel(rows.get(i));
+        }
     }
 
     @Override

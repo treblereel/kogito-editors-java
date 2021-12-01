@@ -49,7 +49,7 @@ import org.kie.workbench.common.stunner.bpmn.definition.property.diagram.imports
 import org.uberfire.workbench.events.NotificationEvent;
 
 @Dependent
-@Templated("DefaultImportsEditorWidget.html#defaultImport")
+@Templated("DefaultImportListItemWidgetView.html#defaultImport")
 public class DefaultImportListItemWidgetView extends Composite implements ImportListItemWidgetView<DefaultImport>,
                                                                           ComboBoxView.ModelPresenter {
 
@@ -177,5 +177,15 @@ public class DefaultImportListItemWidgetView extends Composite implements Import
     @EventHandler("deleteButton")
     public void handleDeleteButton(final ClickEvent e) {
         parentWidget.removeImport(getModel());
+    }
+
+    @Override
+    public void setValue(DefaultImport value) {
+        setModel(value);
+    }
+
+    @Override
+    public DefaultImport getValue() {
+        return getModel();
     }
 }

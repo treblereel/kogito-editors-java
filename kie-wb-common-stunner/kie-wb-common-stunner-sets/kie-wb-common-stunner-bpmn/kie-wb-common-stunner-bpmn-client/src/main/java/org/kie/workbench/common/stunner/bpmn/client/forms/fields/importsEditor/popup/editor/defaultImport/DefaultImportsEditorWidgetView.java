@@ -42,7 +42,6 @@ import org.kie.workbench.common.stunner.bpmn.definition.property.diagram.imports
 
 @Dependent
 @Templated("DefaultImportsEditorWidget.html#widget")
-@Named("DefaultImportsEditorWidgetView")
 public class DefaultImportsEditorWidgetView extends Composite implements ImportsEditorWidgetView<DefaultImport> {
 
     @DataField

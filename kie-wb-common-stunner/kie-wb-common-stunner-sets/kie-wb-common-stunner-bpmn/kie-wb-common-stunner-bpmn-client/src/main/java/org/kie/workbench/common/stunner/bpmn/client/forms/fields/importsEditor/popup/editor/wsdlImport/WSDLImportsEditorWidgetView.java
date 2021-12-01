@@ -21,6 +21,8 @@ import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import io.crysknife.ui.databinding.client.components.ListComponent;
+import io.crysknife.ui.databinding.client.components.ListContainer;
 import io.crysknife.ui.databinding.client.widgets.ListWidget;
 import io.crysknife.ui.databinding.client.widgets.Table;
 import io.crysknife.ui.templates.client.annotation.EventHandler;

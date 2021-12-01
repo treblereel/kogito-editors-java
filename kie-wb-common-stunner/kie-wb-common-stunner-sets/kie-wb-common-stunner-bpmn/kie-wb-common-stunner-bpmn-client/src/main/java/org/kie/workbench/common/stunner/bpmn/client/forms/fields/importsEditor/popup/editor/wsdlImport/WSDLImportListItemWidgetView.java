@@ -32,10 +32,11 @@ import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.editor.ImportListItemWidgetView;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.editor.ImportsEditorWidgetView;
+import org.kie.workbench.common.stunner.bpmn.client.forms.fields.model.MetaDataRow;
 import org.kie.workbench.common.stunner.bpmn.definition.property.diagram.imports.WSDLImport;
 
 @Dependent
-@Templated("WSDLImportsEditorWidget.html#wsdlImport")
+@Templated("WSDLImportListItemWidgetView.html#wsdlImport")
 public class WSDLImportListItemWidgetView extends Composite implements ImportListItemWidgetView<WSDLImport> {
 
     @Inject
@@ -99,5 +100,15 @@ public class WSDLImportListItemWidgetView extends Composite implements ImportLis
     @EventHandler("deleteButton")
     public void handleDeleteButton(final ClickEvent e) {
         parentWidget.removeImport(getModel());
+    }
+
+    @Override
+    public void setValue(WSDLImport value) {
+        setModel(value);
+    }
+
+    @Override
+    public WSDLImport getValue() {
+        return getModel();
     }
 }
