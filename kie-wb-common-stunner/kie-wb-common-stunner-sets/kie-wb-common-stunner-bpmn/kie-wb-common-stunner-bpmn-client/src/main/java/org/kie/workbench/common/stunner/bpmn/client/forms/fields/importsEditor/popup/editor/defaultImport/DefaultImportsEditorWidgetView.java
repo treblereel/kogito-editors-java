@@ -22,8 +22,6 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import io.crysknife.ui.databinding.client.widgets.ListWidget;
-import io.crysknife.ui.databinding.client.widgets.Table;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import org.gwtproject.dom.client.Document;
 import org.gwtproject.dom.client.HeadingElement;
@@ -36,6 +34,8 @@ import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import org.jboss.errai.ui.client.widget.ListWidget;
+import org.jboss.errai.ui.client.widget.Table;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.importsEditor.popup.editor.ImportsEditorWidgetView;
 import org.kie.workbench.common.stunner.bpmn.definition.property.diagram.imports.DefaultImport;

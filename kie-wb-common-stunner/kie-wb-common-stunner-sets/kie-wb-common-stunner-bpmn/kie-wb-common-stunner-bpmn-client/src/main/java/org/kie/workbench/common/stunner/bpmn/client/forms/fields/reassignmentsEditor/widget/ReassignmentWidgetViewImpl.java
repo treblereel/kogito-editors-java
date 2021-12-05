@@ -24,6 +24,7 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import org.gwtproject.cell.client.AbstractCell;
 import org.gwtproject.cell.client.TextCell;
 import org.gwtproject.cell.client.ValueUpdater;
@@ -79,6 +80,9 @@ public class ReassignmentWidgetViewImpl extends Composite implements Reassignmen
 
     @PostConstruct
     public void init() {
+        DomGlobal.console.log("ReassignmentWidgetViewImpl.init");
+        addButton.setAttribute("TEXT","TEXT1");
+
         addButton.addEventListener("click", event -> addOrEdit(new ReassignmentRow()), false);
         closeButton.addEventListener("click", event -> hide(), false);
         okButton.addEventListener("click", event -> ok(), false);
@@ -86,6 +90,9 @@ public class ReassignmentWidgetViewImpl extends Composite implements Reassignmen
 
     @Override
     public void init(final ReassignmentWidgetView.Presenter presenter, List<ReassignmentRow> rows) {
+
+        DomGlobal.console.log("ReassignmentWidgetViewImpl.init " + presenter.getClass().getCanonicalName());
+
         this.rows = rows;
         presenter.addValueChangeHandler(event -> {
             dataProvider.getList().clear();
@@ -265,6 +272,7 @@ public class ReassignmentWidgetViewImpl extends Composite implements Reassignmen
 
     @Override
     public void addOrEdit(ReassignmentRow row) {
+        DomGlobal.console.log("addOrEdit");
         this.getParent().getParent().setVisible(false);
         editor.createOrEdit(this, row);
     }

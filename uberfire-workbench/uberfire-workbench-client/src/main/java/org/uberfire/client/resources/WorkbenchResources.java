@@ -16,10 +16,12 @@
 package org.uberfire.client.resources;
 
 import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.Resource;
 
 /**
  * All GWT managed resources for Workbench
  */
+@Resource
 public interface WorkbenchResources extends ClientBundle {
 
     WorkbenchResources INSTANCE = new WorkbenchResources_default_InlineClientBundleGenerator();

@@ -44,6 +44,7 @@ import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 import org.uberfire.client.views.pfly.PatternFlyEntryPoint;
 import org.uberfire.client.workbench.WorkbenchEntryPoint;
 import org.uberfire.ext.layout.editor.client.LayoutEditorEntryPoint;
+import org.uberfire.ext.widgets.common.client.CommonsEntryPoint;
 import org.uberfire.ext.widgets.core.client.CoreEntryPoint;
 
 @Application
@@ -96,6 +97,8 @@ public class MainEntryPoint {
         new SliderEntryPoint().onModuleLoad();
         new TagsInputEntryPoint().onModuleLoad();
         new ToggleSwitchEntryPoint().onModuleLoad();
+
+        new CommonsEntryPoint().startApp();
 
         stunnerBPMNEntryPoint.init();
         dynamicRendererEntryPoint.init();

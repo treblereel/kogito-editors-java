@@ -26,6 +26,7 @@ import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
+import elemental2.dom.DomGlobal;
 import io.crysknife.ui.databinding.client.api.AutoBound;
 import io.crysknife.ui.databinding.client.api.Bound;
 import io.crysknife.ui.databinding.client.api.DataBinder;
@@ -144,12 +145,17 @@ public class ReassignmentEditorWidgetViewImpl extends Composite implements Reass
 
     @PostConstruct
     public void init() {
+
+        DomGlobal.console.log("ReassignmentEditorWidgetViewImpl.init ");
+
         closeButton.addEventListener("click", event -> close(), false);
         okButton.addEventListener("click", event -> ok(), false);
     }
 
     @Override
     public void init(final ReassignmentEditorWidgetView.Presenter presenter) {
+        DomGlobal.console.log("ReassignmentEditorWidgetViewImpl init " + presenter.getClass().getCanonicalName());
+
         this.presenter = presenter;
         initModel();
     }
