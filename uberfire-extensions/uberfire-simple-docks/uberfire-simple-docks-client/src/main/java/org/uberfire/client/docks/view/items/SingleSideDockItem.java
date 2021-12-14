@@ -16,23 +16,23 @@
 
 package org.uberfire.client.docks.view.items;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.constants.ButtonSize;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.uberfire.client.resources.WebAppResource;
-import org.uberfire.client.resources.WebAppResource_default_InlineClientBundleGenerator;
+import org.uberfire.client.resources.WebAppResourceImpl;
 import org.uberfire.client.workbench.docks.UberfireDock;
 import org.uberfire.mvp.ParameterizedCommand;
 
 public class SingleSideDockItem
         extends AbstractDockItem {
 
-    private static WebAppResource CSS = new WebAppResource_default_InlineClientBundleGenerator();
+    private static WebAppResource CSS = WebAppResource.INSTANCE;
     private final ParameterizedCommand<String> openCommand;
 
     @UiField
@@ -72,6 +72,7 @@ public class SingleSideDockItem
     public void close() {
     }
 
+    @UiTemplate
     interface ViewBinder
             extends
             UiBinder<Widget, SingleSideDockItem> {

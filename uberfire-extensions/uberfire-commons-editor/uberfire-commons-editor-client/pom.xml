@@ -86,11 +86,15 @@
       <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
-      <dependency>
-          <groupId>io.crysknife.ui.translation</groupId>
-          <artifactId>api</artifactId>
-      </dependency>
-
+    <dependency>
+      <groupId>io.crysknife.ui.translation</groupId>
+      <artifactId>api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.gwtproject.i18n</groupId>
+      <artifactId>gwt-i18n-processor</artifactId>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -294,6 +298,30 @@
         </executions>
       </plugin>
 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-generated-classes</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.outputDirectory}/
+              </outputDirectory>
+              <resources>
+                <resource>
+                  <directory>target/generated-sources/annotations/</directory>
+                  <filtering>false</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 

@@ -22,6 +22,7 @@ import org.gwtproject.event.dom.client.ChangeEvent;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
 import org.gwtproject.uibinder.client.UiHandler;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.HTMLPanel;
 import org.gwtproject.user.client.ui.Widget;
 import org.drools.workbench.models.datamodel.workitems.PortableIntegerParameterDefinition;
@@ -35,6 +36,7 @@ import org.uberfire.ext.widgets.common.client.common.NumericIntegerTextBox;
  */
 public class WorkItemIntegerParameterWidget extends WorkItemParameterWidget {
 
+    @UiTemplate
     interface WorkItemIntegerParameterWidgetBinder
             extends
             UiBinder<HTMLPanel, WorkItemIntegerParameterWidget> {
@@ -50,7 +52,7 @@ public class WorkItemIntegerParameterWidget extends WorkItemParameterWidget {
     @UiField
     ListBox lstAvailableBindings;
 
-    private static WorkItemIntegerParameterWidgetBinder uiBinder = GWT.create(WorkItemIntegerParameterWidgetBinder.class);
+    private static WorkItemIntegerParameterWidgetBinder uiBinder = new WorkItemIntegerParameterWidget_WorkItemIntegerParameterWidgetBinderImpl();
 
     public WorkItemIntegerParameterWidget(PortableIntegerParameterDefinition ppd,
                                           IBindingProvider bindingProvider,

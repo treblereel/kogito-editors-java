@@ -21,6 +21,7 @@ import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
 import org.gwtproject.uibinder.client.UiHandler;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.Modal;
@@ -183,6 +184,7 @@ public class ModalFooterYesNoCancelButtons extends ModalFooter {
         this.closeModalAfterAction = closeModalAfterAction;
     }
 
+    @UiTemplate
     interface ModalFooterYesNoCancelButtonsBinder
             extends
             UiBinder<Widget, ModalFooterYesNoCancelButtons> {

@@ -24,7 +24,7 @@ public interface WebAppResource
         extends
         ClientBundle {
 
-    WebAppResource INSTANCE = new WebAppResource_default_InlineClientBundleGenerator();
+    WebAppResource INSTANCE = new WebAppResourceImpl();
 
     @Source("css/docks.css")
     DocksCss CSS();

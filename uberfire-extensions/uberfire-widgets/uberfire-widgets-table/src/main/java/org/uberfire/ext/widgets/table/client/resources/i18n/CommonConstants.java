@@ -16,15 +16,17 @@
 
 package org.uberfire.ext.widgets.table.client.resources.i18n;
 
+import org.gwtproject.i18n.client.Message;
 import org.gwtproject.i18n.client.Messages;
 
 /**
  *
  */
+@Message
 public interface CommonConstants
         extends Messages {
 
-    public static final CommonConstants INSTANCE = new CommonConstants_();
+    public static final CommonConstants INSTANCE = CommonConstantsFactory.get();
 
     String ColumnPickerButtonTooltip();
 

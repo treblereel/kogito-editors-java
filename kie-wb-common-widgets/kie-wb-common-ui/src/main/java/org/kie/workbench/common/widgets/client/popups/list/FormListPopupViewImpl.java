@@ -21,6 +21,7 @@ import java.util.List;
 import org.gwtproject.core.client.GWT;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.Command;
 import org.gwtproject.user.client.ui.ListBox;
 import org.gwtproject.user.client.ui.Widget;
@@ -37,13 +38,14 @@ public class FormListPopupViewImpl
 
     private Presenter presenter;
 
+    @UiTemplate
     interface AddNewKBasePopupViewImplBinder
             extends
             UiBinder<Widget, FormListPopupViewImpl> {
 
     }
 
-    private static AddNewKBasePopupViewImplBinder uiBinder = GWT.create( AddNewKBasePopupViewImplBinder.class );
+    private static AddNewKBasePopupViewImplBinder uiBinder = new FormListPopupViewImpl_AddNewKBasePopupViewImplBinderImpl();
 
     @UiField
     ListBox listItems;

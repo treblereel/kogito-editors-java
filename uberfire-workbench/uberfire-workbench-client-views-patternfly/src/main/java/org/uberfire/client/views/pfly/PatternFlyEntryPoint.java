@@ -18,8 +18,10 @@ package org.uberfire.client.views.pfly;
 
 import javax.annotation.PostConstruct;
 
+import org.gwtproject.resources.client.GWT3Resources;
 import org.uberfire.client.views.pfly.sys.PatternFlyBootstrapper;
 
+@GWT3Resources
 public class PatternFlyEntryPoint {
 
     @PostConstruct

@@ -19,6 +19,7 @@ package org.uberfire.ext.widgets.common.client.common.popups;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.HTML;
 import org.gwtproject.user.client.ui.ScrollPanel;
 import org.gwtproject.user.client.ui.Widget;
@@ -205,6 +206,7 @@ public class YesNoCancelPopup extends BaseModal {
         this.scroll.getElement().getStyle().clearHeight();
     }
 
+    @UiTemplate
     interface YesNoCancelPopupWidgetBinder
             extends
             UiBinder<Widget, YesNoCancelPopup> {

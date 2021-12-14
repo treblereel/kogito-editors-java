@@ -17,6 +17,7 @@
 package org.kie.workbench.common.widgets.client.cards.frame;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import elemental2.dom.HTMLElement;
@@ -27,6 +28,7 @@ import org.uberfire.client.mvp.UberElemental;
 
 import static org.kie.workbench.common.widgets.client.cards.CardComponent.DEFAULT_FUNCTION;
 
+@Dependent
 public class CardFrameComponent {
 
     private final View view;

@@ -17,13 +17,15 @@
 package org.kie.workbench.common.widgets.client.resources.i18n;
 
 import org.gwtproject.core.client.GWT;
+import org.gwtproject.i18n.client.Message;
 import org.gwtproject.i18n.client.Messages;
 
+@Message
 public interface ToolsMenuConstants
         extends
         Messages {
 
-    public static final ToolsMenuConstants INSTANCE = null;
+    public static final ToolsMenuConstants INSTANCE = ToolsMenuConstantsFactory.get();
 
     String ProjectEditor();
     

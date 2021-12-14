@@ -19,6 +19,7 @@ import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
 import org.gwtproject.uibinder.client.UiHandler;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.Modal;
@@ -32,7 +33,7 @@ import static org.kie.soup.commons.validation.PortablePreconditions.checkNotNull
  */
 public class ModalFooterReOpenIgnoreButtons extends ModalFooter {
 
-    private static ModalFooterReOpenIgnoreButtonsBinder uiBinder = null;
+    private static ModalFooterReOpenIgnoreButtonsBinder uiBinder = new ModalFooterReOpenIgnoreButtons_ModalFooterReOpenIgnoreButtonsBinderImpl();
 
     private final Command actionCommand;
     private final Command ignoreCommand;
@@ -72,6 +73,7 @@ public class ModalFooterReOpenIgnoreButtons extends ModalFooter {
         panel.hide();
     }
 
+    @UiTemplate
     interface ModalFooterReOpenIgnoreButtonsBinder
             extends
             UiBinder<Widget, ModalFooterReOpenIgnoreButtons> {

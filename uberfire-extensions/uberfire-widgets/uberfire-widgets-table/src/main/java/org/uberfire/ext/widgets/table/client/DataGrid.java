@@ -16,13 +16,12 @@
 
 package org.uberfire.ext.widgets.table.client;
 
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsType;
-import org.gwtproject.core.client.JavaScriptObject;
+import elemental2.dom.CSSProperties;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLTableElement;
+import jsinterop.base.Js;
 import org.gwtproject.dom.client.Element;
 import org.gwtproject.view.client.ProvidesKey;
-
-import static jsinterop.annotations.JsPackage.GLOBAL;
 
 public class DataGrid<T> extends org.gwtbootstrap3.client.ui.gwt.DataGrid<T> {
 
@@ -44,32 +43,13 @@ public class DataGrid<T> extends org.gwtbootstrap3.client.ui.gwt.DataGrid<T> {
     }
 
     public void fixTableStyle(final Element e) {
-        JQuery elm = JQuery.$(e).find("table").first();
-        elm.addClass("table");
-        elm.css("margin-bottom", "0px");
-    }
-    /*-{
-        var table = $wnd.jQuery(e).find("table").first();
-        table.addClass("table");
-        table.css("margin-bottom", "0px");
-    }-*/;
-
-    @JsType(isNative = true, namespace = GLOBAL, name = "jQuery")
-    public static abstract class JQuery {
-
-        @JsMethod(namespace = GLOBAL, name = "jQuery")
-        public native static JQuery $(final JavaScriptObject selector);
-
-        @JsMethod(namespace = GLOBAL, name = "jQuery")
-        public native static JQuery first();
-
-        @JsMethod(namespace = GLOBAL, name = "jQuery")
-        public native static JQuery find(String s);
-
-        @JsMethod(namespace = GLOBAL, name = "jQuery")
-        public native static void addClass(String clazz);
-
-        @JsMethod(namespace = GLOBAL, name = "jQuery")
-        public native static void css(String param1, String param2);
+        HTMLElement element = Js.uncheckedCast(e);
+        elemental2.dom.NodeList<elemental2.dom.Element> tables = element.getElementsByTagName("table");
+        if(tables != null && tables.getLength() > 0) {
+            HTMLTableElement table = (HTMLTableElement) tables.getAt(0);
+            table.classList.add("table");
+            table.id = "fixed";
+            table.style.marginBottom = CSSProperties.MarginBottomUnionType.of("0px");
+        }
     }
 }

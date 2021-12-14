@@ -19,12 +19,14 @@ package org.kie.workbench.common.widgets.client.resources;
 import org.gwtproject.core.client.GWT;
 import org.gwtproject.resources.client.ClientBundle;
 import org.gwtproject.resources.client.ImageResource;
+import org.gwtproject.resources.client.Resource;
 
+@Resource
 public interface ItemImages
         extends
         ClientBundle {
 
-    public static final ItemImages INSTANCE = null;
+    public static final ItemImages INSTANCE = new ItemImagesImpl();
 
     @Source("images/items/new_item.gif")
     ImageResource newItem();

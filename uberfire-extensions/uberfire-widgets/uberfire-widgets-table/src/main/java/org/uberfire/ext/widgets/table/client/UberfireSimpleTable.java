@@ -23,6 +23,7 @@ import org.gwtproject.core.client.JavaScriptObject;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.cellview.client.Column;
 import org.gwtproject.user.cellview.client.ColumnSortEvent;
 import org.gwtproject.user.cellview.client.ColumnSortList;
@@ -419,6 +420,7 @@ public class UberfireSimpleTable<T>
 
     }
 
+    @UiTemplate
     interface Binder
             extends
             UiBinder<Widget, UberfireSimpleTable> {

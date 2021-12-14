@@ -16,8 +16,8 @@
 
 package org.uberfire.ext.widgets.common.client.tables;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.uibinder.client.UiBinder;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.Widget;
 import org.gwtproject.view.client.ProvidesKey;
 import org.uberfire.ext.widgets.table.client.ColumnChangedHandler;
@@ -79,6 +79,7 @@ public class SimpleTable<T>
         return (ColumnPicker) columnPicker;
     }
 
+    @UiTemplate
     interface Binder
             extends
             UiBinder<Widget, SimpleTable> {

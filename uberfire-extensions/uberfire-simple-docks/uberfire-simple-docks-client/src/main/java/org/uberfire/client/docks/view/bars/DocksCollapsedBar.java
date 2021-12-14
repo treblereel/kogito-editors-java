@@ -20,16 +20,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.FlowPanel;
 import org.gwtproject.user.client.ui.Widget;
 import org.uberfire.client.docks.view.items.AbstractDockItem;
 import org.uberfire.client.docks.view.items.SingleSideDockItem;
 import org.uberfire.client.resources.WebAppResource;
-import org.uberfire.client.resources.WebAppResource_default_InlineClientBundleGenerator;
+import org.uberfire.client.resources.WebAppResourceImpl;
 import org.uberfire.client.util.CSSLocatorsUtils;
 import org.uberfire.client.workbench.docks.UberfireDock;
 import org.uberfire.client.workbench.docks.UberfireDockPosition;
@@ -46,7 +46,7 @@ public class DocksCollapsedBar extends Composite implements OuiaComponent {
     @UiField
     FlowPanel docksBarPanel;
     private UberfireDockPosition position;
-    private WebAppResource CSS = new WebAppResource_default_InlineClientBundleGenerator();
+    private WebAppResource CSS = new WebAppResourceImpl();
     private AbstractDockItem firstDockItem;
     private SingleSideDockItem singleSideDockItem;
     private ViewBinder uiBinder = new DocksCollapsedBar_ViewBinderImpl();
@@ -176,6 +176,7 @@ public class DocksCollapsedBar extends Composite implements OuiaComponent {
         return new OuiaComponentIdAttribute(OUIA_COMPONENT_TYPE + "-" + position.getShortName());
     }
 
+    @UiTemplate
     interface ViewBinder
             extends
             UiBinder<Widget, DocksCollapsedBar> {

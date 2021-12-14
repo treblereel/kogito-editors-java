@@ -18,12 +18,14 @@ package org.kie.workbench.common.widgets.client.resources;
 import org.gwtproject.core.client.GWT;
 import org.gwtproject.resources.client.ClientBundle;
 import org.gwtproject.resources.client.ImageResource;
+import org.gwtproject.resources.client.Resource;
 
+@Resource
 public interface CollapseExpand
         extends
         ClientBundle {
 
-    public static final CollapseExpand INSTANCE = null;
+    public static final CollapseExpand INSTANCE = new CollapseExpandImpl();
 
     @Source("images/collapse_expand/collapse.gif")
     ImageResource collapse();

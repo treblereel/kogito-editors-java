@@ -16,9 +16,9 @@
 
 package org.kie.workbench.common.widgets.client.popups.text;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.Command;
 import org.gwtproject.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.FormGroup;
@@ -35,13 +35,14 @@ public class TextBoxFormPopupViewImpl
 
     private Presenter presenter;
 
+    @UiTemplate
     interface AddNewKBasePopupViewImplBinder
             extends
             UiBinder<Widget, TextBoxFormPopupViewImpl> {
 
     }
 
-    private static AddNewKBasePopupViewImplBinder uiBinder = GWT.create( AddNewKBasePopupViewImplBinder.class );
+    private static AddNewKBasePopupViewImplBinder uiBinder = new TextBoxFormPopupViewImpl_AddNewKBasePopupViewImplBinderImpl();
 
     @UiField
     TextBox nameTextBox;

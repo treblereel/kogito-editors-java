@@ -19,6 +19,7 @@ import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
 import org.gwtproject.uibinder.client.UiHandler;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.Command;
 import org.gwtproject.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.Button;
@@ -51,6 +52,7 @@ public class ModalFooterOKButton extends ModalFooter {
         okCommand.execute();
     }
 
+    @UiTemplate
     interface ModalFooterOKButtonBinder
             extends
             UiBinder<Widget, ModalFooterOKButton> {

@@ -20,6 +20,7 @@ import org.gwtproject.cell.client.TextCell;
 import org.gwtproject.core.client.GWT;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.Image;
 import org.gwtproject.user.client.ui.Label;
@@ -40,13 +41,14 @@ public class ConversionMessageWidget extends Composite {
     @UiField
     Label label;
 
+    @UiTemplate
     interface ConversionMessageWidgetBinder
             extends
             UiBinder<Widget, ConversionMessageWidget> {
 
     }
 
-    private static ConversionMessageWidgetBinder uiBinder = null;
+    private static ConversionMessageWidgetBinder uiBinder = new ConversionMessageWidget_ConversionMessageWidgetBinderImpl();
 
     public ConversionMessageWidget(final MessageType messageType, final String message) {
         initWidget(uiBinder.createAndBindUi(this));

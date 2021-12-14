@@ -19,13 +19,13 @@ package org.uberfire.client;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 
-import org.gwtproject.resources.client.GWT3ResourcesConfiguration;
+import org.gwtproject.resources.client.GWT3Resources;
 import org.uberfire.client.resources.WebAppResource;
 
 //@EntryPoint
 @ApplicationScoped
-@GWT3ResourcesConfiguration(
-        cssResource = @GWT3ResourcesConfiguration.CssResource(
+@GWT3Resources(
+        cssResource = @GWT3Resources.CssResource(
                 conversionMode = "strict"
         )
 )

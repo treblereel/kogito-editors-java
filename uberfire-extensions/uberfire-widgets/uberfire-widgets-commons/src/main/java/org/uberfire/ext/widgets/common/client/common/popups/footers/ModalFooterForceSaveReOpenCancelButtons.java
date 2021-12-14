@@ -19,6 +19,7 @@ import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
 import org.gwtproject.uibinder.client.UiHandler;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.Modal;
@@ -32,7 +33,7 @@ import static org.kie.soup.commons.validation.PortablePreconditions.checkNotNull
  */
 public class ModalFooterForceSaveReOpenCancelButtons extends ModalFooter {
 
-    private static ModalFooterForceSaveReOpenCancelButtonsBinder uiBinder = null;
+    private static ModalFooterForceSaveReOpenCancelButtonsBinder uiBinder = new ModalFooterForceSaveReOpenCancelButtons_ModalFooterForceSaveReOpenCancelButtonsBinderImpl();
 
     private final Command forceSaveCommand;
     private final Command reopenCommand;
@@ -85,6 +86,7 @@ public class ModalFooterForceSaveReOpenCancelButtons extends ModalFooter {
         panel.hide();
     }
 
+    @UiTemplate
     interface ModalFooterForceSaveReOpenCancelButtonsBinder
             extends
             UiBinder<Widget, ModalFooterForceSaveReOpenCancelButtons> {

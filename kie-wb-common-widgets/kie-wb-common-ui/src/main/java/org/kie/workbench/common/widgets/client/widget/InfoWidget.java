@@ -18,6 +18,7 @@ package org.kie.workbench.common.widgets.client.widget;
 import org.gwtproject.core.client.GWT;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.HTMLPanel;
 import org.gwtproject.user.client.ui.Label;
@@ -26,13 +27,14 @@ import org.gwtproject.user.client.ui.Widget;
 
 public class InfoWidget extends Composite implements RequiresResize {
 
+    @UiTemplate
     interface NoSuchFileWidgetBinder
             extends
             UiBinder<Widget, InfoWidget> {
 
     }
 
-    private static NoSuchFileWidgetBinder uiBinder = null;
+    private static NoSuchFileWidgetBinder uiBinder = new InfoWidget_NoSuchFileWidgetBinderImpl();
 
     @UiField
     HTMLPanel container;

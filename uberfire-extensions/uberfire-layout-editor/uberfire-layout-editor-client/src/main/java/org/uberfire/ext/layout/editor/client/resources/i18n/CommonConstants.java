@@ -17,13 +17,15 @@
 package org.uberfire.ext.layout.editor.client.resources.i18n;
 
 import org.gwtproject.core.client.GWT;
+import org.gwtproject.i18n.client.Message;
 import org.gwtproject.i18n.client.Messages;
 
+@Message
 public interface CommonConstants
         extends
         Messages {
 
-    public static final CommonConstants INSTANCE = GWT.create(CommonConstants.class);
+    public static final CommonConstants INSTANCE = CommonConstantsFactory.get();
 
     String DragAndDrop();
 

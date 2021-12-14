@@ -21,12 +21,14 @@ import org.gwtproject.resources.client.ClientBundle;
 import org.gwtproject.resources.client.ImageResource;
 import org.gwtproject.resources.client.ImageResource.ImageOptions;
 import org.gwtproject.resources.client.ImageResource.RepeatStyle;
+import org.gwtproject.resources.client.Resource;
 
+@Resource
 public interface CommonImages
         extends
         ClientBundle {
 
-    public static final CommonImages INSTANCE = new CommonImages_default_InlineClientBundleGenerator();
+    public static final CommonImages INSTANCE = new CommonImagesImpl();
 
     @Source("images/new_item.gif")
     ImageResource newItem();

@@ -17,6 +17,7 @@ package org.uberfire.ext.widgets.table.client;
 
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.Widget;
 import org.gwtproject.view.client.AbstractDataProvider;
 import org.gwtproject.view.client.ProvidesKey;
@@ -132,6 +133,7 @@ public class UberfirePagedTable<T>
         this.pager.setShowFastFordwardPageButton(showFastFordwardPagerButton);
     }
 
+    @UiTemplate
     interface Binder
             extends
             UiBinder<Widget, UberfirePagedTable> {

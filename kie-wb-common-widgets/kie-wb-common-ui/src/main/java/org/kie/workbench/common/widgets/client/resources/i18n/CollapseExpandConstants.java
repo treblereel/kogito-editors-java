@@ -17,16 +17,18 @@
 package org.kie.workbench.common.widgets.client.resources.i18n;
 
 import org.gwtproject.core.client.GWT;
+import org.gwtproject.i18n.client.Message;
 import org.gwtproject.i18n.client.Messages;
 
 /**
  * EnumEditor I18N constants
  */
+@Message
 public interface CollapseExpandConstants
         extends
         Messages {
 
-    public static final CollapseExpandConstants INSTANCE = null;
+    public static final CollapseExpandConstants INSTANCE = CollapseExpandConstantsFactory.get();
 
     String CollapseAll();
 

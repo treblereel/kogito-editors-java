@@ -62,12 +62,11 @@
       <groupId>io.crysknife.ui.databinding</groupId>
       <artifactId>api</artifactId>
     </dependency>
-<!--
     <dependency>
       <groupId>org.gwtproject.resources</groupId>
       <artifactId>gwt-resources-processor</artifactId>
       <scope>provided</scope>
-    </dependency>-->
+    </dependency>
   </dependencies>
 
   <build>
@@ -93,6 +92,30 @@
           <source>1.8</source>
           <target>1.8</target>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-generated-classes</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.outputDirectory}/
+              </outputDirectory>
+              <resources>
+                <resource>
+                  <directory>target/generated-sources/annotations/</directory>
+                  <filtering>false</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

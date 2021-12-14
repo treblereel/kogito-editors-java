@@ -34,7 +34,7 @@ import org.gwtbootstrap3.extras.slider.client.SliderEntryPoint;
 import org.gwtbootstrap3.extras.tagsinput.client.TagsInputEntryPoint;
 import org.gwtbootstrap3.extras.toggleswitch.client.ToggleSwitchEntryPoint;
 import org.gwtproject.core.client.ScriptInjector;
-import org.gwtproject.resources.client.GWT3ResourcesConfiguration;
+import org.gwtproject.resources.client.GWT3Resources;
 import org.kie.workbench.common.forms.dynamic.client.DynamicRendererEntryPoint;
 import org.kie.workbench.common.stunner.bpmn.StunnerBPMNEntryPoint;
 import org.kie.workbench.common.stunner.client.lienzo.StunnerLienzoCore;
@@ -46,10 +46,11 @@ import org.uberfire.client.workbench.WorkbenchEntryPoint;
 import org.uberfire.ext.layout.editor.client.LayoutEditorEntryPoint;
 import org.uberfire.ext.widgets.common.client.CommonsEntryPoint;
 import org.uberfire.ext.widgets.core.client.CoreEntryPoint;
+import org.uberfire.ext.widgets.table.client.TableEntryPoint;
 
 @Application
-@GWT3ResourcesConfiguration(
-        cssResource = @GWT3ResourcesConfiguration.CssResource(
+@GWT3Resources(
+        cssResource = @GWT3Resources.CssResource(
                 conversionMode = "strict"
         )
 )
@@ -87,7 +88,7 @@ public class MainEntryPoint {
 
     @PostConstruct
     public void initialize() {
-        new GwtBootstrap3EntryPoint().onModuleLoad();
+        new GwtBootstrap3EntryPoint().loadJs();
         new PatternFlyEntryPoint().init();
         new CardEntryPoint().onModuleLoad();
         new DatePickerEntryPoint().onModuleLoad();
@@ -97,6 +98,8 @@ public class MainEntryPoint {
         new SliderEntryPoint().onModuleLoad();
         new TagsInputEntryPoint().onModuleLoad();
         new ToggleSwitchEntryPoint().onModuleLoad();
+
+        new TableEntryPoint().startApp();
 
         new CommonsEntryPoint().startApp();
 

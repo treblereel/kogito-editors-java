@@ -14,19 +14,13 @@
  * limitations under the License.
  */
 
-package org.uberfire.client.resources.i18n;
+.pageDetails {
+    padding: 4px 8px;
+    text-align: center;
+}
 
-import org.gwtproject.core.client.GWT;
-import org.gwtproject.i18n.client.Message;
-import org.gwtproject.i18n.client.Messages;
-
-@Message
-public interface DockConstants
-        extends
-        Messages {
-
-    public static final DockConstants INSTANCE =
-            DockConstantsFactory.get();
-
-    String OK();
+.button {
+    padding: 4px;
+    cursor: pointer;
+    cursor: hand;
 }

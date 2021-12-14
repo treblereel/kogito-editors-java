@@ -15,14 +15,15 @@
  */
 package org.uberfire.ext.widgets.common.client.resources;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.Resource;
 
+@Resource
 public interface CommonResources
         extends
         ClientBundle {
 
-    CommonResources INSTANCE = new CommonResources_default_InlineClientBundleGenerator();
+    CommonResources INSTANCE = new CommonResourcesImpl();
 
     @Source("css/common.css")
     CommonCss CSS();

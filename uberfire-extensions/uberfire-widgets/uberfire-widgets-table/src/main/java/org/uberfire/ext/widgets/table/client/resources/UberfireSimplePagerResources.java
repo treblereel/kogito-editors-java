@@ -18,16 +18,18 @@ package org.uberfire.ext.widgets.table.client.resources;
 
 import org.gwtproject.resources.client.ClientBundle;
 import org.gwtproject.resources.client.ImageResource;
+import org.gwtproject.resources.client.Resource;
 import org.uberfire.ext.widgets.table.client.UberfireSimplePager;
 
 /**
  * A ClientBundle that provides images for this widget.
  */
+@Resource
 public interface UberfireSimplePagerResources
         extends
         ClientBundle {
 
-    UberfireSimplePagerResources INSTANCE = new UberfireSimplePagerResources_default_InlineClientBundleGenerator();
+    UberfireSimplePagerResources INSTANCE = new UberfireSimplePagerResourcesImpl();
 
     /**
      * The image used to skip ahead multiple pages.

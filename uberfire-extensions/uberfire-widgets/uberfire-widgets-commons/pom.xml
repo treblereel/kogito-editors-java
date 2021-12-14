@@ -79,6 +79,31 @@
       <scope>provided</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.gwtproject.uibinder</groupId>
+      <artifactId>gwt-uibinder-processor</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.gwtproject.resources</groupId>
+      <artifactId>gwt-resources-processor</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.gwtproject.i18n</groupId>
+      <artifactId>gwt-i18n</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.gwtproject.i18n</groupId>
+      <artifactId>gwt-i18n-processor</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.gwtproject.uibinder</groupId>
+      <artifactId>gwt-uibinder-processor</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
     <!-- GWT and GWT Extensions -->
 
   </dependencies>
@@ -98,24 +123,30 @@
       </resource>
     </resources>
     <plugins>
-      <!--<plugin>
-        <groupId>com.vertispan.j2cl</groupId>
-        <artifactId>j2cl-maven-plugin</artifactId>
-        <version>0.17-SNAPSHOT</version>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
         <executions>
           <execution>
-            <id>build-js</id>
-            <phase>generate-sources</phase>
+            <id>copy-generated-classes</id>
+            <phase>prepare-package</phase>
             <goals>
-              <goal>build</goal>
+              <goal>copy-resources</goal>
             </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.outputDirectory}/
+              </outputDirectory>
+              <resources>
+                <resource>
+                  <directory>target/generated-sources/annotations/</directory>
+                  <filtering>false</filtering>
+                </resource>
+              </resources>
+            </configuration>
           </execution>
         </executions>
-        <configuration>
-          <defaultWebappDirectory>${project.build.directory}/gwt/launcherDir</defaultWebappDirectory>
-          <compilationLevel>ADVANCED</compilationLevel>
-        </configuration>
-      </plugin>-->
+      </plugin>
     </plugins>
   </build>
 

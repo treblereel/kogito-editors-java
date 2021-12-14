@@ -62,6 +62,11 @@
       <artifactId>gwt-resources-processor</artifactId>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.gwtproject.i18n</groupId>
+      <artifactId>gwt-i18n-processor</artifactId>
+      <scope>provided</scope>
+    </dependency>
 
     <!-- GWT and GWT Extensions -->
 

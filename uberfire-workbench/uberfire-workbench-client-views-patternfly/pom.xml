@@ -76,7 +76,16 @@
         </dependency>
         <dependency>
             <groupId>org.gwtproject.resources</groupId>
+            <artifactId>gwt-resources-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.gwtproject.resources</groupId>
             <artifactId>gwt-resources-processor</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.gwtproject.uibinder</groupId>
+            <artifactId>gwt-uibinder-processor</artifactId>
             <scope>provided</scope>
         </dependency>
 

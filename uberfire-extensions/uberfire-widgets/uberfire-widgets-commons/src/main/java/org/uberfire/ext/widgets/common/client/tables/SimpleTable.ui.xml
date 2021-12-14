@@ -56,7 +56,7 @@
       </g:cell>
     </g:HorizontalPanel>
     <g:SimplePanel>
-      <bg:DataGrid ui:field="dataGrid"/>
+      <bg:DataGrid ui:field="dataGrid" />
     </g:SimplePanel>
   </g:FlowPanel>
 

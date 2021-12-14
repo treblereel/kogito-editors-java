@@ -22,6 +22,7 @@ import org.gwtproject.event.dom.client.ChangeEvent;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
 import org.gwtproject.uibinder.client.UiHandler;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.HTMLPanel;
 import org.gwtproject.user.client.ui.Widget;
 import org.drools.workbench.models.datamodel.workitems.PortableObjectParameterDefinition;
@@ -34,6 +35,7 @@ import org.kie.workbench.common.widgets.client.resources.i18n.CommonConstants;
  */
 public class WorkItemObjectParameterWidget extends WorkItemParameterWidget {
 
+    @UiTemplate
     interface WorkItemObjectParameterWidgetBinder
             extends
             UiBinder<HTMLPanel, WorkItemObjectParameterWidget> {
@@ -46,7 +48,7 @@ public class WorkItemObjectParameterWidget extends WorkItemParameterWidget {
     @UiField
     ListBox lstAvailableBindings;
 
-    private static WorkItemObjectParameterWidgetBinder uiBinder = GWT.create(WorkItemObjectParameterWidgetBinder.class);
+    private static WorkItemObjectParameterWidgetBinder uiBinder = new WorkItemObjectParameterWidget_WorkItemObjectParameterWidgetBinderImpl();
 
     public WorkItemObjectParameterWidget(PortableObjectParameterDefinition ppd,
                                          IBindingProvider bindingProvider,

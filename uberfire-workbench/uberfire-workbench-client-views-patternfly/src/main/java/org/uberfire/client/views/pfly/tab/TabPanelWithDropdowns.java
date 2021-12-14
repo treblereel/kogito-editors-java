@@ -29,6 +29,7 @@ import io.crysknife.client.internal.collections.Multimap;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.HorizontalPanel;
 import org.gwtproject.user.client.ui.IsWidget;
@@ -377,6 +378,7 @@ public class TabPanelWithDropdowns extends Composite {
         this.getWidgetsPanel().setCellHorizontalAlignment(customWidget, endOf(LTR));
     }
 
+    @UiTemplate
     interface TabPanelWithDropdownsBinder
             extends
             UiBinder<TabPanel, TabPanelWithDropdowns> {

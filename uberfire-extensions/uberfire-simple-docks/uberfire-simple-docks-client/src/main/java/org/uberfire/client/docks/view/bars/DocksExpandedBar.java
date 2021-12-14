@@ -18,10 +18,10 @@ package org.uberfire.client.docks.view.bars;
 
 import java.util.function.Consumer;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.Composite;
 import org.gwtproject.user.client.ui.FlowPanel;
 import org.gwtproject.user.client.ui.ProvidesResize;
@@ -34,7 +34,7 @@ import org.gwtbootstrap3.client.ui.constants.ButtonSize;
 import org.gwtbootstrap3.client.ui.constants.HeadingSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.uberfire.client.resources.WebAppResource;
-import org.uberfire.client.resources.WebAppResource_default_InlineClientBundleGenerator;
+import org.uberfire.client.resources.WebAppResourceImpl;
 import org.uberfire.client.util.CSSLocatorsUtils;
 import org.uberfire.client.workbench.docks.UberfireDockPosition;
 import org.uberfire.client.workbench.ouia.OuiaAttribute;
@@ -50,7 +50,7 @@ public class DocksExpandedBar
 
     private static final String OUIA_COMPONENT_TYPE = "expanded-docks-bar";
 
-    private static WebAppResource CSS = new WebAppResource_default_InlineClientBundleGenerator();
+    private static WebAppResource CSS = new WebAppResourceImpl();
     @UiField
     FlowPanel titlePanel;
 
@@ -215,6 +215,7 @@ public class DocksExpandedBar
         return new OuiaComponentIdAttribute(OUIA_COMPONENT_TYPE + "-" + position.getShortName());
     }
 
+    @UiTemplate
     interface ViewBinder
             extends
             UiBinder<Widget, DocksExpandedBar> {

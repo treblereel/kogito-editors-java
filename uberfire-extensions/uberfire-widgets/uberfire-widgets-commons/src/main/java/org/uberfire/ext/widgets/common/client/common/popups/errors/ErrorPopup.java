@@ -18,6 +18,7 @@ package org.uberfire.ext.widgets.common.client.common.popups.errors;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.Command;
 import org.gwtproject.user.client.ui.HTML;
 import org.gwtproject.user.client.ui.Widget;
@@ -84,6 +85,7 @@ public class ErrorPopup extends BaseModal {
         this.message.setHTML(SafeHtmlUtils.fromTrustedString(message));
     }
 
+    @UiTemplate
     interface ErrorPopupWidgetBinder
             extends
             UiBinder<Widget, ErrorPopup> {

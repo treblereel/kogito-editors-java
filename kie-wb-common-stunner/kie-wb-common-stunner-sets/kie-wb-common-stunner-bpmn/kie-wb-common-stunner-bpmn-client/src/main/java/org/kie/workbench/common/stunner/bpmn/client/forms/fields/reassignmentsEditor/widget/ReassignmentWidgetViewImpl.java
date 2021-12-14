@@ -80,8 +80,7 @@ public class ReassignmentWidgetViewImpl extends Composite implements Reassignmen
 
     @PostConstruct
     public void init() {
-        DomGlobal.console.log("ReassignmentWidgetViewImpl.init");
-        addButton.setAttribute("TEXT","TEXT1");
+        table.dataGrid.getElement().addClassName("table");
 
         addButton.addEventListener("click", event -> addOrEdit(new ReassignmentRow()), false);
         closeButton.addEventListener("click", event -> hide(), false);
@@ -90,9 +89,6 @@ public class ReassignmentWidgetViewImpl extends Composite implements Reassignmen
 
     @Override
     public void init(final ReassignmentWidgetView.Presenter presenter, List<ReassignmentRow> rows) {
-
-        DomGlobal.console.log("ReassignmentWidgetViewImpl.init " + presenter.getClass().getCanonicalName());
-
         this.rows = rows;
         presenter.addValueChangeHandler(event -> {
             dataProvider.getList().clear();

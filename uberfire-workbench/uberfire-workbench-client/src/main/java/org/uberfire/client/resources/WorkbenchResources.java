@@ -24,7 +24,7 @@ import org.gwtproject.resources.client.Resource;
 @Resource
 public interface WorkbenchResources extends ClientBundle {
 
-    WorkbenchResources INSTANCE = new WorkbenchResources_default_InlineClientBundleGenerator();
+    WorkbenchResources INSTANCE = new WorkbenchResourcesImpl();
 
     @Source("css/workbench.css")
     WorkbenchCss CSS();

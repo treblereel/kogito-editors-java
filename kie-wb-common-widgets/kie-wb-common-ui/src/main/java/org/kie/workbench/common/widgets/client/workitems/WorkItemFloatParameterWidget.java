@@ -22,6 +22,7 @@ import org.gwtproject.event.dom.client.ChangeEvent;
 import org.gwtproject.uibinder.client.UiBinder;
 import org.gwtproject.uibinder.client.UiField;
 import org.gwtproject.uibinder.client.UiHandler;
+import org.gwtproject.uibinder.client.UiTemplate;
 import org.gwtproject.user.client.ui.HTMLPanel;
 import org.gwtproject.user.client.ui.Widget;
 import org.drools.workbench.models.datamodel.workitems.PortableFloatParameterDefinition;
@@ -35,6 +36,7 @@ import org.uberfire.ext.widgets.common.client.common.NumericFloatTextBox;
  */
 public class WorkItemFloatParameterWidget extends WorkItemParameterWidget {
 
+    @UiTemplate
     interface WorkItemFloatParameterWidgetBinder
             extends
             UiBinder<HTMLPanel, WorkItemFloatParameterWidget> {
@@ -50,7 +52,7 @@ public class WorkItemFloatParameterWidget extends WorkItemParameterWidget {
     @UiField
     ListBox lstAvailableBindings;
 
-    private static WorkItemFloatParameterWidgetBinder uiBinder = GWT.create(WorkItemFloatParameterWidgetBinder.class);
+    private static WorkItemFloatParameterWidgetBinder uiBinder = new WorkItemFloatParameterWidget_WorkItemFloatParameterWidgetBinderImpl();
 
     public WorkItemFloatParameterWidget(PortableFloatParameterDefinition ppd,
                                         IBindingProvider bindingProvider,

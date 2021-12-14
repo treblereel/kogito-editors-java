@@ -29,6 +29,7 @@ import io.crysknife.client.BeanManager;
 import io.crysknife.client.SyncBeanDef;
 import org.gwtproject.core.client.Scheduler;
 import org.gwtproject.dom.client.Style.Unit;
+import org.gwtproject.resources.client.GWT3Resources;
 import org.gwtproject.user.client.ui.DockLayoutPanel;
 import org.gwtproject.user.client.ui.HasWidgets;
 import org.gwtproject.user.client.ui.IsWidget;
@@ -50,6 +51,11 @@ import org.uberfire.mvp.impl.DefaultPlaceRequest;
 import org.uberfire.workbench.model.ActivityResourceType;
 
 @Singleton
+@GWT3Resources(
+        cssResource = @GWT3Resources.CssResource(
+                conversionMode = "strict"
+        )
+)
 public class WorkbenchEntryPoint {
 
     @Inject
@@ -62,13 +68,7 @@ public class WorkbenchEntryPoint {
 
     public void afterInitialization() {
         WorkbenchResources.INSTANCE.CSS().ensureInjected();
-
         setupRootContainer();
-
-        DomGlobal.window.addEventListener("resize", evt -> {
-            resizeTo(DomGlobal.window.innerWidth, DomGlobal.window.innerHeight);
-        });
-
         Scheduler.get().scheduleDeferred(this::resize);
 
         JSFunctions.notifyJSReady();
@@ -106,10 +106,6 @@ public class WorkbenchEntryPoint {
     protected void closeDock(final Activity dockActivity,
                              final HasWidgets container,
                              final SimpleLayoutPanel panel) {
-
-//        throw new Error(getClass().getCanonicalName()+".closeDock");
-
-
         final Activity activity = idActivityMap.remove(dockActivity.getIdentifier());
 
 

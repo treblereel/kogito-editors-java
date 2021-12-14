@@ -63,7 +63,7 @@ import static org.kie.workbench.common.stunner.bpmn.client.forms.util.StringUtil
  * they use a combination of ListBox and TextBox to implement a drop-down combo
  * to hold the values.
  */
-@Templated("ActivityDataIOEditorWidget.html#assignment")
+@Templated("AssignmentListItemWidgetViewImpl.html#assignment")
 @Dependent
 public class AssignmentListItemWidgetViewImpl extends Composite implements AssignmentListItemWidgetView,
                                                                            ComboBoxView.ModelPresenter {
@@ -190,9 +190,6 @@ public class AssignmentListItemWidgetViewImpl extends Composite implements Assig
 
     @PostConstruct
     public void init() {
-
-        DomGlobal.console.warn(getClass().getCanonicalName() + ": databinding is not finished!!!");
-
         name.setRegExp(ALLOWED_CHARS,
                        StunnerFormsClientFieldsConstants.CONSTANTS.Removed_invalid_characters_from_name(),
                        StunnerFormsClientFieldsConstants.CONSTANTS.Invalid_character_in_name());
@@ -374,6 +371,11 @@ public class AssignmentListItemWidgetViewImpl extends Composite implements Assig
             customDataType.setValue(cdt);
             dataType.setValue(cdt);
         } else if (getDataType() != null) {
+
+            DomGlobal.console.log("initAssignmentControls 1  " + getDataType());
+            DomGlobal.console.log("initAssignmentControls 2 " + dataType.getValue());
+            DomGlobal.console.log("initAssignmentControls 3 " + dataType.asWidget().getElement().getInnerHTML());
+
             dataType.setValue(getDataType());
         }
         String exp = getExpression();

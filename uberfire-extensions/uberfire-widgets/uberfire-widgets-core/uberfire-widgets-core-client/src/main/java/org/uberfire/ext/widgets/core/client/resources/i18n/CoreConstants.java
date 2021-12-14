@@ -17,16 +17,18 @@
 package org.uberfire.ext.widgets.core.client.resources.i18n;
 
 import org.gwtproject.core.client.GWT;
+import org.gwtproject.i18n.client.Message;
 import org.gwtproject.i18n.client.Messages;
 
 /**
  * Core Widgets I18N constants
  */
+@Message
 public interface CoreConstants
         extends
         Messages {
 
-    CoreConstants INSTANCE = null;
+    CoreConstants INSTANCE = CoreConstantsFactory.get();
 
     String multipleMatchingActivitiesFound();
 

@@ -16,12 +16,14 @@
 package org.uberfire.ext.widgets.table.client.resources;
 
 import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.Resource;
 
+@Resource
 public interface UFTableResources
         extends
         ClientBundle {
 
-    UFTableResources INSTANCE = new UFTableResources_default_InlineClientBundleGenerator();
+    UFTableResources INSTANCE = new UFTableResourcesImpl();
 
     @Source("css/uftable.css")
     UFTableCss CSS();

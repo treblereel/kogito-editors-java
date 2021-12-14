@@ -24,6 +24,9 @@ import io.crysknife.ui.databinding.client.api.HasModel;
 import org.gwtproject.user.client.ui.HTMLPanel;
 import org.gwtproject.user.client.ui.IsWidget;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 /**
  * Provides instances of ListWidget for cases where the app does not have any reason to provide its
  * own subclass of ListWidget.
@@ -33,7 +36,7 @@ import org.gwtproject.user.client.ui.IsWidget;
  * @author edewit@redhat.com
  */
 @IOCProvider
-// @Singleton
+//@Singleton
 public class ListWidgetProvider implements ContextualTypeProvider<ListWidget> {
 
   private static class GenericListWidget<M, W extends HasModel<M> & IsWidget>
@@ -61,9 +64,12 @@ public class ListWidgetProvider implements ContextualTypeProvider<ListWidget> {
     }
   }
 
+  @Inject
+  BeanManager beanManager;
+
   @Override
   @SuppressWarnings({"rawtypes", "unchecked"})
-  public ListWidget provide(BeanManager beanManager, Class<?>[] typeargs, Annotation[] qualifiers) {
+  public ListWidget provide(Class<?>[] typeargs, Annotation[] qualifiers) {
     Class<?> itemWidgetType = typeargs[1];
     if (qualifiers != null && qualifiers.length > 0) {
       Class<? extends Annotation> anno = qualifiers[0].annotationType();
