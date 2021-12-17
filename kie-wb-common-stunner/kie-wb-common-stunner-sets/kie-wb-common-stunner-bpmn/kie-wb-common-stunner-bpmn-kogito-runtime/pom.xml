@@ -103,8 +103,35 @@
     </dependency>
 
     <dependency>
+      <groupId>io.crysknife.ui.validation</groupId>
+      <artifactId>api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>io.crysknife.ui.validation</groupId>
+      <artifactId>generator</artifactId>
+    </dependency>
+
+    <dependency>
       <groupId>io.crysknife</groupId>
       <artifactId>crysknife-processor</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.gwtproject.validation</groupId>
+      <artifactId>gwt-validation-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.gwtproject.validation</groupId>
+      <artifactId>gwt-validation-processor</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.gwtproject.resources</groupId>
+      <artifactId>gwt-resources-processor</artifactId>
       <scope>provided</scope>
     </dependency>
 
@@ -396,6 +423,7 @@
     <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
 
     <plugins>
+<!--
       <plugin>
         <groupId>com.vertispan.j2cl</groupId>
         <artifactId>j2cl-maven-plugin</artifactId>
@@ -414,6 +442,7 @@
           <compilationLevel>BUNDLE</compilationLevel>
         </configuration>
       </plugin>
+-->
 
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
