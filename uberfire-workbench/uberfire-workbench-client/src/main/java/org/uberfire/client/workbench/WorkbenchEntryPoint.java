@@ -25,6 +25,8 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import elemental2.dom.Event;
+import elemental2.dom.EventListener;
 import io.crysknife.client.BeanManager;
 import io.crysknife.client.SyncBeanDef;
 import org.gwtproject.core.client.Scheduler;
@@ -72,6 +74,25 @@ public class WorkbenchEntryPoint {
         Scheduler.get().scheduleDeferred(this::resize);
 
         JSFunctions.notifyJSReady();
+
+        DomGlobal.console.log("afterInitialization");
+
+        DomGlobal.document.body.addEventListener("resize", new EventListener() {
+            @Override
+            public void handleEvent(Event evt) {
+                DomGlobal.console.log("resize 1");
+                resize();
+            }
+        });
+
+        DomGlobal.window.addEventListener("resize", new EventListener() {
+            @Override
+            public void handleEvent(Event evt) {
+                DomGlobal.console.log("resize 2");
+                resize();
+            }
+        });
+
     }
 
     @Inject
@@ -148,7 +169,7 @@ public class WorkbenchEntryPoint {
 
         final Activity editorActivity = openActivity(editorBean.getName());
         rootContainer.add(createPanel(editorActivity.getWidget()));
-        //resize();
+        resize();
     }
 
     private <T extends Activity> SyncBeanDef<T> getBean(Class<T> type, final String name) {

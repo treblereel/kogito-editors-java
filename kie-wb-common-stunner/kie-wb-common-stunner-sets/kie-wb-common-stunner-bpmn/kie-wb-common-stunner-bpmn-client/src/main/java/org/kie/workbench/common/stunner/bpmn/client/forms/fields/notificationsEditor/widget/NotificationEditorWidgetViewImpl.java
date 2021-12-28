@@ -300,7 +300,7 @@ public class NotificationEditorWidgetViewImpl extends Composite implements Notif
     @DataField
     protected TextArea expressionTextArea;
 
-    //@Inject
+    @Inject
     protected Validator validator;
 
     protected MultipleLiveSearchSelectionHandler<String> multipleLiveSearchSelectionHandlerUsers = new MultipleLiveSearchSelectionHandler<>();

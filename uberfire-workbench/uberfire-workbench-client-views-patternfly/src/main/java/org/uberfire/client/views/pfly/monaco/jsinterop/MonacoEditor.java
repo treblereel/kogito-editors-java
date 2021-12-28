@@ -18,22 +18,21 @@ package org.uberfire.client.views.pfly.monaco.jsinterop;
 
 import org.gwtproject.core.client.JavaScriptObject;
 import elemental2.dom.Element;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 import static jsinterop.annotations.JsPackage.GLOBAL;
 
-@JsType(isNative = true, namespace = GLOBAL, name = "monaco")
+@JsType(
+        isNative = true, namespace = GLOBAL, name = "monaco.editor"
+)
 public class MonacoEditor {
 
     public native void defineTheme(final String themeId,
                                    final JavaScriptObject themeData);
 
-    public native MonacoStandaloneCodeEditor create(final Element themeId,
+    public native static MonacoStandaloneCodeEditor create(final Element themeId,
                                                     final JavaScriptObject options);
 
     public native void setTheme(final String feelThemeId);
 
-    @JsProperty(name = "editor")
-    public static native MonacoEditor get();
 }

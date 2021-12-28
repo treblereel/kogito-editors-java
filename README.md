@@ -23,6 +23,21 @@ Quick Links
 
 **JIRA Issues:** https://issues.jboss.org/projects/KOGITO
 
+
+BUILD AND RUN
+------------
+
+* set export JAVA_TOOL_OPTIONS="-Xmx8192m -Xms4096m"
+* comment in j2cl-maven-plugin at kie-wb-common-stunner/kie-wb-common-stunner-sets/kie-wb-common-stunner-bpmn/kie-wb-common-stunner-bpmn-kogito-runtime/pom.xml
+* run 'mvn clean install -Dmaven.test.skip' at the root of the project
+* after comment out j2cl-maven-plugin at kie-wb-common-stunner/kie-wb-common-stunner-sets/kie-wb-common-stunner-bpmn/kie-wb-common-stunner-bpmn-kogito-runtime/pom.xml
+* in kie-wb-common-stunner/kie-wb-common-stunner-sets/kie-wb-common-stunner-bpmn/kie-wb-common-stunner-bpmn-kogito-runtime folder run 'mvn j2cl:watch'
+* once it finished, open one more terminal at kie-wb-common-stunner/kie-wb-common-stunner-sets/kie-wb-common-stunner-bpmn/kie-wb-common-stunner-bpmn-kogito-runtime/target/gwt/launcherDir/kie-wb-common-stunner-bpmn-kogito-runtime
+
+* copy html and css resources from src/main/resources (like here : 'cp -r ../../../../src/main/resources/* .' )
+* run your favorite http server (like 'http-server -p 8000')
+* open this link in the browser and in the brosere console type "window.deserialize('');"
+
 Requirements
 ------------
 

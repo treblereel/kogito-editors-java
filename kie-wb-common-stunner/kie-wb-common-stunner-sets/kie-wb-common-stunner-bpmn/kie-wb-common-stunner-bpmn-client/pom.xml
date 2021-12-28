@@ -210,6 +210,12 @@
       <artifactId>gwt-json</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>org.gwtproject.resources</groupId>
+      <artifactId>gwt-resources-processor</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
     <!-- test -->
   <!--  <dependency>
       <groupId>org.assertj</groupId>

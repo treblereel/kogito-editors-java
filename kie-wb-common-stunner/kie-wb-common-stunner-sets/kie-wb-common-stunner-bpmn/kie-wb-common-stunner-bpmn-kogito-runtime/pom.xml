@@ -423,7 +423,7 @@
     <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
 
     <plugins>
-<!--
+
       <plugin>
         <groupId>com.vertispan.j2cl</groupId>
         <artifactId>j2cl-maven-plugin</artifactId>
@@ -439,10 +439,10 @@
         </executions>
         <configuration>
           <webappDirectory>${project.build.directory}/gwt/launcherDir/</webappDirectory>
-          <compilationLevel>BUNDLE</compilationLevel>
+          <compilationLevel>ADVANCED</compilationLevel>
         </configuration>
       </plugin>
--->
+
 
       <plugin>
         <artifactId>maven-war-plugin</artifactId>

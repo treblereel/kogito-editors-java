@@ -20,6 +20,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLDivElement;
@@ -104,6 +105,8 @@ public class MultipleInputComponentViewImpl<TYPE> implements MultipleInputCompon
 
     @Override
     public void setReadOnly(boolean readOnly) {
+        DomGlobal.console.log("setReadOnly");
+
         toolbar.style.removeProperty("display");
         if(readOnly) {
             toolbar.style.setProperty("display", "none");
@@ -226,6 +229,8 @@ public class MultipleInputComponentViewImpl<TYPE> implements MultipleInputCompon
     }
 
     public void hideErrorMessage() {
+        DomGlobal.console.log("hideErrorMessage");
+
         this.errorContainer.style.setProperty("display", "none");
     }
 

@@ -32,7 +32,6 @@ import elemental2.dom.Node;
 import elemental2.dom.NodeList;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import io.crysknife.ui.templates.client.annotation.ForEvent;
-import jsinterop.base.Js;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
@@ -111,7 +110,7 @@ public class MonacoEditorView implements UberElement<MonacoEditorPresenter> {
 
     public void load(MonacoEditorOptions options,
                      Runnable callback) {
-        load(MonacoEditor.get().create(Js.uncheckedCast(this.monacoEditor),
+        load(MonacoEditor.create(monacoEditor,
                                        options.toJavaScriptObject()),
              options.getWidthPx(),
              options.getHeightPx());
@@ -172,6 +171,8 @@ public class MonacoEditorView implements UberElement<MonacoEditorPresenter> {
               int width,
               int height) {
         this.editor = editor;
+        this.editor.focus();
+
         this.editor.onDidBlurEditorWidget(event -> presenter.onValueChanged());
         this.editor.layout(MonacoEditorOptions
                                    .createDimensions(width, height)

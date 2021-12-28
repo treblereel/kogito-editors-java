@@ -19,6 +19,9 @@ package org.uberfire.ext.widgets.common.client.tables;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLElement;
+import jsinterop.annotations.JsFunction;
 import jsinterop.base.JsPropertyMap;
 import org.gwtbootstrap3.client.shared.js.JQuery;
 import org.gwtproject.cell.client.AbstractSafeHtmlCell;
@@ -134,28 +137,15 @@ public class PopoverTextCell extends AbstractSafeHtmlCell<String> {
         $wnd.jQuery('#' + id).popover('show');
     }-*/;
 
-    private void initPopover(String id,
+    //m_showPopover__java_lang_String_$p_org_uberfire_ext_widgets_common_client_tables_PopoverTextCell
+
+    private void initPopover2(String id,
                                     String placement) {
-        throw new Error(PopoverTextCell.class.getCanonicalName());
 
-      /*  $("#" + id).popover("show");
+    }
 
-
-        JsPropertyMap value = JsPropertyMap.of();
-        value.set("container","body");
-        value.set("trigger","manual");
-        value.set("placement",placement);
-        value.set("content", new Consumer<String>() {
-            @Override
-            public void accept(String s) {
-                throw new Error(PopoverTextCell.class.getCanonicalName());
-            }
-        });
-*/
-
-        //$("#" + id).popover("show");
-
-    }/*-{
+    private native void initPopover(String id,
+                                    String placement);/*-{
         var jQueryId = '#' + id;
         var div = $wnd.jQuery(jQueryId);
 
@@ -170,6 +160,12 @@ public class PopoverTextCell extends AbstractSafeHtmlCell<String> {
             container: 'body'
         });
     }-*/;
+
+    @FunctionalInterface
+    @JsFunction
+    private interface OnContent {
+        String apply();
+    }
 
     public enum Placement {
 

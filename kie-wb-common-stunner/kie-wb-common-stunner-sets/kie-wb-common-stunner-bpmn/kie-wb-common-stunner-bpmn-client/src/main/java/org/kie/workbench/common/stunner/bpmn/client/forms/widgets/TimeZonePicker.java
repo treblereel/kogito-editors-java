@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import org.gwtproject.core.client.GWT;
 import org.gwtproject.event.legacy.shared.GwtEvent;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
@@ -32,6 +31,7 @@ import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.json.client.JSONObject;
 import org.gwtproject.json.client.JSONParser;
 import org.gwtproject.resources.client.ClientBundle;
+import org.gwtproject.resources.client.Resource;
 import org.gwtproject.resources.client.TextResource;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.Widget;
@@ -100,9 +100,10 @@ public class TimeZonePicker implements IsWidget,
         view.asWidget().fireEvent(event);
     }
 
+    @Resource
     interface TimeZone extends ClientBundle {
 
-        TimeZone INSTANCE = GWT.create(TimeZone.class);
+        TimeZone INSTANCE = new TimeZonePicker_TimeZoneImpl();
 
         @Source("timezones.json")
         TextResource asJson();

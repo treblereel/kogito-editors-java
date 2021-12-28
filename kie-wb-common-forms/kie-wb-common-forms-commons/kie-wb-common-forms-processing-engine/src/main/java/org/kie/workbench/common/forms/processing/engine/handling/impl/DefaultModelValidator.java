@@ -42,20 +42,14 @@ public class DefaultModelValidator<MODEL> implements ModelValidator<MODEL> {
     private Validator validator;
 
     @Inject
-    public DefaultModelValidator(/*Validator validator*/) {
-        //this.validator = validator;
+    public DefaultModelValidator(Validator validator) {
+        this.validator = validator;
     }
 
     @Override
     public boolean validate(Collection<FormField> fields,
                             MODEL model) {
         boolean isValid = true;
-
-        DomGlobal.console.log(getClass().getCanonicalName()+".validate");
-/*
-        if (model instanceof BindableProxy) {
-            model = ((BindableProxy<MODEL>)model).deepUnwrap();
-        }
 
         try {
             Set<ConstraintViolation<Object>> result = validator.validate(model);
@@ -96,7 +90,7 @@ public class DefaultModelValidator<MODEL> implements ModelValidator<MODEL> {
             }
         } catch (IllegalArgumentException ex) {
             GWT.log("Error trying to validate model: model does not any validation constraint. ");
-        }*/
+        }
 
         return isValid;
     }
@@ -104,13 +98,8 @@ public class DefaultModelValidator<MODEL> implements ModelValidator<MODEL> {
     @Override
     public boolean validate(FormField formField,
                             MODEL model) {
-        boolean isValid = true;
 
-        DomGlobal.console.warn("validation disabled");
-
-/*        if (model instanceof BindableProxy) {
-            model = ((BindableProxy<MODEL>)model).deepUnwrap();
-        }
+        DomGlobal.console.log("validate " + model + " " + validator.validate(model).size());
 
         try {
             Set<ConstraintViolation<Object>> result = validator.validate(model);
@@ -118,20 +107,20 @@ public class DefaultModelValidator<MODEL> implements ModelValidator<MODEL> {
             for (ConstraintViolation<Object> constraintViolation : result) {
 
                 String propertyName = getFieldNameFromConstraint(constraintViolation,
-                                                                 formField.getFieldName().contains(
-                                                                         NESTED_PROPERTY_SEPARATOR));
+                        formField.getFieldName().contains(
+                                NESTED_PROPERTY_SEPARATOR));
 
                 if (checkBinding(formField,
-                                 propertyName)) {
+                        propertyName)) {
                     formField.showError(constraintViolation.getMessage());
                     return false;
                 }
             }
         } catch (IllegalArgumentException ex) {
             GWT.log("Error trying to validate model: model does not any validation constraint. ");
-        }*/
+        }
 
-        return isValid;
+        return true;
     }
 
     protected boolean checkBinding(FormField formField,

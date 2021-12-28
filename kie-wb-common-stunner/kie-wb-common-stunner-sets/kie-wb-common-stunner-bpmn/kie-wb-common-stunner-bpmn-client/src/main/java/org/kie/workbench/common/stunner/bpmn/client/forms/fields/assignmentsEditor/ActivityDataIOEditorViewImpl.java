@@ -22,6 +22,7 @@ import java.util.Set;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import elemental2.dom.DomGlobal;
 import org.gwtproject.dom.client.Style;
 import org.gwtproject.user.client.Event;
 import org.gwtbootstrap3.client.ui.Button;
@@ -146,6 +147,7 @@ public class ActivityDataIOEditorViewImpl extends BaseModal implements ActivityD
 
     @Override
     public void hideView() {
+        DomGlobal.console.log("hideView " + getElement());
         super.hide();
     }
 
