@@ -30,6 +30,10 @@
     <name>UberFire Workbench Client Views: PatternFly</name>
     <description>UberFire Workbench Client Views: PatternFly</description>
 
+    <properties>
+        <unpacked.js.resources>${project.build.directory}/generated-resources/unpacked-js</unpacked.js.resources>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>javax.inject</groupId>
@@ -112,6 +116,9 @@
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${unpacked.js.resources}</directory>
             </resource>
         </resources>
         <plugins>
@@ -286,7 +293,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.outputDirectory}/org/uberfire/client/views/static
+                            <outputDirectory>${unpacked.js.resources}/org/uberfire/client/views/static
                             </outputDirectory>
                             <resources>
                                 <resource>
@@ -311,7 +318,7 @@
                         </goals>
                         <configuration>
                             <outputDirectory>
-                                ${project.build.outputDirectory}/org/uberfire/client/views/static/bootstrap-select
+                                ${unpacked.js.resources}/org/uberfire/client/views/static/bootstrap-select
                             </outputDirectory>
                             <resources>
                                 <resource>
@@ -332,7 +339,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.outputDirectory}/org/uberfire/client/views/static/moment
+                            <outputDirectory>${unpacked.js.resources}/org/uberfire/client/views/static/moment
                             </outputDirectory>
                             <resources>
                                 <resource>
@@ -354,7 +361,7 @@
                         </goals>
                         <configuration>
                             <outputDirectory>
-                                ${project.build.outputDirectory}/org/uberfire/client/views/static/moment-timezone
+                                ${unpacked.js.resources}/org/uberfire/client/views/static/moment-timezone
                             </outputDirectory>
                             <resources>
                                 <resource>
@@ -376,7 +383,7 @@
                         </goals>
                         <configuration>
                             <outputDirectory>
-                                ${project.build.outputDirectory}/org/uberfire/client/views/static/bootstrap-daterangepicker
+                                ${unpacked.js.resources}/org/uberfire/client/views/static/bootstrap-daterangepicker
                             </outputDirectory>
                             <resources>
                                 <resource>
@@ -399,7 +406,7 @@
                         </goals>
                         <configuration>
                             <outputDirectory>
-                                ${project.build.outputDirectory}/org/uberfire/client/views/static/appformer-js-monaco/
+                                ${unpacked.js.resources}/org/uberfire/client/views/static/appformer-js-monaco/
                             </outputDirectory>
                             <resources>
                                 <resource>
