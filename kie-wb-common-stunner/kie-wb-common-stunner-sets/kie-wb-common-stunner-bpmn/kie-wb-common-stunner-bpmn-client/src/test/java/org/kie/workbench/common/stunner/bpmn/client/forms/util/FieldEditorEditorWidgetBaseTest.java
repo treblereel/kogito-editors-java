@@ -16,9 +16,9 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.util;
 
+import elemental2.dom.HTMLElement;
 import org.gwtproject.user.client.ui.Widget;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
-import org.jboss.errai.common.client.dom.HTMLElement;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

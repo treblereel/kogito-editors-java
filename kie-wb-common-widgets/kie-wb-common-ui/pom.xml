@@ -105,16 +105,21 @@
       <artifactId>gwt-uibinder-processor</artifactId>
       <scope>provided</scope>
     </dependency>
-
-<!--    <dependency>
-      <groupId>org.kie.soup</groupId>
-      <artifactId>kie-soup-project-datamodel-commons</artifactId>
+    <dependency>
+      <groupId>com.google.gwt.gwtmockito</groupId>
+      <artifactId>gwtmockito</artifactId>
+      <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.kie.soup</groupId>
-      <artifactId>kie-soup-project-datamodel-api</artifactId>
-    </dependency>-->
+      <!--    <dependency>
+            <groupId>org.kie.soup</groupId>
+            <artifactId>kie-soup-project-datamodel-commons</artifactId>
+          </dependency>
+
+          <dependency>
+            <groupId>org.kie.soup</groupId>
+            <artifactId>kie-soup-project-datamodel-api</artifactId>
+          </dependency>-->
 
 <!--    <dependency>
       <groupId>org.drools</groupId>

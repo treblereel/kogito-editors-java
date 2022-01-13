@@ -25,6 +25,7 @@ import elemental2.dom.HTMLOptionElement;
 import elemental2.dom.HTMLSelectElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.uberfire.client.views.pfly.selectpicker.JQuerySelectPicker;
 import org.uberfire.client.views.pfly.selectpicker.JQuerySelectPickerEvent;
 
@@ -40,16 +41,18 @@ public class KogitoKieAssetsDropdownView implements KogitoKieAssetsDropdown.View
     @DataField("native-select")
     protected final HTMLSelectElement nativeSelect;
     protected final HTMLOptionElement htmlOptionElement;
+    protected final TranslationService translationService;
     protected KieAssetsDropdown presenter;
+    private String value;
 
+    // it's not possible to extend templated widget atm
     @Inject
     public KogitoKieAssetsDropdownView(final HTMLSelectElement nativeSelect,
-                                 final HTMLOptionElement htmlOptionElement
-                                 //,final TranslationService translationService
-    ) {
+                                 final HTMLOptionElement htmlOptionElement,
+                                 final TranslationService translationService) {
         this.nativeSelect = nativeSelect;
         this.htmlOptionElement = htmlOptionElement;
-        //this.translationService = translationService;
+        this.translationService = translationService;
     }
 
     @Override
@@ -109,27 +112,10 @@ public class KogitoKieAssetsDropdownView implements KogitoKieAssetsDropdown.View
 
     protected HTMLOptionElement selectOption() {
         final HTMLOptionElement option = makeHTMLOptionElement();
-        option.text = KieAssetsDropdownView_Select;
+        option.text = translationService.format(KieAssetsDropdownView_Select);
         option.value = "";
         return option;
     }
-
-
-
-
-
-
-
-
-
-    private String value;
-
-
-
-
-
-
-
 
     @Override
     public void initialize() {

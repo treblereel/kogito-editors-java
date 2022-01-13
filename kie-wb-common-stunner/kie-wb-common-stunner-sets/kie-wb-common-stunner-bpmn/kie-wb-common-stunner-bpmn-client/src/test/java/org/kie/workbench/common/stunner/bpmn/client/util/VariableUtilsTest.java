@@ -493,7 +493,7 @@ public class VariableUtilsTest {
         AssignmentsInfo assignmentsInfo = mockAssignmentsInfo(assignmentsInfoValue);
         when(executionSet.getAssignmentsinfo()).thenReturn(assignmentsInfo);
         IsMultipleInstance isMultipleInstance = mock(IsMultipleInstance.class);
-        when(isMultipleInstance.isValue()).thenReturn(true);
+        when(isMultipleInstance.getValue()).thenReturn(true);
         MultipleInstanceCollectionInput miInputCollection = mock(MultipleInstanceCollectionInput.class);
         when(miInputCollection.getValue()).thenReturn(inputCollection);
         MultipleInstanceDataInput miDataInput = mock(MultipleInstanceDataInput.class);
@@ -690,7 +690,7 @@ public class VariableUtilsTest {
         ReusableSubprocessTaskExecutionSet executionSet = mock(ReusableSubprocessTaskExecutionSet.class);
         when(result.getExecutionSet()).thenReturn(executionSet);
         IsMultipleInstance isMultipleInstance = mock(IsMultipleInstance.class);
-        when(isMultipleInstance.isValue()).thenReturn(true);
+        when(isMultipleInstance.getValue()).thenReturn(true);
         MultipleInstanceCollectionInput miInputCollection = mock(MultipleInstanceCollectionInput.class);
         when(miInputCollection.getValue()).thenReturn(inputCollection);
         MultipleInstanceDataInput miDataInput = mock(MultipleInstanceDataInput.class);

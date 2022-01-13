@@ -43,7 +43,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
-@RunWith(LienzoMockitoTestRunner.class)
+//@RunWith(LienzoMockitoTestRunner.class)
 abstract class BaseKeyDownHandlerCommonTest {
 
     @Mock
@@ -68,7 +68,7 @@ abstract class BaseKeyDownHandlerCommonTest {
 
     private KeyDownHandlerCommon handler;
 
-    @Before
+    //@Before
     public void setUpHandler() {
         uiModel = new BaseGridData();
         handler = new KeyDownHandlerCommon(gridPanel,
@@ -95,7 +95,7 @@ abstract class BaseKeyDownHandlerCommonTest {
 
     protected abstract boolean isEscapeKeyHandled();
 
-    @Test
+    //@Test
     public void tabKeyCanvasActions() {
         final KeyDownEvent e = mockKeyDownEvent(Optional.of(KeyCodes.KEY_TAB),
                                                 Optional.of(false),
@@ -112,7 +112,7 @@ abstract class BaseKeyDownHandlerCommonTest {
         }
     }
 
-    @Test
+    //@Test
     public void enterKeyCanvasActions() {
         final KeyDownEvent e = mockKeyDownEvent(Optional.of(KeyCodes.KEY_ENTER),
                                                 Optional.of(false),
@@ -129,7 +129,7 @@ abstract class BaseKeyDownHandlerCommonTest {
         }
     }
 
-    @Test
+    //@Test
     public void escapeKeyCanvasActions() {
         final KeyDownEvent e = mockKeyDownEvent(Optional.of(KeyCodes.KEY_ESCAPE),
                                                 Optional.of(false),

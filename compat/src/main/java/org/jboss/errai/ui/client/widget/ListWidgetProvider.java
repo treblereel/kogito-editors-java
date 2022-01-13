@@ -16,7 +16,6 @@ package org.jboss.errai.ui.client.widget;
 
 import java.lang.annotation.Annotation;
 
-import elemental2.dom.DomGlobal;
 import io.crysknife.client.BeanManager;
 import io.crysknife.client.ioc.ContextualTypeProvider;
 import io.crysknife.client.ioc.IOCProvider;
@@ -58,8 +57,6 @@ public class ListWidgetProvider implements ContextualTypeProvider<ListWidget> {
 
     @Override
     protected Class<W> getItemComponentType() {
-      DomGlobal.console.log("getItemComponentType " + itemWidgetType);
-
       return itemWidgetType;
     }
   }

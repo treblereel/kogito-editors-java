@@ -16,8 +16,6 @@
 
 package org.kie.workbench.common.stunner.bpmn.documentation.model;
 
-import elemental2.dom.DomGlobal;
-import org.gwtproject.core.client.GWT;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
@@ -39,7 +37,6 @@ public class BPMNDocumentation implements DiagramDocumentation {
     @JsOverlay
     public static final BPMNDocumentation create(ProcessOverview process, ElementDetails elementsDetails,
                                                  String diagramImage) {
-        DomGlobal.console.log(BPMNDocumentation.class.getCanonicalName()+".create");
         final BPMNDocumentation instance = new BPMNDocumentation();
         instance.process = process;
         instance.elementsDetails = elementsDetails;

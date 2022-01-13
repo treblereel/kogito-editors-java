@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import elemental2.dom.DomGlobal;
 import org.gwtproject.event.legacy.shared.GwtEvent;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
@@ -53,9 +52,6 @@ public class ReassignmentWidget implements IsWidget,
     @Inject
     public ReassignmentWidget(ReassignmentWidgetView view,
                               ClientTranslationService translationService) {
-
-        DomGlobal.console.log("ReassignmentWidget " + view.getClass().getCanonicalName());
-
         this.view = view;
         this.translationService = translationService;
         this.view.init(this, rows);

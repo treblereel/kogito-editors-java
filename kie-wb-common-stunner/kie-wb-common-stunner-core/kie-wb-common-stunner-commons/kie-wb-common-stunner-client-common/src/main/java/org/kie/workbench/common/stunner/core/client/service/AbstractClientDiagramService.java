@@ -150,8 +150,6 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     @SuppressWarnings("unchecked")
     public void getByPath(final Path path,
                           final ServiceCallback<D> callback) {
-        DomGlobal.console.log("***** getByPath " + path);
-
         try {
             D diagram = diagramServiceCaller.getDiagramByPath(path);
             updateClientMetadata(diagram);
@@ -190,8 +188,6 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     @Override
     public void getRawContent(final D diagram,
                               final ServiceCallback<String> callback) {
-        DomGlobal.console.log("***** getRawContent " + diagram);
-
         try {
             String rawContent = diagramServiceCaller.getRawContent(diagram);
             callback.onSuccess(rawContent);
@@ -209,9 +205,6 @@ public abstract class AbstractClientDiagramService<M extends Metadata, D extends
     }
 
     protected void updateClientMetadata(final D diagram) {
-        DomGlobal.console.log("***** updateClientMetadata " + diagram);
-
-
         if (null != diagram) {
             final Metadata metadata = diagram.getMetadata();
             if (null != metadata && isEmpty(metadata.getShapeSetId())) {

@@ -26,7 +26,7 @@ import org.gwtproject.xml.client.Node;
 import org.gwtproject.xml.client.NodeList;
 import org.gwtproject.xml.client.ProcessingInstruction;
 import org.gwtproject.xml.client.Text;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

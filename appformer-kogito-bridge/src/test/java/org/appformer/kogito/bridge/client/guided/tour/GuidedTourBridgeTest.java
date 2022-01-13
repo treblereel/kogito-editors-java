@@ -16,12 +16,12 @@
 
 package org.appformer.kogito.bridge.client.guided.tour;
 
+import io.crysknife.client.ioc.Disposer;
 import org.appformer.kogito.bridge.client.guided.tour.GuidedTourCustomSelectorPositionProvider.PositionProviderFunction;
 import org.appformer.kogito.bridge.client.guided.tour.observers.GlobalHTMLObserver;
 import org.appformer.kogito.bridge.client.guided.tour.service.GuidedTourService;
 import org.appformer.kogito.bridge.client.guided.tour.service.api.Tutorial;
 import org.appformer.kogito.bridge.client.guided.tour.service.api.UserInteraction;
-import org.jboss.errai.ioc.client.api.Disposer;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

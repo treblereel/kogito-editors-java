@@ -21,8 +21,8 @@ import java.util.List;
 
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
-import org.gwtprojectmockito.GwtMock;
-import org.gwtprojectmockito.GwtMockito;
+import com.google.gwtmockito.GwtMock;
+import com.google.gwtmockito.GwtMockito;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLInputElement;
 import org.junit.Assert;

@@ -26,7 +26,7 @@ import com.ait.lienzo.client.widget.panel.mediators.PanelMediators;
 import com.ait.lienzo.client.widget.panel.mediators.PanelPreviewMediator;
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
 import io.crysknife.client.ManagedInstance;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -28,34 +28,37 @@
       <groupId>org.kie.kogito</groupId>
       <artifactId>compat</artifactId>
     </dependency>
-
-    <!--    <dependency>
-          <groupId>org.kie.kogito</groupId>
-          <artifactId>lienzo-tests</artifactId>
+      <dependency>
+          <groupId>org.mockito</groupId>
+          <artifactId>mockito-core</artifactId>
           <scope>test</scope>
-          <exclusions>
-            <exclusion>
-              <groupId>org.mortbay.jasper</groupId>
-              <artifactId>apache-el</artifactId>
-            </exclusion>
-            <exclusion>
-              <groupId>org.eclipse.jetty</groupId>
-              <artifactId>jetty-annotations</artifactId>
-            </exclusion>
-          </exclusions>
-        </dependency>-->
-
- <!--   <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <scope>test</scope>
-    </dependency>
+      </dependency>
+      <dependency>
+          <groupId>org.assertj</groupId>
+          <artifactId>assertj-core</artifactId>
+          <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>com.google.gwt.gwtmockito</groupId>
+          <artifactId>gwtmockito</artifactId>
+        <scope>test</scope>
+      </dependency>
 
     <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>lienzo-tests</artifactId>
       <scope>test</scope>
-    </dependency>-->
+      <exclusions>
+        <exclusion>
+          <groupId>org.mortbay.jasper</groupId>
+          <artifactId>apache-el</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.eclipse.jetty</groupId>
+          <artifactId>jetty-annotations</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
 
   </dependencies>
 

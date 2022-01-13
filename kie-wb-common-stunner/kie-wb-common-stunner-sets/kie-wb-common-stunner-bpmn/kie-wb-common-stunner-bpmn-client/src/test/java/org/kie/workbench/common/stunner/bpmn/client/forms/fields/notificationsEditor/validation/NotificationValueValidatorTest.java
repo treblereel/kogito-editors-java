@@ -21,7 +21,7 @@ import java.util.List;
 
 import javax.validation.ConstraintValidatorContext;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

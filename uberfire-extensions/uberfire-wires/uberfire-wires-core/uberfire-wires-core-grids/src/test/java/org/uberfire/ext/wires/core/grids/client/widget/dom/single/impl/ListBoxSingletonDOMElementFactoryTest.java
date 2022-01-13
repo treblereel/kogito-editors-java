@@ -16,8 +16,8 @@
 
 package org.uberfire.ext.wires.core.grids.client.widget.dom.single.impl;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
-import org.gwtprojectmockito.WithClassesToStub;
+import com.google.gwtmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.WithClassesToStub;
 import org.gwtbootstrap3.client.ui.ListBox;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -28,8 +28,8 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
-@RunWith(GwtMockitoTestRunner.class)
-@WithClassesToStub(ListBoxDOMElement.class)
+//@RunWith(GwtMockitoTestRunner.class)
+//@WithClassesToStub(ListBoxDOMElement.class)
 public class ListBoxSingletonDOMElementFactoryTest extends BaseSingletonDOMElementFactoryTest {
 
     public static final String VALUE = "val";

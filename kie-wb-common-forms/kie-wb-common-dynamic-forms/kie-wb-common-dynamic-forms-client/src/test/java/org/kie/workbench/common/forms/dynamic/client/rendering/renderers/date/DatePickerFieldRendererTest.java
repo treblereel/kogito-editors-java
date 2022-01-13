@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.date;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -76,7 +76,7 @@ public class DatePickerFieldRendererTest extends AbstractFieldRendererTest<org.k
         verify(datePicker).setDatePickerWidget(eq(showTime));
         verify(datePicker).setId(any());
         verify(datePicker).setPlaceholder(eq(fieldDefinition.getPlaceHolder()));
-        verify(datePicker).setEnabled(eq(!fieldDefinition.isReadOnly()));
+        verify(datePicker).setEnabled(eq(!fieldDefinition.getReadOnly()));
 
         verify(datePicker).asWidget();
 

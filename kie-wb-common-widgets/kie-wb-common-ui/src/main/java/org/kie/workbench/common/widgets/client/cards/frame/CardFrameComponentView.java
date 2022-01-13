@@ -20,16 +20,9 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import elemental2.dom.Event;
-import elemental2.dom.KeyboardEvent;
+import elemental2.dom.*;
 import io.crysknife.ui.templates.client.annotation.EventHandler;
 import io.crysknife.ui.templates.client.annotation.ForEvent;
-import org.gwtproject.event.dom.client.KeyCodes;
-import elemental2.dom.HTMLButtonElement;
-import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLElement;
-import elemental2.dom.HTMLHeadingElement;
-import elemental2.dom.HTMLInputElement;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
 
@@ -172,10 +165,11 @@ public class CardFrameComponentView implements CardFrameComponent.View {
     }
 
     private boolean isEscape(final KeyboardEvent event) {
-        return Integer.parseInt(event.code) == KeyCodes.KEY_ESCAPE;
+        return event.code.equals("Escape");
     }
 
     private boolean isEnter(final KeyboardEvent event) {
-        return Integer.parseInt(event.code) == KeyCodes.KEY_ENTER;
+        return event.code.equals("Enter");
+
     }
 }

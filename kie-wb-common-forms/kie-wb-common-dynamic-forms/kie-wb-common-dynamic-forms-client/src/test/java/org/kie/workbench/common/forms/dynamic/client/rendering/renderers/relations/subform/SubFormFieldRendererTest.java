@@ -19,7 +19,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.relati
 import java.util.HashMap;
 import java.util.Map;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.assertj.core.api.Assertions;
 import io.crysknife.client.ManagedInstance;
 import org.junit.Before;

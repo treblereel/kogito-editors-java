@@ -29,7 +29,7 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.DomGlobal.SetTimeoutCallbackFn;
 import org.jboss.errai.common.client.ui.ElementWrapperWidget;
 import org.jboss.errai.ui.client.local.api.elemental2.IsElement;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.kie.workbench.common.dmn.client.common.KogitoChannelHelper;
 import org.kie.workbench.common.dmn.client.docks.navigator.drds.DMNDiagramsSession;
 import org.kie.workbench.common.dmn.client.docks.navigator.events.RefreshDecisionComponents;

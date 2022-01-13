@@ -16,8 +16,8 @@
 
 package org.kie.workbench.common.forms.crud.client.component.formDislpay.embedded;
 
-import org.gwtprojectmockito.GwtMock;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMock;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;

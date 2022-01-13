@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.junit.Before;
 import org.junit.Test;
@@ -66,7 +66,7 @@ public class TextBoxFieldRendererTest extends AbstractFieldRendererTest<TextBoxF
         verify(textBox).setName(Mockito.<String>any());
         verify(textBox).setPlaceholder(eq(fieldDefinition.getPlaceHolder()));
         verify(textBox).setMaxLength(eq(fieldDefinition.getMaxLength()));
-        verify(textBox).setEnabled(eq(!fieldDefinition.isReadOnly()));
+        verify(textBox).setEnabled(eq(!fieldDefinition.getReadOnly()));
 
         verify(formGroup).render(Mockito.<String>any(), eq(textBox), eq(fieldDefinition));
     }

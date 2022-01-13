@@ -197,7 +197,6 @@ public class DefinitionPaletteCategoryWidgetViewImpl implements DefinitionPalett
     }
 
     private void setCloseButtonVisible(boolean visible) {
-        DomGlobal.console.log("setCloseButtonVisible");
         closeCategoryButton.style.removeProperty("display");
         if (!visible) {
             closeCategoryButton.style.setProperty("display", "none");

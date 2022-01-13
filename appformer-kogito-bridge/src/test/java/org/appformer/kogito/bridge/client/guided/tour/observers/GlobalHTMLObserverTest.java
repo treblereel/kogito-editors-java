@@ -18,17 +18,17 @@ package org.appformer.kogito.bridge.client.guided.tour.observers;
 
 import java.util.List;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import elemental2.dom.Attr;
 import elemental2.dom.DOMTokenList;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLDocument;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.NamedNodeMap;
+import io.crysknife.client.ioc.Disposer;
 import org.appformer.kogito.bridge.client.guided.tour.GuidedTourBridge;
 import org.appformer.kogito.bridge.client.guided.tour.service.GuidedTourService;
 import org.appformer.kogito.bridge.client.guided.tour.service.api.UserInteraction;
-import org.jboss.errai.ioc.client.api.Disposer;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

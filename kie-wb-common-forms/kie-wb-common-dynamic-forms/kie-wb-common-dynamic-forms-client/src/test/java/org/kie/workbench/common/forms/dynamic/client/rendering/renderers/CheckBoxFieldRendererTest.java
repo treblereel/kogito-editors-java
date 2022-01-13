@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.SimpleCheckBox;
 import org.junit.Before;
 import org.junit.Test;
@@ -64,7 +64,7 @@ public class CheckBoxFieldRendererTest extends AbstractFieldRendererTest<CheckBo
         verify(formGroupsInstance).get();
         verify(checkBox).setId(any());
         verify(checkBox).setName(Mockito.<String>any());
-        verify(checkBox).setEnabled(eq(!fieldDefinition.isReadOnly()));
+        verify(checkBox).setEnabled(eq(!fieldDefinition.getReadOnly()));
 
         verify(formGroup).render(eq(checkBox), eq(fieldDefinition));
     }

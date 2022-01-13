@@ -17,7 +17,7 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.multipleInstanceVariableEditor;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,8 +28,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 @RunWith(GwtMockitoTestRunner.class)
 public class MultipleInstanceVariableEditorViewTest {
@@ -58,7 +57,7 @@ public class MultipleInstanceVariableEditorViewTest {
         multipleInstanceVariableEditorView.dataTypeComboBox = dataTypeComboBox;
         multipleInstanceVariableEditorView.clientDataTypesService = clientDataTypesService;
 
-        final TextBox textBox = new TextBox();
+        final TextBox textBox = mock(TextBox.class);
 
         multipleInstanceVariableEditorView.setTextBoxModelValue(textBox, "MyModel");
         verify(clientDataTypesService, times(1)).add("MyModel", null);

@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.components.monaco_editor;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

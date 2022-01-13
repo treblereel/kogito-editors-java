@@ -30,6 +30,7 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDocument;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.NamedNodeMap;
+import io.crysknife.client.ioc.Disposer;
 import org.appformer.kogito.bridge.client.guided.tour.GuidedTourObserver;
 import org.appformer.kogito.bridge.client.guided.tour.service.api.UserInteraction;
 
@@ -40,8 +41,13 @@ public class GlobalHTMLObserver extends GuidedTourObserver<GlobalHTMLObserver> {
 
     final EventListener CLICK_LISTENER = this::onHTMLElementEvent;
 
+    //TODO
     //@Inject
-    //public GlobalHTMLObserver(final GlobalHTMLObserver selfDisposer) {
+    public GlobalHTMLObserver(final Disposer<GlobalHTMLObserver> selfDisposer) {
+        super(selfDisposer);
+    }
+
+    @Inject
     public GlobalHTMLObserver() {
         super(null);
     }

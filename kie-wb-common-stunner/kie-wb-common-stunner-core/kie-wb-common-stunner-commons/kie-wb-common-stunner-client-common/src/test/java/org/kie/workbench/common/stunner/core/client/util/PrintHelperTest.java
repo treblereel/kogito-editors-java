@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.stunner.core.client.util;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import elemental2.dom.DOMTokenList;
 import elemental2.dom.Element;
 import elemental2.dom.Event;

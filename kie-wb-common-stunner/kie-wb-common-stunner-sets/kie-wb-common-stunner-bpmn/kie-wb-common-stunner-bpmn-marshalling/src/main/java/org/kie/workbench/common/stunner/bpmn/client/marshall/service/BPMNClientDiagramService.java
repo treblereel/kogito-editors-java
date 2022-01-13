@@ -162,23 +162,14 @@ public class BPMNClientDiagramService extends AbstractKogitoClientDiagramService
     }
 
     private Diagram createNewDiagram(String fileName) {
-
-        DomGlobal.console.log("and createNewDiagram " + fileName);
-
         final String title = createDiagramTitleFromFilePath(fileName);
         final String defSetId = getDefinitionSetId();
         final Metadata metadata = createMetadata();
-
-        DomGlobal.console.log(" createNewDiagram 1 " + title);
-        DomGlobal.console.log(" createNewDiagram 2 " + defSetId);
-        DomGlobal.console.log(" createNewDiagram 3 " + metadata);
 
         metadata.setTitle(title);
         final Diagram diagram = factoryManager.newDiagram(title,
                 defSetId,
                 metadata);
-        DomGlobal.console.log(" createNewDiagram 4 " + diagram);
-
         final Node<Definition<BPMNDiagram>, ?> diagramNode = GraphUtils.getFirstNode((Graph<?, Node>) diagram.getGraph(), BPMNDiagramImpl.class);
 
         updateDiagramSet(diagramNode, fileName);
@@ -188,8 +179,6 @@ public class BPMNClientDiagramService extends AbstractKogitoClientDiagramService
 
     @SuppressWarnings("unchecked")
     private Diagram parse(final String fileName, final String raw) {
-        DomGlobal.console.log("FFFFFFFFFFF " + fileName + " " + raw);
-
         final Metadata metadata = createMetadata();
         final Graph<DefinitionSet, ?> graph = marshalling.unmarshall(metadata, raw);
         final Node<Definition<BPMNDiagram>, ?> diagramNode = GraphUtils.getFirstNode((Graph<?, Node>) graph, BPMNDiagramImpl.class);
@@ -223,7 +212,6 @@ public class BPMNClientDiagramService extends AbstractKogitoClientDiagramService
     }
 
     private void updateClientMetadata(final Diagram diagram) {
-        DomGlobal.console.log(getClass().getCanonicalName()+"updateClientMetadata skipped");
         if (null != diagram) {
             final Metadata metadata = diagram.getMetadata();
             if (Objects.nonNull(metadata) && ConverterUtils.isEmpty(metadata.getShapeSetId())) {

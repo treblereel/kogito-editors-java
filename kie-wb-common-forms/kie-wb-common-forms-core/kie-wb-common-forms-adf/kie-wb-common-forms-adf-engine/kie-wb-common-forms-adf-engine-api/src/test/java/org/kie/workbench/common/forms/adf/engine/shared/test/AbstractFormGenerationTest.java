@@ -111,7 +111,7 @@ public class AbstractFormGenerationTest {
             assertEquals(fieldElement.getTypeInfo().getClassName(),
                          field.getStandaloneClassName());
             assertEquals(fieldElement.isReadOnly(),
-                         field.isReadOnly());
+                         field.getReadOnly());
             assertEquals(fieldElement.isRequired(),
                          field.isRequired());
             assertEquals(fieldElement.getBinding(),

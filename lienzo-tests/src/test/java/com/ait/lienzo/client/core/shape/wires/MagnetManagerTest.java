@@ -27,7 +27,7 @@ import com.ait.lienzo.client.core.shape.wires.decorator.MagnetDecorator;
 import com.ait.lienzo.client.core.util.ScratchPad;
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
 import com.ait.lienzo.tools.client.collection.NFastStringMap;
-import org.gwtprojectmockito.WithClassesToStub;
+import com.google.gwtmockito.WithClassesToStub;
 import elemental2.core.JsArray;
 import org.junit.Before;
 import org.junit.Test;

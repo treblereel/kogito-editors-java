@@ -35,9 +35,6 @@ public class DefaultFileNameValidator implements Validator {
     @Override
     public void validate(final String value,
                          final ValidatorCallback callback) {
-        DomGlobal.console.log(getClass().getCanonicalName()+".validate");
-
-
 /*        validationService.call(new RemoteCallback<Boolean>() {
             @Override
             public void callback(final Boolean response) {

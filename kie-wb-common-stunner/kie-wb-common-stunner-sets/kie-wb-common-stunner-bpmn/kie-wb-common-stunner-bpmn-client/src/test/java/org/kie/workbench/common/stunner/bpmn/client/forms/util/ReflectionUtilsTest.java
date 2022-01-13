@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.util;
 
 import java.lang.reflect.Field;
 
-import org.gwtproject.junit.GWTMockUtilities;
+import com.google.gwt.junit.GWTMockUtilities;
 import org.apache.commons.lang3.reflect.FieldUtils;
 
 public class ReflectionUtilsTest {

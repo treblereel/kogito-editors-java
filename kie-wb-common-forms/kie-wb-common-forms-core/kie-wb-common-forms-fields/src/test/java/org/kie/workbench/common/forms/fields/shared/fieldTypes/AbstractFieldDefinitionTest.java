@@ -72,9 +72,9 @@ public abstract class AbstractFieldDefinitionTest<FIELD extends FieldDefinition>
     public void testReadOnly() {
         FIELD newFieldDefinition = getEmptyFieldDefinition();
         newFieldDefinition.setReadOnly(true);
-        assertTrue(newFieldDefinition.isReadOnly());
+        assertTrue(newFieldDefinition.getReadOnly());
         newFieldDefinition.setReadOnly(false);
-        assertFalse(newFieldDefinition.isReadOnly());
+        assertFalse(newFieldDefinition.getReadOnly());
     }
 
     @Test

@@ -21,7 +21,7 @@ import java.util.function.BiFunction;
 import org.gwtproject.resources.client.CssResource;
 import org.gwtproject.resources.client.ImageResource;
 import org.gwtproject.user.client.ui.FlowPanel;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import io.crysknife.client.IsElement;
 import io.crysknife.client.ManagedInstance;
 import org.junit.Before;

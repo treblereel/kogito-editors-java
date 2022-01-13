@@ -48,10 +48,6 @@
       <groupId>com.google.jsinterop</groupId>
       <artifactId>jsinterop-annotations</artifactId>
     </dependency>
-<!--    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>appformer-client-api</artifactId>
-    </dependency>-->
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-api</artifactId>
@@ -63,23 +59,17 @@
 
     <!-- Test dependencies -->
 
-<!--    <dependency>
-      <groupId>org.gwtproject.gwtmockito</groupId>
-      <artifactId>gwtmockito</artifactId>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>org.eclipse.jetty</groupId>
-          <artifactId>jetty-annotations</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>-->
-
-<!--    <dependency>
+    <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
       <scope>test</scope>
-    </dependency>-->
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.gwt.gwtmockito</groupId>
+      <artifactId>gwtmockito</artifactId>
+      <scope>test</scope>
+    </dependency>
 
   </dependencies>
 

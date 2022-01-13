@@ -16,12 +16,9 @@
 
 package org.kie.workbench.common.stunner.client.widgets.dialog;
 
+import elemental2.dom.*;
 import org.gwtproject.event.dom.client.ClickEvent;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
-import elemental2.dom.HTMLButtonElement;
-import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLElement;
-import elemental2.dom.HTMLParagraphElement;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -120,7 +117,7 @@ public class ConfirmationDialogImplViewTest {
     @Test
     public void testOnYesButtonClick() {
 
-        final ClickEvent clickEvent = mock(ClickEvent.class);
+        final Event clickEvent = mock(Event.class);
 
         confirmationDialog.onYesButtonClick(clickEvent);
 
@@ -131,7 +128,7 @@ public class ConfirmationDialogImplViewTest {
     @Test
     public void testOnNoButtonClick() {
 
-        final ClickEvent clickEvent = mock(ClickEvent.class);
+        final Event clickEvent = mock(Event.class);
 
         confirmationDialog.onNoButtonClick(clickEvent);
 

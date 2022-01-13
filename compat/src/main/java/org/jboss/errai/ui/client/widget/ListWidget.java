@@ -14,7 +14,6 @@
 
 package org.jboss.errai.ui.client.widget;
 
-import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import io.crysknife.client.BeanManager;
 import io.crysknife.client.IsElement;
@@ -76,9 +75,6 @@ public abstract class ListWidget<M, C extends HasModel<M>> extends Composite
 
     getElement().setAttribute("id","ListWidget");
 
-    DomGlobal.console.log("ListWidget isAttached 1 " + isAttached());
-    DomGlobal.console.log("ListWidget isAttached 2 " + this.panel.isAttached());
-    DomGlobal.console.log("ListWidget Parent " + getParent());
     removeFromParent();
   }
 

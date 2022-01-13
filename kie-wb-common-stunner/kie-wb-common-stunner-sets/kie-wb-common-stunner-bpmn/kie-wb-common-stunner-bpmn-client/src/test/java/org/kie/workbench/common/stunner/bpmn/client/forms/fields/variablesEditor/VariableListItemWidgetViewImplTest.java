@@ -23,28 +23,23 @@ import java.util.HashSet;
 
 import javax.enterprise.event.Event;
 
+import elemental2.dom.*;
+import io.crysknife.ui.databinding.client.api.DataBinder;
 import org.gwtproject.event.dom.client.ChangeEvent;
 import org.gwtproject.event.dom.client.ChangeHandler;
 import org.gwtproject.event.dom.client.ClickEvent;
 import org.gwtproject.event.dom.client.ClickHandler;
 import org.gwtproject.event.dom.client.KeyDownEvent;
 import org.gwtproject.event.dom.client.KeyDownHandler;
-import org.gwtprojectmockito.GwtMock;
-import org.gwtprojectmockito.GwtMockito;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
-import elemental2.dom.DOMRect;
-import elemental2.dom.Element;
-import elemental2.dom.HTMLAnchorElement;
-import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLLabelElement;
-import elemental2.dom.MouseEvent;
+import com.google.gwtmockito.GwtMock;
+import com.google.gwtmockito.GwtMockito;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.gwtbootstrap3.client.ui.ValueListBox;
 import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.jboss.errai.common.client.dom.CSSStyleDeclaration;
-import org.jboss.errai.databinding.client.api.DataBinder;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kie.workbench.common.stunner.bpmn.client.forms.fields.i18n.StunnerFormsClientFieldsConstants;
@@ -73,6 +68,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+@Ignore
 @RunWith(GwtMockitoTestRunner.class)
 public class VariableListItemWidgetViewImplTest {
 

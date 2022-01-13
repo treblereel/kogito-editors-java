@@ -21,7 +21,6 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLDivElement;
@@ -133,7 +132,6 @@ public class LiveSearchDropDownView<TYPE> extends Composite
 
     @Override
     public void setSearchEnabled(boolean enabled) {
-        DomGlobal.console.log(getClass().getCanonicalName() + ".setSearchEnabled " + enabled);
         searchPanel.hidden = !enabled;
     }
 
@@ -152,7 +150,6 @@ public class LiveSearchDropDownView<TYPE> extends Composite
     }
 
     private void refreshFooter() {
-        DomGlobal.console.log(getClass().getCanonicalName() + ".refreshFooter " + (!resetEnabled && !newItemEnabled));
         liveSearchFooter.getElement().hidden = (!resetEnabled && !newItemEnabled);
     }
 

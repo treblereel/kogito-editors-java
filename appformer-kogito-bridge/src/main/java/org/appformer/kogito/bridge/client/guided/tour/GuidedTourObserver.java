@@ -18,8 +18,8 @@ package org.appformer.kogito.bridge.client.guided.tour;
 
 import java.util.Optional;
 
+import io.crysknife.client.ioc.Disposer;
 import org.appformer.kogito.bridge.client.guided.tour.service.GuidedTourService;
-import org.jboss.errai.ioc.client.api.Disposer;
 
 /**
  * {@link GuidedTourObserver} implementation must events and notifies the {@link GuidedTourBridge}.

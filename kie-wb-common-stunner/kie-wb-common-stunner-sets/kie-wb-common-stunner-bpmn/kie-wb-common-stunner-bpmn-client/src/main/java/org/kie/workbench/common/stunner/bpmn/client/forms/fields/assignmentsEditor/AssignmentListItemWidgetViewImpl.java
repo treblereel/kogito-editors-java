@@ -24,7 +24,6 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
-import elemental2.dom.DomGlobal;
 import io.crysknife.ui.databinding.client.api.AutoBound;
 import io.crysknife.ui.databinding.client.api.Bound;
 import io.crysknife.ui.databinding.client.api.DataBinder;
@@ -371,11 +370,6 @@ public class AssignmentListItemWidgetViewImpl extends Composite implements Assig
             customDataType.setValue(cdt);
             dataType.setValue(cdt);
         } else if (getDataType() != null) {
-
-            DomGlobal.console.log("initAssignmentControls 1  " + getDataType());
-            DomGlobal.console.log("initAssignmentControls 2 " + dataType.getValue());
-            DomGlobal.console.log("initAssignmentControls 3 " + dataType.asWidget().getElement().getInnerHTML());
-
             dataType.setValue(getDataType());
         }
         String exp = getExpression();

@@ -21,7 +21,7 @@ import javax.inject.Inject;
 
 import org.appformer.client.context.Channel;
 import org.appformer.client.context.EditorContextProvider;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.kie.workbench.common.dmn.client.docks.navigator.DecisionNavigatorDock;
 import org.kie.workbench.common.dmn.client.docks.navigator.DecisionNavigatorPresenter;
 import org.uberfire.client.workbench.docks.UberfireDockPosition;

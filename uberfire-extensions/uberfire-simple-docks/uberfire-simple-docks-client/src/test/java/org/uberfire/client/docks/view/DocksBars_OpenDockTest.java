@@ -18,7 +18,7 @@ package org.uberfire.client.docks.view;
 
 import org.gwtproject.user.client.ui.FlowPanel;
 import org.gwtproject.user.client.ui.HasWidgets;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;

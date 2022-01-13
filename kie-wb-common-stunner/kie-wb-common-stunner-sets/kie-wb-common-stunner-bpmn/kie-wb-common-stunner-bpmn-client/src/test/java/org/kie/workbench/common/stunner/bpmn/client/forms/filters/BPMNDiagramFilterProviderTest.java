@@ -99,7 +99,7 @@ public class BPMNDiagramFilterProviderTest {
         when(formFieldChanged.getUuid()).thenReturn(UUID);
         when(diagramDef.getDiagramSet()).thenReturn(diagramSet);
         when(diagramSet.getAdHoc()).thenReturn(adHoc);
-        when(adHoc.isValue()).thenReturn(true);
+        when(adHoc.getValue()).thenReturn(true);
         when(sessionManager.getCurrentSession()).thenReturn(session);
         when(session.getCanvasHandler()).thenReturn(canvasHandler);
         when(canvasHandler.getDiagram()).thenReturn(diagram);

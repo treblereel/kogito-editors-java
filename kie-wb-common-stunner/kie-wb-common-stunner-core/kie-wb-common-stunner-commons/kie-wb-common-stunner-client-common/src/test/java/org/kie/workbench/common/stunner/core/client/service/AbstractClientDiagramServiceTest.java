@@ -16,7 +16,6 @@
 
 package org.kie.workbench.common.stunner.core.client.service;
 
-import org.jboss.errai.common.client.api.Caller;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +24,6 @@ import org.kie.workbench.common.stunner.core.client.api.SessionManager;
 import org.kie.workbench.common.stunner.core.client.api.ShapeManager;
 import org.kie.workbench.common.stunner.core.client.session.ClientSession;
 import org.kie.workbench.common.stunner.core.client.session.event.SessionDiagramSavedEvent;
-import org.kie.workbench.common.stunner.core.client.util.TestUtils;
 import org.kie.workbench.common.stunner.core.diagram.Diagram;
 import org.kie.workbench.common.stunner.core.diagram.Metadata;
 import org.kie.workbench.common.stunner.core.graph.Graph;
@@ -38,7 +36,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.uberfire.backend.vfs.Path;
-import org.uberfire.mocks.CallerMock;
 import org.uberfire.mocks.EventSourceMock;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -73,7 +70,7 @@ public abstract class AbstractClientDiagramServiceTest<M extends Metadata, D ext
 
     protected S diagramService;
 
-    protected Caller<S> diagramServiceCaller;
+    protected S diagramServiceCaller;
 
     protected CS tested;
 
@@ -89,7 +86,7 @@ public abstract class AbstractClientDiagramServiceTest<M extends Metadata, D ext
         this.metadata = makeTestMetadata();
         this.diagram = makeTestDiagram();
         this.diagramService = makeTestDiagramService();
-        this.diagramServiceCaller = spy(new CallerMock<>(diagramService));
+        this.diagramServiceCaller = spy(diagramService);
         this.tested = makeTestClientDiagramService();
 
         when(diagram.getMetadata()).thenReturn(metadata);
@@ -250,14 +247,4 @@ public abstract class AbstractClientDiagramServiceTest<M extends Metadata, D ext
         verify(sessionDiagramSavedEvent).fire(new SessionDiagramSavedEvent(session));
     }
 
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testSaveSessionDiagramSavedEventNotFiredWhenSaveWasUnSuccessful() {
-        TestUtils.prepareServiceCallerError(diagramService, diagramServiceCaller, new Throwable("some error"));
-        when(sessionManager.getCurrentSession()).thenReturn(session);
-        ServiceCallback serviceCallback = mock(ServiceCallback.class);
-        when(diagramService.saveOrUpdate(any())).thenReturn(metadata);
-        tested.saveOrUpdate(diagram, serviceCallback);
-        verify(sessionDiagramSavedEvent, never()).fire(Mockito.<SessionDiagramSavedEvent>any());
-    }
 }

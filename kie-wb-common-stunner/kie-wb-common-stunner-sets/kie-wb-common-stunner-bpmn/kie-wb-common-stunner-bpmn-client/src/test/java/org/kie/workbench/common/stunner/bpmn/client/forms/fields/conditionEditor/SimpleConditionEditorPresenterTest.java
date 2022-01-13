@@ -19,7 +19,7 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.conditionEdito
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jboss.errai.common.client.dom.HTMLElement;
+import elemental2.dom.HTMLElement;
 import io.crysknife.client.ManagedInstance;
 import org.junit.Before;
 import org.junit.Test;

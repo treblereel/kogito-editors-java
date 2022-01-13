@@ -16,13 +16,17 @@
 
 package org.kie.workbench.common.stunner.core.client.canvas.controls.keyboard;
 
+import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.enterprise.inject.Instance;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
+import io.crysknife.client.ManagedInstance;
+import io.crysknife.client.internal.ManagedInstanceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,6 +40,7 @@ import org.kie.workbench.common.stunner.core.graph.Element;
 import org.kie.workbench.common.stunner.core.graph.processing.index.Index;
 import org.mockito.Mock;
 import org.uberfire.mocks.MockInstanceImpl;
+import org.uberfire.stubs.ManagedInstanceStub;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -67,7 +72,47 @@ public class AbstractCanvasShortcutsControlImplTest {
 
         shortcuts = new MockInstanceImpl(keyboardShortcutAction);
 
-        canvasShortcutsControl = new AbstractCanvasShortcutsControlImpl(shortcuts) {
+        canvasShortcutsControl = new AbstractCanvasShortcutsControlImpl(new ManagedInstance<KeyboardShortcut>() {
+            @Override
+            public KeyboardShortcut get() {
+                return keyboardShortcutAction;
+            }
+
+            @Override
+            public Iterator iterator() {
+                return null;
+            }
+
+            @Override
+            public ManagedInstance select(Annotation... qualifiers) {
+                return null;
+            }
+
+            @Override
+            public boolean isUnsatisfied() {
+                return false;
+            }
+
+            @Override
+            public boolean isAmbiguous() {
+                return false;
+            }
+
+            @Override
+            public void destroy(KeyboardShortcut instance) {
+
+            }
+
+            @Override
+            public void destroyAll() {
+
+            }
+
+            @Override
+            public ManagedInstance select(Class subtype, Annotation... qualifiers) {
+                return null;
+            }
+        }) {
             {
                 this.canvasHandler = canvasHandlerMock;
             }
