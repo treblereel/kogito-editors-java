@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.client.lienzo.canvas.index.bounds;
 
 import com.ait.lienzo.client.core.shape.Layer;
 import com.ait.lienzo.client.core.shape.Shape;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

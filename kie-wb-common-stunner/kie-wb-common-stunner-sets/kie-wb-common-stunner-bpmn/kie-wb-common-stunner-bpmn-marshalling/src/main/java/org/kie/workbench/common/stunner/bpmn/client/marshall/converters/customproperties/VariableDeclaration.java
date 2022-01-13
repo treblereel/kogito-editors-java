@@ -101,7 +101,7 @@ public class VariableDeclaration {
     @Override
     public String toString() {
         String tagString = "";
-        if (tags != null && tags.isEmpty()) {
+        if (!isNullOrEmpty(tags)) {
             tagString = ":" + tags;
         }
         if (type == null || type.isEmpty()) {
@@ -109,6 +109,10 @@ public class VariableDeclaration {
         } else {
             return typedIdentifier.getName() + ":" + type + tagString;
         }
+    }
+
+    private boolean isNullOrEmpty(String tags) {
+        return tags == null || tags.isEmpty();
     }
 
     @Override

@@ -75,12 +75,9 @@ public class WorkbenchEntryPoint {
 
         JSFunctions.notifyJSReady();
 
-        DomGlobal.console.log("afterInitialization");
-
         DomGlobal.document.body.addEventListener("resize", new EventListener() {
             @Override
             public void handleEvent(Event evt) {
-                DomGlobal.console.log("resize 1");
                 resize();
             }
         });
@@ -88,7 +85,6 @@ public class WorkbenchEntryPoint {
         DomGlobal.window.addEventListener("resize", new EventListener() {
             @Override
             public void handleEvent(Event evt) {
-                DomGlobal.console.log("resize 2");
                 resize();
             }
         });
@@ -154,9 +150,6 @@ public class WorkbenchEntryPoint {
     }
 
     private void setupRootContainer() {
-
-        DomGlobal.console.log("setupRootContainer");
-
         uberfireDocksContainer.setup(rootContainer,
                                      () -> Scheduler.get().scheduleDeferred(this::resize));
 

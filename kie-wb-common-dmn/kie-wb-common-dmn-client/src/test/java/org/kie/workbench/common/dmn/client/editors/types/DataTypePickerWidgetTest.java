@@ -32,7 +32,7 @@ import org.jboss.errai.common.client.dom.CSSStyleDeclaration;
 import org.jboss.errai.common.client.dom.DOMTokenList;
 import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.common.client.dom.Span;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

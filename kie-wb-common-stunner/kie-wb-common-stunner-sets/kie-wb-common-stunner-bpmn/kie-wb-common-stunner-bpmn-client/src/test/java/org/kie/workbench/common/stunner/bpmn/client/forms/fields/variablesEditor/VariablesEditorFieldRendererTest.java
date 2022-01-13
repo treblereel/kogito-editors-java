@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import io.crysknife.client.ManagedInstance;
 import org.junit.Before;
 import org.junit.Test;

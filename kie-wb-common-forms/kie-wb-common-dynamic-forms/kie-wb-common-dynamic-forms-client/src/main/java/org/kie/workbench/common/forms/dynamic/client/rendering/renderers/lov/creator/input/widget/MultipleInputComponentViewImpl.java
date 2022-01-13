@@ -105,8 +105,6 @@ public class MultipleInputComponentViewImpl<TYPE> implements MultipleInputCompon
 
     @Override
     public void setReadOnly(boolean readOnly) {
-        DomGlobal.console.log("setReadOnly");
-
         toolbar.style.removeProperty("display");
         if(readOnly) {
             toolbar.style.setProperty("display", "none");
@@ -229,8 +227,6 @@ public class MultipleInputComponentViewImpl<TYPE> implements MultipleInputCompon
     }
 
     public void hideErrorMessage() {
-        DomGlobal.console.log("hideErrorMessage");
-
         this.errorContainer.style.setProperty("display", "none");
     }
 

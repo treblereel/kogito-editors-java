@@ -18,8 +18,8 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.se
 
 import java.util.Arrays;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import com.google.gwtmockito.GwtMockitoTestRunner;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

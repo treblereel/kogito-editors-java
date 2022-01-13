@@ -20,7 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.gwtproject.safehtml.shared.SafeUri;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.jboss.errai.common.client.util.Base64Util;
 import org.junit.Before;
 import org.junit.Test;

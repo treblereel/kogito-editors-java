@@ -20,7 +20,7 @@ import com.ait.lienzo.client.core.image.ImageProxy;
 import com.ait.lienzo.client.core.shape.Picture;
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
 import org.gwtproject.dom.client.ImageElement;
-import org.gwtprojectmockito.WithClassesToStub;
+import com.google.gwtmockito.WithClassesToStub;
 import elemental2.dom.HTMLImageElement;
 import org.junit.Before;
 import org.junit.Test;

@@ -69,9 +69,6 @@
     </dependency>
 
     <!-- Uberfire & Errai. -->
-
-
-
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>uberfire-api</artifactId>
@@ -87,6 +84,11 @@
     </dependency>
 
     <!-- Test scope. -->
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>lienzo-tests</artifactId>
+      <scope>test</scope>
+    </dependency>
 
     <dependency>
       <groupId>junit</groupId>

@@ -21,11 +21,11 @@ import java.util.TreeSet;
 
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.Widget;
-import org.gwtprojectmockito.GwtMock;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMock;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.assertj.core.api.Assertions;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

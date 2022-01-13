@@ -30,13 +30,17 @@ import io.crysknife.ui.templates.client.annotation.Templated;
 @Templated
 public class DiagramEditorPropertiesScreenView implements IsElement {
 
-    @Inject
     @DataField
     private FlowPanel loadingPanel;
 
-    @Inject
     @DataField
     private FlowPanel widgetPanel;
+
+    @Inject
+    public DiagramEditorPropertiesScreenView(FlowPanel loadingPanel, FlowPanel widgetPanel) {
+        this.loadingPanel = loadingPanel;
+        this.widgetPanel = widgetPanel;
+    }
 
     public DiagramEditorPropertiesScreenView setWidget(final IsWidget widget) {
         widgetPanel.clear();

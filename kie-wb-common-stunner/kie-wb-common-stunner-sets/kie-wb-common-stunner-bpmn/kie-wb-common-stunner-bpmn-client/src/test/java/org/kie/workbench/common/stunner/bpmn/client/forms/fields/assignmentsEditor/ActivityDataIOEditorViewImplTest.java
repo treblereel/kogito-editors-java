@@ -22,8 +22,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.gwtprojectmockito.GwtMock;
-import org.gwtprojectmockito.GwtMockito;
+import com.google.gwtmockito.GwtMock;
+import com.google.gwtmockito.GwtMockito;
 import org.gwtbootstrap3.client.ui.Button;
 import org.junit.Before;
 import org.junit.Test;

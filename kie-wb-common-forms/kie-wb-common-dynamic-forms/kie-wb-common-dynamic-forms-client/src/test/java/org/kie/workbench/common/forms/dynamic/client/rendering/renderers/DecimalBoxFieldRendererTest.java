@@ -18,7 +18,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers;
 
 import java.math.BigDecimal;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -70,7 +70,7 @@ public class DecimalBoxFieldRendererTest extends AbstractFieldRendererTest<Decim
         verify(decimalBox).setId(any());
         verify(decimalBox).setPlaceholder(eq(fieldDefinition.getPlaceHolder()));
         verify(decimalBox).setMaxLength(eq(fieldDefinition.getMaxLength()));
-        verify(decimalBox).setEnabled(eq(!fieldDefinition.isReadOnly()));
+        verify(decimalBox).setEnabled(eq(!fieldDefinition.getReadOnly()));
 
         verify(decimalBox).asWidget();
 

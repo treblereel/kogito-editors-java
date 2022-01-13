@@ -18,7 +18,7 @@ package org.kie.workbench.common.forms.dynamic.client.rendering.renderers;
 
 import java.math.BigInteger;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -72,7 +72,7 @@ public class IntegerBoxFieldRendererTest extends AbstractFieldRendererTest<Integ
         verify(integerBox).setId(any());
         verify(integerBox).setPlaceholder(eq(fieldDefinition.getPlaceHolder()));
         verify(integerBox).setMaxLength(eq(fieldDefinition.getMaxLength()));
-        verify(integerBox).setEnabled(eq(!fieldDefinition.isReadOnly()));
+        verify(integerBox).setEnabled(eq(!fieldDefinition.getReadOnly()));
 
         verify(integerBox).asWidget();
 

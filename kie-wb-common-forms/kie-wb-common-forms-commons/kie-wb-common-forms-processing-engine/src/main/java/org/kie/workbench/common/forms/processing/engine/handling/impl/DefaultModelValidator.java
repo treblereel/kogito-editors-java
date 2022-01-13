@@ -27,8 +27,6 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Path;
 import javax.validation.Validator;
 
-import elemental2.dom.DomGlobal;
-import io.crysknife.ui.databinding.client.BindableProxy;
 import org.gwtproject.core.client.GWT;
 import org.kie.workbench.common.forms.processing.engine.handling.FormField;
 import org.kie.workbench.common.forms.processing.engine.handling.ModelValidator;
@@ -98,9 +96,6 @@ public class DefaultModelValidator<MODEL> implements ModelValidator<MODEL> {
     @Override
     public boolean validate(FormField formField,
                             MODEL model) {
-
-        DomGlobal.console.log("validate " + model + " " + validator.validate(model).size());
-
         try {
             Set<ConstraintViolation<Object>> result = validator.validate(model);
 

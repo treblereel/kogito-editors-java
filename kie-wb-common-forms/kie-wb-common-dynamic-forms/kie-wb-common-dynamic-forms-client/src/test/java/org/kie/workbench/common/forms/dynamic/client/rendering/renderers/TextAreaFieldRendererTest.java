@@ -16,7 +16,7 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.ui.TextArea;
 import org.junit.Before;
 import org.junit.Test;
@@ -66,7 +66,7 @@ public class TextAreaFieldRendererTest extends AbstractFieldRendererTest<TextAre
         verify(textArea).setName(Mockito.<String>any());
         verify(textArea).setPlaceholder(eq(fieldDefinition.getPlaceHolder()));
         verify(textArea).setVisibleLines(eq(fieldDefinition.getRows()));
-        verify(textArea).setEnabled(eq(!fieldDefinition.isReadOnly()));
+        verify(textArea).setEnabled(eq(!fieldDefinition.getReadOnly()));
 
         verify(formGroup).render(Mockito.<String>any(), eq(textArea), eq(fieldDefinition));
     }

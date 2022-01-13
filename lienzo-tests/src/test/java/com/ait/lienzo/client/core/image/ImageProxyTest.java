@@ -19,7 +19,7 @@ package com.ait.lienzo.client.core.image;
 import com.ait.lienzo.client.core.shape.AbstractImageShape;
 import com.ait.lienzo.client.core.util.ScratchPad;
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
-import org.gwtprojectmockito.WithClassesToStub;
+import com.google.gwtmockito.WithClassesToStub;
 import elemental2.core.JsArray;
 import elemental2.dom.Node;
 import org.junit.Before;

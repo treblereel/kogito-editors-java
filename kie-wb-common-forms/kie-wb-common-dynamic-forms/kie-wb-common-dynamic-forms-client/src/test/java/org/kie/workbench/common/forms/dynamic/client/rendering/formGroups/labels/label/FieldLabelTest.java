@@ -86,7 +86,7 @@ public class FieldLabelTest {
 
         verify(fieldDefinition).getLabel();
         verify(fieldDefinition).getHelpMessage();
-        verify(fieldDefinition).getRequired();
+        verify(fieldDefinition).isRequired();
 
         verify(view).renderForInput(isWidget,
                                     FIELD_LABEL,
@@ -101,7 +101,7 @@ public class FieldLabelTest {
         verify(fieldDefinition,
                never()).getHelpMessage();
         verify(fieldDefinition,
-               never()).getRequired();
+               never()).isRequired();
 
         verify(view,
                never()).renderForInput(isWidget,
@@ -132,7 +132,7 @@ public class FieldLabelTest {
 
         verify(fieldDefinition).getLabel();
         verify(fieldDefinition).getHelpMessage();
-        verify(fieldDefinition).getRequired();
+        verify(fieldDefinition).isRequired();
 
         verify(view).renderForInputId(INPUT_ID,
                                       FIELD_LABEL,
@@ -147,7 +147,7 @@ public class FieldLabelTest {
         verify(fieldDefinition,
                never()).getHelpMessage();
         verify(fieldDefinition,
-               never()).getRequired();
+               never()).isRequired();
 
         verify(view,
                never()).renderForInputId(INPUT_ID,

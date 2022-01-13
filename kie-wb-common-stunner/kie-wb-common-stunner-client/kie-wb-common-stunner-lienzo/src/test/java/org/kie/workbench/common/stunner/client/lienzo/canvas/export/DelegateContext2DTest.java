@@ -57,10 +57,7 @@ import static org.mockito.Matchers.anyBoolean;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.doCallRealMethod;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(LienzoMockitoTestRunner.class)
 public class DelegateContext2DTest {
@@ -123,7 +120,7 @@ public class DelegateContext2DTest {
     @Before
     public void setUp() throws Exception {
         htmlElement = new HTMLCanvasElement();
-        element = GWT.create(HTMLCanvasElement.class);
+        element = mock(HTMLCanvasElement.class);
         when(nativeClassConverter.convert(any(Element.class), eq(HTMLCanvasElement.class)))
                 .thenReturn(htmlElement);
         when(canvasHandler.getDiagram()).thenReturn(diagram);

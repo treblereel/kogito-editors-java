@@ -19,10 +19,10 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.assigneeEditor
 import java.util.List;
 
 import org.gwtproject.user.client.ui.Widget;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.assertj.core.api.Assertions;
 import io.crysknife.client.ManagedInstance;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

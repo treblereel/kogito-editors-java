@@ -20,7 +20,6 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import elemental2.dom.DomGlobal;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.databinding.client.api.AutoBound;
 import io.crysknife.ui.databinding.client.api.Bound;
@@ -113,7 +112,6 @@ public class MetaDataListItemWidgetViewImpl implements MetaDataListItemWidgetVie
 
     @Override
     public void setValue(MetaDataRow value) {
-        DomGlobal.console.log("on setValue MetaDataRow " + value);
         setModel(value);
     }
 
@@ -124,8 +122,6 @@ public class MetaDataListItemWidgetViewImpl implements MetaDataListItemWidgetVie
 
     @Override
     public void setValue(final String value) {
-        DomGlobal.console.log("on setValue String " + value);
-
         getModel().setValue(value);
 
         initVariableControls();

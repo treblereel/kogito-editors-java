@@ -97,7 +97,7 @@ public class RestrictedMousePanMediator extends AbstractMediator {
         setCursor(Style.Cursor.DEFAULT);
     }
 
-    private void setCursor(Cursor cursor) {
+    public void setCursor(Cursor cursor) {
         getLayerViewport().getElement().style.cursor = cursor.getCssName();
 
     }

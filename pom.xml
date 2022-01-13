@@ -71,21 +71,6 @@
   <modules>
     <module>compat</module>
     <module>emf</module>
-    <!-- ERRAI
-    <module>errai-bom</module>
-    <module>errai-common</module>
-    <module>errai-javax-enterprise</module>
-    <module>errai-ioc</module>
-    <module>errai-codegen</module>
-    <module>errai-cdi</module>
-    <module>errai-ui</module>
-    <module>errai-data-binding</module>
-    <module>errai-validation</module>
-    <module>errai-reflections</module>
-    <module>errai-config</module>
-    <module>errai-codegen-gwt</module>
-    <module>errai-api</module>
--->
     <!-- APPFORMER
     <module>appformer-bom</module> -->
     <module>appformer-client-api</module>
@@ -116,9 +101,8 @@
 -->
     <!-- LIENZO -->
     <module>lienzo-core</module>
-    <!--
-        <module>lienzo-tests</module>
-
+    <module>lienzo-tests</module>
+<!--
         <module>lienzo-webapp</module>
         -->
   </modules>
@@ -154,8 +138,6 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <!-- For kie-parent and modules in kie-bom, kie-soup-bom, drools-bom, jbpm-bom and kie-dmn-bom -->
     <version.org.kie>8.0.0</version.org.kie>
-
-    <version.org.gwtproject>2.9.0</version.org.gwtproject>
 
     <!-- Properties from ERRAI parent POM -->
     <!-- The version from kie-parent is not compatible with errai-validation -->
@@ -197,6 +179,16 @@
 
     <!-- Properties from KIE-WB-COMMON parent POM -->
     <version.powermock.api.mockito2>2.0.9</version.powermock.api.mockito2>
+    <version.org.assertj>3.22.0</version.org.assertj>
+    <version.org.gwtmockito>1.1.9</version.org.gwtmockito>
+    <version.org.junit-jupiter-engine>5.8.2</version.org.junit-jupiter-engine>
+
+
+    <version.org.powermock-api-mockito2>2.0.7</version.org.powermock-api-mockito2>
+
+    <version.org.mockito>2.28.2</version.org.mockito>
+    <version.org.powermock>2.0.7</version.org.powermock>
+
     <spotbugs.failOnViolation>true</spotbugs.failOnViolation>
     <checkstyle.header.template><![CDATA[
 ^\/\*$\n^
@@ -654,12 +646,78 @@
         <classifier>sources</classifier>
       </dependency>
 
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>lienzo-tests</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
       <!-- log4j-to-slf4j -->
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-to-slf4j</artifactId>
         <version>${version.org.apache.logging.log4j}</version>
       </dependency>
+
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>${version.org.mockito}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.powermock</groupId>
+        <artifactId>powermock-api-mockito2</artifactId>
+        <version>${version.org.powermock}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.powermock</groupId>
+        <artifactId>powermock-module-junit4</artifactId>
+        <version>${version.org.powermock}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>${version.org.assertj}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.gwt.gwtmockito</groupId>
+        <artifactId>gwtmockito</artifactId>
+        <version>${version.org.gwtmockito}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>${version.org.junit-jupiter-engine}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.powermock</groupId>
+        <artifactId>powermock-core</artifactId>
+        <version>${version.org.powermock-api-mockito2}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.powermock</groupId>
+        <artifactId>powermock-api-mockito2</artifactId>
+        <version>${version.org.powermock-api-mockito2}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.powermock</groupId>
+        <artifactId>powermock-module-junit4</artifactId>
+        <version>${version.org.powermock-api-mockito2}</version>
+
+        <scope>test</scope>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
 

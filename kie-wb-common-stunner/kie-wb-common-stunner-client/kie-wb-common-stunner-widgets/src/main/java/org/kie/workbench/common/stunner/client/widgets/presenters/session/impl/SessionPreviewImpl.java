@@ -221,10 +221,6 @@ public class SessionPreviewImpl<S extends AbstractSession>
         final BaseCanvasHandler delegate = InstanceUtils.lookup(canvasHandlers, qualifier);
         canvas = InstanceUtils.lookup(canvases, qualifier);
 
-        DomGlobal.console.log("onOpen " + (canvas != null) + " " + this.toString());
-
-
-
         canvasPanel = InstanceUtils.lookup(canvasPanels, qualifier);
         canvasHandler = new SessionPreviewCanvasHandlerProxy(delegate,
                 definitionUtils.getDefinitionManager(),
@@ -289,8 +285,6 @@ public class SessionPreviewImpl<S extends AbstractSession>
 
     @Override
     public WiresCanvas getCanvas() {
-        DomGlobal.console.log("getCanvas " + (canvas != null) + " " + this.toString());
-
         return canvas;
     }
 

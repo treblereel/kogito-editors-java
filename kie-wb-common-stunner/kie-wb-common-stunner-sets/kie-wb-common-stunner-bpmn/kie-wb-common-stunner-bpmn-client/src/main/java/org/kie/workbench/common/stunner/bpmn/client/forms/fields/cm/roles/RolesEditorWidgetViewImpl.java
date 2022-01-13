@@ -132,9 +132,6 @@ public class RolesEditorWidgetViewImpl extends Composite implements RolesEditorW
 
     @Override
     public void init(final Presenter presenter) {
-
-        DomGlobal.console.warn(getClass().getCanonicalName() + ": databinding is not finished!!!");
-
         this.presenter = Optional.ofNullable(presenter);
         addButton.setIcon(IconType.PLUS);
         addButton.addClickHandler((e) -> handleAddVarButton());

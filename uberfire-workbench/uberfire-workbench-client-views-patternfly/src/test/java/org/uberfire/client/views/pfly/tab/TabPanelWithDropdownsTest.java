@@ -20,11 +20,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.google.common.collect.Multimap;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.user.client.ui.HorizontalPanel;
 import org.gwtproject.user.client.ui.IsWidget;
 import org.gwtproject.user.client.ui.Widget;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.client.shared.event.TabShowHandler;
 import org.gwtbootstrap3.client.shared.event.TabShownHandler;
 import org.gwtbootstrap3.client.ui.NavTabs;

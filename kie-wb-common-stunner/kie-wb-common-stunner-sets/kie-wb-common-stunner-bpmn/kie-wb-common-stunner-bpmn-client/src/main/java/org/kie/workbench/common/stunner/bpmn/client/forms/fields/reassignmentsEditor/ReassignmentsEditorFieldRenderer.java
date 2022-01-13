@@ -19,7 +19,6 @@ package org.kie.workbench.common.stunner.bpmn.client.forms.fields.reassignmentsE
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import elemental2.dom.DomGlobal;
 import org.kie.workbench.common.forms.adf.rendering.Renderer;
 import org.kie.workbench.common.forms.dynamic.client.rendering.FieldRenderer;
 import org.kie.workbench.common.forms.dynamic.client.rendering.formGroups.FormGroup;
@@ -37,8 +36,6 @@ public class ReassignmentsEditorFieldRenderer extends FieldRenderer<Reassignment
     @Inject
     public ReassignmentsEditorFieldRenderer(final ReassignmentsEditorWidget reassignmentsEditorWidget) {
         this.reassignmentsEditorWidget = reassignmentsEditorWidget;
-
-        DomGlobal.console.log("ReassignmentsEditorFieldRenderer " + reassignmentsEditorWidget.getClass().getCanonicalName());
     }
 
     @Override

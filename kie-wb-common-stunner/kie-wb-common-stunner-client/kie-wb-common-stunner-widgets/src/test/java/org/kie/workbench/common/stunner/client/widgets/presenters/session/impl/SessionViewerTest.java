@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.client.widgets.presenters.session.impl;
 
 import com.ait.lienzo.client.widget.panel.impl.ScrollablePanel;
 import org.gwtproject.user.client.ui.Widget;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

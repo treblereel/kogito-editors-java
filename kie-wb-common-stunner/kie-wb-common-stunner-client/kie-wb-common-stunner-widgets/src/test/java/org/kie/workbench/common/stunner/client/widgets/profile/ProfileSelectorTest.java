@@ -19,7 +19,7 @@ package org.kie.workbench.common.stunner.client.widgets.profile;
 import java.util.Collections;
 import java.util.function.Function;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

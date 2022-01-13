@@ -27,8 +27,9 @@ import org.gwtproject.event.dom.client.BlurHandler;
 import org.gwtproject.event.dom.client.KeyCodes;
 import org.gwtproject.event.dom.client.KeyPressEvent;
 import org.gwtproject.event.dom.client.KeyPressHandler;
-import org.gwtprojectmockito.GwtMockito;
+import com.google.gwtmockito.GwtMockito;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -48,6 +49,8 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+//TODO it must be refactored to work on native env
+@Ignore
 @RunWith(Parameterized.class)
 public class VariableNameTextBoxTest {
 

@@ -16,8 +16,8 @@
 
 package org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.impl.numeric.decimals;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import com.google.gwtmockito.GwtMockitoTestRunner;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.junit.runner.RunWith;
 import org.kie.workbench.common.forms.dynamic.client.rendering.renderers.lov.creator.input.widget.impl.numeric.AbstractNumericEditableColumnGeneratorTest;
 

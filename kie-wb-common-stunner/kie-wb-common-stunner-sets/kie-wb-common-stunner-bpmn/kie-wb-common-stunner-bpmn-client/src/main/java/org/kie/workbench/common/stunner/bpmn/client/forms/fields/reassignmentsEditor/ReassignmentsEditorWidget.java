@@ -22,7 +22,6 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import elemental2.dom.DomGlobal;
 import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.gwtproject.event.logical.shared.ValueChangeEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
@@ -63,13 +62,6 @@ public class ReassignmentsEditorWidget extends Composite implements HasValue<Rea
 
     @PostConstruct
     public void init() {
-        DomGlobal.console.log("ReassignmentsEditorWidget.init");
-
-
-        DomGlobal.console.log("1 " + translationService.getTranslation("reassignment.close"));
-        DomGlobal.console.log("2 " + translationService.getTranslation("reassignment.ok"));
-        DomGlobal.console.log("3 " + translationService.getTranslation("reassignment.add"));
-
         reassignmentsButton.addEventListener("click", event -> showReassignmentsDialog(), false);
         reassignmentsTextBox.addEventListener("click", event -> showReassignmentsDialog(), false);
     }

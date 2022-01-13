@@ -20,7 +20,7 @@ import java.util.function.Function;
 
 import org.gwtproject.core.client.ScriptInjector;
 import org.gwtproject.resources.client.TextResource;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -16,11 +16,11 @@
 
 package org.kie.workbench.common.forms.common.rendering.client.widgets.typeahead;
 
+import org.gwtproject.event.legacy.shared.GwtEvent;
 import org.gwtproject.event.logical.shared.ValueChangeHandler;
-import org.gwtproject.event.shared.GwtEvent;
 import org.gwtproject.user.client.ui.Widget;
-import org.gwtprojectmockito.GwtMock;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMock;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.gwtbootstrap3.extras.typeahead.client.base.Dataset;
 import org.junit.Before;
 import org.junit.Test;

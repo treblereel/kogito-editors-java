@@ -136,19 +136,36 @@
       <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.12.0</version>
+      <scope>test</scope>
+    </dependency>
 
-<!--    <dependency>
+    <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <scope>test</scope>
-    </dependency>-->
-
-<!--    <dependency>
-      <groupId>org.kie.soup</groupId>
-      <artifactId>kie-soup-commons</artifactId>
-      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt.gwtmockito</groupId>
+      <artifactId>gwtmockito</artifactId>
       <scope>test</scope>
-    </dependency>-->
+      <exclusions>
+        <exclusion>
+          <groupId>org.eclipse.jetty</groupId>
+          <artifactId>jetty-annotations</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!--    <dependency>
+          <groupId>org.kie.soup</groupId>
+          <artifactId>kie-soup-commons</artifactId>
+          <classifier>sources</classifier>
+          <scope>test</scope>
+        </dependency>-->
 
 <!--    <dependency>
       <groupId>org.kie.kogito</groupId>

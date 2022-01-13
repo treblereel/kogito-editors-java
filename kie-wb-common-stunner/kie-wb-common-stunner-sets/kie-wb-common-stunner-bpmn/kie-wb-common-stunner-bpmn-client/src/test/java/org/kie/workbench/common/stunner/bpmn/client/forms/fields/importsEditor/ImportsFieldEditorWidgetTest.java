@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 import org.gwtproject.core.client.GWT;
 import org.gwtproject.event.dom.client.ClickEvent;
-import org.gwtprojectmockito.GwtMockito;
+import com.google.gwtmockito.GwtMockito;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.junit.Before;
@@ -59,7 +59,7 @@ public class ImportsFieldEditorWidgetTest {
     public void setUp() {
         GwtMockito.initMocks(this);
 
-        tested = GWT.create(ImportsFieldEditorWidget.class);
+        tested = mock(ImportsFieldEditorWidget.class);
         tested.importsEditor = mock(ImportsEditor.class);
         tested.importsButton = mock(Button.class);
         tested.importsTextBox = mock(TextBox.class);

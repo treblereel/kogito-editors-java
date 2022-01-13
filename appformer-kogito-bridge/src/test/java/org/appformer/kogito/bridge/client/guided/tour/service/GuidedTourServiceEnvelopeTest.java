@@ -16,7 +16,7 @@
 
 package org.appformer.kogito.bridge.client.guided.tour.service;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.appformer.kogito.bridge.client.guided.tour.service.api.Tutorial;
 import org.appformer.kogito.bridge.client.guided.tour.service.api.UserInteraction;
 import org.junit.Before;

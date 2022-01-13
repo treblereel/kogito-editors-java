@@ -17,7 +17,7 @@
 package org.kie.workbench.common.stunner.core.client.i18n;
 
 import io.crysknife.client.ManagedInstance;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

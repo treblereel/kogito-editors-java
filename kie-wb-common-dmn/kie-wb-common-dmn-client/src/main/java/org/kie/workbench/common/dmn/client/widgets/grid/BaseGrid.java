@@ -26,7 +26,7 @@ import java.util.stream.StreamSupport;
 import javax.enterprise.event.Event;
 
 import jsinterop.annotations.JsIgnore;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.kie.workbench.common.dmn.api.definition.HasExpression;
 import org.kie.workbench.common.dmn.api.definition.HasName;
 import org.kie.workbench.common.dmn.api.definition.NOPDomainObject;

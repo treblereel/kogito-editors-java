@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 import com.google.gwtmockito.GwtMockitoTestRunner;
 import elemental2.dom.DomGlobal.SetTimeoutCallbackFn;
-import org.jboss.errai.ui.client.local.spi.TranslationService;
+import io.crysknife.ui.translation.api.spi.TranslationService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

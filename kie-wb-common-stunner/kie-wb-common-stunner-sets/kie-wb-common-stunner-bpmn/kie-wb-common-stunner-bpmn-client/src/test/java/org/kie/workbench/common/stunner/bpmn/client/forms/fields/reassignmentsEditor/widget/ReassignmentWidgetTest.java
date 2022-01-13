@@ -17,8 +17,8 @@
 package org.kie.workbench.common.stunner.bpmn.client.forms.fields.reassignmentsEditor.widget;
 
 import com.ait.lienzo.test.LienzoMockitoTestRunner;
-import org.gwtprojectmockito.GwtMock;
-import org.gwtprojectmockito.GwtMockito;
+import com.google.gwtmockito.GwtMock;
+import com.google.gwtmockito.GwtMockito;
 import elemental2.dom.HTMLButtonElement;
 import org.junit.Assert;
 import org.junit.Before;

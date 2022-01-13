@@ -19,7 +19,7 @@ package org.uberfire.ext.wires.core.grids.client.widget.grid.impl;
 import java.util.Collections;
 
 import org.gwtproject.event.dom.client.KeyCodes;
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -18,7 +18,7 @@ package org.kie.workbench.common.stunner.client.widgets.editor;
 
 import java.util.function.Consumer;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
 import io.crysknife.client.ManagedInstance;
 import org.junit.Before;
 import org.junit.Test;

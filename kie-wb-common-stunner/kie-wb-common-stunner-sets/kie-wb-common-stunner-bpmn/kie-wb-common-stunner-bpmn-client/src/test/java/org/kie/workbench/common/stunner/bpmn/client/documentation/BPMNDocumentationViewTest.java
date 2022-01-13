@@ -16,7 +16,8 @@
 
 package org.kie.workbench.common.stunner.bpmn.client.documentation;
 
-import org.gwtprojectmockito.GwtMockitoTestRunner;
+import com.google.gwtmockito.GwtMockitoTestRunner;
+import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
 import org.junit.Before;
 import org.junit.Test;
@@ -61,7 +62,7 @@ public class BPMNDocumentationViewTest {
     private Button printButton;
 
     @Mock
-    private HTMLElement div;
+    private HTMLDivElement div;
 
     @Mock
     private PrintHelper printHelper;

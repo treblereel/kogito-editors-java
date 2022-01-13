@@ -246,10 +246,6 @@ public class TabPanelWithDropdowns extends Composite {
      * @param tab the item to remove.
      */
     public boolean remove(TabPanelEntry tab) {
-
-        DomGlobal.console.log(getClass().getCanonicalName()+".remove.FIX_IT");
-
-
         for (HandlerRegistration registration : tabHandlerRegistrations.get(tab)) {
             registration.removeHandler();
         }
@@ -445,8 +441,6 @@ public class TabPanelWithDropdowns extends Composite {
             for (TabPanelEntry tab : contents) {
                 tab.getContentPane().removeFromParent();
                 tab.getTabWidget().removeFromParent();
-
-                DomGlobal.console.log(getClass().getCanonicalName()+".FIX_IT");
 
                 for (HandlerRegistration handlerRegistration : tabHandlerRegistrations.get(tab)) {
                     handlerRegistration.removeHandler();
